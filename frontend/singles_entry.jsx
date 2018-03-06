@@ -1,7 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
+
 document.addEventListener('DOMContentLoaded', () => {
   const root = document.getElementById('root');
-  ReactDOM.render(<h1>Christian Singles</h1>, root);
+  ReactDOM.render(<h1>Singles</h1>, root);
 });
