@@ -1,0 +1,21 @@
+import React from 'react';
+import { connect } from 'react-redux';
+import SignupForm from './sign_up_form';
+import { withRouter } from 'react-router-dom';
+import { signup } from '../../actions/session_actions';
+
+
+const msp = (state, ownProps) =>  {
+  return {
+    errors: state.errors.session.errors
+  };
+};
+
+const mdp =(dispatch, ownProps) => {
+  return {
+    signup: (user) => dispatch(signup(user))
+  };
+};
+
+
+export default withRouter(connect(msp, mdp)(SignupForm));
