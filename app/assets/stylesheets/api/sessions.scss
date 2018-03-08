@@ -7,7 +7,7 @@ body, html {
 }
 
 
-
+//thisis the welcome page
 .welcome-page {
   background-image: url('../images/heart_in_book.jpg');
   background-size: cover;
@@ -21,7 +21,7 @@ body, html {
 .nav-eh {
   text-align: right;
   padding-top: 20px;
-  padding-right: 20px;
+  padding-right: 40px;
 }
 
 .nav-text {
@@ -38,11 +38,36 @@ body, html {
   font-size: 15px;
 }
 
+.link.nav-linker:hover{
+  color: #DCDCDC;
+}
+
 .text-box {
   text-align: center;
   color: white;
   font-family: sans-serif;
   padding-bottom: 100px;
+}
+
+.heading-1 {
+
+}
+
+.fish {
+    margin-bottom: -50px;
+}
+
+.link-to-sign-up {
+  border: 1px solid white;
+  color: white;
+  border-radius: 4px;
+  text-decoration: none;
+  padding: 10px;
+}
+
+.link-to-sign-up:hover {
+  color: #DCDCDC;
+  border-color: #DCDCDC;
 }
 
 .heading-1 {

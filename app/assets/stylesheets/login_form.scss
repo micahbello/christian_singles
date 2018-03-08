@@ -1,0 +1,69 @@
+.login-welcome-page {
+  background-image: url('./images/heart_in_book.jpg');
+  background-size: cover;
+  height: 100vh;
+  width: 100vw;
+  display: inherit;
+
+}
+
+.login-nav {
+  display: flex;
+  justify-content: space-between;
+}
+
+.form-link-to-sign-up-container {
+  padding: 30px;
+}
+
+.form-link-to-sign-up {
+  color: white;
+  text-decoration: none;
+  font-size: 15px;
+  font-family: sans-serif;
+}
+
+.login-form-container {
+  display: flex;
+  justify-content: center;
+}
+
+.login-form {
+  background-color: white;
+  border-radius: 2px;
+  text-align: center;
+  padding: 50px 30px;
+};
+
+.login-form-error {
+  color: red;
+  padding-bottom: 20px;
+}
+
+.login-field {
+  color: rgba(0, 0, 0, 0.5);
+  padding-right: 165px;
+  font-family: sans-serif;
+};
+
+.login-button {
+  background-color: #0098dc;
+  padding: 10px 35px 10px 35px;
+  font-family: sans-serif;
+}
+
+.login-input {
+  font-size: 20px;
+}
+
+.login-logo {
+  text-align: center;
+}
+
+.login-heading-1 {
+  color: white;
+}
+
+.login-fish {
+  width:25%;
+}

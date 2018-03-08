@@ -11,16 +11,21 @@ function Welcome({currentUser, logout}) {
       </div>
 
       <div class="text-box">
+        <img class="fish" src={fish} alt="fish"/>
         <h1 class="heading-1">Christian Singles</h1>
         <h2 class="heading-2">1 Corinthians 13:4</h2>
         <p>Christian and single? Sign up today and change at least one of those facts.</p>
+        <br/>
+        <br/>
+        <br/>
 
-        <input type="button" onclick='/signup' value="Create an Account" />
+        <div class="link-to-sign-up-box">
+          <Link class="link-to-sign-up" to='/signup'>Create an account</Link>
+        </div>
       </div>
 
     </div>
   );
 };
 
-// <Link to='/signup'>Create an account</Link>
 export default Welcome;
