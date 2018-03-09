@@ -37,5 +37,10 @@
   "bugs": {
     "url": "https://github.com/micahbello/christian_singles/issues"
   },
+  "engines": {
+    "npm": "3.10.10",
+    "node": "6.10.1"
+
+  },
   "homepage": "https://github.com/micahbello/christian_singles#readme"
 }
