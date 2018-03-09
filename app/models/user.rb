@@ -8,11 +8,16 @@
 #  password_digest :string
 #  created_at      :datetime         not null
 #  updated_at      :datetime         not null
+#  first_name      :string
+#  last_name       :string
+#  gender          :string
+#  zip_code        :integer
+#  birth_date      :date
 #
 
 class User < ApplicationRecord
 
-validates :session_token, :password_digest, presence: true
+validates :session_token, :password_digest, :first_name, :last_name, :gender, :zip_code, :birth_date, presence: true
 validates :username, presence: true, uniqueness: true
 validates :password, length: {minimum: 6, allow_nil: true}
 

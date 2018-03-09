@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180306203350) do
+ActiveRecord::Schema.define(version: 20180309155925) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -21,6 +21,43 @@ ActiveRecord::Schema.define(version: 20180306203350) do
     t.string "password_digest"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "first_name"
+    t.string "last_name"
+    t.string "gender"
+    t.integer "zip_code"
+    t.date "birth_date"
+    t.text "description"
+    t.string "city"
+    t.string "state"
+    t.date "last_online"
+    t.integer "height"
+    t.string "want_kids"
+    t.string "have_kids"
+    t.string "marital_status"
+    t.string "relocate"
+    t.string "religion"
+    t.string "attendance"
+    t.string "occupation"
+    t.string "education"
+    t.string "place_as_child"
+    t.string "ethnicity"
+    t.string "language"
+    t.string "pets"
+    t.string "smoke"
+    t.string "drink"
+    t.string "hobbies"
+    t.string "first_date"
+    t.string "sex_seek"
+    t.string "religion_seek"
+    t.string "relationship_seek"
+    t.string "education_seek"
+    t.string "attendance_seek"
+    t.string "have_kids_seek"
+    t.string "want_kids_seek"
+    t.string "relocate_seek"
+    t.string "marital_status_seek"
+    t.string "language_seek"
+    t.string "ethnicity_seek"
   end
 
 end

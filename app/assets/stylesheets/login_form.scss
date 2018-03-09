@@ -26,6 +26,7 @@
 .login-form-container {
   display: flex;
   justify-content: center;
+  padding-top: 175px;
 }
 
 .login-form {
@@ -58,12 +59,17 @@
 
 .login-logo {
   text-align: center;
+  padding-left: 17px;
+  padding-top: 13px;
 }
 
 .login-heading-1 {
   color: white;
+  font-family: sans-serif;
+  font-size: 22px;
 }
 
 .login-fish {
-  width:25%;
+  width: 29%;
+  margin-bottom: -32px;
 }

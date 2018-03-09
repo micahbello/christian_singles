@@ -36,7 +36,7 @@ class LoginForm extends React.Component {
     <div class="login-nav">
       <div class="login-logo">
         <img class="login-fish" src={fish} alt="fish"/>
-        <h1 class="login-heading-1"></h1>
+        <h1 class="login-heading-1">Christian Mingle</h1>
       </div>
       <div class="form-link-to-sign-up-container">
         <Link class="form-link-to-sign-up" to='/signup'>Sign Up</Link>
