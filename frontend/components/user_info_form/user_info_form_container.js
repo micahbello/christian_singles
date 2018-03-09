@@ -6,7 +6,7 @@ import { updateUserInfo } from '../../actions/user_actions';
 
 const mapStateToProps = (state) => {
   return {
-    currentUser: state.currentUser
+    currentUser: state.session.currentUser
   }
 };
 

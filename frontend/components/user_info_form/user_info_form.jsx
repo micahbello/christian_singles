@@ -8,23 +8,30 @@ class userInfoForm extends React.Component {
     this.state = {
       marital_status: ''
     };
-
+  // this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  // updateValue(field) {
-  //   return (e) => this.setState({[field]: e.currentTarget.value});
+  updateValue(field) {
+    debugger
+    return (e) => this.setState({[field]: e.currentTarget.value});
+    const user = merge({}, this.state, this.props.currentUser.id);
+    this.props.updateUserInfo(user);
+  }
+
+  // handleSubmit(e) {
+  //   e.preventDefault();
+  //   const user = merge({}, this.state);
+  //   this.props.updateUserInfo(user);
   // }
-  //
-  // handleSubmit() {
-  //
-  // }
+
+
 
   render() {
     return (
       <div>
 
         <label >Marital Status</label>
-        <input type="text" value={this.state.marital_status}/>
+        <input onChange={this.updateValue("marital_status")} type="text" value={this.state.marital_status}/>
 
       </div>
     );
