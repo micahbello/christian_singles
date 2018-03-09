@@ -27,6 +27,7 @@ class Api::UsersController < ApplicationController
     @user = User.find(params[:id])
     if @user.update_attributes(user_params)
       render json: "it's working"
+    end
   end
 
   def destroy
