@@ -31,35 +31,35 @@ class LoginForm extends React.Component {
 
   render () {
     return (
-    <div class="login-welcome-page">
+    <div className="login-welcome-page">
 
-    <div class="login-nav">
-      <div class="login-logo">
-        <img class="login-fish" src={fish} alt="fish"/>
-        <h1 class="login-heading-1">Christian Mingle</h1>
+    <div className="login-nav">
+      <div className="login-logo">
+        <img className="login-fish" src={fish} alt="fish"/>
+        <h1 className="login-heading-1">Christian Mingle</h1>
       </div>
-      <div class="form-link-to-sign-up-container">
-        <Link class="form-link-to-sign-up" to='/signup'>Sign Up</Link>
+      <div className="form-link-to-sign-up-container">
+        <Link className="form-link-to-sign-up" to='/signup'>Sign Up</Link>
       </div>
     </div>
 
       <br/>
-      <form class="login-form-container" onSubmit={(e) => this.handleSubmit(e)}>
-        <div class="login-form">
-      {this.props.errors.map(error => <div class="login-form-error">{error}</div>)}
-          <label class="login-field">Username</label>
+      <form className="login-form-container" onSubmit={(e) => this.handleSubmit(e)}>
+        <div className="login-form">
+      {this.props.errors.map(error => <div className="login-form-error">{error}</div>)}
+          <label className="login-field">Username</label>
           <br/>
-          <input class="login-input" onChange={this.updateUsername} type="text" value={this.state.username}/>
-          <br/>
-          <br/>
+          <input className="login-input" onChange={this.updateUsername} type="text" value={this.state.username}/>
           <br/>
           <br/>
-          <label class="login-field">Password</label>
-          <br/>
-          <input class="login-input" onChange={this.updatePassword} type="password" value={this.state.password}/>
           <br/>
           <br/>
-        <button class="login-button">Login</button>
+          <label className="login-field">Password</label>
+          <br/>
+          <input className="login-input" onChange={this.updatePassword} type="password" value={this.state.password}/>
+          <br/>
+          <br/>
+        <button className="login-button">Login</button>
         </div>
       </form>
     </div>
