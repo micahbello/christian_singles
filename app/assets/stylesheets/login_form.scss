@@ -43,7 +43,7 @@
 
 .login-field {
   color: rgba(0, 0, 0, 0.5);
-  padding-right: 165px;
+  padding-right: 154px;
   font-family: sans-serif;
 };
 
@@ -51,6 +51,11 @@
   background-color: #0098dc;
   padding: 10px 35px 10px 35px;
   font-family: sans-serif;
+  color: white;
+}
+
+.login-button:hover {
+  background-color: 	#4682B4;
 }
 
 .login-input {
@@ -61,15 +66,19 @@
   text-align: center;
   padding-left: 17px;
   padding-top: 13px;
+  display: grid;
+  align-items: center;
 }
 
-.login-heading-1 {
+.login-logo-text {
   color: white;
   font-family: sans-serif;
   font-size: 22px;
+  text-decoration: none;
 }
 
 .login-fish {
-  width: 29%;
-  margin-bottom: -32px;
+  width: 33%;
+  margin-bottom: -17px;
+  margin-left: 53px;
 }

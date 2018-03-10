@@ -1,5 +1,6 @@
 import React from 'react';
 import { merge } from 'lodash';
+import { Link } from 'react-router-dom';
 
 class SignupForm extends React.Component {
   constructor(props) {
@@ -42,53 +43,69 @@ class SignupForm extends React.Component {
 
   render () {
     return (
-    <div>
-      <p>temporary signup form header</p>
-      {this.props.errors.map(error => <div>{error}</div>)}
+
+
+    <div className="login-welcome-page">
+
+      <div className="login-nav">
+        <div className="login-logo">
+          <img className="login-fish" src={fish} alt="fish"/>
+          <Link to='/' className="login-logo-text">Christian Singles</Link>
+        </div>
+        <div className="form-link-to-sign-up-container">
+          <div className="nav-text">Already a Member?</div>
+          <Link className="link nav-linker" to='/login' >Login Here</Link>
+        </div>
+      </div>
+
       <br/>
-      <form onSubmit={(e) => this.handleSubmit(e)}>
-          <label>Username</label>
+      <form className="sign-up-form-container" onSubmit={(e) => this.handleSubmit(e)}>
+
+        <div className="login-form">
+          {this.props.errors.map(error => <div className="login-form-error">{error}</div>)}
+          <label className="login-field">Username</label>
           <br/>
-          <input onChange={this.updateValue("username")} type="text" value={this.state.username}/>
+          <input className="login-input" onChange={this.updateValue("username")} type="text" value={this.state.username}/>
           <br/>
           <br/>
 
 
-          <label>First Name</label>
+          <label className="login-field">First Name</label>
           <br/>
-          <input onChange={this.updateValue("first_name")}type="text" value={this.state.first_name}/>
+          <input className="login-input" onChange={this.updateValue("first_name")}type="text" value={this.state.first_name}/>
           <br/>
           <br/>
-          <label>Last Name</label>
+          <label className="login-field">Last Name</label>
           <br/>
-          <input onChange={this.updateValue("last_name")} type="text" value={this.state.last_name}/>
+          <input className="login-input" onChange={this.updateValue("last_name")} type="text" value={this.state.last_name}/>
 
           <br/>
-            <p>I am a:</p>
+            <p className="login-field">I am a:</p>
             <input onClick={this.updateValue("gender")} type="radio" name="gender" value="male" /> Male
             <input onClick={this.updateValue("gender")} type="radio" name="gender" value="female"/> Female
             <br/>
             <br/>
 
-          <label>Birthday</label>
+          <label className="login-field">Birthday</label>
             <br/>
-            <input onChange={this.updateValue("birth_date")} type="date" value={this.state.birth_date} />
+            <input className="birth_date-input-field" onChange={this.updateValue("birth_date")} type="date" value={this.state.birth_date} />
             <br/>
             <br/>
-          <label>Zip Code</label>
+          <label className="login-field">Zip Code</label>
           <br/>
-            <input onChange={this.updateValue("zip_code")} type= "number" value={this.state.zip_code} />
+            <input className="login-input" onChange={this.updateValue("zip_code")} type= "number" value={this.state.zip_code} />
 
 
 
           <br/>
           <br/>
-          <label>Password</label>
+          <label className="login-field">Password</label>
           <br/>
-          <input onChange={this.updateValue("password")} type="password" value={this.state.password}/>
+          <input className="login-input" onChange={this.updateValue("password")} type="password" value={this.state.password}/>
           <br/>
           <br/>
-        <button>Sign Up</button>
+        <button className="login-button" >Sign Up</button>
+        </div>
       </form>
     </div>
    );

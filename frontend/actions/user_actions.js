@@ -16,7 +16,7 @@ import {receiveCurrentUser, receiveErrors } from './session_actions';
 //thunk reducers!!!!!!
 
 export const updateUserInfo = (user) => dispatch => {
-  debugger
+  
   return APIUtil.updateUserInfo(user).then(user => dispatch(receiveCurrentUser(user)),
   errors => dispatch(receiveErrors(errors.responseJSON)));
 };

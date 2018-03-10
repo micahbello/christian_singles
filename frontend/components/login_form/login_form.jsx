@@ -16,6 +16,7 @@ class LoginForm extends React.Component {
   }
 
   handleSubmit(e) {
+    debugger
     e.preventDefault();
     const user = merge({}, this.state);
     this.props.login(user);
@@ -36,7 +37,7 @@ class LoginForm extends React.Component {
     <div className="login-nav">
       <div className="login-logo">
         <img className="login-fish" src={fish} alt="fish"/>
-        <h1 className="login-heading-1">Christian Mingle</h1>
+        <Link to='/' className="login-logo-text">Christian Singles</Link>
       </div>
       <div className="form-link-to-sign-up-container">
         <Link className="form-link-to-sign-up" to='/signup'>Sign Up</Link>
