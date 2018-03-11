@@ -25,7 +25,7 @@ function TopHeader() {
 
       <div className="th-small-logo">
         <img className="th-small-fish" src={fish} alt="fish"/>
-        <Link className="th-small-logo-link "to='/browse'>Christian Single</Link>
+        <Link className="th-small-logo-link "to='/browse'>Christian Singles</Link>
       </div>
 
       <div className="top-header-links">

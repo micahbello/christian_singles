@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180309155925) do
+ActiveRecord::Schema.define(version: 20180311035534) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -58,6 +58,7 @@ ActiveRecord::Schema.define(version: 20180309155925) do
     t.string "marital_status_seek"
     t.string "language_seek"
     t.string "ethnicity_seek"
+    t.string "display_name"
   end
 
 end

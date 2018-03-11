@@ -1,13 +1,29 @@
 import React from 'react';
 import { merge } from 'lodash';
 import { Link } from 'react-router-dom';
+import TopHeaderContainer from '../top_header/top_header_container';
 
 class userInfoForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       display_name: '',
-      marital_status: ''
+      marital_status: '',
+      height: '',
+      want_kids: '',
+      have_kids: '',
+      relocate: '',
+      religion: '',
+      attendance: '',
+      occupation: '',
+      education: '',
+      place_as_child: '',
+      ethnicity: '',
+      language: '',
+      pets: '',
+      smoke: '',
+      drink: '',
+      first_date: ''
     };
   // this.handleSubmit = this.handleSubmit.bind(this);
   // this.updateValue = this.updateValue.bind(this);
@@ -28,51 +44,34 @@ class userInfoForm extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className="edit-profile-page">
+        <TopHeaderContainer />
 
-        <h2>Edit Profile</h2>
+        <h2 className="edit-profile-text">Edit Profile</h2>
 
-        <div>PICS SECTION </div>
+        <div className="info-forms">
+
 
         <div className="main-info-fillout">
 
-          <select name="skills" multiple="" class="ui fluid dropdown">
-  <option value="">Skills</option>
-<option value="angular">Angular</option>
-<option value="css">CSS</option>
-<option value="design">Graphic Design</option>
-<option value="ember">Ember</option>
-<option value="html">HTML</option>
-<option value="ia">Information Architecture</option>
-<option value="javascript">Javascript</option>
-<option value="mech">Mechanical Engineering</option>
-<option value="meteor">Meteor</option>
-<option value="node">NodeJS</option>
-<option value="plumbing">Plumbing</option>
-<option value="python">Python</option>
-<option value="rails">Rails</option>
-<option value="react">React</option>
-<option value="repair">Kitchen Repair</option>
-<option value="ruby">Ruby</option>
-<option value="ui">UI Design</option>
-<option value="ux">User Experience</option>
-</select>
-
-
-
-          <label>Display Name</label>
+          <label className="user-info-input-label">{(this.state.display_name !== '')
+            ? "Display Name" : ""}</label>
             <br/>
-            <input type="text" value={this.state.display_name}/>
+            <input className="user-info-input-box" type="text" value={this.state.display_name ? this.state.display_name : " Display Name"}/>
+            <br/>
             <br/>
 
           <label>About You</label>
           <br/>
-            LINK TO DESCRIPTION WILL GO HERE
+            link will go here
+          <br/>
           <br/>
 
-          <label>Have Kids</label>
+
+          <label className="user-info-input-label">{(this.state.display_name !== '')
+            ? "Have Kids" : ""}</label>
             <br/>
-            <select>
+            <select className="user-info-select-box">
               <option default hidden>Have kids</option>
               <option value="1">No kids</option>
               <option value="2">Have kids and they live with me</option>
@@ -80,30 +79,37 @@ class userInfoForm extends React.Component {
               <option value="4">Have grown children</option>
             </select>
             <br/>
-
-          <label>Marital Status</label>
             <br/>
-            <select>
+
+          <label className="user-info-input-label">{(this.state.display_name !== '')
+            ? "Marital Status" : ""}</label>
+            <br/>
+            <select className="user-info-select-box">
               <option default hidden>Marital Status</option>
               <option value="1">Divorced</option>
               <option value="2">Widowed</option>
               <option value="3">Never Married</option>
             </select>
             <br/>
-
-          <label>Wllingness to Relocate</label>
             <br/>
-            <select>
+
+
+          <label className="user-info-input-label">{(this.state.display_name !== '')
+            ? "Willingness to Relocate" : ""}</label>
+            <br/>
+            <select className="user-info-select-box">
               <option default hidden>Willingness To Relocate</option>
               <option value="1">Would Consider Relocating</option>
               <option value="2">I'd Relocate</option>
               <option value="3">Won't Relocate</option>
             </select>
             <br/>
-
-          <label>Religion</label>
             <br/>
-            <select>
+
+          <label className="user-info-input-label">{(this.state.display_name !== '')
+            ? "Religion" : ""}</label>
+            <br/>
+            <select className="user-info-select-box">
               <option default hidden>Religion</option>
               <option value="1">Anglican</option>
               <option value="2">Assembly of God</option>
@@ -128,10 +134,12 @@ class userInfoForm extends React.Component {
               <option value="18">Other Religion</option>
             </select>
             <br/>
-
-          <label>Church Attendance</label>
             <br/>
-            <select>
+
+          <label className="user-info-input-label">{(this.state.display_name !== '')
+            ? "Church Attendance" : ""}</label>
+            <br/>
+            <select className="user-info-select-box">
               <option default hidden>Church Attendance</option>
               <option value="1">Attend church every week</option>
               <option value="2">Attend church on sepecial occasions</option>
@@ -139,10 +147,12 @@ class userInfoForm extends React.Component {
               <option value="3">Attend church several times a year</option>
             </select>
             <br/>
+            <br/>
 
-          <label>Level Of Education</label>
+          <label className="user-info-input-label">{(this.state.display_name !== '')
+            ? "Level of Education" : ""}</label>
           <br/>
-          <select>
+          <select className="user-info-select-box">
             <option default hidden>Level Of Education</option>
             <option value="1">High School</option>
             <option value="2">Some College</option>
@@ -151,26 +161,32 @@ class userInfoForm extends React.Component {
             <option value="5">JD/PhD/Post Doc</option>
           </select>
             <br/>
+            <br/>
 
           <label>Grew Up In</label>
             Grew up in google goes here
+            <br/>
             <br/>
 
           ethnicity multiselect
 
           <br/>
+          <br/>
 
           language multiselect
 
+          <br/>
           <br/>
 
           pets multiselect
 
           <br/>
-
-        <label>Drinking Habits</label>
           <br/>
-          <select>
+
+        <label className="user-info-input-label">{(this.state.display_name !== '')
+          ? "Drinking Habits" : ""}</label>
+          <br/>
+          <select className="user-info-select-box">
             <option default hidden>Drinking Habits</option>
             <option value="1">Drink Frequently</option>
             <option value="1">Drink Socially</option>
@@ -178,10 +194,12 @@ class userInfoForm extends React.Component {
             <option value="3">Never Drink</option>
           </select>
           <br/>
+          <br/>
 
-          <label>Smoking Habits</label>
+          <label className="user-info-input-label">{(this.state.display_name !== '')
+            ? "Smoking Habits" : ""}</label>
             <br/>
-            <select>
+            <select className="user-info-select-box">
               <option default hidden>Smoking Habits</option>
               <option value="1">Smoke regularly</option>
               <option value="1">Smoke ocassionally</option>
@@ -189,16 +207,22 @@ class userInfoForm extends React.Component {
               <option value="3">Trying to quit smoking</option>
             </select>
             <br/>
+            <br/>
 
 
           SEARCH INTERESTS
 
           <br/>
+          <br/>
           preferered first date multiselect
 
           <br/>
+          <br/>
 
         discovery preferences link
+          <br/>
+        </div>
+
         </div>
 
       </div>

@@ -20,8 +20,6 @@ const App = () => {
 
     <Route exact path='/editprofile' component ={userInfoForm}/>
 
-
-
     <AuthRoute exact path='/login' component={LoginFormContainer} />
     <AuthRoute exact path='/signup' component={SignupFormContainer} />
 
