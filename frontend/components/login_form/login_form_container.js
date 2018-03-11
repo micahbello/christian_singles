@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import LoginForm from './login_form';
 import { withRouter } from 'react-router-dom';
 import { login } from '../../actions/session_actions';
+import { getCurrentProfile } from '../../actions/user_actions';
 
 
 const msp = (state, ownProps) =>  {
@@ -13,7 +14,8 @@ const msp = (state, ownProps) =>  {
 
 const mdp =(dispatch, ownProps) => {
   return {
-    login: (user) => dispatch(login(user))
+    login: (user) => dispatch(login(user)),
+    getCurrentProfile: (user) => dispatch(getCurrentProfile(user))
   };
 };
 

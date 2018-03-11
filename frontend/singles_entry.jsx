@@ -4,7 +4,10 @@ import { signup, login, logout } from './actions/session_actions'; ///TESTING
 import configureStore from './store/store';
 import Root from './components/root';
 
+import  { getCurrentProfile } from './actions/user_actions'; ///testing
 
+
+window.getCurrentProfile = getCurrentProfile;
 window.signup = signup;
 window.login = login;
 window.logout = logout;

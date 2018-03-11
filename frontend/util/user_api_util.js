@@ -5,3 +5,10 @@ export const updateUserInfo = (user) => {
     data: { user }
   });
 };
+
+export const getCurrentProfile = (user) => {
+  return $.ajax ({
+    method: 'GET',
+    url: `/api/users/${user.id}`
+  });
+};
