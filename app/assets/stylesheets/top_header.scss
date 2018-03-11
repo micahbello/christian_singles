@@ -1,0 +1,87 @@
+.top-header {
+  background-color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  border: 1px solid;
+}
+
+.th-small-logo {
+  display: grid;
+}
+
+.th-small-fish {
+  width: 34px;
+  padding-left: 45px;
+  margin-bottom: -9px;
+}
+
+.top-header-links {
+  display: flex;
+  justify-content: space-around;
+  font-family: sans-serif;
+  font-size: 16px;
+  text-decoration: none;
+
+}
+
+.th-small-logo-link {
+  text-decoration: none;
+  color: #000080;
+  font-family: sans-serif;
+}
+
+.th-link {
+  color: rgba(0, 0, 0, 0.5);
+  text-decoration: none;
+}
+
+.th-browse-cont {
+  padding-right: 110px;
+}
+
+.th-matches-cont {
+  padding-left: 110px;
+}
+
+.th-dropbtn {
+  border-radius: 44px;
+  padding: 23px;
+  cursor: pointer;
+  margin-left: 93px;
+
+}
+
+.th-dropdown {
+  position: relative;
+  display: inline-block;
+  padding-right: 10px;
+}
+
+.th-dropdown-content {
+  border-radius: 2px;
+  display: none;
+  min-width: 167px;
+  margin-top: 15px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  position: absolute;
+  z-index: 1;
+}
+
+.th-dropdown-link {
+  cursor: pointer;
+  font-family: sans-serif;
+  color: black;
+  text-decoration: none;
+  display: block;
+  padding: 3px;
+}
+
+.show {display: block;}
+// .th-user-icon {
+//   border: 5px solid;
+//   border-radius: 30px;
+//   padding: 14px;
+//   background-color: grey;
+// }

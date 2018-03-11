@@ -16,7 +16,6 @@ class LoginForm extends React.Component {
   }
 
   handleSubmit(e) {
-    debugger
     e.preventDefault();
     const user = merge({}, this.state);
     this.props.login(user);

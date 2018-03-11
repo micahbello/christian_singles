@@ -36,6 +36,30 @@ class userInfoForm extends React.Component {
 
         <div className="main-info-fillout">
 
+          <select name="skills" multiple="" class="ui fluid dropdown">
+  <option value="">Skills</option>
+<option value="angular">Angular</option>
+<option value="css">CSS</option>
+<option value="design">Graphic Design</option>
+<option value="ember">Ember</option>
+<option value="html">HTML</option>
+<option value="ia">Information Architecture</option>
+<option value="javascript">Javascript</option>
+<option value="mech">Mechanical Engineering</option>
+<option value="meteor">Meteor</option>
+<option value="node">NodeJS</option>
+<option value="plumbing">Plumbing</option>
+<option value="python">Python</option>
+<option value="rails">Rails</option>
+<option value="react">React</option>
+<option value="repair">Kitchen Repair</option>
+<option value="ruby">Ruby</option>
+<option value="ui">UI Design</option>
+<option value="ux">User Experience</option>
+</select>
+
+
+
           <label>Display Name</label>
             <br/>
             <input type="text" value={this.state.display_name}/>
@@ -116,13 +140,16 @@ class userInfoForm extends React.Component {
             </select>
             <br/>
 
-          <level>Level Of Education</level>
+          <label>Level Of Education</label>
+          <br/>
+          <select>
             <option default hidden>Level Of Education</option>
             <option value="1">High School</option>
             <option value="2">Some College</option>
             <option value="3">Bachelor's Degree</option>
             <option value="4">Master's Degree</option>
             <option value="5">JD/PhD/Post Doc</option>
+          </select>
             <br/>
 
           <label>Grew Up In</label>

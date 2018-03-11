@@ -9,6 +9,9 @@ import Browse from './browse/browse';
 
 
 
+
+
+
 const App = () => {
   return (
   <div>
@@ -16,6 +19,8 @@ const App = () => {
     <AuthRoute2 exact path='/browse' component={Browse} />
 
     <Route exact path='/editprofile' component ={userInfoForm}/>
+
+
 
     <AuthRoute exact path='/login' component={LoginFormContainer} />
     <AuthRoute exact path='/signup' component={SignupFormContainer} />
