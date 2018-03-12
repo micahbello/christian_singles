@@ -13,7 +13,7 @@ export const receiveCurrentProfile = (user) => {
 
 
 export const updateUserInfo = (user) => dispatch => {
-  return APIUtil.updateUserInfo(user).then(user => dispatch(receiveCurrentUser(user)),
+  return APIUtil.updateUserInfo(user).then(user => dispatch(receiveCurrentProfile(user)),
   errors => dispatch(receiveErrors(errors.responseJSON)));
 };
 

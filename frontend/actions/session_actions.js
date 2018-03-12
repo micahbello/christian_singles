@@ -21,14 +21,15 @@ export const receiveErrors = (errors) => {
 
 
 //thunk reducers
-
-export const login = (user) => dispatch => {
-  return APIUtil.login(user).then(user => dispatch(receiveCurrentUser(user)),
+export const logout = () => dispatch => {
+  return APIUtil.logout().then(() => dispatch(receiveCurrentUser(null)),
   errors => dispatch(receiveErrors(errors.responseJSON)));
 };
 
-export const logout = () => dispatch => {
-  return APIUtil.logout().then(() => dispatch(receiveCurrentUser(null)),
+
+
+export const login = (user) => dispatch => {
+  return APIUtil.login(user).then(user => dispatch(receiveCurrentUser(user)),
   errors => dispatch(receiveErrors(errors.responseJSON)));
 };
 

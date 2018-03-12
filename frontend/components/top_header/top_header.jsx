@@ -18,8 +18,18 @@ window.onclick = function(event) {
   }
 }
 
+// function handleClick() {
+//   let user = this.props.currentUser;
+//   debugger
+//   this.props.getCurrentProfile(user.id);
+// }
 
-function TopHeader() {
+class TopHeader extends React.Component {
+  constructor(props) {
+    super(props);
+  }
+
+  render (){
   return (
     <span className="top-header">
 
@@ -46,7 +56,7 @@ function TopHeader() {
       <div className="th-dropdown">
         <button onClick={() => dropMenu()} className="th-dropbtn"></button>
         <div id="iconDropDown" className="th-dropdown-content">
-          <Link className="th-dropdown-link" to='/'>My Profile</Link>
+          <Link onClick={() => dispatch(getCurrentProfile(this.props.currentUser))} className="th-dropdown-link" to='/'>My Profile</Link>
           <Link className="th-dropdown-link" to='/'>Discovery Preferences</Link>
           <div onClick={() => dispatch(logout())} className="th-dropdown-link">Logout</div>
 
@@ -55,9 +65,9 @@ function TopHeader() {
 
 
     </span>
-
   );
-}
+ };
+};
 
 export default TopHeader;
 

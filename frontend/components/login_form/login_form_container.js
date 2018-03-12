@@ -8,7 +8,8 @@ import { getCurrentProfile } from '../../actions/user_actions';
 
 const msp = (state, ownProps) =>  {
   return {
-    errors: state.errors.session.errors
+    errors: state.errors.session.errors,
+    currentUser: state.session.currentUser
   };
 };
 

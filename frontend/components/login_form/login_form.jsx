@@ -19,6 +19,7 @@ class LoginForm extends React.Component {
     e.preventDefault();
     const user = merge({}, this.state);
     this.props.login(user);
+    // this.props.getCurrentProfile(currentUser.id)
   }
 
   updateUsername(e) {

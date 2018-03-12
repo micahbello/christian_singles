@@ -4,6 +4,7 @@
     render("api/users/user.json.jbuilder",
     user: current_user
   ).html_safe %>
+
   <% end %>
   window.fish = "<%= asset_path('fish.png') %>"
   window.heart_in_book = "<% asset_path('heart_in_book.jpg') %>"
