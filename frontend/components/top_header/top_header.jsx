@@ -56,7 +56,7 @@ class TopHeader extends React.Component {
       <div className="th-dropdown">
         <button onClick={() => dropMenu()} className="th-dropbtn"></button>
         <div id="iconDropDown" className="th-dropdown-content">
-          <Link onClick={() => dispatch(getCurrentProfile(this.props.currentUser))} className="th-dropdown-link" to='/'>My Profile</Link>
+          <Link onClick={() => dispatch(getCurrentProfile(this.props.currentUser.id))} className="th-dropdown-link" to='/'>My Profile</Link>
           <Link className="th-dropdown-link" to='/'>Discovery Preferences</Link>
           <div onClick={() => dispatch(logout())} className="th-dropdown-link">Logout</div>
 

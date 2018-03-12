@@ -6,9 +6,9 @@ export const updateUserInfo = (user) => {
   });
 };
 
-export const getCurrentProfile = (user) => {
+export const getCurrentProfile = (id) => {
   return $.ajax ({
     method: 'GET',
-    url: `/api/users/${user.id}`
+    url: `/api/users/${id}`
   });
 };
