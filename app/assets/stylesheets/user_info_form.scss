@@ -9,13 +9,21 @@
 .edit-profile-text {
   text-align: center;
   padding-top: 35px;
+  font-family: sans-serif;
+  font-weight: normal;
 }
 
 .info-forms {
-  border: 1px solid;
   display: flex;
-  justify-content: center;
-  margin: 26px;
+  justify-content: space-evenly;
+  margin: 18px 350px 0px 350px;
+}
+
+.user-info-pic-container {
+  border: 1px solid;
+  width: 370px;
+  height: 440px;
+  background-color: white;
 }
 
 .main-info-fillout {

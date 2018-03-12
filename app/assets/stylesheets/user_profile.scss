@@ -1,9 +1,4 @@
-.user-profile-page {
-  background-color: #F5F5F5;
-  margin-top: 53px;
-  height: 100vh;
-  width: 100.3%;
-}
+
 
 .user-info-container {
   background-color: #F5F5F5;
@@ -12,15 +7,46 @@
   font-family: sans-serif;
 }
 
+.user-profile-span {
+  display: flex;
+  justify-content: space-evenly;
+  margin-left: 555px;
+  margin-right: 300px;
+
+}
+
+#user-profile-edit-link {
+  text-decoration: none;
+  color: white;
+  padding-top: 11px;
+
+}
+
+#user-profile-edit-button {
+  background-color: #0098dc;
+  padding: 10px 35px 10px 35px;
+  font-family: sans-serif;
+  color: white;
+  border-radius: 3px;
+  height: 21px;
+ margin-top: 37px;
+}
+
+.edit-profile-text {
+
+}
+
 .user-bio {
   background-color: white;
   border-radius: 3px;
   border: 1px solid #e6e6de;
   padding: 25px;
+  margin-top: -30px;
 }
 
 .user-name-age-container {
   display: flex;
+
 }
 
 .user-display_name {
@@ -32,6 +58,11 @@
   margin-top: 23px;
 }
 
+.user-location {
+  display: flex;
+  margin-top: -34px;
+  font-size: 15px;
+}
 
 
 .user-attributes-info {
@@ -40,4 +71,18 @@
   border: 1px solid #e6e6de;
   padding: 25px;
   margin-top: 20px;
+}
+
+.user-info-icon {
+  padding-right: 10px;
+}
+
+.user-personal-info {
+  font-weight: bold;
+  display: flex;
+  margin-bottom: -8px;
+}
+
+#make-reg-font {
+  font-weight: normal;
 }

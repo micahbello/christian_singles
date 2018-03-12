@@ -86,10 +86,23 @@ class userInfoForm extends React.Component {
         <div className="edit-profile-page">
           <TopHeaderContainer />
 
+          <span class="user-profile-span">
+
           <h2 className="edit-profile-text">Edit Profile</h2>
+
+        {this.props.currentUser.id === this.props.currentProfile.id
+            ?
+            <div id="user-profile-edit-button">
+            <Link id="user-profile-edit-link" to={`/profile/${this.props.currentUser.id}`} >View Profile</Link>
+            </div>
+            : null}
+
+          </span>
 
           <div className="info-forms">
 
+
+          <div className="user-info-pic-container"> PICS HERE </div>
 
           <div className="main-info-fillout">
 
@@ -116,6 +129,21 @@ class userInfoForm extends React.Component {
                 <option value="No kids">No kids</option>
                 <option value="Have kids and they live with me">Have kids and they live with me</option>
                 <option value="Have kids and they sometimes live with me">Have kids and they sometimes live with me</option>
+                <option value="Have grown children">Have grown children</option>
+              </select>
+              <br/>
+              <br/>
+
+            <label className="user-info-input-label">{this.state.want_kids
+              ? "Want Kids" : ""}</label>
+              <br/>
+              <select onChange={this.updateValue("want_kids")}
+                onBlur={this.handleSubmit}
+                className="user-info-select-box">
+                <option default hidden>{this.state.want_kids ? this.state.want_kids : "Want Kids"}</option>
+                <option value="Want kids">Want kids</option>
+                <option value="Don't want kids">Don't want kids</option>
+                <option value="Don't want to have kids but welcome yours">Don't want to have kids but welcome yours</option>
                 <option value="Have grown children">Have grown children</option>
               </select>
               <br/>
@@ -190,7 +218,7 @@ class userInfoForm extends React.Component {
                 className="user-info-select-box">
                 <option default hidden>{this.state.attendance ? this.state.attendance : "Church Attendance"}</option>
                 <option value="Attend church every week">Attend church every week</option>
-                <option value="Attend church on sepecial occasions">Attend church on sepecial occasions</option>
+                <option value="Attend church on special occasions">Attend church on sepecial occasions</option>
                 <option value="Attend church once or twice a month">Attend church once or twice a month</option>
                 <option value="Attend church several times a year">Attend church several times a year</option>
               </select>

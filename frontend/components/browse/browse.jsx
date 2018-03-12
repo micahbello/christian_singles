@@ -10,7 +10,7 @@ import TopHeaderContainer from '../top_header/top_header_container';
 
 function Browse() {
   return (
-    <div>
+    <div className="browse-page">
     <TopHeaderContainer />
     </div>
   );

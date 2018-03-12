@@ -33,10 +33,27 @@ class UserProfile extends React.Component {
         <div className="edit-profile-page">
           <TopHeaderContainer />
 
-          <h2 className="edit-profile-text">My Profile</h2>
+          <div className="user-profile-span">
+
+        {this.props.currentUser.id === this.props.currentProfile.id
+            ?
+            <h2 className="edit-profile-text">My Profile</h2>
+            : null}
+
+
+
+        {this.props.currentUser.id === this.props.currentProfile.id
+            ?
+            <div id="user-profile-edit-button">
+            <Link id="user-profile-edit-link" to='/editprofile' >Edit Profile</Link>
+            </div>
+            : null}
+
+          </div>
 
           <div className="info-forms">
 
+            <div className="user-info-pic-container"> PICS HERE </div>
 
           <div className="user-info-container">
 
@@ -51,54 +68,54 @@ class UserProfile extends React.Component {
                 <p className="user-state">, NY</p>
               </div>
 
-              <p className="user-about-me">Just a random guy here, nah mean what I am saying.........</p>
+              <p className="user-about-me">Just a random guy here, nah mean what I am saying.
+                wondering how this will loookddddddd........</p>
 
             </div>
 
             <div className="user-attributes-info">
 
               <div className="user-personal-info">
-                <p>image</p>
-                <p>{this.props.currentProfile.kids}, {this.props.currentProfile.want_kids},
-                  {this.props.currentProfile.relocate}
+                <p className="user-info-icon">i</p>
+                <p>5'9'', {this.props.currentProfile.have_kids}, {this.props.currentProfile.want_kids}, {this.props.currentProfile.relocate}
                 </p>
               </div>
 
-              <div className="user-religious-info">
-                <p>image</p>
+              <div className="user-personal-info">
+                <p className="user-info-icon">i</p>
                 <p>{this.props.currentProfile.religion}, {this.props.currentProfile.attendance}</p>
               </div>
 
-              <div className="user-background-info">
-                <p>image</p>
-                <p>I grew up in {this.props.currentProfile.place_as_child}, {this.props.currentProfile.ethnicity},
-                  Speak {this.props.currentProfile.language}
-                </p>
-              </div>
-
-              <div className="animals-smoke-drink-info">
-                <p>image</p>
-                <p>{this.props.currentProfile.pets}, {this.props.currentProfile.drink}, {this.props.currentProfile.smoke}</p>
-              </div>
-
-              <div className="user-hobbies-info">
-                <p>image</p>
-                <p>i like basketball</p>
-              </div>
-
-              <div className="first-date-info">
-                <p>image</p>
-                <p>On a first date I prefer: {this.props.currentProfile.first_date}</p>
+              <div className="user-personal-info">
+                <p className="user-info-icon">i</p>
+                <p id="make-reg-font">Mechanic</p><p>, {this.props.currentProfile.education}</p>
               </div>
 
 
-              <div className="looking-for-info">
-                <p>image</p>
+
+              <div className="user-personal-info">
+                <p className="user-info-icon">i</p>
+                <p>Have Bird(s), {this.props.currentProfile.drink}, {this.props.currentProfile.smoke}</p>
+              </div>
+
+              <div className="user-personal-info">
+                <p className="user-info-icon">i</p>
+                <p id="make-reg-font">I like </p><p> Basketball</p>
+              </div>
+
+              <div className="user-personal-info">
+                <p className="user-info-icon">i</p>
+                <p id="make-reg-font">On a first date I prefer: </p> <p>{this.props.currentProfile.first_date}</p>
+              </div>
+
+
+              <div className="user-personal-info">
+                <p className="user-info-icon">i</p>
                 <p>I am looking for: people</p>
               </div>
 
-              <div className="last-online-info">
-                <p>image</p>
+              <div className="user-personal-info">
+                <p className="user-info-icon">i</p>
                 <p>Last Online: Today</p>
               </div>
 
@@ -120,3 +137,9 @@ class UserProfile extends React.Component {
 
 
 export default UserProfile;
+
+// <div className="user-personal-info">
+//   <p className="user-info-icon">i</p>
+//
+//   <span>I grew up in <p>Denmark</p><p>, {this.props.getCurrentProfile.language}</p> , Speak <p>this.props.currentProfile.language</p></span>
+// </div>
