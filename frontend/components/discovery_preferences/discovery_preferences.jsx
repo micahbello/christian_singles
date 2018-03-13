@@ -115,9 +115,9 @@ class DiscoveryPreferences extends React.Component {
         <div className="overSelect"></div>
           <div id="sex-seek-checkboxes">
             <label className="check-box-text">
-              <input onChange={this.updateCheckBoxValue("sex_seek")} type="checkbox" value="Men" />Men</label>
+              <input onChange={this.updateCheckBoxValue("sex_seek")} type="checkbox" value="Men" checked={(this.state.sex_seek && this.state.sex_seek.includes("Men") )? "true" : ''}  />Men</label>
             <label className="check-box-text">
-              <input onChange={this.updateCheckBoxValue("sex_seek")} type="checkbox" value="Women"/>Women</label>
+              <input onChange={this.updateCheckBoxValue("sex_seek")} type="checkbox" value="Women" checked={(this.state.sex_seek && this.state.sex_seek.includes("Women") )? "true" : ''}  />Women</label>
 
             <button onClick={this.handleSubmit}>Save changes</button>
           </div>
@@ -148,17 +148,17 @@ class DiscoveryPreferences extends React.Component {
         <div className="overSelect"></div>
           <div id="distance-seek-checkboxes">
             <label className="check-box-text">
-              <input  onChange={this.updateCheckBoxValue("distance_seek")} type="checkbox" value="5" />5</label>
+              <input  onChange={this.updateCheckBoxValue("distance_seek")} type="checkbox" value="5"  />5</label>
             <label className="check-box-text">
-              <input  onChange={this.updateCheckBoxValue("distance_seek")} type="checkbox" value="10"/>10</label>
+              <input  onChange={this.updateCheckBoxValue("distance_seek")} type="checkbox" value="10" />10</label>
             <label className="check-box-text">
-              <input  onChange={this.updateCheckBoxValue("distance_seek")} type="checkbox" value="25"/>25</label>
+              <input  onChange={this.updateCheckBoxValue("distance_seek")} type="checkbox" value="25" />25</label>
             <label className="check-box-text">
-              <input  onChange={this.updateCheckBoxValue("distance_seek")} type="checkbox" value="50"/>50</label>
+              <input  onChange={this.updateCheckBoxValue("distance_seek")} type="checkbox" value="50" />50</label>
             <label className="check-box-text">
-              <input  onChange={this.updateCheckBoxValue("distance_seek")} type="checkbox" value="100"/>100</label>
+              <input  onChange={this.updateCheckBoxValue("distance_seek")} type="checkbox" value="100"  />100</label>
             <label className="check-box-text">
-              <input  onChange={this.updateCheckBoxValue("distance_seek")} type="checkbox" value="500"/>500</label>
+              <input  onChange={this.updateCheckBoxValue("distance_seek")} type="checkbox" value="500"  />500</label>
 
             <button onClick={this.handleSubmit}>Save changes</button>
 
@@ -182,51 +182,51 @@ class DiscoveryPreferences extends React.Component {
         <div className="overSelect"></div>
           <div id="religion-seek-checkboxes">
             <label className="check-box-text">
-              <input onChange={this.updateCheckBoxValue("religion_seek")} type="checkbox" value="Anglican" />Anglican</label>
+              <input onChange={this.updateCheckBoxValue("religion_seek")} type="checkbox" value="Anglican"  checked={(this.state.religion_seek && this.state.religion_seek.includes("Anglican") )? "true" : ''} />Anglican</label>
             <label className="check-box-text">
-              <input onChange={this.updateCheckBoxValue("religion_seek")} type="checkbox" value="Apostolic"/>Apostolic</label>
+              <input onChange={this.updateCheckBoxValue("religion_seek")} type="checkbox" value="Apostolic" checked={(this.state.religion_seek && this.state.religion_seek.includes("Apostolic") )? "true" : ''} />Apostolic</label>
             <label className="check-box-text">
-              <input onChange={this.updateCheckBoxValue("religion_seek")} type="checkbox" value="Assembly of God"/>Assembly of God</label>
+              <input onChange={this.updateCheckBoxValue("religion_seek")} type="checkbox" value="Assembly of God" checked={(this.state.religion_seek && this.state.religion_seek.includes("Assembly of God") )? "true" : ''} />Assembly of God</label>
             <label className="check-box-text">
-              <input onChange={this.updateCheckBoxValue("religion_seek")} type="checkbox" value="Baptist"/>Baptist</label>
+              <input onChange={this.updateCheckBoxValue("religion_seek")} type="checkbox" value="Baptist" checked={(this.state.religion_seek && this.state.religion_seek.includes("Baptist") )? "true" : ''} />Baptist</label>
             <label className="check-box-text">
-              <input onChange={this.updateCheckBoxValue("religion_seek")} type="checkbox" value="Catholic"/>Catholic</label>
+              <input onChange={this.updateCheckBoxValue("religion_seek")} type="checkbox" value="Catholic" checked={(this.state.religion_seek && this.state.religion_seek.includes("Catholic") )? "true" : ''} />Catholic</label>
             <label className="check-box-text">
-              <input onChange={this.updateCheckBoxValue("religion_seek")} type="checkbox" value="Charismatic"/>Charismatic</label>
+              <input onChange={this.updateCheckBoxValue("religion_seek")} type="checkbox" value="Charismatic" checked={(this.state.religion_seek && this.state.religion_seek.includes("Charismatic") )? "true" : ''} />Charismatic</label>
             <label className="check-box-text">
-              <input onChange={this.updateCheckBoxValue("religion_seek")} type="checkbox" value="Christian Reformed"/>Christian Reformed</label>
+              <input onChange={this.updateCheckBoxValue("religion_seek")} type="checkbox" value="Christian Reformed" checked={(this.state.religion_seek && this.state.religion_seek.includes("Christian Reformed") )? "true" : ''} />Christian Reformed</label>
             <label className="check-box-text">
-              <input onChange={this.updateCheckBoxValue("religion_seek")} type="checkbox" value="Church of Christ" />Church of Christ</label>
+              <input onChange={this.updateCheckBoxValue("religion_seek")} type="checkbox" value="Church of Christ"  checked={(this.state.religion_seek && this.state.religion_seek.includes("Church of Christ") )? "true" : ''} />Church of Christ</label>
             <label className="check-box-text">
-              <input onChange={this.updateCheckBoxValue("religion_seek")} type="checkbox" value="Episcopelian/Anglican" />Episcopelian/Anglican</label>
+              <input onChange={this.updateCheckBoxValue("religion_seek")} type="checkbox" value="Episcopelian/Anglican"  checked={(this.state.religion_seek && this.state.religion_seek.includes("Anglican") )? "true" : ''} />Episcopelian/Anglican</label>
             <label className="check-box-text">
-              <input onChange={this.updateCheckBoxValue("religion_seek")} type="checkbox" value="Evangelical" />Evangelical</label>
+              <input onChange={this.updateCheckBoxValue("religion_seek")} type="checkbox" value="Evangelical"  checked={(this.state.religion_seek && this.state.religion_seek.includes("Evangelical") )? "true" : ''} />Evangelical</label>
             <label className="check-box-text">
-              <input onChange={this.updateCheckBoxValue("religion_seek")} type="checkbox" value="Interdenominational"/>Interdenominational</label>
+              <input onChange={this.updateCheckBoxValue("religion_seek")} type="checkbox" value="Interdenominational" checked={(this.state.religion_seek && this.state.religion_seek.includes("Interdenominational") )? "true" : ''} />Interdenominational</label>
             <label className="check-box-text">
-              <input onChange={this.updateCheckBoxValue("religion_seek")} type="checkbox" value="Lutheran" />Lutheran</label>
+              <input onChange={this.updateCheckBoxValue("religion_seek")} type="checkbox" value="Lutheran"  checked={(this.state.religion_seek && this.state.religion_seek.includes("Lutheran") )? "true" : ''} />Lutheran</label>
             <label className="check-box-text">
-              <input onChange={this.updateCheckBoxValue("religion_seek")} type="checkbox" value="Messianic"/>Messianic</label>
+              <input onChange={this.updateCheckBoxValue("religion_seek")} type="checkbox" value="Messianic" checked={(this.state.religion_seek && this.state.religion_seek.includes("Messianic") )? "true" : ''} />Messianic</label>
             <label className="check-box-text">
-              <input onChange={this.updateCheckBoxValue("religion_seek")} type="checkbox" value="Methodist"/>Methodist</label>
+              <input onChange={this.updateCheckBoxValue("religion_seek")} type="checkbox" value="Methodist" checked={(this.state.religion_seek && this.state.religion_seek.includes("Methodist") )? "true" : ''} />Methodist</label>
             <label className="check-box-text">
-              <input onChange={this.updateCheckBoxValue("religion_seek")} type="checkbox" value="Nazarene"/>Nazarene</label>
+              <input onChange={this.updateCheckBoxValue("religion_seek")} type="checkbox" value="Nazarene" checked={(this.state.religion_seek && this.state.religion_seek.includes("Nazarene") )? "true" : ''} />Nazarene</label>
             <label className="check-box-text">
-              <input onChange={this.updateCheckBoxValue("religion_seek")} type="checkbox" value="Non-denominational"/>Non-denominational</label>
+              <input onChange={this.updateCheckBoxValue("religion_seek")} type="checkbox" value="Non-denominational" checked={(this.state.religion_seek && this.state.religion_seek.includes("Non-denom") )? "true" : ''} />Non-denominational</label>
             <label className="check-box-text">
-              <input onChange={this.updateCheckBoxValue("religion_seek")} type="checkbox" value="Not sure yet"/>Not sure yet</label>
+              <input onChange={this.updateCheckBoxValue("religion_seek")} type="checkbox" value="Not sure yet" checked={(this.state.religion_seek && this.state.religion_seek.includes("Not sure yet") )? "true" : ''} />Not sure yet</label>
             <label className="check-box-text">
-              <input onChange={this.updateCheckBoxValue("religion_seek")} type="checkbox" value="Orthodox"/>Orthodox</label>
+              <input onChange={this.updateCheckBoxValue("religion_seek")} type="checkbox" value="Orthodox" checked={(this.state.religion_seek && this.state.religion_seek.includes("Orthodox") )? "true" : ''} />Orthodox</label>
             <label className="check-box-text">
-              <input onChange={this.updateCheckBoxValue("religion_seek")} type="checkbox" value="Pentecostal" />Pentecostal</label>
+              <input onChange={this.updateCheckBoxValue("religion_seek")} type="checkbox" value="Pentecostal"  checked={(this.state.religion_seek && this.state.religion_seek.includes("Pentecostal") )? "true" : ''} />Pentecostal</label>
             <label className="check-box-text">
-              <input onChange={this.updateCheckBoxValue("religion_seek")} type="checkbox" value="Presbyeterian" />Presbyeterian</label>
+              <input onChange={this.updateCheckBoxValue("religion_seek")} type="checkbox" value="Presbyterian"  checked={(this.state.religion_seek && this.state.religion_seek.includes("Presbyterian") )? "true" : ''} />Presbyterian</label>
             <label className="check-box-text">
-              <input onChange={this.updateCheckBoxValue("religion_seek")} type="checkbox" value="Seventh-Day Adventist" />Seventh-Day Adventist</label>
+              <input onChange={this.updateCheckBoxValue("religion_seek")} type="checkbox" value="Seventh-Day Adventist"  checked={(this.state.religion_seek && this.state.religion_seek.includes("Seventh-Day Adventist") )? "true" : ''} />Seventh-Day Adventist</label>
             <label className="check-box-text">
-              <input onChange={this.updateCheckBoxValue("religion_seek")} type="checkbox" value="Southern Baptist"/>Southern Baptist</label>
+              <input onChange={this.updateCheckBoxValue("religion_seek")} type="checkbox" value="Southern Baptist" checked={(this.state.religion_seek && this.state.religion_seek.includes("Southern Baptist") )? "true" : ''} />Southern Baptist</label>
             <label className="check-box-text">
-              <input onChange={this.updateCheckBoxValue("religion_seek")} type="checkbox" value="Other Religion"/>Other Religion</label>
+              <input onChange={this.updateCheckBoxValue("religion_seek")} type="checkbox" value="Other Religion" checked={(this.state.religion_seek && this.state.religion_seek.includes("Other Religion") )? "true" : ''} />Other Religion</label>
 
             <button onClick={this.handleSubmit}>Save changes</button>
           </div>
@@ -241,13 +241,13 @@ class DiscoveryPreferences extends React.Component {
         <div className="overSelect"></div>
           <div id="relationship-seek-checkboxes">
             <label className="check-box-text">
-              <input onChange={this.updateCheckBoxValue("relationship_seek")} type="checkbox" value="Friendly/Activity Partner" />Friendly/Activity Partner</label>
+              <input onChange={this.updateCheckBoxValue("relationship_seek")} type="checkbox" value="Friendly/Activity Partner"  checked={(this.state.relationship_seek && this.state.relationship_seek.includes("Friendly/Activity Partner") )? "true" : ''} />Friendly/Activity Partner</label>
             <label className="check-box-text">
-              <input onChange={this.updateCheckBoxValue("relationship_seek")} type="checkbox" value="Long Term Relationship"/>Long Term Relationship</label>
+              <input onChange={this.updateCheckBoxValue("relationship_seek")} type="checkbox" value="Long Term Relationship" checked={(this.state.relationship_seek && this.state.relationship_seek.includes("Long Term Relationship") )? "true" : ''} />Long Term Relationship</label>
             <label className="check-box-text">
-              <input onChange={this.updateCheckBoxValue("relationship_seek")} type="checkbox" value="Marriage"/>Marriage</label>
+              <input onChange={this.updateCheckBoxValue("relationship_seek")} type="checkbox" value="Marriage" checked={(this.state.relationship_seek && this.state.relationship_seek.includes("Marriage") )? "true" : ''} />Marriage</label>
             <label className="check-box-text">
-              <input onChange={this.updateCheckBoxValue("relationship_seek")} type="checkbox" value="Marriage and Kids"/>Marriage and Kids</label>
+              <input onChange={this.updateCheckBoxValue("relationship_seek")} type="checkbox" value="Marriage and Kids" checked={(this.state.relationship_seek && this.state.relationship_seek.includes("Marriage and Kids") )? "true" : ''} />Marriage and Kids</label>
 
             <button onClick={this.handleSubmit}>Save changes</button>
           </div>
@@ -262,13 +262,13 @@ class DiscoveryPreferences extends React.Component {
         <div className="overSelect"></div>
           <div id="education-seek-checkboxes">
             <label className="check-box-text">
-              <input onChange={this.handleSubmit} onClick={this.updateCheckBoxValue("education_seek")} type="checkbox" value="High School" />High School</label>
+              <input onChange={this.handleSubmit} onClick={this.updateCheckBoxValue("education_seek")} type="checkbox" value="High School"  checked={(this.state.education_seek && this.state.education_seek.includes("High School") )? "true" : ''} />High School</label>
             <label className="check-box-text">
-              <input onChange={this.handleSubmit} onClick={this.updateCheckBoxValue("education_seek")} type="checkbox" value="Some College"/>Some College</label>
+              <input onChange={this.handleSubmit} onClick={this.updateCheckBoxValue("education_seek")} type="checkbox" value="Some College" checked={(this.state.education_seek && this.state.education_seek.includes("Some College") )? "true" : ''} />Some College</label>
             <label className="check-box-text">
-              <input onChange={this.handleSubmit} onClick={this.updateCheckBoxValue("education_seek")} type="checkbox" value="Master's Degree"/>Master's Degree</label>
+              <input onChange={this.handleSubmit} onClick={this.updateCheckBoxValue("education_seek")} type="checkbox" value="Master's Degree" checked={(this.state.education_seek && this.state.education_seek.includes("Master's Degree") )? "true" : ''} />Master's Degree</label>
             <label className="check-box-text">
-              <input onChange={this.handleSubmit} onClick={this.updateCheckBoxValue("education_seek")} type="checkbox" value="Jd/Ph/Post Doc"/>Jd/Ph/Post Doc</label>
+              <input onChange={this.handleSubmit} onClick={this.updateCheckBoxValue("education_seek")} type="checkbox" value="Jd/Ph/Post Doc" checked={(this.state.education_seek && this.state.education_seek.includes("Jd/Ph/Post Doc") )? "true" : ''} />Jd/Ph/Post Doc</label>
 
             <button onClick={this.handleSubmit}>Save changes</button>
           </div>
@@ -283,13 +283,13 @@ class DiscoveryPreferences extends React.Component {
         <div className="overSelect"></div>
           <div id="attendance-seek-checkboxes">
             <label className="check-box-text">
-              <input onChange={this.updateCheckBoxValue("attendance_seek")} type="checkbox" value="Attend church every week" />Attend church every week</label>
+              <input onChange={this.updateCheckBoxValue("attendance_seek")} type="checkbox" value="Attend church every week"   checked={(this.state.attendance_seek && this.state.attendance_seek.includes("Attend church every week") )? "true" : ''}/>Attend church every week</label>
             <label className="check-box-text">
-              <input onChange={this.updateCheckBoxValue("attendance_seek")} type="checkbox" value="Attend church on special occassions"/>Attend church on special occassions</label>
+              <input onChange={this.updateCheckBoxValue("attendance_seek")} type="checkbox" value="Attend church on special occassions"  checked={(this.state.attendance_seek && this.state.attendance_seek.includes("Attend church on special occassions") )? "true" : ''}/>Attend church on special occassions</label>
             <label className="check-box-text">
-              <input onChange={this.updateCheckBoxValue("attendance_seek")} type="checkbox" value="Attend church once or twice a month"/>Attend church once or twice a month</label>
+              <input onChange={this.updateCheckBoxValue("attendance_seek")} type="checkbox" value="Attend church once or twice a month"  checked={(this.state.attendance_seek && this.state.attendance_seek.includes("Attend church once or twice a month") )? "true" : ''}/>Attend church once or twice a month</label>
             <label className="check-box-text">
-              <input onChange={this.updateCheckBoxValue("attendance_seek")} type="checkbox" value="Attend church several times a year"/>Attend church several times a year</label>
+              <input onChange={this.updateCheckBoxValue("attendance_seek")} type="checkbox" value="Attend church several times a year"  checked={(this.state.attendance_seek && this.state.attendance_seek.includes("Attend church several times a year") )? "true" : ''}/>Attend church several times a year</label>
 
             <button onClick={this.handleSubmit}>Save changes</button>
           </div>
@@ -304,13 +304,13 @@ class DiscoveryPreferences extends React.Component {
         <div className="overSelect"></div>
           <div id="smoke-seek-checkboxes">
             <label className="check-box-text">
-              <input onChange={this.updateCheckBoxValue("smoke-seek")} type="checkbox" value="Smoke regularly" />Smoke regularly</label>
+              <input onChange={this.updateCheckBoxValue("smoke_seek")} type="checkbox" value="Smoke regularly"  checked={(this.state.smoke_seek && this.state.smoke_seek.includes("Smoke regularly") )? "true" : ''}/>Smoke regularly</label>
             <label className="check-box-text">
-              <input onChange={this.updateCheckBoxValue("smoke-seek")} type="checkbox" value="Smoke occasionally"/>Smoke occasionally</label>
+              <input onChange={this.updateCheckBoxValue("smoke_seek")} type="checkbox" value="Smoke occasionally" checked={(this.state.smoke_seek && this.state.smoke_seek.includes("Smoke occasionally") )? "true" : ''}/>Smoke occasionally</label>
             <label className="check-box-text">
-              <input onChange={this.updateCheckBoxValue("smoke-seek")} type="checkbox" value="Non-Smoker"/>Non-Smoker</label>
+              <input onChange={this.updateCheckBoxValue("smoke_seek")} type="checkbox" value="Non-Smoker" checked={(this.state.smoke_seek && this.state.smoke_seek.includes("Non-Smoker") )? "true" : ''}/>Non-Smoker</label>
             <label className="check-box-text">
-              <input onChange={this.updateCheckBoxValue("smoke-seek")} type="checkbox" value="Trying to quit smoking"/>Trying to quit smoking</label>
+              <input onChange={this.updateCheckBoxValue("smoke_seek")} type="checkbox" value="Trying to quit smoking" checked={(this.state.smoke_seek && this.state.smoke_seek.includes("Trying to quit smoking") )? "true" : ''}/>Trying to quit smoking</label>
 
             <button onClick={this.handleSubmit}>Save changes</button>
 
@@ -325,13 +325,13 @@ class DiscoveryPreferences extends React.Component {
         <div className="overSelect"></div>
           <div id="drink-seek-checkboxes">
             <label className="check-box-text">
-              <input onChange={this.updateCheckBoxValue("drink_seek")} type="checkbox" value="Drink Frequently" />Drink Frequently</label>
+              <input onChange={this.updateCheckBoxValue("drink_seek")} type="checkbox" value="Drink Frequently"  checked={(this.state.drink_seek && this.state.drink_seek.includes("Drink Frequently") )? "true" : ''}/>Drink Frequently</label>
             <label className="check-box-text">
-              <input onChange={this.updateCheckBoxValue("drink_seek")} type="checkbox" value="Drink Socially"/>Drink Socially</label>
+              <input onChange={this.updateCheckBoxValue("drink_seek")} type="checkbox" value="Drink Socially" checked={(this.state.drink_seek && this.state.drink_seek.includes("Drink Socially") )? "true" : ''}/>Drink Socially</label>
             <label className="check-box-text">
-              <input onChange={this.updateCheckBoxValue("drink_seek")} type="checkbox" value="Drink On Occassion"/>Drink On Occassion</label>
+              <input onChange={this.updateCheckBoxValue("drink_seek")} type="checkbox" value="Drink On Occassion" checked={(this.state.drink_seek && this.state.drink_seek.includes("Drink On Occassion") )? "true" : ''}/>Drink On Occassion</label>
             <label className="check-box-text">
-              <input onChange={this.updateCheckBoxValue("drink_seek")} type="checkbox" value="Never Drink"/>Never Drink</label>
+              <input onChange={this.updateCheckBoxValue("drink_seek")} type="checkbox" value="Never Drink" checked={(this.state.drink_seek && this.state.drink_seek.includes("Never Drink") )? "true" : ''}/>Never Drink</label>
 
               <button onClick={this.handleSubmit}>Save changes</button>
 
@@ -348,15 +348,15 @@ class DiscoveryPreferences extends React.Component {
         <div className="overSelect"></div>
           <div id="have-kids-seek-checkboxes">
             <label className="check-box-text">
-              <input onChange={this.updateCheckBoxValue("have_kids_seek")} type="checkbox" value="No Kids" />No Kids</label>
+              <input onChange={this.updateCheckBoxValue("have_kids_seek")} type="checkbox" value="No Kids"  checked={(this.state.have_kids_seek && this.state.have_kids_seek.includes("No Kids") )? "true" : ''}/>No Kids</label>
             <label className="check-box-text">
-              <input onChange={this.updateCheckBoxValue("have_kids_seek")} type="checkbox" value="Have kids and they live with me"/>Have kids and they live with me</label>
+              <input onChange={this.updateCheckBoxValue("have_kids_seek")} type="checkbox" value="Have kids and they live with me" checked={(this.state.have_kids_seek && this.state.have_kids_seek.includes("Have kids and they live with me") )? "true" : ''}/>Have kids and they live with me</label>
             <label className="check-box-text">
-              <input onChange={this.updateCheckBoxValue("have_kids_seek")} type="checkbox" value="Have kids and they sometimes live with me"/>Have kids and they sometimes live with me</label>
+              <input onChange={this.updateCheckBoxValue("have_kids_seek")} type="checkbox" value="Have kids and they sometimes live with me" checked={(this.state.have_kids_seek && this.state.have_kids_seek.includes("Have kids and they sometimes live with me") )? "true" : ''}/>Have kids and they sometimes live with me</label>
             <label className="check-box-text">
-              <input onChange={this.updateCheckBoxValue("have_kids_seek")} type="checkbox" value="Have kids that don't live with me"/>Have kids that don't live with me</label>
+              <input onChange={this.updateCheckBoxValue("have_kids_seek")} type="checkbox" value="Have kids that don't live with me" checked={(this.state.have_kids_seek && this.state.have_kids_seek.includes("Have kids that don't live with me") )? "true" : ''}/>Have kids that don't live with me</label>
             <label className="check-box-text">
-              <input onChange={this.updateCheckBoxValue("have_kids_seek")} type="checkbox" value="Have grown kids"/>Have grown kids</label>
+              <input onChange={this.updateCheckBoxValue("have_kids_seek")} type="checkbox" value="Have grown kids" checked={(this.state.have_kids_seek && this.state.have_kids_seek.includes("Have grown kids") )? "true" : ''}/>Have grown kids</label>
 
             <button onClick={this.handleSubmit}>Save changes</button>
           </div>
@@ -371,11 +371,11 @@ class DiscoveryPreferences extends React.Component {
         <div className="overSelect"></div>
           <div id="want-kids-seek-checkboxes">
             <label className="check-box-text">
-              <input onChange={this.updateCheckBoxValue("want_kids_seek")} type="checkbox" value="Want Kids" />Want Kids</label>
+              <input onChange={this.updateCheckBoxValue("want_kids_seek")} type="checkbox" value="Want Kids"  {(this.state.have_kids_seek && this.state.have_kids_seek.includes("No Kids") )? "true" : ''}/>Want Kids</label>
             <label className="check-box-text">
-              <input onChange={this.updateCheckBoxValue("want_kids_seek")} type="checkbox" value="Don't want kids"/>Don't want kids</label>
+              <input onChange={this.updateCheckBoxValue("want_kids_seek")} type="checkbox" value="Don't want kids" {(this.state.have_kids_seek && this.state.have_kids_seek.includes("No Kids") )? "true" : ''}/>Don't want kids</label>
             <label className="check-box-text">
-              <input onChange={this.updateCheckBoxValue("want_kids_seek")} type="checkbox" value="Don't want to have kids but welcome yours"/>Don't want to have kids but welcome yours</label>
+              <input onChange={this.updateCheckBoxValue("want_kids_seek")} type="checkbox" value="Don't want to have kids but welcome yours" {(this.state.have_kids_seek && this.state.have_kids_seek.includes("No Kids") )? "true" : ''}/>Don't want to have kids but welcome yours</label>
               <button onClick={this.handleSubmit}>Save changes</button>
          </div>
          </div>
