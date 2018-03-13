@@ -8,6 +8,8 @@ import userInfoForm from './user_info_form/user_info_form_container';
 import {AuthRoute, AuthRoute2} from '../util/route_util';
 import Browse from './browse/browse';
 
+import AboutYouWindowContainer from './about_you_window/about_you_window_container'; //
+
 
 
 
@@ -16,6 +18,9 @@ import Browse from './browse/browse';
 const App = () => {
   return (
   <div>
+
+    <Route exact path='/testing' component={AboutYouWindowContainer}/>
+
     <AuthRoute exact path='/' component={WelcomeContainer} />
     <AuthRoute2 exact path='/browse' component={Browse} />
 

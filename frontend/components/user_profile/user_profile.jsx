@@ -68,8 +68,7 @@ class UserProfile extends React.Component {
                 <p className="user-state">, NY</p>
               </div>
 
-              <p className="user-about-me">Just a random guy here, nah mean what I am saying.
-                wondering how this will loookddddddd........</p>
+              <p className="user-about-me">{this.props.currentProfile.description}</p>
 
             </div>
 
