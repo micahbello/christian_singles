@@ -290,7 +290,7 @@ class userInfoForm extends React.Component {
                   <label className="check-box-text">
                     <input onChange={this.updateCheckBoxValue("ethnicity")} type="checkbox" value="Asian" checked={(this.state.ethnicity && this.state.ethnicity.includes("Asian")) ? "true" : ''}/>Asian</label>
                   <label className="check-box-text">
-                    <input onChange={this.updateCheckBoxValue("ethnicity")} type="checkbox" value="Black/African Descent" checked={(this.state.ethnicity && this.state.ethnicity.includes("Black/African Descent")) ? "true" : ''}/>Black/African Descent</label>
+                    <input onChange={this.updateCheckBoxValue("ethnicity")} type="checkbox" value="Black/African Descent" checked={(this.state.ethnicity && this.state.ethnicity.includes("Black/")) ? "true" : ''}/>Black/African Descent</label>
                   <label className="check-box-text">
                     <input onChange={this.updateCheckBoxValue("ethnicity")} type="checkbox" value="Caribbean" checked={(this.state.ethnicity && this.state.ethnicity.includes("Caribbean")) ? "true" : ''}/>Caribbean</label>
                   <label className="check-box-text">
