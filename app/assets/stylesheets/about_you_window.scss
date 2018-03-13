@@ -1,9 +1,15 @@
 .about-you-box {
-  border: 1px solid;
+  border: 1px solid lightgrey;
   height: 428px;
   width: 600px;
   background-color: white;
   border-radius: 3px;
+  z-index: 2;
+  cursor: pointer;
+  position: absolute;
+  margin: auto;
+  margin-left: 451px;
+  margin-top: 200px;
 }
 
 .about-you-box-input {

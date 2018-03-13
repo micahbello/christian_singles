@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
-import AboutYouWindow from './about_you_window';
+import DiscoveryPreferences from './discovery_preferences';
 import { updateUserInfo, getCurrentProfile } from '../../actions/user_actions';
 import { updateUiWindow } from '../../actions/ui_actions';
 
@@ -21,4 +21,4 @@ const mdp = (dispatch) => {
   };
 };
 
-export default withRouter(connect(msp, mdp)(AboutYouWindow));
+export default withRouter(connect(msp, mdp)(DiscoveryPreferences));

@@ -74,49 +74,49 @@ class UserProfile extends React.Component {
 
             <div className="user-attributes-info">
 
-              <div className="user-personal-info">
-                <p className="user-info-icon">i</p>
+              <li className="user-personal-info">
+                <p className="user-info-icon">*</p>
                 <p>5'9'', {this.props.currentProfile.have_kids}, {this.props.currentProfile.want_kids}, {this.props.currentProfile.relocate}
                 </p>
-              </div>
+              </li>
 
-              <div className="user-personal-info">
-                <p className="user-info-icon">i</p>
+              <li className="user-personal-info">
+                <p className="user-info-icon">*</p>
                 <p>{this.props.currentProfile.religion}, {this.props.currentProfile.attendance}</p>
-              </div>
+              </li>
 
-              <div className="user-personal-info">
-                <p className="user-info-icon">i</p>
+              <li className="user-personal-info">
+                <p className="user-info-icon">*</p>
                 <p id="make-reg-font">Mechanic</p><p>, {this.props.currentProfile.education}</p>
-              </div>
+              </li>
 
 
 
-              <div className="user-personal-info">
-                <p className="user-info-icon">i</p>
+              <li className="user-personal-info">
+                <p className="user-info-icon">*</p>
                 <p>Have Bird(s), {this.props.currentProfile.drink}, {this.props.currentProfile.smoke}</p>
-              </div>
+              </li>
 
-              <div className="user-personal-info">
-                <p className="user-info-icon">i</p>
+              <li className="user-personal-info">
+                <p className="user-info-icon">*</p>
                 <p id="make-reg-font">I like </p><p> Basketball</p>
-              </div>
+              </li>
 
-              <div className="user-personal-info">
-                <p className="user-info-icon">i</p>
+              <li className="user-personal-info">
+                <p className="user-info-icon">*</p>
                 <p id="make-reg-font">On a first date I prefer: </p> <p>{this.props.currentProfile.first_date}</p>
-              </div>
+              </li>
 
 
-              <div className="user-personal-info">
-                <p className="user-info-icon">i</p>
+              <li className="user-personal-info">
+                <p className="user-info-icon">*</p>
                 <p>I am looking for: people</p>
-              </div>
+              </li>
 
-              <div className="user-personal-info">
-                <p className="user-info-icon">i</p>
-                <p>Last Online: Today</p>
-              </div>
+              <li className="user-personal-info">
+                <p className="user-info-icon">*</p>
+                <p>Last Online: {this.props.currentProfile.last_online}</p>
+              </li>
 
 
 

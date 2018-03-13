@@ -8,8 +8,7 @@ import userInfoForm from './user_info_form/user_info_form_container';
 import {AuthRoute, AuthRoute2} from '../util/route_util';
 import Browse from './browse/browse';
 
-import AboutYouWindowContainer from './about_you_window/about_you_window_container'; //
-
+import DiscoveryPreferencesContainer from './discovery_preferences/discovery_preferences_container';//
 
 
 
@@ -19,7 +18,7 @@ const App = () => {
   return (
   <div>
 
-    <Route exact path='/testing' component={AboutYouWindowContainer}/>
+    <Route exact path='/discoverypreferences' component={DiscoveryPreferencesContainer}/>
 
     <AuthRoute exact path='/' component={WelcomeContainer} />
     <AuthRoute2 exact path='/browse' component={Browse} />

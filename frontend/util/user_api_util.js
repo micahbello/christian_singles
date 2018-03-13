@@ -1,4 +1,5 @@
 export const updateUserInfo = (user) => {
+  debugger
   return $.ajax ({
     method: 'PATCH',
     url: `/api/users/${user.id}`,

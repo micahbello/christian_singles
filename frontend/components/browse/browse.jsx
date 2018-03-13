@@ -8,12 +8,18 @@ import TopHeaderContainer from '../top_header/top_header_container';
 
 
 
-function Browse() {
-  return (
-    <div className="browse-page">
-    <TopHeaderContainer />
-    </div>
-  );
+class Browse extends React.Component {
+
+
+
+
+  render() {
+    return (
+      <div className="browse-page">
+        <TopHeaderContainer />
+      </div>
+    );
+  }
 }
 
 export default Browse;

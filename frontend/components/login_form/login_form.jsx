@@ -15,6 +15,8 @@ class LoginForm extends React.Component {
   this.updatePassword = this.updatePassword.bind(this);
   }
 
+
+
   handleSubmit(e) {
     e.preventDefault();
     const user = merge({}, this.state);

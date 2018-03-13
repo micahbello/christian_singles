@@ -2,6 +2,7 @@ import React from 'react';
 import { merge } from 'lodash';
 import { Link } from 'react-router-dom';
 import TopHeaderContainer from '../top_header/top_header_container';
+import AboutYouWindowContainer from '../about_you_window/about_you_window_container';
 
 class userInfoForm extends React.Component {
 
@@ -14,6 +15,7 @@ class userInfoForm extends React.Component {
   this.updateValue = this.updateValue.bind(this);
   this.showCheckboxes = this.showCheckboxes.bind(this);
   this.updateCheckBoxValue = this.updateCheckBoxValue.bind(this);
+  this.handleClick = this.handleClick.bind(this);
   }
 
   componentDidMount() {
@@ -76,17 +78,27 @@ class userInfoForm extends React.Component {
     this.props.updateUserInfo(user);
   }
 
+  handleClick() {
+    this.props.updateUiWindow("AboutYouWindow");
+  }
+
+
   render() {
     if (!this.state) {
       return <p>...Loading...</p>
     } else {
+
       return (
+
 
 
         <div className="edit-profile-page">
           <TopHeaderContainer />
 
-          <span class="user-profile-span">
+      {this.props.currentWindow === "AboutYouWindow" ? <AboutYouWindowContainer /> : null}
+
+
+          <span className="user-profile-span">
 
           <h2 className="edit-profile-text">Edit Profile</h2>
 
@@ -117,6 +129,15 @@ class userInfoForm extends React.Component {
               <br/>
 
 
+            <label className="user-info-input-label">{this.state.description
+              ? "About You" : ""}</label>
+              <br/>
+              <input onClick={() => this.handleClick()}
+
+                className="user-info-input-box" type="text"
+                value={this.state.description ? this.state.description : " About You"}/>
+              <br/>
+              <br/>
 
 
             <label className="user-info-input-label">{this.state.have_kids
@@ -266,11 +287,11 @@ class userInfoForm extends React.Component {
                   <label className="check-box-text">
                     <input onChange={this.handleSubmit} onClick={this.updateCheckBoxValue("ethnicity")} type="checkbox" value="Caribbean"/>Caribbean</label>
                   <label className="check-box-text">
-                    <input onChange={this.handleSubmit} onClick={this.updateCheckBoxValue("ethnicity")} type="checkbox" value="Caucasian/White"/>Caucasian/ White</label>
+                    <input onChange={this.handleSubmit} onClick={this.updateCheckBoxValue("ethnicity")} type="checkbox" value="Caucasian/White"/>Caucasian/White</label>
                   <label className="check-box-text">
                     <input onChange={this.handleSubmit} onClick={this.updateCheckBoxValue("ethnicity")} type="checkbox" value="East Indian"/>East Indian</label>
                   <label className="check-box-text">
-                    <input onChange={this.handleSubmit} onClick={this.updateCheckBoxValue("ethnicity")} type="checkbox" value="Hispanic/ Latin"/>Hispanic/ Latin</label>
+                    <input onChange={this.handleSubmit} onClick={this.updateCheckBoxValue("ethnicity")} type="checkbox" value="Hispanic/Latin"/>Hispanic/Latin</label>
                   <label className="check-box-text">
                     <input onChange={this.handleSubmit} onClick={this.updateCheckBoxValue("ethnicity")} type="checkbox" value="Middle Eastern" />Middle Eastern</label>
                   <label className="check-box-text">
@@ -426,9 +447,13 @@ class userInfoForm extends React.Component {
             <br/>
             <br/>
 
-
+          <label className="user-info-input-label">Discovery Preferences</label>
             <br/>
-          </div>
+          <Link to="/discoverypreferences">Edit preferences</Link>
+
+
+
+            </div>
 
           </div>
 

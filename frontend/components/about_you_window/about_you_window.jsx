@@ -10,6 +10,7 @@ class AboutYouWindow extends React.Component {
 
     this.handleSubmit = this.handleSubmit.bind(this);
     this.updateValue = this.updateValue.bind(this);
+    this.handleClick = this.handleClick.bind(this);
   }
 
   componentDidMount() {
@@ -19,25 +20,28 @@ class AboutYouWindow extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    debugger
     const user = merge({}, this.state);
     this.props.updateUserInfo(user);
+    this.props.updateUiWindow(null);
   }
 
   updateValue(field) {
     return (e) => this.setState({[field]: e.currentTarget.value});
   }
 
+  handleClick() {
+    this.props.updateUiWindow(null);
+  }
+
   render() {
     return (
       <div>
-        <button></button>
-        <div></div>
+
 
         <div className="about-you-box">
-          <form onSubmit={(e) => this.handleSubmit(e)}>
+          <form onSubmit={(e) =>this.handleSubmit(e)}>
 
-            <p className="about-you-box-close">X</p>
+            <p onClick={() => this.handleClick()} className="about-you-box-close">X</p>
             <div className="about-you-box-text">
               <h3>About You</h3>
             </div>
