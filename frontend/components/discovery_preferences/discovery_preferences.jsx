@@ -52,31 +52,39 @@ class DiscoveryPreferences extends React.Component {
   }
 
 
-    updateCheckBoxValue(field) {
-  // debugger
-      return (e) => {
-        console.log(`this is the current state of ethnicity: ${this.state[field]}`)
-        if (this.state[field] === null || this.state[field] === "") {
-          this.setState({[field]: e.currentTarget.value});
-        }
-        else if (!this.state[field].includes(e.currentTarget.value)) {
-        this.setState({[field]: this.state[field].concat(`, ${e.currentTarget.value}`)})
-        } else {
+  updateCheckBoxValue(field) {
+    return (e) => {
+      console.log(`this is the state of ethnicity before the click: ${this.state[field]}`)
+      if (this.state[field] === null || this.state[field] === "") {
+        debugger
+        this.setState({[field]: e.currentTarget.value});
+        console.log(`this is the new state of ethnicity: ${this.state[field]}`)
+      }
+      else if (!this.state[field].includes(e.currentTarget.value)) {
+        debugger
 
-          let oldCheckedOptions = this.state[field].split(",");
-          let newCheckedOptions = [];
 
-          oldCheckedOptions.forEach(option => {
-            if (option !== e.currentTarget.value) {
-              newCheckedOptions.push(option);
-            }
-          });
-          console.log(`these should be replacing ethnicities ${newCheckedOptions}`)
-          this.setState({[field]: newCheckedOptions.join(",") })
-        }
-        console.log(`this is the current state of ethnicity after code: ${this.state[field]}`)
+
+      this.setState({[field]: this.state[field].concat(`,${e.currentTarget.value}`)})
+      console.log(`this is the new state of ethnicity: ${this.state[field]}`)
+      } else {
+        debugger
+
+        let oldCheckedOptions = this.state[field].split(",");
+        let newCheckedOptions = [];
+        console.log({oldCheckedOptions})
+
+        oldCheckedOptions.forEach(option => {
+          if (option !== e.currentTarget.value) {
+            console.log(option)
+            newCheckedOptions.push(option);
+          }
+        });
+        this.setState({[field]: newCheckedOptions.join(",") })
+        console.log(`this is the new state of ethnicity: ${this.state[field]}`)
       }
     }
+  }
 
   render() {
 
@@ -107,11 +115,64 @@ class DiscoveryPreferences extends React.Component {
         <div className="overSelect"></div>
           <div id="sex-seek-checkboxes">
             <label className="check-box-text">
-              <input onChange={this.handleSubmit} onClick={this.updateCheckBoxValue("sex_seek")} type="checkbox" value="Men" />Men</label>
+              <input onChange={this.updateCheckBoxValue("sex_seek")} type="checkbox" value="Men" />Men</label>
             <label className="check-box-text">
-              <input onChange={this.handleSubmit} onClick={this.updateCheckBoxValue("sex_seek")} type="checkbox" value="Women"/>Women</label>
+              <input onChange={this.updateCheckBoxValue("sex_seek")} type="checkbox" value="Women"/>Women</label>
+
+            <button onClick={this.handleSubmit}>Save changes</button>
           </div>
          </div>
+
+        <br/>
+        <br/>
+
+        <label className="user-info-input-label">Minimum Age:</label>
+          <br/>
+          <input onChange={this.updateValue("min_age_seek")}
+            onBlur={this.handleSubmit}
+            className="user-info-input-box" type="number" min= "18" max="75"
+            value={this.state.min_age_seek? this.state.min_age_seek : 18}/>
+          <br/>
+        <label className="user-info-input-label">Maximum Age:</label>
+          <br/>
+          <input onChange={this.updateValue("max_age_seek")}
+            onBlur={this.handleSubmit}
+            className="user-info-input-box" type="number" min= "18" max="75"
+            value={this.state.max_age_seek? this.state.max_age_seek : 75}/>
+          <br/>
+          <br/>
+
+
+        <div className="selectBox" onClick={() => this.showCheckboxes("distance-seek-checkboxes")}>
+          <label className="user-info-select-box" id="check-box-select">Distance</label>
+        <div className="overSelect"></div>
+          <div id="distance-seek-checkboxes">
+            <label className="check-box-text">
+              <input  onChange={this.updateCheckBoxValue("distance_seek")} type="checkbox" value="5" />5</label>
+            <label className="check-box-text">
+              <input  onChange={this.updateCheckBoxValue("distance_seek")} type="checkbox" value="10"/>10</label>
+            <label className="check-box-text">
+              <input  onChange={this.updateCheckBoxValue("distance_seek")} type="checkbox" value="25"/>25</label>
+            <label className="check-box-text">
+              <input  onChange={this.updateCheckBoxValue("distance_seek")} type="checkbox" value="50"/>50</label>
+            <label className="check-box-text">
+              <input  onChange={this.updateCheckBoxValue("distance_seek")} type="checkbox" value="100"/>100</label>
+            <label className="check-box-text">
+              <input  onChange={this.updateCheckBoxValue("distance_seek")} type="checkbox" value="500"/>500</label>
+
+            <button onClick={this.handleSubmit}>Save changes</button>
+
+          </div>
+         </div>
+         <p>of</p>
+         <input onChange={this.updateValue("zip_code")}
+           onBlur={this.handleSubmit}
+           className="user-info-input-box" type="number"
+           value={this.state.zip_code}/>
+
+
+
+
 
         <br/>
         <br/>
@@ -121,51 +182,53 @@ class DiscoveryPreferences extends React.Component {
         <div className="overSelect"></div>
           <div id="religion-seek-checkboxes">
             <label className="check-box-text">
-              <input onChange={this.handleSubmit} onClick={this.updateCheckBoxValue("religion_seek")} type="checkbox" value="Anglican" />Anglican</label>
+              <input onChange={this.updateCheckBoxValue("religion_seek")} type="checkbox" value="Anglican" />Anglican</label>
             <label className="check-box-text">
-              <input onChange={this.handleSubmit} onClick={this.updateCheckBoxValue("religion_seek")} type="checkbox" value="Apostolic"/>Apostolic</label>
+              <input onChange={this.updateCheckBoxValue("religion_seek")} type="checkbox" value="Apostolic"/>Apostolic</label>
             <label className="check-box-text">
-              <input onChange={this.handleSubmit} onClick={this.updateCheckBoxValue("religion_seek")} type="checkbox" value="Assembly of God"/>Assembly of God</label>
+              <input onChange={this.updateCheckBoxValue("religion_seek")} type="checkbox" value="Assembly of God"/>Assembly of God</label>
             <label className="check-box-text">
-              <input onChange={this.handleSubmit} onClick={this.updateCheckBoxValue("religion_seek")} type="checkbox" value="Baptist"/>Baptist</label>
+              <input onChange={this.updateCheckBoxValue("religion_seek")} type="checkbox" value="Baptist"/>Baptist</label>
             <label className="check-box-text">
-              <input onChange={this.handleSubmit} onClick={this.updateCheckBoxValue("religion_seek")} type="checkbox" value="Catholic"/>Catholic</label>
+              <input onChange={this.updateCheckBoxValue("religion_seek")} type="checkbox" value="Catholic"/>Catholic</label>
             <label className="check-box-text">
-              <input onChange={this.handleSubmit} onClick={this.updateCheckBoxValue("religion_seek")} type="checkbox" value="Charismatic"/>Charismatic</label>
+              <input onChange={this.updateCheckBoxValue("religion_seek")} type="checkbox" value="Charismatic"/>Charismatic</label>
             <label className="check-box-text">
-              <input onChange={this.handleSubmit} onClick={this.updateCheckBoxValue("religion_seek")} type="checkbox" value="Christian Reformed"/>Christian Reformed</label>
+              <input onChange={this.updateCheckBoxValue("religion_seek")} type="checkbox" value="Christian Reformed"/>Christian Reformed</label>
             <label className="check-box-text">
-              <input onChange={this.handleSubmit} onClick={this.updateCheckBoxValue("religion_seek")} type="checkbox" value="Church of Christ" />Church of Christ</label>
+              <input onChange={this.updateCheckBoxValue("religion_seek")} type="checkbox" value="Church of Christ" />Church of Christ</label>
             <label className="check-box-text">
-              <input onChange={this.handleSubmit} onClick={this.updateCheckBoxValue("religion_seek")} type="checkbox" value="Episcopelian/Anglican" />Episcopelian/Anglican</label>
+              <input onChange={this.updateCheckBoxValue("religion_seek")} type="checkbox" value="Episcopelian/Anglican" />Episcopelian/Anglican</label>
             <label className="check-box-text">
-              <input onChange={this.handleSubmit} onClick={this.updateCheckBoxValue("religion_seek")} type="checkbox" value="Evangelical" />Evangelical</label>
+              <input onChange={this.updateCheckBoxValue("religion_seek")} type="checkbox" value="Evangelical" />Evangelical</label>
             <label className="check-box-text">
-              <input onChange={this.handleSubmit} onClick={this.updateCheckBoxValue("religion_seek")} type="checkbox" value="Interdenominational"/>Interdenominational</label>
+              <input onChange={this.updateCheckBoxValue("religion_seek")} type="checkbox" value="Interdenominational"/>Interdenominational</label>
             <label className="check-box-text">
-              <input onChange={this.handleSubmit} onClick={this.updateCheckBoxValue("religion_seek")} type="checkbox" value="Lutheran" />Lutheran</label>
+              <input onChange={this.updateCheckBoxValue("religion_seek")} type="checkbox" value="Lutheran" />Lutheran</label>
             <label className="check-box-text">
-              <input onChange={this.handleSubmit} onClick={this.updateCheckBoxValue("religion_seek")} type="checkbox" value="Messianic"/>Messianic</label>
+              <input onChange={this.updateCheckBoxValue("religion_seek")} type="checkbox" value="Messianic"/>Messianic</label>
             <label className="check-box-text">
-              <input onChange={this.handleSubmit} onClick={this.updateCheckBoxValue("religion_seek")} type="checkbox" value="Methodist"/>Methodist</label>
+              <input onChange={this.updateCheckBoxValue("religion_seek")} type="checkbox" value="Methodist"/>Methodist</label>
             <label className="check-box-text">
-              <input onChange={this.handleSubmit} onClick={this.updateCheckBoxValue("religion_seek")} type="checkbox" value="Nazarene"/>Nazarene</label>
+              <input onChange={this.updateCheckBoxValue("religion_seek")} type="checkbox" value="Nazarene"/>Nazarene</label>
             <label className="check-box-text">
-              <input onChange={this.handleSubmit} onClick={this.updateCheckBoxValue("religion_seek")} type="checkbox" value="Non-denominational"/>Non-denominational</label>
+              <input onChange={this.updateCheckBoxValue("religion_seek")} type="checkbox" value="Non-denominational"/>Non-denominational</label>
             <label className="check-box-text">
-              <input onChange={this.handleSubmit} onClick={this.updateCheckBoxValue("religion_seek")} type="checkbox" value="Not sure yet"/>Not sure yet</label>
+              <input onChange={this.updateCheckBoxValue("religion_seek")} type="checkbox" value="Not sure yet"/>Not sure yet</label>
             <label className="check-box-text">
-              <input onChange={this.handleSubmit} onClick={this.updateCheckBoxValue("religion_seek")} type="checkbox" value="Orthodox"/>Orthodox</label>
+              <input onChange={this.updateCheckBoxValue("religion_seek")} type="checkbox" value="Orthodox"/>Orthodox</label>
             <label className="check-box-text">
-              <input onChange={this.handleSubmit} onClick={this.updateCheckBoxValue("religion_seek")} type="checkbox" value="Pentecostal" />Pentecostal</label>
+              <input onChange={this.updateCheckBoxValue("religion_seek")} type="checkbox" value="Pentecostal" />Pentecostal</label>
             <label className="check-box-text">
-              <input onChange={this.handleSubmit} onClick={this.updateCheckBoxValue("religion_seek")} type="checkbox" value="Presbyeterian" />Presbyeterian</label>
+              <input onChange={this.updateCheckBoxValue("religion_seek")} type="checkbox" value="Presbyeterian" />Presbyeterian</label>
             <label className="check-box-text">
-              <input onChange={this.handleSubmit} onClick={this.updateCheckBoxValue("religion_seek")} type="checkbox" value="Seventh-Day Adventist" />Seventh-Day Adventist</label>
+              <input onChange={this.updateCheckBoxValue("religion_seek")} type="checkbox" value="Seventh-Day Adventist" />Seventh-Day Adventist</label>
             <label className="check-box-text">
-              <input onChange={this.handleSubmit} onClick={this.updateCheckBoxValue("religion_seek")} type="checkbox" value="Southern Baptist"/>Southern Baptist</label>
+              <input onChange={this.updateCheckBoxValue("religion_seek")} type="checkbox" value="Southern Baptist"/>Southern Baptist</label>
             <label className="check-box-text">
-              <input onChange={this.handleSubmit} onClick={this.updateCheckBoxValue("religion_seek")} type="checkbox" value="Other Religion"/>Other Religion</label>
+              <input onChange={this.updateCheckBoxValue("religion_seek")} type="checkbox" value="Other Religion"/>Other Religion</label>
+
+            <button onClick={this.handleSubmit}>Save changes</button>
           </div>
          </div>
 
@@ -178,13 +241,15 @@ class DiscoveryPreferences extends React.Component {
         <div className="overSelect"></div>
           <div id="relationship-seek-checkboxes">
             <label className="check-box-text">
-              <input onChange={this.handleSubmit} onClick={this.updateCheckBoxValue("relationship_seek")} type="checkbox" value="Friendly/Activity Partner" />Friendly/Activity Partner</label>
+              <input onChange={this.updateCheckBoxValue("relationship_seek")} type="checkbox" value="Friendly/Activity Partner" />Friendly/Activity Partner</label>
             <label className="check-box-text">
-              <input onChange={this.handleSubmit} onClick={this.updateCheckBoxValue("relationship_seek")} type="checkbox" value="Long Term Relationship"/>Long Term Relationship</label>
+              <input onChange={this.updateCheckBoxValue("relationship_seek")} type="checkbox" value="Long Term Relationship"/>Long Term Relationship</label>
             <label className="check-box-text">
-              <input onChange={this.handleSubmit} onClick={this.updateCheckBoxValue("relationship_seek")} type="checkbox" value="Marriage"/>Marriage</label>
+              <input onChange={this.updateCheckBoxValue("relationship_seek")} type="checkbox" value="Marriage"/>Marriage</label>
             <label className="check-box-text">
-              <input onChange={this.handleSubmit} onClick={this.updateCheckBoxValue("relationship_seek")} type="checkbox" value="Marriage and Kids"/>Marriage and Kids</label>
+              <input onChange={this.updateCheckBoxValue("relationship_seek")} type="checkbox" value="Marriage and Kids"/>Marriage and Kids</label>
+
+            <button onClick={this.handleSubmit}>Save changes</button>
           </div>
          </div>
 
@@ -204,6 +269,8 @@ class DiscoveryPreferences extends React.Component {
               <input onChange={this.handleSubmit} onClick={this.updateCheckBoxValue("education_seek")} type="checkbox" value="Master's Degree"/>Master's Degree</label>
             <label className="check-box-text">
               <input onChange={this.handleSubmit} onClick={this.updateCheckBoxValue("education_seek")} type="checkbox" value="Jd/Ph/Post Doc"/>Jd/Ph/Post Doc</label>
+
+            <button onClick={this.handleSubmit}>Save changes</button>
           </div>
          </div>
 
@@ -216,13 +283,15 @@ class DiscoveryPreferences extends React.Component {
         <div className="overSelect"></div>
           <div id="attendance-seek-checkboxes">
             <label className="check-box-text">
-              <input onChange={this.handleSubmit} onClick={this.updateCheckBoxValue("attendance_seek")} type="checkbox" value="Attend church every week" />Attend church every week</label>
+              <input onChange={this.updateCheckBoxValue("attendance_seek")} type="checkbox" value="Attend church every week" />Attend church every week</label>
             <label className="check-box-text">
-              <input onChange={this.handleSubmit} onClick={this.updateCheckBoxValue("attendance_seek")} type="checkbox" value="Attend church on special occassions"/>Attend church on special occassions</label>
+              <input onChange={this.updateCheckBoxValue("attendance_seek")} type="checkbox" value="Attend church on special occassions"/>Attend church on special occassions</label>
             <label className="check-box-text">
-              <input onChange={this.handleSubmit} onClick={this.updateCheckBoxValue("attendance_seek")} type="checkbox" value="Attend church once or twice a month"/>Attend church once or twice a month</label>
+              <input onChange={this.updateCheckBoxValue("attendance_seek")} type="checkbox" value="Attend church once or twice a month"/>Attend church once or twice a month</label>
             <label className="check-box-text">
-              <input onChange={this.handleSubmit} onClick={this.updateCheckBoxValue("attendance_seek")} type="checkbox" value="Attend church several times a year"/>Attend church several times a year</label>
+              <input onChange={this.updateCheckBoxValue("attendance_seek")} type="checkbox" value="Attend church several times a year"/>Attend church several times a year</label>
+
+            <button onClick={this.handleSubmit}>Save changes</button>
           </div>
          </div>
 
@@ -235,13 +304,16 @@ class DiscoveryPreferences extends React.Component {
         <div className="overSelect"></div>
           <div id="smoke-seek-checkboxes">
             <label className="check-box-text">
-              <input onChange={this.handleSubmit} onClick={this.updateCheckBoxValue("smoke-seek")} type="checkbox" value="Smoke regularly" />Smoke regularly</label>
+              <input onChange={this.updateCheckBoxValue("smoke-seek")} type="checkbox" value="Smoke regularly" />Smoke regularly</label>
             <label className="check-box-text">
-              <input onChange={this.handleSubmit} onClick={this.updateCheckBoxValue("smoke-seek")} type="checkbox" value="Smoke occasionally"/>Smoke occasionally</label>
+              <input onChange={this.updateCheckBoxValue("smoke-seek")} type="checkbox" value="Smoke occasionally"/>Smoke occasionally</label>
             <label className="check-box-text">
-              <input onChange={this.handleSubmit} onClick={this.updateCheckBoxValue("smoke-seek")} type="checkbox" value="Non-Smoker"/>Non-Smoker</label>
+              <input onChange={this.updateCheckBoxValue("smoke-seek")} type="checkbox" value="Non-Smoker"/>Non-Smoker</label>
             <label className="check-box-text">
-              <input onChange={this.handleSubmit} onClick={this.updateCheckBoxValue("smoke-seek")} type="checkbox" value="Trying to quit smoking"/>Trying to quit smoking</label>
+              <input onChange={this.updateCheckBoxValue("smoke-seek")} type="checkbox" value="Trying to quit smoking"/>Trying to quit smoking</label>
+
+            <button onClick={this.handleSubmit}>Save changes</button>
+
           </div>
          </div>
 
@@ -253,15 +325,19 @@ class DiscoveryPreferences extends React.Component {
         <div className="overSelect"></div>
           <div id="drink-seek-checkboxes">
             <label className="check-box-text">
-              <input onChange={this.handleSubmit} onClick={this.updateCheckBoxValue("drink_seek")} type="checkbox" value="Drink Frequently" />Drink Frequently</label>
+              <input onChange={this.updateCheckBoxValue("drink_seek")} type="checkbox" value="Drink Frequently" />Drink Frequently</label>
             <label className="check-box-text">
-              <input onChange={this.handleSubmit} onClick={this.updateCheckBoxValue("drink_seek")} type="checkbox" value="Drink Socially"/>Drink Socially</label>
+              <input onChange={this.updateCheckBoxValue("drink_seek")} type="checkbox" value="Drink Socially"/>Drink Socially</label>
             <label className="check-box-text">
-              <input onChange={this.handleSubmit} onClick={this.updateCheckBoxValue("drink_seek")} type="checkbox" value="Drink On Occassion"/>Drink On Occassion</label>
+              <input onChange={this.updateCheckBoxValue("drink_seek")} type="checkbox" value="Drink On Occassion"/>Drink On Occassion</label>
             <label className="check-box-text">
-              <input onChange={this.handleSubmit} onClick={this.updateCheckBoxValue("drink_seek")} type="checkbox" value="Never Drink"/>Never Drink</label>
+              <input onChange={this.updateCheckBoxValue("drink_seek")} type="checkbox" value="Never Drink"/>Never Drink</label>
+
+              <button onClick={this.handleSubmit}>Save changes</button>
+
           </div>
          </div>
+
 
         <br/>
         <br/>
@@ -272,15 +348,17 @@ class DiscoveryPreferences extends React.Component {
         <div className="overSelect"></div>
           <div id="have-kids-seek-checkboxes">
             <label className="check-box-text">
-              <input onChange={this.handleSubmit} onClick={this.updateCheckBoxValue("have_kids_seek")} type="checkbox" value="No Kids" />No Kids</label>
+              <input onChange={this.updateCheckBoxValue("have_kids_seek")} type="checkbox" value="No Kids" />No Kids</label>
             <label className="check-box-text">
-              <input onChange={this.handleSubmit} onClick={this.updateCheckBoxValue("have_kids_seek")} type="checkbox" value="Have kids and they live with me"/>Have kids and they live with me</label>
+              <input onChange={this.updateCheckBoxValue("have_kids_seek")} type="checkbox" value="Have kids and they live with me"/>Have kids and they live with me</label>
             <label className="check-box-text">
-              <input onChange={this.handleSubmit} onClick={this.updateCheckBoxValue("have_kids_seek")} type="checkbox" value="Have kids and they sometimes live with me"/>Have kids and they sometimes live with me</label>
+              <input onChange={this.updateCheckBoxValue("have_kids_seek")} type="checkbox" value="Have kids and they sometimes live with me"/>Have kids and they sometimes live with me</label>
             <label className="check-box-text">
-              <input onChange={this.handleSubmit} onClick={this.updateCheckBoxValue("have_kids_seek")} type="checkbox" value="Have kids that don't live with me"/>Have kids that don't live with me</label>
+              <input onChange={this.updateCheckBoxValue("have_kids_seek")} type="checkbox" value="Have kids that don't live with me"/>Have kids that don't live with me</label>
             <label className="check-box-text">
-              <input onChange={this.handleSubmit} onClick={this.updateCheckBoxValue("have_kids_seek")} type="checkbox" value="Have grown kids"/>Have grown kids</label>
+              <input onChange={this.updateCheckBoxValue("have_kids_seek")} type="checkbox" value="Have grown kids"/>Have grown kids</label>
+
+            <button onClick={this.handleSubmit}>Save changes</button>
           </div>
          </div>
 
@@ -293,11 +371,12 @@ class DiscoveryPreferences extends React.Component {
         <div className="overSelect"></div>
           <div id="want-kids-seek-checkboxes">
             <label className="check-box-text">
-              <input onChange={this.handleSubmit} onClick={this.updateCheckBoxValue("want_kids_seek")} type="checkbox" value="Want Kids" />Want Kids</label>
+              <input onChange={this.updateCheckBoxValue("want_kids_seek")} type="checkbox" value="Want Kids" />Want Kids</label>
             <label className="check-box-text">
-              <input onChange={this.handleSubmit} onClick={this.updateCheckBoxValue("want_kids_seek")} type="checkbox" value="Don't want kids"/>Don't want kids</label>
+              <input onChange={this.updateCheckBoxValue("want_kids_seek")} type="checkbox" value="Don't want kids"/>Don't want kids</label>
             <label className="check-box-text">
-              <input onChange={this.handleSubmit} onClick={this.updateCheckBoxValue("want_kids_seek")} type="checkbox" value="Don't want to have kids but welcome yours"/>Don't want to have kids but welcome yours</label>
+              <input onChange={this.updateCheckBoxValue("want_kids_seek")} type="checkbox" value="Don't want to have kids but welcome yours"/>Don't want to have kids but welcome yours</label>
+              <button onClick={this.handleSubmit}>Save changes</button>
          </div>
          </div>
         <br/>
@@ -309,11 +388,12 @@ class DiscoveryPreferences extends React.Component {
         <div className="overSelect"></div>
           <div id="relocate-seek-checkboxes">
             <label className="check-box-text">
-              <input onChange={this.handleSubmit} onClick={this.updateCheckBoxValue("relocate_seek")} type="checkbox" value="Would consider relocating" />Would consider relocating</label>
+              <input onChange={this.updateCheckBoxValue("relocate_seek")} type="checkbox" value="Would consider relocating" />Would consider relocating</label>
             <label className="check-box-text">
-              <input onChange={this.handleSubmit} onClick={this.updateCheckBoxValue("relocate_seek")} type="checkbox" value="I'd relocate"/>I'd relocate</label>
+              <input onChange={this.updateCheckBoxValue("relocate_seek")} type="checkbox" value="I'd relocate"/>I'd relocate</label>
             <label className="check-box-text">
-              <input onChange={this.handleSubmit} onClick={this.updateCheckBoxValue("relocate_seek")} type="checkbox" value="Won't relocate"/>Won't relocate</label>
+              <input onChange={this.updateCheckBoxValue("relocate_seek")} type="checkbox" value="Won't relocate"/>Won't relocate</label>
+              <button onClick={this.handleSubmit}>Save changes</button>
          </div>
          </div>
         <br/>
@@ -325,11 +405,12 @@ class DiscoveryPreferences extends React.Component {
         <div className="overSelect"></div>
           <div id="marital-status-seek-checkboxes">
             <label className="check-box-text">
-              <input onChange={this.handleSubmit} onClick={this.updateCheckBoxValue("marital_status_seek")} type="checkbox" value="Divorced" />Divorced</label>
+              <input onChange={this.updateCheckBoxValue("marital_status_seek")} type="checkbox" value="Divorced" />Divorced</label>
             <label className="check-box-text">
-              <input onChange={this.handleSubmit} onClick={this.updateCheckBoxValue("marital_status_seek")} type="checkbox" value="Widowed"/>Widowed</label>
+              <input onChange={this.updateCheckBoxValue("marital_status_seek")} type="checkbox" value="Widowed"/>Widowed</label>
             <label className="check-box-text">
-              <input onChange={this.handleSubmit} onClick={this.updateCheckBoxValue("marital_status_seek")} type="checkbox" value="Never Married"/>Never Married</label>
+              <input onChange={this.updateCheckBoxValue("marital_status_seek")} type="checkbox" value="Never Married"/>Never Married</label>
+              <button onClick={this.handleSubmit}>Save changes</button>
          </div>
          </div>
         <br/>
@@ -341,63 +422,65 @@ class DiscoveryPreferences extends React.Component {
         <div className="overSelect"></div>
           <div id="language-seek-checkboxes">
             <label className="check-box-text">
-              <input onChange={this.handleSubmit} onClick={this.updateCheckBoxValue("language_seek")} type="checkbox" value="Arabic"/>Arabic</label>
+              <input onChange={this.updateCheckBoxValue("language_seek")} type="checkbox" value="Arabic"/>Arabic</label>
             <label className="check-box-text">
-              <input onChange={this.handleSubmit} onClick={this.updateCheckBoxValue("language_seek")} type="checkbox" value="Bengali" />Bengali</label>
+              <input onChange={this.updateCheckBoxValue("language_seek")} type="checkbox" value="Bengali" />Bengali</label>
             <label className="check-box-text">
-              <input onChange={this.handleSubmit} onClick={this.updateCheckBoxValue("language_seek")} type="checkbox" value="Bulgarian" />Bulgarian</label>
+              <input onChange={this.updateCheckBoxValue("language_seek")} type="checkbox" value="Bulgarian" />Bulgarian</label>
             <label className="check-box-text">
-              <input onChange={this.handleSubmit} onClick={this.updateCheckBoxValue("language_seek")} type="checkbox" value="Chinese" />Chinese</label>
+              <input onChange={this.updateCheckBoxValue("language_seek")} type="checkbox" value="Chinese" />Chinese</label>
             <label className="check-box-text">
-              <input onChange={this.handleSubmit} onClick={this.updateCheckBoxValue("language_seek")} type="checkbox" value="Czech" />Czech</label>
+              <input onChange={this.updateCheckBoxValue("language_seek")} type="checkbox" value="Czech" />Czech</label>
             <label className="check-box-text">
-              <input onChange={this.handleSubmit} onClick={this.updateCheckBoxValue("language_seek")} type="checkbox" value="Dutch" />Dutch</label>
+              <input onChange={this.updateCheckBoxValue("language_seek")} type="checkbox" value="Dutch" />Dutch</label>
             <label className="check-box-text">
-              <input onChange={this.handleSubmit} onClick={this.updateCheckBoxValue("language_seek")} type="checkbox" value="English" />English</label>
+              <input onChange={this.updateCheckBoxValue("language_seek")} type="checkbox" value="English" />English</label>
             <label className="check-box-text">
-              <input onChange={this.handleSubmit} onClick={this.updateCheckBoxValue("language_seek")} type="checkbox" value="Fijian" />Fijian</label>
+              <input onChange={this.updateCheckBoxValue("language_seek")} type="checkbox" value="Fijian" />Fijian</label>
             <label className="check-box-text">
-              <input onChange={this.handleSubmit} onClick={this.updateCheckBoxValue("language_seek")} type="checkbox" value="French" />French</label>
+              <input onChange={this.updateCheckBoxValue("language_seek")} type="checkbox" value="French" />French</label>
             <label className="check-box-text">
-              <input onChange={this.handleSubmit} onClick={this.updateCheckBoxValue("language_seek")} type="checkbox" value="German" />German</label>
+              <input onChange={this.updateCheckBoxValue("language_seek")} type="checkbox" value="German" />German</label>
             <label className="check-box-text">
-              <input onChange={this.handleSubmit} onClick={this.updateCheckBoxValue("language_seek")} type="checkbox" value="Greek" />Greek</label>
+              <input onChange={this.updateCheckBoxValue("language_seek")} type="checkbox" value="Greek" />Greek</label>
             <label className="check-box-text">
-              <input onChange={this.handleSubmit} onClick={this.updateCheckBoxValue("language_seek")} type="checkbox" value="Hebrew" />Hebrew</label>
+              <input onChange={this.updateCheckBoxValue("language_seek")} type="checkbox" value="Hebrew" />Hebrew</label>
             <label className="check-box-text">
-              <input onChange={this.handleSubmit} onClick={this.updateCheckBoxValue("language_seek")} type="checkbox" value="Hindi" />Hindi</label>
+              <input onChange={this.updateCheckBoxValue("language_seek")} type="checkbox" value="Hindi" />Hindi</label>
             <label className="check-box-text">
-              <input onChange={this.handleSubmit} onClick={this.updateCheckBoxValue("language_seek")} type="checkbox" value="Italian" />Italian</label>
+              <input onChange={this.updateCheckBoxValue("language_seek")} type="checkbox" value="Italian" />Italian</label>
             <label className="check-box-text">
-              <input onChange={this.handleSubmit} onClick={this.updateCheckBoxValue("language_seek")} type="checkbox" value="Japanese" />Japanese</label>
+              <input onChange={this.updateCheckBoxValue("language_seek")} type="checkbox" value="Japanese" />Japanese</label>
             <label className="check-box-text">
-              <input onChange={this.handleSubmit} onClick={this.updateCheckBoxValue("language_seek")} type="checkbox" value="Korean" />Korean</label>
+              <input onChange={this.updateCheckBoxValue("language_seek")} type="checkbox" value="Korean" />Korean</label>
             <label className="check-box-text">
-              <input onChange={this.handleSubmit} onClick={this.updateCheckBoxValue("language_seek")} type="checkbox" value="Malay" />Malay</label>
+              <input onChange={this.updateCheckBoxValue("language_seek")} type="checkbox" value="Malay" />Malay</label>
             <label className="check-box-text">
-              <input onChange={this.handleSubmit} onClick={this.updateCheckBoxValue("language_seek")} type="checkbox" value="Mandarin" />Manadarin</label>
+              <input onChange={this.updateCheckBoxValue("language_seek")} type="checkbox" value="Mandarin" />Manadarin</label>
             <label className="check-box-text">
-              <input onChange={this.handleSubmit} onClick={this.updateCheckBoxValue("language_seek")} type="checkbox" value="Norwegianc" />Norwegian</label>
+              <input onChange={this.updateCheckBoxValue("language_seek")} type="checkbox" value="Norwegianc" />Norwegian</label>
             <label className="check-box-text">
-              <input onChange={this.handleSubmit} onClick={this.updateCheckBoxValue("language_seek")} type="checkbox" value="Polish" />Polish</label>
+              <input onChange={this.updateCheckBoxValue("language_seek")} type="checkbox" value="Polish" />Polish</label>
             <label className="check-box-text">
-              <input onChange={this.handleSubmit} onClick={this.updateCheckBoxValue("language_seek")} type="checkbox" value="Portuguese"/>Portuguese</label>
+              <input onChange={this.updateCheckBoxValue("language_seek")} type="checkbox" value="Portuguese"/>Portuguese</label>
             <label className="check-box-text">
-              <input onChange={this.handleSubmit} onClick={this.updateCheckBoxValue("language_seek")} type="checkbox" value="Romanian" />Romanian</label>
+              <input onChange={this.updateCheckBoxValue("language_seek")} type="checkbox" value="Romanian" />Romanian</label>
             <label className="check-box-text">
-              <input onChange={this.handleSubmit} onClick={this.updateCheckBoxValue("language_seek")} type="checkbox" value="Russian" />Russian</label>
+              <input onChange={this.updateCheckBoxValue("language_seek")} type="checkbox" value="Russian" />Russian</label>
             <label className="check-box-text">
-              <input onChange={this.handleSubmit} onClick={this.updateCheckBoxValue("language_seek")} type="checkbox" value="Samoan" />Samoan</label>
+              <input onChange={this.updateCheckBoxValue("language_seek")} type="checkbox" value="Samoan" />Samoan</label>
             <label className="check-box-text">
-              <input onChange={this.handleSubmit} onClick={this.updateCheckBoxValue("language_seek")} type="checkbox" value="Spanish" />Spanish</label>
+              <input onChange={this.updateCheckBoxValue("language_seek")} type="checkbox" value="Spanish" />Spanish</label>
             <label className="check-box-text">
-              <input onChange={this.handleSubmit} onClick={this.updateCheckBoxValue("language_seek")} type="checkbox" value="Swedish" />Swedish</label>
+              <input onChange={this.updateCheckBoxValue("language_seek")} type="checkbox" value="Swedish" />Swedish</label>
             <label className="check-box-text">
-              <input onChange={this.handleSubmit} onClick={this.updateCheckBoxValue("language_seek")} type="checkbox" value="Tagalog" />Tagalog</label>
+              <input onChange={this.updateCheckBoxValue("language_seek")} type="checkbox" value="Tagalog" />Tagalog</label>
             <label className="check-box-text">
-              <input onChange={this.handleSubmit} onClick={this.updateCheckBoxValue("language_seek")} type="checkbox" value="Thai" />Thai</label>
+              <input onChange={this.updateCheckBoxValue("language_seek")} type="checkbox" value="Thai" />Thai</label>
             <label className="check-box-text">
-              <input onChange={this.handleSubmit} onClick={this.updateCheckBoxValue("language_seek")} type="checkbox" value="Vietnamese" />Vietnamese</label>
+              <input onChange={this.updateCheckBoxValue("language_seek")} type="checkbox" value="Vietnamese" />Vietnamese</label>
+
+              <button onClick={this.handleSubmit}>Save changes</button>
             </div>
          </div>
 
@@ -410,34 +493,36 @@ class DiscoveryPreferences extends React.Component {
         <div className="overSelect"></div>
           <div id="ethnicity-seek-checkboxes">
             <label className="check-box-text">
-              <input onChange={this.handleSubmit} onClick={this.updateCheckBoxValue("ethnicity_seek")} type="checkbox" value="African" />African</label>
+              <input onChange={this.updateCheckBoxValue("ethnicity_seek")} type="checkbox" value="African" />African</label>
             <label className="check-box-text">
-              <input onChange={this.handleSubmit} onClick={this.updateCheckBoxValue("ethnicity_seek")} type="checkbox" value="Asian"/>Asian</label>
+              <input onChange={this.updateCheckBoxValue("ethnicity_seek")} type="checkbox" value="Asian"/>Asian</label>
             <label className="check-box-text">
-              <input onChange={this.handleSubmit} onClick={this.updateCheckBoxValue("ethnicity_seek")} type="checkbox" value="Black/African Descent"/>Black/African Descent</label>
+              <input onChange={this.updateCheckBoxValue("ethnicity_seek")} type="checkbox" value="Black/African Descent"/>Black/African Descent</label>
             <label className="check-box-text">
-              <input onChange={this.handleSubmit} onClick={this.updateCheckBoxValue("ethnicity_seek")} type="checkbox" value="Caribbean"/>Caribbean</label>
+              <input onChange={this.updateCheckBoxValue("ethnicity_seek")} type="checkbox" value="Caribbean"/>Caribbean</label>
             <label className="check-box-text">
-              <input onChange={this.handleSubmit} onClick={this.updateCheckBoxValue("ethnicity_seek")} type="checkbox" value="Caucasian/White"/>Caucasian/White</label>
+              <input onChange={this.updateCheckBoxValue("ethnicity_seek")} type="checkbox" value="Caucasian/White"/>Caucasian/White</label>
             <label className="check-box-text">
-              <input onChange={this.handleSubmit} onClick={this.updateCheckBoxValue("ethnicity_seek")} type="checkbox" value="East Indian"/>East Indian</label>
+              <input onChange={this.updateCheckBoxValue("ethnicity_seek")} type="checkbox" value="East Indian"/>East Indian</label>
             <label className="check-box-text">
-              <input onChange={this.handleSubmit} onClick={this.updateCheckBoxValue("ethnicity_seek")} type="checkbox" value="Hispanic/Latin"/>Hispanic/Latin</label>
+              <input onChange={this.updateCheckBoxValue("ethnicity_seek")} type="checkbox" value="Hispanic/Latin"/>Hispanic/Latin</label>
             <label className="check-box-text">
-              <input onChange={this.handleSubmit} onClick={this.updateCheckBoxValue("ethnicity_seek")} type="checkbox" value="Middle Eastern" />Middle Eastern</label>
+              <input onChange={this.updateCheckBoxValue("ethnicity_seek")} type="checkbox" value="Middle Eastern" />Middle Eastern</label>
             <label className="check-box-text">
-              <input onChange={this.handleSubmit} onClick={this.updateCheckBoxValue("ethnicity_seek")} type="checkbox" value="Native American" />Native American</label>
+              <input onChange={this.updateCheckBoxValue("ethnicity_seek")} type="checkbox" value="Native American" />Native American</label>
             <label className="check-box-text">
-              <input onChange={this.handleSubmit} onClick={this.updateCheckBoxValue("ethnicity_seek")} type="checkbox" value="Pacific Islander" />Pacific Islander</label>
+              <input onChange={this.updateCheckBoxValue("ethnicity_seek")} type="checkbox" value="Pacific Islander" />Pacific Islander</label>
             <label className="check-box-text">
-              <input onChange={this.handleSubmit} onClick={this.updateCheckBoxValue("ethnicity_seek")} type="checkbox" value="Other Ethnicity"/>Other Ethnicity</label>
+              <input onChange={this.updateCheckBoxValue("ethnicity_seek")} type="checkbox" value="Other Ethnicity"/>Other Ethnicity</label>
+
+              <button onClick={this.handleSubmit}>Save changes</button>
           </div>
          </div>
 
         <br/>
         <br/>
 
-        <div class="preferces-submit-button">
+        <div className="preferces-submit-button">
 
           <Link to="/editprofile">Submit</Link>
         </div>

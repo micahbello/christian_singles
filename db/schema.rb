@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180313155420) do
+ActiveRecord::Schema.define(version: 20180313155956) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -62,6 +62,11 @@ ActiveRecord::Schema.define(version: 20180313155420) do
     t.string "smoke_seek"
     t.string "drink_seek"
     t.integer "distance_seek"
+    t.integer "age"
+    t.integer "min_height_seek"
+    t.integer "max_height_seek"
+    t.integer "min_age_seek"
+    t.integer "max_age_seek"
   end
 
 end
