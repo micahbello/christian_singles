@@ -22,7 +22,7 @@ class userInfoForm extends React.Component {
     if (this.state) {
       null
     } else {
-      debugger
+
       this.props.getCurrentProfile(this.props.currentUser.id).then((action) => {
         this.setState(action.currentProfile)
       })
@@ -48,19 +48,17 @@ class userInfoForm extends React.Component {
     return (e) => {
       console.log(`this is the state of ethnicity before the click: ${this.state[field]}`)
       if (this.state[field] === null || this.state[field] === "") {
-        debugger
+
         this.setState({[field]: e.currentTarget.value});
         console.log(`this is the new state of ethnicity: ${this.state[field]}`)
       }
       else if (!this.state[field].includes(e.currentTarget.value)) {
-        debugger
 
 
 
       this.setState({[field]: this.state[field].concat(`,${e.currentTarget.value}`)})
       console.log(`this is the new state of ethnicity: ${this.state[field]}`)
       } else {
-        debugger
 
         let oldCheckedOptions = this.state[field].split(",");
         let newCheckedOptions = [];
@@ -220,7 +218,7 @@ class userInfoForm extends React.Component {
                 <option value="Charismatic">Charismatic</option>
                 <option value="Christian Reformed">Christian Reformed</option>
                 <option value="Church of Christ">Church of Christ</option>
-                <option value="Episcopalian/Anglican">Episcopalian/Anglican</option>
+                <option value="Episcopalian">Episcopalian</option>
                 <option value="Evangelical">Evangelical</option>
                 <option value="Interdenominational">Interdenominational</option>
                 <option value="Lutheran">Lutheran</option>
@@ -279,10 +277,17 @@ class userInfoForm extends React.Component {
             </select>
               <br/>
               <br/>
+
+
+            <label className="user-info-input-label">{this.state.ethnicity
+              ? "Ethnicity" : ""}</label>
               <br/>
 
               <div className="selectBox" onClick={() => this.showCheckboxes("ethnicity-checkboxes")}>
-                <label className="user-info-select-box" id="check-box-select">Ethnicity</label>
+                <label className="user-info-dropdown-select-box" id="check-box-select">
+                  {this.state.ethnicity
+                    ? `${this.state.ethnicity.split(",")[0]}...` : "Ethnicity"}
+                </label>
               <div className="overSelect"></div>
                 <div id="ethnicity-checkboxes">
                   <label className="check-box-text">
@@ -290,7 +295,7 @@ class userInfoForm extends React.Component {
                   <label className="check-box-text">
                     <input onChange={this.updateCheckBoxValue("ethnicity")} type="checkbox" value="Asian" checked={(this.state.ethnicity && this.state.ethnicity.includes("Asian")) ? "true" : ''}/>Asian</label>
                   <label className="check-box-text">
-                    <input onChange={this.updateCheckBoxValue("ethnicity")} type="checkbox" value="Black/African Descent" checked={(this.state.ethnicity && this.state.ethnicity.includes("Black/")) ? "true" : ''}/>Black/African Descent</label>
+                    <input onChange={this.updateCheckBoxValue("ethnicity")} type="checkbox" value="Black" checked={(this.state.ethnicity && this.state.ethnicity.includes("Black")) ? "true" : ''}/>Black</label>
                   <label className="check-box-text">
                     <input onChange={this.updateCheckBoxValue("ethnicity")} type="checkbox" value="Caribbean" checked={(this.state.ethnicity && this.state.ethnicity.includes("Caribbean")) ? "true" : ''}/>Caribbean</label>
                   <label className="check-box-text">
@@ -315,10 +320,17 @@ class userInfoForm extends React.Component {
 
 
               <br/>
-              <br/>
+
+              <label className="user-info-input-label">{this.state.language
+                ? "Language" : ""}</label>
+                <br/>
 
               <div className="selectBox" onClick={() => this.showCheckboxes("language-checkboxes")}>
-                <label className="user-info-select-box" id="check-box-select">Language</label>
+                <label className="user-info-dropdown-select-box" id="check-box-select">
+                  {this.state.language
+                    ? `${this.state.language.split(",")[0]}...` : "Language"}
+                  </label>
+
               <div className="overSelect"></div>
                 <div id="language-checkboxes">
                   <label className="check-box-text">
@@ -358,7 +370,7 @@ class userInfoForm extends React.Component {
                   <label className="check-box-text">
                     <input onChange={this.updateCheckBoxValue("language")} type="checkbox" value="Mandarin" checked={(this.state.language && this.state.language.includes("Mandarin") )? "true" : ''}/>Manadarin</label>
                   <label className="check-box-text">
-                    <input onChange={this.updateCheckBoxValue("language")} type="checkbox" value="Norwegianc" checked={(this.state.language && this.state.language.includes("Norwegian") )? "true" : ''}/>Norwegian</label>
+                    <input onChange={this.updateCheckBoxValue("language")} type="checkbox" value="Norwegian" checked={(this.state.language && this.state.language.includes("Norwegian") )? "true" : ''}/>Norwegian</label>
                   <label className="check-box-text">
                     <input onChange={this.updateCheckBoxValue("language")} type="checkbox" value="Polish" checked={(this.state.language && this.state.language.includes("Polish") )? "true" : ''}/>Polish</label>
                   <label className="check-box-text">
@@ -385,10 +397,16 @@ class userInfoForm extends React.Component {
                </div>
 
               <br/>
+
+            <label className="user-info-input-label">{this.state.pets
+              ? "Pets" : ""}</label>
               <br/>
 
               <div className="selectBox" onClick={() => this.showCheckboxes("pets-checkboxes")}>
-                <label className="user-info-select-box" id="check-box-select">Pets</label>
+                <label className="user-info-dropdown-select-box" id="check-box-select">
+                  {this.state.pets
+                    ? `${this.state.pets.split(",")[0]}...` : "Pets"}
+                </label>
               <div className="overSelect"></div>
                 <div id="pets-checkboxes">
                   <label className="check-box-text">
@@ -441,14 +459,20 @@ class userInfoForm extends React.Component {
               <br/>
               <br/>
 
+
+          <label className="user-info-input-label">{this.state.first_date
+            ? "Peferred First Date" : ""}</label>
             <br/>
 
             <div className="selectBox" onClick={() => this.showCheckboxes("dates-checkboxes")}>
-              <label className="user-info-select-box" id="check-box-select">Preferred First Date</label>
+              <label className="user-info-dropdown-select-box" id="check-box-select">
+                {this.state.first_date
+                  ? `${this.state.first_date.split(",")[0]}...` : "Peferred First Date"}
+              </label>
             <div className="overSelect"></div>
               <div id="dates-checkboxes">
                 <label className="check-box-text">
-                  <input onChange={this.updateCheckBoxValue("first_date")} type="checkbox" value="Coffee or tea" checked={(this.state.first_date && this.state.first_date.includes("Coffee or Tea") )? "true" : ''}  />Coffee or tea</label>
+                  <input onChange={this.updateCheckBoxValue("first_date")} type="checkbox" value="Coffee or tea" checked={(this.state.first_date && this.state.first_date.includes("Coffee or tea") )? "true" : ''}  />Coffee or tea</label>
                 <label className="check-box-text">
                   <input onChange={this.updateCheckBoxValue("first_date")} type="checkbox" value="Drinks"  checked={(this.state.first_date && this.state.first_date.includes("Drinks") )? "true" : ''}  />Drinks</label>
                 <label className="check-box-text">
@@ -464,11 +488,10 @@ class userInfoForm extends React.Component {
              </div>
 
             <br/>
-            <br/>
 
           <label className="user-info-input-label">Discovery Preferences</label>
             <br/>
-          <Link to="/discoverypreferences">Edit preferences</Link>
+          <Link className="edit-preferences-link" to="/discoverypreferences">Edit preferences</Link>
 
             </div>
 

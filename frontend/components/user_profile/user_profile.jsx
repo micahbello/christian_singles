@@ -59,63 +59,176 @@ class UserProfile extends React.Component {
 
             <div className="user-bio">
               <div className="user-name-age-container">
-                <p className="user-display_name">{this.props.currentProfile.display_name}</p>
-                <p className="user-age">, 48</p>
+                <p className="user-display_name">
+                  {this.state.display_name ?
+                    this.state.display_name : this.state.username }</p>
+                  <p className="user-age">{this.state.age ? `{, ${this.state.age}}` : ""}</p>
               </div>
 
               <div className="user-location">
-                <p className="user-city">New York</p>
-                <p className="user-state">, NY</p>
+                <p className="user-city">{this.state.city}</p>
+                <p className="user-state">{this.state.state ? `, ${this.state.state}` : ""}</p>
               </div>
 
-              <p className="user-about-me">{this.props.currentProfile.description}</p>
+              <p className={this.state.description ? "user-about-me" : "currently-hidden"}>{this.state.description}</p>
 
             </div>
 
             <div className="user-attributes-info">
 
+              <li className=
+                {(this.state.height ||
+                this.state.have_kids ||
+                this.state.want_kids ||
+                this.state.relocate) ?
+                "user-personal-info" :
+                "currently-hidden"}>
+
+
+                <p className="user-info-icon">
+                {(this.state.height ||
+                this.state.have_kids ||
+                this.state.want_kids ||
+                this.state.relocate ) ?
+                "*" : ""}
+                </p>
+
+                <p>{this.state.height}
+
+                  {(this.state.height && this.state.have_kids) ? `, ${this.state.have_kids}` : ""}
+                  {(!this.state.height && this.state.have_kids) ? this.state.have_kids : ""}
+
+                  {((this.state.have_kids || this.state.height) && this.state.want_kids ) ? `, ${this.state.want_kids}` : ""}
+                  {((!this.state.have_kids && !this.state.height) && this.state.want_kids ) ? this.state.want_kids : ""}
+
+
+                  {((this.state.have_kids || this.state.want_kids || this.state.height) && this.state.relocate) ? `, ${this.state.relocate}` : ""}
+                  {((!this.state.have_kids && !this.state.want_kids && !this.state.height) && this.state.relocate) ? this.state.relocate : ""}
+                </p>
+              </li>
+
+
+
+              <li className=
+                {(this.state.religion ||
+                this.state.attendance) ?
+                "user-personal-info" :
+                "currently-hidden"}>
+
+                <p className="user-info-icon">
+                  {(this.state.religion ||
+                  this.state.attendance) ?
+                  "*" : ""}
+                </p>
+
+                <p>
+                  {this.state.religion}
+
+                  {(this.state.religion && this.state.attendance) ? `, ${this.state.attendance}` : ""}
+                  {(!this.state.religion && this.state.attendance) ? this.state.attendance : ""}
+                </p>
+              </li>
+
+
+              <li className=
+                {(this.state.occupation ||
+                this.state.education) ?
+                "user-personal-info" :
+                "currently-hidden"}>
+
+                <p className="user-info-icon">
+                  {(this.state.occupation ||
+                  this.state.education) ?
+                  "*" : ""}
+                </p>
+                <p id="make-reg-font">
+                  {this.state.occupation}
+
+                  {(this.state.occupation && this.state.education) ? `, ${this.state.education}` : "" }
+                  {(!this.state.occupation && this.state.education) ? this.state.education : "" }
+                </p>
+              </li>
+
+              <li className={this.state.language ?
+                  "user-personal-info" :
+                  "currently-hidden"}>
+
+                <p className="user-info-icon">
+                  {this.state.language ?
+                  "*" : ""}
+                </p>
+                <p id="make-reg-font">
+                {this.state.language ? "Speaks: " : ""} 
+                {(this.state.language && this.state.language.includes(",")) ? this.state.language.split(",").join(", ") : this.state.language}
+
+                </p>
+              </li>
+
+
+              <li className=
+                {(this.state.pets ||
+                this.state.drink ||
+                this.state.smoke) ?
+                "user-personal-info" :
+                "currently-hidden"}>
+
+                <p className="user-info-icon">
+                  {(this.state.pets ||
+                  this.state.drink ||
+                  this.state.smoke) ?
+                  "*" : ""}
+                </p>
+                <p>
+
+                  {(this.state.pets && this.state.pets.includes(",")) ? this.state.pets.split(",").join(", ") : this.state.pets}
+
+                  {(this.state.pets && this.state.drink) ? `, ${this.state.drink}` : "" }
+                  {(!this.state.pets && this.state.drink) ? this.state.drink : "" }
+
+                  {((this.state.pets || this.state.drink) && this.state.smoke ) ? `, ${this.state.smoke}` : ""}
+                  {((!this.state.pets && !this.state.drink) && this.state.smoke ) ? this.state.smoke : ""}
+                </p>
+              </li>
+
+              <li className=
+                {this.state.hobbies ?
+                "user-personal-info" :
+                "currently-hidden"}>
+
+                <p className="user-info-icon">
+                  {this.state.hobbies ? "*" : ""}
+                </p>
+                <p>
+                  {this.state.hobbies}
+                </p>
+              </li>
+
+              <li className={
+                  this.state.first_date ?
+                  "user-personal-info" :
+                  "currently-hidden"}>
+
+                <p className="user-info-icon">
+                {this.state.first_date ? "*" : ""}
+                </p>
+                <p>
+                  {this.state.first_date ? `On a first date I prefer: ${this.state.first_date}` : ""}
+                </p>
+              </li>
+
+
               <li className="user-personal-info">
                 <p className="user-info-icon">*</p>
-                <p>5'9'', {this.props.currentProfile.have_kids}, {this.props.currentProfile.want_kids}, {this.props.currentProfile.relocate}
+                <p>
+                  I am looking for: {this.sex_seek}
+                  {(!this.sex_seek && this.state.gender === "male") ? "Women" : ""}
+                  {(!this.sex_seek && this.state.gender === "female") ? "Men" : ""}
                 </p>
               </li>
 
               <li className="user-personal-info">
                 <p className="user-info-icon">*</p>
-                <p>{this.props.currentProfile.religion}, {this.props.currentProfile.attendance}</p>
-              </li>
-
-              <li className="user-personal-info">
-                <p className="user-info-icon">*</p>
-                <p id="make-reg-font">Mechanic</p><p>, {this.props.currentProfile.education}</p>
-              </li>
-
-
-
-              <li className="user-personal-info">
-                <p className="user-info-icon">*</p>
-                <p>Have Bird(s), {this.props.currentProfile.drink}, {this.props.currentProfile.smoke}</p>
-              </li>
-
-              <li className="user-personal-info">
-                <p className="user-info-icon">*</p>
-                <p id="make-reg-font">I like </p><p> Basketball</p>
-              </li>
-
-              <li className="user-personal-info">
-                <p className="user-info-icon">*</p>
-                <p id="make-reg-font">On a first date I prefer: </p> <p>{this.props.currentProfile.first_date}</p>
-              </li>
-
-
-              <li className="user-personal-info">
-                <p className="user-info-icon">*</p>
-                <p>I am looking for: people</p>
-              </li>
-
-              <li className="user-personal-info">
-                <p className="user-info-icon">*</p>
-                <p>Last Online: {this.props.currentProfile.last_online}</p>
+                <p>Last Online: {this.state.last_online}</p>
               </li>
 
 
@@ -136,6 +249,7 @@ class UserProfile extends React.Component {
 
 
 export default UserProfile;
+
 
 // <div className="user-personal-info">
 //   <p className="user-info-icon">i</p>

@@ -6,6 +6,7 @@
   max-width: 350px;
   font-family: sans-serif;
   margin-left: 435px;
+  min-width: 350px;
 }
 
 .user-profile-span {
@@ -84,6 +85,19 @@
   margin-bottom: -8px;
 }
 
+.edit-preferences-link {
+  font-family: sans-serif;
+    text-decoration: none;
+    color: #0098dc;
+}
+
 #make-reg-font {
   font-weight: normal;
+}
+
+////this one is to hide container if there is no current data
+//entered
+
+.currently-hidden {
+  display: none;
 }
