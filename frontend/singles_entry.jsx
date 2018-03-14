@@ -5,13 +5,14 @@ import configureStore from './store/store';
 import Root from './components/root';
 
 import  { getCurrentProfile } from './actions/user_actions'; ///testing
+import { getAllUsers } from './actions/index_actions'; ///testingggg
 
 
 window.getCurrentProfile = getCurrentProfile;
 window.signup = signup;
 window.login = login;
 window.logout = logout;
-
+window.getAllUsers = getAllUsers;
 
 
 document.addEventListener('DOMContentLoaded', () => {
