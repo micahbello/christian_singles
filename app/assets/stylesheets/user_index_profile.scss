@@ -1,0 +1,24 @@
+.user-index-profile-box {
+  border: 1px solid #e6e6de;
+  width: 250px;
+  max-width: 250px;
+  margin: 5px;
+  height: 280px;
+  max-height: 280px;
+
+  display: inline-grid;
+  justify-content: center;
+  background-color: white;
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.user-index-profile-box-pic{
+  border: 1px solid;
+  height: 219px;
+  max-height: 219px;
+  width: 222px;
+  max-width: 219px;
+  margin-top: 13px;
+  background-color: grey;
+}

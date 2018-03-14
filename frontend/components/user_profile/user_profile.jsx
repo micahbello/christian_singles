@@ -154,11 +154,16 @@ class UserProfile extends React.Component {
                   "currently-hidden"}>
 
                 <p className="user-info-icon">
-                  {this.state.language ?
+                  {(this.state.language ||
+                    this.state.ethnicity) ?
                   "*" : ""}
                 </p>
-                <p id="make-reg-font">
-                {this.state.language ? "Speaks: " : ""} 
+                <p>
+
+                {(this.state.ethnicity && this.state.ethnicity.includes(",")) ? this.state.ethnicity.split(",").join(", ") : this.state.ethnicity}
+
+                <span id="make-reg-font">{(this.state.language && !this.state.ethnicity) ? "Speaks: " : ""}</span>
+                <span id="make-reg-font">{(this.state.language && this.state.ethnicity) ? ", Speaks: " : ""}</span>
                 {(this.state.language && this.state.language.includes(",")) ? this.state.language.split(",").join(", ") : this.state.language}
 
                 </p>
@@ -219,7 +224,7 @@ class UserProfile extends React.Component {
 
               <li className="user-personal-info">
                 <p className="user-info-icon">*</p>
-                <p>
+                <p className="">
                   I am looking for: {this.sex_seek}
                   {(!this.sex_seek && this.state.gender === "male") ? "Women" : ""}
                   {(!this.sex_seek && this.state.gender === "female") ? "Men" : ""}

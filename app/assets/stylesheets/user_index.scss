@@ -1,0 +1,29 @@
+.user-index-page {
+  background-color: #F5F5F5;
+  margin-top: 53px;
+  height: 100vh;
+  width: 100.3%;
+  margin-top: 25px;
+  display: flex;
+  justify-content: center;
+  // align-items: center; ////
+  overflow: scroll;
+}
+
+
+.user-index-profiles-container {
+  border: 1px solid;
+  max-width: 787px;
+  min-height: 300px;
+
+  // flex-wrap: wrap;
+  display: table;
+  justify-content: center;
+
+
+  //
+  // position:fixed;
+  margin-top:100px;///????????
+  // overflow: scroll;
+
+}
