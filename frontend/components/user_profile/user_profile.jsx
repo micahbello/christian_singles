@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import TopHeaderContainer from '../top_header/top_header_container';
 
 
+
 class UserProfile extends React.Component {
 
   constructor(props) {
@@ -22,6 +23,11 @@ class UserProfile extends React.Component {
     }
   }
 
+  componentWillUnmount() {
+    debugger
+    this.props.getCurrentProfile(null)
+  }
+
 
   render() {
 
@@ -31,6 +37,7 @@ class UserProfile extends React.Component {
       return (
 
         <div className="edit-profile-page">
+
           <TopHeaderContainer />
 
           <div className="user-profile-span">

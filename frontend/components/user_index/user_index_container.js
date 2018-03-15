@@ -2,16 +2,17 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import UserIndex from './user_index';
+import{ getAllUsers } from '../../actions/index_actions';
 
 const msp = (state) => {
   return {
-    currentProfile: state.session.currentProfile
+    currentIndexProfiles: state.session.currentIndexProfiles
   };
 };
 
 const mdp = (dispatch) => {
   return {
-    getCurrentProfile: () => dispatch(getCurrentProfile())
+    getAllUsers: () => dispatch(getAllUsers())
   };
 };
 

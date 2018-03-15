@@ -1,2 +1,8 @@
-<h1>Api::Users#index</h1>
-<p>Find me in app/views/api/users/index.html.erb</p>
+# json.array! @users, :id, :username
+
+
+  @users.each do |user|
+    json.set! user.id do
+      json.extract! user, :id, :username
+    end
+  end

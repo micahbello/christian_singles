@@ -1,8 +1,8 @@
 import React from 'react';
 import { merge } from 'lodash';
 import { Link } from 'react-router-dom';
-import TopHeaderContainer from '../top_header/top_header_container';
 import AboutYouWindowContainer from '../about_you_window/about_you_window_container';
+import TopHeaderContainer from '../top_header/top_header_container';
 
 class userInfoForm extends React.Component {
 
@@ -11,11 +11,11 @@ class userInfoForm extends React.Component {
     super(props);
     this.state = this.props.currentProfile;
 
-  this.handleSubmit = this.handleSubmit.bind(this);
-  this.updateValue = this.updateValue.bind(this);
-  this.showCheckboxes = this.showCheckboxes.bind(this);
-  this.updateCheckBoxValue = this.updateCheckBoxValue.bind(this);
-  this.handleClick = this.handleClick.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
+    this.updateValue = this.updateValue.bind(this);
+    this.showCheckboxes = this.showCheckboxes.bind(this);
+    this.updateCheckBoxValue = this.updateCheckBoxValue.bind(this);
+    this.handleClick = this.handleClick.bind(this);
   }
 
   componentDidMount() {
@@ -39,39 +39,27 @@ class userInfoForm extends React.Component {
     }
   }
 
-
   updateValue(field) {
     return (e) => this.setState({[field]: e.currentTarget.value});
   }
 
   updateCheckBoxValue(field) {
     return (e) => {
-      console.log(`this is the state of ethnicity before the click: ${this.state[field]}`)
       if (this.state[field] === null || this.state[field] === "") {
-
         this.setState({[field]: e.currentTarget.value});
-        console.log(`this is the new state of ethnicity: ${this.state[field]}`)
       }
       else if (!this.state[field].includes(e.currentTarget.value)) {
-
-
-
       this.setState({[field]: this.state[field].concat(`,${e.currentTarget.value}`)})
-      console.log(`this is the new state of ethnicity: ${this.state[field]}`)
       } else {
-
         let oldCheckedOptions = this.state[field].split(",");
         let newCheckedOptions = [];
-        console.log({oldCheckedOptions})
 
         oldCheckedOptions.forEach(option => {
           if (option !== e.currentTarget.value) {
-            console.log(option)
             newCheckedOptions.push(option);
           }
         });
         this.setState({[field]: newCheckedOptions.join(",") })
-        console.log(`this is the new state of ethnicity: ${this.state[field]}`)
       }
     }
   }
@@ -98,7 +86,9 @@ class userInfoForm extends React.Component {
 
 
         <div className="edit-profile-page">
+
           <TopHeaderContainer />
+
 
       {this.props.currentWindow === "AboutYouWindow" ? <AboutYouWindowContainer /> : null}
 

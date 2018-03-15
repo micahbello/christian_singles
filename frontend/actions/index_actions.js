@@ -10,6 +10,6 @@ export const receiveAllUsers = (users) => {
 };
 
 export const getAllUsers = () => dispatch => {
-  return APIUtil.getAllUsers().then(() => dispatch(receiveAllUsers(users)),
+  return APIUtil.getAllUsers().then((users) => dispatch(receiveAllUsers(users)),
   errors => dispatch(receiveErrors(errors.responseJSON)));
 }

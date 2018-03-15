@@ -2,27 +2,42 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import UserIndexProfileContainer from './user_index_profile_container';
 import TopHeaderContainer from '../top_header/top_header_container';
+
 class UserIndex extends React.Component {
   constructor(props) {
     super(props);
   }
 
+  componentDidMount() {
+    this.props.getAllUsers()
+  }
+
 
   render() {
-    return (
-      <div className="user-index-page">
+    if (!this.props.currentIndexProfiles) {
+      return <p>...Loading...</p>
+    } else {
 
-        <TopHeaderContainer />
+      return (
+        <div className="user-index-page">
 
-      <div className="user-index-profiles-container">
+        <TopHeaderContainer />  
 
-        <Link to="/editprofile"><UserIndexProfileContainer /></Link>
+        <div className="user-index-profiles-container">
 
-      </div>
+          {Object.values(this.props.currentIndexProfiles).
+            map((profile) => <Link to={`/profile/${profile.id}`}>
+            <UserIndexProfileContainer key={profile.id} id={profile.id}/></Link>)}
 
-      </div>
-    );
+
+        </div>
+
+        </div>
+      );
+    }
   }
 }
 
 export default UserIndex;
+
+// <Link to="/editprofile"><UserIndexProfileContainer /></Link>
