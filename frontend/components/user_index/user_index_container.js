@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import UserIndex from './user_index';
-import{ getAllUsers } from '../../actions/user_actions';
+import{ getAllUsers, clearCurrentIndexProfiles } from '../../actions/user_actions';
 
 const msp = (state) => {
   return {
@@ -12,7 +12,8 @@ const msp = (state) => {
 
 const mdp = (dispatch) => {
   return {
-    getAllUsers: () => dispatch(getAllUsers())
+    getAllUsers: () => dispatch(getAllUsers()),
+    clearCurrentIndexProfiles: () => dispatch(clearCurrentIndexProfiles())
   };
 };
 

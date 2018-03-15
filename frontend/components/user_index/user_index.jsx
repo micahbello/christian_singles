@@ -12,6 +12,10 @@ class UserIndex extends React.Component {
     this.props.getAllUsers()
   }
 
+  componentWillUnmount() {
+    this.props.clearCurrentIndexProfiles();
+  }
+
 
   render() {
     if (!this.props.currentIndexProfiles) {
@@ -21,13 +25,13 @@ class UserIndex extends React.Component {
       return (
         <div className="user-index-page">
 
-        <TopHeaderContainer />  
+        <TopHeaderContainer />
 
         <div className="user-index-profiles-container">
 
           {Object.values(this.props.currentIndexProfiles).
-            map((profile) => <Link to={`/profile/${profile.id}`}>
-            <UserIndexProfileContainer key={profile.id} id={profile.id}/></Link>)}
+            map((profile, idx) => <Link to={`/profile/${profile.id}`}>
+            <UserIndexProfileContainer key={idx} id={profile.id}/></Link>)}
 
 
         </div>

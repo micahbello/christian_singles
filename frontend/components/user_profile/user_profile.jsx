@@ -9,7 +9,7 @@ class UserProfile extends React.Component {
 
   constructor(props) {
     super(props);
-    this.state = this.props.currentProfile;
+    this.state = null;
   }
 
 
@@ -24,8 +24,7 @@ class UserProfile extends React.Component {
   }
 
   componentWillUnmount() {
-    debugger
-    this.props.getCurrentProfile(null)
+    this.props.clearCurrentProfile();
   }
 
 

@@ -7,7 +7,7 @@ import TopHeaderContainer from '../top_header/top_header_container';
 class DiscoveryPreferences extends React.Component {
   constructor(props) {
     super(props);
-    this.state = this.props.currentProfile;
+    this.state = null;
 
     this.handleSubmit = this.handleSubmit.bind(this);
     this.updateValue = this.updateValue.bind(this);
@@ -16,14 +16,10 @@ class DiscoveryPreferences extends React.Component {
   }
 
   componentDidMount() {
-    if (this.state) {
-      null
-    } else {
       this.props.getCurrentProfile(this.props.currentUser.id).then((action) => {
         this.setState(action.currentProfile)
       })
     }
-  }
 
   showCheckboxes(id) {
 

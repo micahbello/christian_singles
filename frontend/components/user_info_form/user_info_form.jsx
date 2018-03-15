@@ -9,7 +9,7 @@ class userInfoForm extends React.Component {
 
   constructor(props) {
     super(props);
-    this.state = this.props.currentProfile;
+    this.state = null;
 
     this.handleSubmit = this.handleSubmit.bind(this);
     this.updateValue = this.updateValue.bind(this);
@@ -19,14 +19,17 @@ class userInfoForm extends React.Component {
   }
 
   componentDidMount() {
-    if (this.state) {
-      null
-    } else {
-
+    // if (this.state) {
+    //   null
+    // } else {
       this.props.getCurrentProfile(this.props.currentUser.id).then((action) => {
         this.setState(action.currentProfile)
       })
     }
+  // }
+
+  componentWillUnmount() {
+    this.props.clearCurrentProfile();
   }
 
   showCheckboxes(id) {

@@ -1,5 +1,5 @@
 import * as APIUtil from '../util/user_api_util';
-import {receiveCurrentUser, receiveErrors } from './session_actions';
+import { receiveCurrentUser, receiveErrors } from './session_actions';
 
 
 export const RECEIVE_CURRENT_PROFILE = "RECEIVE_CURRENT_PROFILE";
@@ -31,7 +31,16 @@ export const getCurrentProfile = (user) => dispatch => {
   errors => dispatch(receiveErrors(errors.responseJSON)));
 };
 
+export const clearCurrentProfile = () => {
+  return dispatch(receiveCurrentProfile(null));
+};
+
 export const getAllUsers = () => dispatch => {
   return APIUtil.getAllUsers().then((users) => dispatch(receiveAllUsers(users)),
   errors => dispatch(receiveErrors(errors.responseJSON)));
-}
+};
+
+
+export const clearCurrentIndexProfiles = () => {
+  return dispatch(receiveAllUsers(null));
+};
