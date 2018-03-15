@@ -8,7 +8,7 @@ import{ updateUiWindow }from '../../actions/ui_actions';
 const mapStateToProps = (state) => {
   return {
     currentUser: state.session.currentUser,
-    currentProfile: state.session.currentProfile,
+    currentProfile: state.users.currentProfile,
     currentWindow: state.ui.currentWindow
   }
 };

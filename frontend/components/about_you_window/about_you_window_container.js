@@ -9,7 +9,7 @@ import { updateUiWindow } from '../../actions/ui_actions';
 const msp = (state) => {
   return {
     currentUser: state.session.currentUser,
-    currentProfile: state.session.currentProfile
+    currentProfile: state.users.currentProfile
   };
 };
 

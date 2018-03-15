@@ -3,11 +3,20 @@ import {receiveCurrentUser, receiveErrors } from './session_actions';
 
 
 export const RECEIVE_CURRENT_PROFILE = "RECEIVE_CURRENT_PROFILE";
+export const RECEIVE_ALL_USERS = "RECEIVE_ALL_USERS"
+
 
 export const receiveCurrentProfile = (user) => {
   return {
     type: RECEIVE_CURRENT_PROFILE,
     currentProfile: user
+  };
+};
+
+export const receiveAllUsers = (users) => {
+  return {
+    type: RECEIVE_ALL_USERS,
+    currentIndexProfiles: users
   };
 };
 
@@ -21,3 +30,8 @@ export const getCurrentProfile = (user) => dispatch => {
   return APIUtil.getCurrentProfile(user).then(user => dispatch(receiveCurrentProfile(user)),
   errors => dispatch(receiveErrors(errors.responseJSON)));
 };
+
+export const getAllUsers = () => dispatch => {
+  return APIUtil.getAllUsers().then((users) => dispatch(receiveAllUsers(users)),
+  errors => dispatch(receiveErrors(errors.responseJSON)));
+}

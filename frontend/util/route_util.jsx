@@ -2,8 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { Route, Redirect, withRouter } from 'react-router-dom';
 
-
-//to avoid people from going to main/signup/login unless not logged in
+//to prohibit people from going to main/signup/login unless logged out
 const Auth = ({component: Component, path, loggedIn, exact}) => (
   <Route path={path} exact={exact} render={(props) => {
     if (!loggedIn) {
@@ -14,7 +13,7 @@ const Auth = ({component: Component, path, loggedIn, exact}) => (
   }} />
 );
 
-//to avoid going to the browse menu unless logged in
+//to avoid going to pages unless logged in
 const Auth2 = ({component: Component, path, loggedIn, exact}) => (
   <Route path={path} exact={exact} render={(props) => {
     if (loggedIn) {
@@ -30,5 +29,4 @@ const msp = state => {
 };
 
 export const AuthRoute = withRouter(connect(msp, null)(Auth));
-
 export const AuthRoute2 = withRouter(connect(msp, null)(Auth2));

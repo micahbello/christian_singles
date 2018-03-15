@@ -5,7 +5,7 @@ import configureStore from './store/store';
 import Root from './components/root';
 
 import  { getCurrentProfile } from './actions/user_actions'; ///testing
-import { getAllUsers } from './actions/index_actions'; ///testingggg
+import { getAllUsers } from './actions/user_actions'; ///testingggg
 
 
 window.getCurrentProfile = getCurrentProfile;
