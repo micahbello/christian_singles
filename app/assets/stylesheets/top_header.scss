@@ -50,17 +50,22 @@
 
 .th-dropbtn {
   border-radius: 44px;
-  padding: 23px;
+  // padding: 23px; //with old icon
   cursor: pointer;
-  margin-left: 93px;
-
+  // margin-left: 93px; //with old icon
+  margin-left: 120px;
+  width: 40px //with current icon
 }
+
 
 .th-dropdown {
   position: relative;
   display: inline-block;
   padding-right: 10px;
 }
+
+
+
 
 .th-dropdown-content {
   border-radius: 2px;

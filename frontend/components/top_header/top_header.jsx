@@ -54,7 +54,10 @@ class TopHeader extends React.Component {
       </div>
 
       <div className="th-dropdown">
-        <button onClick={() => dropMenu()} className="th-dropbtn"></button>
+
+          <img className="th-dropbtn" onMouseOver={() => dropMenu()} src={this.props.currentUser.image} />
+
+
         <div id="iconDropDown" className="th-dropdown-content">
           <Link onClick={() => dispatch(getCurrentProfile(this.props.currentUser.id))} className="th-dropdown-link" to={`/profile/${this.props.currentUser.id}`} >My Profile</Link>
           <Link className="th-dropdown-link" to='/discoverypreferences'>Discovery Preferences</Link>
@@ -73,7 +76,31 @@ export default TopHeader;
 
 
 
-// <div className="th-user-icon">
+//new icon drop down-
 //
-//   icon
+// <div className="th-dropdown">
+//
+//     <img className="th-dropbtn" onMouseOver={() => dropMenu()} src={this.props.currentUser.image} />
+//
+//
+//   <div id="iconDropDown" className="th-dropdown-content">
+//     <Link onClick={() => dispatch(getCurrentProfile(this.props.currentUser.id))} className="th-dropdown-link" to={`/profile/${this.props.currentUser.id}`} >My Profile</Link>
+//     <Link className="th-dropdown-link" to='/discoverypreferences'>Discovery Preferences</Link>
+//     <div onClick={() => dispatch(logout())} className="th-dropdown-link">Logout</div>
+//
+//   </div>
+// </div>
+//
+
+//old
+// <div className="th-dropdown">
+//   <button onClick={() => dropMenu()} className="th-dropbtn">
+//   </button>
+//
+//   <div id="iconDropDown" className="th-dropdown-content">
+//     <Link onClick={() => dispatch(getCurrentProfile(this.props.currentUser.id))} className="th-dropdown-link" to={`/profile/${this.props.currentUser.id}`} >My Profile</Link>
+//     <Link className="th-dropdown-link" to='/discoverypreferences'>Discovery Preferences</Link>
+//     <div onClick={() => dispatch(logout())} className="th-dropdown-link">Logout</div>
+//
+//   </div>
 // </div>

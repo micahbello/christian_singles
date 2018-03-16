@@ -10,7 +10,6 @@
   justify-content: center;
   background-color: white;
   border-radius: 3px;
-  overflow: hidden;
 }
 
 .user-index-profile-box-pic{
@@ -21,10 +20,11 @@
   max-width: 219px;
   margin-top: 13px;
   background-color: grey;
+  overflow: hidden;
 }
 
 .user-index-profile-name-text {
-  margin-top: 189px;
+  margin-top: -58px;
   margin-left: 10px;
   text-decoration: none;
   color: white;

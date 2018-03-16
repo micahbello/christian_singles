@@ -60,7 +60,7 @@ class UserProfile extends React.Component {
           <div className="info-forms">
 
             <div className="user-info-pic-container">
-              <img src={this.state.image} />
+              <img src={this.state.image} className="profile-full-pic"/>
              </div>
 
           <div className="user-info-container">

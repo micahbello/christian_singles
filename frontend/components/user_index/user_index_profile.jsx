@@ -22,15 +22,12 @@ class UserIndexProfile extends React.Component {
 
           <img src={this.props.profileImgUrl} />
 
-          <p className="user-index-profile-name-text">
-            {this.props.profileDisplayName}
-          </p>
-        </div>
-
-        <div>
-
 
         </div>
+
+        <p className="user-index-profile-name-text">
+          {this.props.profileDisplayName}
+        </p>
 
       </div>
     );

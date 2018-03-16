@@ -67,7 +67,7 @@ class User < ApplicationRecord
   validates :username, presence: true, uniqueness: true
   validates :password, length: {minimum: 6, allow_nil: true}
 
-  has_attached_file :image, default_url: "no_user.png"
+  has_attached_file :image, default_url: "http://s3.us-east-2.amazonaws.com/christian-singles-dev/users/images/000/000/042/original/no_user.png"
   validates_attachment_content_type :image, content_type: /\Aimage\/.*\Z/
 
   attr_reader :password
