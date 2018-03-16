@@ -6,7 +6,8 @@ import UserIndexProfile from './user_index_profile';
 const msp = (state, ownProps) => {
   return {
     profileId: ownProps.id,
-    profileDisplayName: ownProps.displayName
+    profileDisplayName: ownProps.displayName,
+    profileImgUrl: ownProps.imgUrl
   };
 };
 

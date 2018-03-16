@@ -24,7 +24,6 @@ class UserProfile extends React.Component {
   }
 
   componentWillUnmount() {
-    debugger
     this.props.clearCurrentProfile();
   }
 
@@ -60,7 +59,9 @@ class UserProfile extends React.Component {
 
           <div className="info-forms">
 
-            <div className="user-info-pic-container"> PICS HERE </div>
+            <div className="user-info-pic-container">
+              <img src={this.state.image} />
+             </div>
 
           <div className="user-info-container">
 

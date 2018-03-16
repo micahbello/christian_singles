@@ -55,6 +55,10 @@
 #  min_age_seek        :integer
 #  max_age_seek        :integer
 #  online              :boolean
+#  image_file_name     :string
+#  image_content_type  :string
+#  image_file_size     :integer
+#  image_updated_at    :datetime
 #
 
 class User < ApplicationRecord
@@ -63,9 +67,8 @@ class User < ApplicationRecord
   validates :username, presence: true, uniqueness: true
   validates :password, length: {minimum: 6, allow_nil: true}
 
-  has_many :images
-
-
+  has_attached_file :image, default_url: "no_user.png"
+  validates_attachment_content_type :image, content_type: /\Aimage\/.*\Z/
 
   attr_reader :password
 

@@ -54,7 +54,7 @@ class SignupForm extends React.Component {
     //   return ((Math.floor(((new Date() - birthDate)/60000/525600))) - 1);
     // };
 
-    debugger
+
 
     this.props.signup(user);
   }

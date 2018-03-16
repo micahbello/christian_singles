@@ -14,6 +14,7 @@ export const receiveCurrentProfile = (user) => {
 };
 
 export const receiveAllUsers = (users) => {
+  debugger
   return {
     type: RECEIVE_ALL_USERS,
     currentIndexProfiles: users

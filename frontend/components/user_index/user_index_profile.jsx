@@ -6,9 +6,9 @@ class UserIndexProfile extends React.Component {
     super(props);
   }
 
-  // componentDidMount(){
-  //
-  // }
+  componentDidMount(){
+
+  }
 
 
   render() {
@@ -19,6 +19,9 @@ class UserIndexProfile extends React.Component {
       <div className="user-index-profile-box">
 
         <div className="user-index-profile-box-pic">
+
+          <img src={this.props.profileImgUrl} />
+
           <p className="user-index-profile-name-text">
             {this.props.profileDisplayName}
           </p>
