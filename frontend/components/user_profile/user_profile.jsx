@@ -24,6 +24,7 @@ class UserProfile extends React.Component {
   }
 
   componentWillUnmount() {
+    debugger
     this.props.clearCurrentProfile();
   }
 
@@ -44,7 +45,7 @@ class UserProfile extends React.Component {
         {this.props.currentUser.id === this.props.currentProfile.id
             ?
             <h2 className="edit-profile-text">My Profile</h2>
-            : null}
+            : <h2></h2>}
 
 
 
@@ -53,7 +54,7 @@ class UserProfile extends React.Component {
             <div id="user-profile-edit-button">
             <Link id="user-profile-edit-link" to='/editprofile' >Edit Profile</Link>
             </div>
-            : null}
+            : <h2></h2>}
 
           </div>
 
@@ -260,6 +261,8 @@ class UserProfile extends React.Component {
 
 
 export default UserProfile;
+
+// {`${(new Date()).getFullYear()}-${(new Date()).getMonth() + 1}-${(new Date()).getDate()}` === this.state.last_online ? "true" : "false"}
 
 
 // <div className="user-personal-info">

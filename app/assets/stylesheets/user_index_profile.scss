@@ -14,11 +14,20 @@
 }
 
 .user-index-profile-box-pic{
-  border: 1px solid;
+  border: 1px solid #e6e6de;
   height: 219px;
   max-height: 219px;
   width: 222px;
   max-width: 219px;
   margin-top: 13px;
   background-color: grey;
+}
+
+.user-index-profile-name-text {
+  margin-top: 189px;
+  margin-left: 10px;
+  text-decoration: none;
+  color: white;
+  font-size: 23px;
+  font-family: sans-serif;
 }

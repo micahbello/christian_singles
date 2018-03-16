@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180313155956) do
+ActiveRecord::Schema.define(version: 20180316003216) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -67,6 +67,7 @@ ActiveRecord::Schema.define(version: 20180313155956) do
     t.integer "max_height_seek"
     t.integer "min_age_seek"
     t.integer "max_age_seek"
+    t.boolean "online"
   end
 
 end

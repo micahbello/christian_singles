@@ -29,6 +29,9 @@ gem 'pry-rails'
 gem 'annotate'
 gem 'bcrypt'
 gem 'jquery-rails'
+gem 'aws-sdk', '< 3.0'
+gem "paperclip", '~> 5.0.0'
+gem 'figaro'
 
 # gem 'ruby', '~> 2.3.4'
 # Use Redis adapter to run Action Cable in production

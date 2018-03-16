@@ -12,7 +12,7 @@
 
 
 .user-index-profiles-container {
-  border: 1px solid;
+  // border: 1px solid; /use only to see the container
   max-width: 787px;
   min-height: 300px;
 
@@ -26,4 +26,8 @@
   margin-top:100px;///????????
   // overflow: scroll;
 
+}
+
+#link-to-profiles {
+  text-decoration: none;
 }

@@ -6,23 +6,26 @@ class UserIndexProfile extends React.Component {
     super(props);
   }
 
-  componentDidMount(){
-
-  }
+  // componentDidMount(){
+  //
+  // }
 
 
   render() {
+
 
     return (
 
       <div className="user-index-profile-box">
 
         <div className="user-index-profile-box-pic">
-          {this.props.profileId}
+          <p className="user-index-profile-name-text">
+            {this.props.profileDisplayName}
+          </p>
         </div>
 
         <div>
-          <p></p>
+
 
         </div>
 

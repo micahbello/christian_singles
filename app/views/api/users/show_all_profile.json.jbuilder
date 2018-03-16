@@ -7,4 +7,4 @@ json.extract! @user, :id, :username, :first_name, :last_name,
 :education_seek, :attendance_seek, :have_kids_seek, :want_kids_seek,
 :relocate_seek, :marital_status_seek, :language_seek, :ethnicity_seek,
 :display_name, :smoke_seek, :drink_seek, :distance_seek, :age, :min_age_seek,
-:max_age_seek, :min_height_seek, :max_height_seek
+:max_age_seek, :min_height_seek, :max_height_seek, :online

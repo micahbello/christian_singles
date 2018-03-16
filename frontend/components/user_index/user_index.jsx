@@ -30,8 +30,8 @@ class UserIndex extends React.Component {
         <div className="user-index-profiles-container">
 
           {Object.values(this.props.currentIndexProfiles).
-            map((profile, idx) => <Link to={`/profile/${profile.id}`}>
-            <UserIndexProfileContainer key={idx} id={profile.id}/></Link>)}
+            map((profile, idx) => <Link id="link-to-profiles" to={`/profile/${profile.id}`}>
+            <UserIndexProfileContainer key={idx} id={profile.id} displayName={profile.display_name}/></Link>)}
 
 
         </div>

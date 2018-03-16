@@ -12,7 +12,10 @@ class SignupForm extends React.Component {
       gender: '',
       birth_date: '',
       zip_code: '',
-      password: ''
+      password: '',
+      sex_seek: '',
+      display_name: '',
+      last_online: ''
     };
 
   this.handleSubmit = this.handleSubmit.bind(this);
@@ -24,10 +27,38 @@ class SignupForm extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     const user = merge({}, this.state);
+
+    //set the zip code to an integer for the back end
     const zip_code = parseInt(user["zip_code"]);
     user["zip_code"] = zip_code;
+
+    //set the default sex_seek to the opposite gender
+    let sex_seek = "";
+    if (user["gender"] === "male") {
+      sex_seek = "Women";
+    } else {
+      sex_seek = "Men";
+    }
+
+    user["sex_seek"] = sex_seek
+
+    //set the default display name to username
+    user["display_name"] = this.state.username;
+    //set the last_online to Online now
+    user["last_online"] = new Date;
+
+    // debugger
+    //
+    // let age = () => {
+    //   let birthDate = new Date(this.state.birth_date)
+    //   return ((Math.floor(((new Date() - birthDate)/60000/525600))) - 1);
+    // };
+
+    debugger
+
     this.props.signup(user);
   }
+
 
   updateValue(field) {
     return (e) => this.setState({[field]: e.currentTarget.value});
@@ -42,6 +73,7 @@ class SignupForm extends React.Component {
   // }
 
   render () {
+
     return (
 
 
