@@ -112,7 +112,9 @@ class userInfoForm extends React.Component {
           <div className="info-forms">
 
 
-          <div className="user-info-pic-container"> PICS HERE </div>
+          <div className="user-info-pic-container">
+            <img src={this.state.image} className="profile-full-pic"/>
+          </div>
 
           <div className="main-info-fillout">
 

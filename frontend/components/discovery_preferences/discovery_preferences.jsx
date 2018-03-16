@@ -239,9 +239,9 @@ class DiscoveryPreferences extends React.Component {
             <label className="check-box-text">
               <input onChange={this.updateCheckBoxValue("relationship_seek")} type="checkbox" value="Long Term Relationship" checked={(this.state.relationship_seek && this.state.relationship_seek.includes("Long Term Relationship") )? "true" : ''} />Long Term Relationship</label>
             <label className="check-box-text">
-              <input onChange={this.updateCheckBoxValue("relationship_seek")} type="checkbox" value="Marriage" checked={(this.state.relationship_seek && this.state.relationship_seek.includes("Marriage") )? "true" : ''} />Marriage</label>
+              <input onChange={this.updateCheckBoxValue("relationship_seek")} type="checkbox" value="Marriage" checked={(this.state.relationship_seek && this.state.relationship_seek.includes("Marriage")) ? "true" : ''} />Marriage</label>
             <label className="check-box-text">
-              <input onChange={this.updateCheckBoxValue("relationship_seek")} type="checkbox" value="Marriage and Kids" checked={(this.state.relationship_seek && this.state.relationship_seek.includes("Marriage and Kids") )? "true" : ''} />Marriage and Kids</label>
+              <input onChange={this.updateCheckBoxValue("relationship_seek")} type="checkbox" value="Marriage and Kids" checked={(this.state.relationship_seek && this.state.relationship_seek.includes("Kids") )? "true" : ''} />Marriage and Kids</label>
 
             <button onClick={this.handleSubmit}>Save changes</button>
           </div>

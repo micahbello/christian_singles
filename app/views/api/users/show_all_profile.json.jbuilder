@@ -50,7 +50,7 @@
     json.marital_status_seek @user.marital_status_seek
     json.language_seek @user.language_seek
     json.ethnicity_seek @user.ethnicity_seek
-    json.smoke @user.smoke_seek
+    json.smoke_seek @user.smoke_seek
     json.drink_seek @user.drink_seek
     json.distance_seek @user.distance_seek
     json.age @user.age

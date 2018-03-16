@@ -225,7 +225,7 @@ class UserProfile extends React.Component {
                 {this.state.first_date ? "*" : ""}
                 </p>
                 <p>
-                  {this.state.first_date ? `On a first date I prefer: ${this.state.first_date}` : ""}
+                  {this.state.first_date ? `On a first date I prefer: ${this.state.first_date.split(",").join(", ")}` : ""}
                 </p>
               </li>
 
