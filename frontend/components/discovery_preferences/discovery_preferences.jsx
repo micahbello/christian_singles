@@ -80,7 +80,7 @@ class DiscoveryPreferences extends React.Component {
 
         <TopHeaderContainer />
 
-      <span className="user-profile-span">
+      <span className="user-profile-span" id="preferences-span">
 
       <h2 className="edit-profile-text">Discovery Preferences</h2>
 
@@ -97,10 +97,10 @@ class DiscoveryPreferences extends React.Component {
         <br/>
 
         <div className="selectBox" onClick={() => this.showCheckboxes("sex-seek-checkboxes")}>
-          <label className="user-info-select-box" id="check-box-select">
+          <div className="user-info-input-box" id="check-box-select">
             {this.state.sex_seek
               ? `${this.state.sex_seek.split(",")[0]}...` : "I'm seeking"}
-          </label>
+          </div>
         <div className="overSelect"></div>
           <div id="sex-seek-checkboxes">
             <label className="check-box-text">
@@ -114,49 +114,61 @@ class DiscoveryPreferences extends React.Component {
 
         <br/>
 
+      <div id="preferences-ages-container">
+
+        <div>
         <label className="user-info-input-label">Minimum Age:</label>
           <br/>
           <input onChange={this.updateValue("min_age_seek")}
             onBlur={this.handleSubmit}
-            className="user-info-input-box" type="number" min= "18" max="75"
+            className="user-info-input-box" id="age-choose" type="number" min= "18" max="75"
             value={this.state.min_age_seek? this.state.min_age_seek : 18}/>
           <br/>
+        </div>
+
+        <div id="max-age">
         <label className="user-info-input-label">Maximum Age:</label>
           <br/>
           <input onChange={this.updateValue("max_age_seek")}
             onBlur={this.handleSubmit}
-            className="user-info-input-box" type="number" min= "18" max="75"
+            className="user-info-input-box" id="age-choose" type="number" min= "18" max="75"
             value={this.state.max_age_seek? this.state.max_age_seek : 75}/>
           <br/>
           <br/>
+        </div>
+
+        </div>
 
 
-        <div className="selectBox" onClick={() => this.showCheckboxes("distance-seek-checkboxes")}>
-          <label className="user-info-select-box" id="check-box-select">Distance</label>
-        <div className="overSelect"></div>
-          <div id="distance-seek-checkboxes">
-            <label className="check-box-text">
-              <input  onChange={this.updateCheckBoxValue("distance_seek")} type="checkbox" value="5"  />5</label>
-            <label className="check-box-text">
-              <input  onChange={this.updateCheckBoxValue("distance_seek")} type="checkbox" value="10" />10</label>
-            <label className="check-box-text">
-              <input  onChange={this.updateCheckBoxValue("distance_seek")} type="checkbox" value="25" />25</label>
-            <label className="check-box-text">
-              <input  onChange={this.updateCheckBoxValue("distance_seek")} type="checkbox" value="50" />50</label>
-            <label className="check-box-text">
-              <input  onChange={this.updateCheckBoxValue("distance_seek")} type="checkbox" value="100"  />100</label>
-            <label className="check-box-text">
-              <input  onChange={this.updateCheckBoxValue("distance_seek")} type="checkbox" value="500"  />500</label>
+          <label className="user-info-input-label" id="distance-heading">{this.state.distance_seek
+            ? "Distance" : ""}</label>
 
-            <button onClick={this.handleSubmit}>Save changes</button>
+        <div id="preferences-distance-container">
 
-          </div>
-         </div>
-         <p>of</p>
+          <select class="user-info-select-box" id="distance-choose">
+              <option default hidden>{this.state.distance_seek ? `${this.state.distance_seek} mi` : "Distance"}</option>
+
+              <option  value="5"> 5 mi</option>
+
+              <option  value="10">10 mi</option>
+
+              <option  value="25">2 mi</option>
+
+              <option  value="50">50 mi</option>
+
+              <option  value="100"> 100 mi</option>
+
+              <option  value="500"> 500 mi</option>
+          </select>
+
+
+         <span id="of-distance">of</span>
          <input onChange={this.updateValue("zip_code")}
            onBlur={this.handleSubmit}
-           className="user-info-input-box" type="number"
+           className="user-info-input-box" id="zip-choose" type="number"
            value={this.state.zip_code}/>
+
+       </div>
 
         <br/>
 
@@ -165,10 +177,10 @@ class DiscoveryPreferences extends React.Component {
         <br/>
 
         <div className="selectBox" onClick={() => this.showCheckboxes("religion-seek-checkboxes")}>
-          <label className="user-info-select-box" id="check-box-select">
+          <div className="user-info-input-box" id="check-box-select">
             {this.state.religion_seek
               ? `${this.state.religion_seek.split(",")[0]}...` : "Religion"}
-          </label>
+          </div>
         <div className="overSelect"></div>
           <div id="religion-seek-checkboxes">
             <label className="check-box-text">
@@ -228,10 +240,10 @@ class DiscoveryPreferences extends React.Component {
           ? "Relationship Type" : ""}</label>
           <br/>
         <div className="selectBox" onClick={() => this.showCheckboxes("relationship-seek-checkboxes")}>
-          <label className="user-info-select-box" id="check-box-select">
+          <div className="user-info-input-box" id="check-box-select">
             {this.state.relationship_seek
               ? `${this.state.relationship_seek.split(",")[0]}...` : "Relationship Type"}
-          </label>
+          </div>
         <div className="overSelect"></div>
           <div id="relationship-seek-checkboxes">
             <label className="check-box-text">
@@ -254,10 +266,10 @@ class DiscoveryPreferences extends React.Component {
         <br/>
 
         <div className="selectBox" onClick={() => this.showCheckboxes("education-seek-checkboxes")}>
-          <label className="user-info-select-box" id="check-box-select">
+          <div className="user-info-input-box" id="check-box-select">
             {this.state.education_seek
               ? `${this.state.education_seek.split(",")[0]}...` : "Level of Education"}
-          </label>
+          </div>
         <div className="overSelect"></div>
           <div id="education-seek-checkboxes">
             <label className="check-box-text">
@@ -280,10 +292,10 @@ class DiscoveryPreferences extends React.Component {
         <br/>
 
         <div className="selectBox" onClick={() => this.showCheckboxes("attendance-seek-checkboxes")}>
-          <label className="user-info-select-box" id="check-box-select">
+          <div className="user-info-input-box" id="check-box-select">
             {this.state.attendance_seek
               ? `${this.state.attendance_seek.split(",")[0]}...` : "Church Attendance"}
-          </label>
+          </div>
         <div className="overSelect"></div>
           <div id="attendance-seek-checkboxes">
             <label className="check-box-text">
@@ -306,10 +318,10 @@ class DiscoveryPreferences extends React.Component {
         <br/>
 
         <div className="selectBox" onClick={() => this.showCheckboxes("smoke-seek-checkboxes")}>
-          <label className="user-info-select-box" id="check-box-select">
+          <div className="user-info-input-box" id="check-box-select">
             {this.state.smoke_seek
               ? `${this.state.smoke_seek.split(",")[0]}...` : "Smoking Habits"}
-          </label>
+          </div>
         <div className="overSelect"></div>
           <div id="smoke-seek-checkboxes">
             <label className="check-box-text">
@@ -333,10 +345,10 @@ class DiscoveryPreferences extends React.Component {
         <br/>
 
         <div className="selectBox" onClick={() => this.showCheckboxes("drink-seek-checkboxes")}>
-          <label className="user-info-select-box" id="check-box-select">
+          <div className="user-info-input-box" id="check-box-select">
             {this.state.drink_seek
               ? `${this.state.drink_seek.split(",")[0]}...` : "Drinking Habits"}
-          </label>
+          </div>
         <div className="overSelect"></div>
           <div id="drink-seek-checkboxes">
             <label className="check-box-text">
@@ -361,10 +373,10 @@ class DiscoveryPreferences extends React.Component {
         <br/>
 
         <div className="selectBox" onClick={() => this.showCheckboxes("have-kids-seek-checkboxes")}>
-          <label className="user-info-select-box" id="check-box-select">
+          <div className="user-info-input-box" id="check-box-select">
             {this.state.have_kids_seek
               ? `${this.state.have_kids_seek.split(",")[0]}...` : "Have Kids"}
-          </label>
+          </div>
         <div className="overSelect"></div>
           <div id="have-kids-seek-checkboxes">
             <label className="check-box-text">
@@ -389,10 +401,10 @@ class DiscoveryPreferences extends React.Component {
         <br/>
 
         <div className="selectBox" onClick={() => this.showCheckboxes("want-kids-seek-checkboxes")}>
-          <label className="user-info-select-box" id="check-box-select">
+          <div className="user-info-input-box" id="check-box-select">
             {this.state.want_kids_seek
               ? `${this.state.want_kids_seek.split(",")[0]}...` : "Want Kids"}
-          </label>
+          </div>
         <div className="overSelect"></div>
           <div id="want-kids-seek-checkboxes">
             <label className="check-box-text">
@@ -411,10 +423,10 @@ class DiscoveryPreferences extends React.Component {
         <br/>
 
         <div className="selectBox" onClick={() => this.showCheckboxes("relocate-seek-checkboxes")}>
-          <label className="user-info-select-box" id="check-box-select">
+          <div className="user-info-input-box" id="check-box-select">
             {this.state.relocate_seek
               ? `${this.state.relocate_seek.split(",")[0]}...` : "Willingness to Relocate"}
-          </label>
+          </div>
         <div className="overSelect"></div>
           <div id="relocate-seek-checkboxes">
             <label className="check-box-text">
@@ -433,10 +445,10 @@ class DiscoveryPreferences extends React.Component {
         <br/>
 
         <div className="selectBox" onClick={() => this.showCheckboxes("marital-status-seek-checkboxes")}>
-          <label className="user-info-select-box" id="check-box-select">
+          <div className="user-info-input-box" id="check-box-select">
             {this.state.marital_status_seek
               ? `${this.state.marital_status_seek.split(",")[0]}...` : "Marital Status"}
-          </label>
+          </div>
         <div className="overSelect"></div>
           <div id="marital-status-seek-checkboxes">
             <label className="check-box-text">
@@ -455,10 +467,10 @@ class DiscoveryPreferences extends React.Component {
         <br/>
 
         <div className="selectBox" onClick={() => this.showCheckboxes("language-seek-checkboxes")}>
-          <label className="user-info-select-box" id="check-box-select">
+          <div className="user-info-input-box" id="check-box-select">
             {this.state.language_seek
               ? `${this.state.language_seek.split(",")[0]}...` : "Language"}
-          </label>
+          </div>
         <div className="overSelect"></div>
           <div id="language-seek-checkboxes">
             <label className="check-box-text">
@@ -531,10 +543,10 @@ class DiscoveryPreferences extends React.Component {
         <br/>
 
         <div className="selectBox" onClick={() => this.showCheckboxes("ethnicity-seek-checkboxes")}>
-          <label className="user-info-select-box" id="check-box-select">
+          <div className="user-info-input-box" id="check-box-select">
             {this.state.ethnicity_seek
               ? `${this.state.ethnicity_seek.split(",")[0]}...` : "Ethnicity"}
-          </label>
+          </div>
         <div className="overSelect"></div>
           <div id="ethnicity-seek-checkboxes">
             <label className="check-box-text">
@@ -567,9 +579,9 @@ class DiscoveryPreferences extends React.Component {
         <br/>
         <br/>
 
-        <div className="preferces-submit-button">
-
-          <Link to="/editprofile">Submit</Link>
+        <div className="preferences-submit-button">
+          <Link to="/editprofile" className="preferences-submit-link">
+            Submit</Link>
         </div>
 
       </div>

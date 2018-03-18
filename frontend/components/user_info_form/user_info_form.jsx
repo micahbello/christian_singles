@@ -279,10 +279,10 @@ class userInfoForm extends React.Component {
               <br/>
 
               <div className="selectBox" onClick={() => this.showCheckboxes("ethnicity-checkboxes")}>
-                <label className="user-info-dropdown-select-box" id="check-box-select">
+                <div className="user-info-dropdown-select-box" id="check-box-select">
                   {this.state.ethnicity
                     ? `${this.state.ethnicity.split(",")[0]}...` : "Ethnicity"}
-                </label>
+                </div>
               <div className="overSelect"></div>
                 <div id="ethnicity-checkboxes">
                   <label className="check-box-text">
@@ -321,10 +321,10 @@ class userInfoForm extends React.Component {
                 <br/>
 
               <div className="selectBox" onClick={() => this.showCheckboxes("language-checkboxes")}>
-                <label className="user-info-dropdown-select-box" id="check-box-select">
+                <div className="user-info-dropdown-select-box" id="check-box-select">
                   {this.state.language
                     ? `${this.state.language.split(",")[0]}...` : "Language"}
-                  </label>
+                  </div>
 
               <div className="overSelect"></div>
                 <div id="language-checkboxes">
@@ -398,10 +398,10 @@ class userInfoForm extends React.Component {
               <br/>
 
               <div className="selectBox" onClick={() => this.showCheckboxes("pets-checkboxes")}>
-                <label className="user-info-dropdown-select-box" id="check-box-select">
+                <div className="user-info-dropdown-select-box" id="check-box-select">
                   {this.state.pets
                     ? `${this.state.pets.split(",")[0]}...` : "Pets"}
-                </label>
+                </div>
               <div className="overSelect"></div>
                 <div id="pets-checkboxes">
                   <label className="check-box-text">
@@ -460,10 +460,10 @@ class userInfoForm extends React.Component {
             <br/>
 
             <div className="selectBox" onClick={() => this.showCheckboxes("dates-checkboxes")}>
-              <label className="user-info-dropdown-select-box" id="check-box-select">
+              <div className="user-info-dropdown-select-box" id="check-box-select">
                 {this.state.first_date
                   ? `${this.state.first_date.split(",")[0]}...` : "Peferred First Date"}
-              </label>
+              </div>
             <div className="overSelect"></div>
               <div id="dates-checkboxes">
                 <label className="check-box-text">

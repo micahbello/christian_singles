@@ -70,7 +70,7 @@ class UserProfile extends React.Component {
                 <p className="user-display_name">
                   {this.state.display_name ?
                     this.state.display_name : this.state.username }</p>
-                  <p className="user-age">{this.state.age ? `{, ${this.state.age}}` : ""}</p>
+                  <p className="user-age">{this.state.age ? `, ${this.state.age}` : ""}</p>
               </div>
 
               <div className="user-location">
@@ -231,7 +231,7 @@ class UserProfile extends React.Component {
 
 
               <li className="user-personal-info">
-                <p className="user-info-icon">*</p>
+                <p className="user-info-icon"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRZzkqBCe1bUQkJPNMNZfnbEe4rxej8e0zkcfRKWVb0j0S_IGfA" /></p>
                 <p className="">
                   I am looking for: {this.sex_seek}
                   {(!this.sex_seek && this.state.gender === "male") ? "Women" : ""}
@@ -240,8 +240,8 @@ class UserProfile extends React.Component {
               </li>
 
               <li className="user-personal-info">
-                <p className="user-info-icon">*</p>
-                <p>Last Online: {this.state.last_online}</p>
+                <p className="user-info-icon"><img src="https://cdn2.iconfinder.com/data/icons/metro-uinvert-dock/256/Clock.png" width="18"/></p>
+                <p>Last Online: {this.state.online === true ? "Online Now" : this.state.last_online}</p>
               </li>
 
 

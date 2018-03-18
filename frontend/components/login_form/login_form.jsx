@@ -7,7 +7,7 @@ class LoginForm extends React.Component {
     super(props);
     this.state = {
       username: '',
-      password: ''
+      password: '',
     };
 
   this.handleSubmit = this.handleSubmit.bind(this);
@@ -19,6 +19,7 @@ class LoginForm extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
+
     const user = merge({}, this.state);
     this.props.login(user);
   }

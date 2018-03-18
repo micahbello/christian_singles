@@ -15,7 +15,10 @@ class SignupForm extends React.Component {
       password: '',
       sex_seek: '',
       display_name: '',
-      last_online: ''
+      last_online: '',
+      min_age_seek: '',
+      max_age_seek: '',
+      age: ''
     };
 
   this.handleSubmit = this.handleSubmit.bind(this);
@@ -23,6 +26,7 @@ class SignupForm extends React.Component {
   // this.updatePassword = this.updatePassword.bind(this);
   this.updateValue = this.updateValue.bind(this);
   }
+
 
   handleSubmit(e) {
     e.preventDefault();
@@ -37,6 +41,7 @@ class SignupForm extends React.Component {
     if (user["gender"] === "male") {
       sex_seek = "Women";
     } else {
+
       sex_seek = "Men";
     }
 
@@ -46,18 +51,20 @@ class SignupForm extends React.Component {
     user["display_name"] = this.state.username;
     //set the last_online to Online now
     user["last_online"] = new Date;
+    //set the current age 
+    user["age"] = Math.abs((new Date(Date.now() - (new Date(user["birth_date"])
+                  .getTime()))).getUTCFullYear() - 1970);
 
-    // debugger
-    //
-    // let age = () => {
-    //   let birthDate = new Date(this.state.birth_date)
-    //   return ((Math.floor(((new Date() - birthDate)/60000/525600))) - 1);
-    // };
+    //set min age and max age
 
-
+    user["min_age_seek"] = user["age"] - 10;
+    user["max_age_seek"] = user["age"] + 10;
 
     this.props.signup(user);
   }
+
+
+
 
 
   updateValue(field) {
@@ -145,3 +152,10 @@ class SignupForm extends React.Component {
 };
 
 export default SignupForm;
+
+//original function to calc age, used in handle submit above
+// calculate_age(dob) {
+//   let diff_ms = Date.now() - dob.getTime();
+//   let age_dt = new Date(diff_ms);
+//   return Math.abs(age_dt.getUTCFullYear() - 1970);
+// }
