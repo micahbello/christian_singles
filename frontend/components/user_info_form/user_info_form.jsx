@@ -286,28 +286,28 @@ class userInfoForm extends React.Component {
                 </div>
               <div className="overSelect"></div>
                 <div id="ethnicity-checkboxes">
-                  <label className="check-box-text">
-                    <input onChange={this.updateCheckBoxValue("ethnicity")} type="checkbox" value="African" checked={(this.state.ethnicity && this.state.ethnicity.includes("African") )? "true" : ''} />African</label>
-                  <label className="check-box-text">
-                    <input onChange={this.updateCheckBoxValue("ethnicity")} type="checkbox" value="Asian" checked={(this.state.ethnicity && this.state.ethnicity.includes("Asian")) ? "true" : ''}/>Asian</label>
-                  <label className="check-box-text">
-                    <input onChange={this.updateCheckBoxValue("ethnicity")} type="checkbox" value="Black" checked={(this.state.ethnicity && this.state.ethnicity.includes("Black")) ? "true" : ''}/>Black</label>
-                  <label className="check-box-text">
-                    <input onChange={this.updateCheckBoxValue("ethnicity")} type="checkbox" value="Caribbean" checked={(this.state.ethnicity && this.state.ethnicity.includes("Caribbean")) ? "true" : ''}/>Caribbean</label>
-                  <label className="check-box-text">
-                    <input onChange={this.updateCheckBoxValue("ethnicity")} type="checkbox" value="Caucasian/White" checked={(this.state.ethnicity && this.state.ethnicity.includes("Caucasian/White")) ? "true" : ''}/>Caucasian/White</label>
-                  <label className="check-box-text">
-                    <input onChange={this.updateCheckBoxValue("ethnicity")} type="checkbox" value="East Indian" checked={(this.state.ethnicity && this.state.ethnicity.includes("East Indian")) ? "true" : ''}/>East Indian</label>
-                  <label className="check-box-text">
-                    <input onChange={this.updateCheckBoxValue("ethnicity")} type="checkbox" value="Hispanic/Latin" checked={(this.state.ethnicity && this.state.ethnicity.includes("Hispanic/Latin")) ? "true" : ''}/>Hispanic/Latin</label>
-                  <label className="check-box-text">
-                    <input onChange={this.updateCheckBoxValue("ethnicity")} type="checkbox" value="Middle Eastern" checked={(this.state.ethnicity && this.state.ethnicity.includes("Middle Eastern")) ? "true" : ''}/>Middle Eastern</label>
-                  <label className="check-box-text">
-                    <input onChange={this.updateCheckBoxValue("ethnicity")} type="checkbox" value="Native American" checked={(this.state.ethnicity && this.state.ethnicity.includes("Native American")) ? "true" : ''}/>Native American</label>
-                  <label className="check-box-text">
-                    <input onChange={this.updateCheckBoxValue("ethnicity")} type="checkbox" value="Pacific Islander" checked={(this.state.ethnicity && this.state.ethnicity.includes("Pacific Islander")) ? "true" : ''}/>Pacific Islander</label>
-                  <label className="check-box-text">
-                    <input onChange={this.updateCheckBoxValue("ethnicity")} type="checkbox" value="Other Ethnicity" checked={(this.state.ethnicity && this.state.ethnicity.includes("Other Ethnicity")) ? "true" : ''}/>Other Ethnicity</label>
+                  <label onClick={(e) => e.stopPropagation()} className="check-box-text">
+                    <input onClick={(e) => e.stopPropagation()} onChange={this.updateCheckBoxValue("ethnicity")} type="checkbox" value="African" checked={(this.state.ethnicity && this.state.ethnicity.includes("African") )? "true" : ''} />African</label>
+                  <label onClick={(e) => e.stopPropagation()} className="check-box-text">
+                    <input onClick={(e) => e.stopPropagation()} onChange={this.updateCheckBoxValue("ethnicity")} type="checkbox" value="Asian" checked={(this.state.ethnicity && this.state.ethnicity.includes("Asian")) ? "true" : ''}/>Asian</label>
+                  <label onClick={(e) => e.stopPropagation()} className="check-box-text">
+                    <input onClick={(e) => e.stopPropagation()} onChange={this.updateCheckBoxValue("ethnicity")} type="checkbox" value="Black" checked={(this.state.ethnicity && this.state.ethnicity.includes("Black")) ? "true" : ''}/>Black</label>
+                  <label onClick={(e) => e.stopPropagation()} className="check-box-text">
+                    <input onClick={(e) => e.stopPropagation()} onChange={this.updateCheckBoxValue("ethnicity")} type="checkbox" value="Caribbean" checked={(this.state.ethnicity && this.state.ethnicity.includes("Caribbean")) ? "true" : ''}/>Caribbean</label>
+                  <label onClick={(e) => e.stopPropagation()} className="check-box-text">
+                    <input onClick={(e) => e.stopPropagation()} onChange={this.updateCheckBoxValue("ethnicity")} type="checkbox" value="Caucasian/White" checked={(this.state.ethnicity && this.state.ethnicity.includes("Caucasian/White")) ? "true" : ''}/>Caucasian/White</label>
+                  <label onClick={(e) => e.stopPropagation()} className="check-box-text">
+                    <input onClick={(e) => e.stopPropagation()} onChange={this.updateCheckBoxValue("ethnicity")} type="checkbox" value="East Indian" checked={(this.state.ethnicity && this.state.ethnicity.includes("East Indian")) ? "true" : ''}/>East Indian</label>
+                  <label onClick={(e) => e.stopPropagation()} className="check-box-text">
+                    <input onClick={(e) => e.stopPropagation()} onChange={this.updateCheckBoxValue("ethnicity")} type="checkbox" value="Hispanic/Latin" checked={(this.state.ethnicity && this.state.ethnicity.includes("Hispanic/Latin")) ? "true" : ''}/>Hispanic/Latin</label>
+                  <label onClick={(e) => e.stopPropagation()} className="check-box-text">
+                    <input onClick={(e) => e.stopPropagation()} onChange={this.updateCheckBoxValue("ethnicity")} type="checkbox" value="Middle Eastern" checked={(this.state.ethnicity && this.state.ethnicity.includes("Middle Eastern")) ? "true" : ''}/>Middle Eastern</label>
+                  <label onClick={(e) => e.stopPropagation()} className="check-box-text">
+                    <input onClick={(e) => e.stopPropagation()} onChange={this.updateCheckBoxValue("ethnicity")} type="checkbox" value="Native American" checked={(this.state.ethnicity && this.state.ethnicity.includes("Native American")) ? "true" : ''}/>Native American</label>
+                  <label onClick={(e) => e.stopPropagation()} className="check-box-text">
+                    <input onClick={(e) => e.stopPropagation()} onChange={this.updateCheckBoxValue("ethnicity")} type="checkbox" value="Pacific Islander" checked={(this.state.ethnicity && this.state.ethnicity.includes("Pacific Islander")) ? "true" : ''}/>Pacific Islander</label>
+                  <label onClick={(e) => e.stopPropagation()} className="check-box-text">
+                    <input onClick={(e) => e.stopPropagation()} onChange={this.updateCheckBoxValue("ethnicity")} type="checkbox" value="Other Ethnicity" checked={(this.state.ethnicity && this.state.ethnicity.includes("Other Ethnicity")) ? "true" : ''}/>Other Ethnicity</label>
 
                   <button onClick={this.handleSubmit}>Save changes</button>
 
@@ -327,66 +327,67 @@ class userInfoForm extends React.Component {
                     ? `${this.state.language.split(",")[0]}...` : "Language"}
                   </div>
 
+
               <div className="overSelect"></div>
                 <div id="language-checkboxes">
-                  <label className="check-box-text">
-                    <input onChange={this.updateCheckBoxValue("language")} type="checkbox" value="Arabic" checked={(this.state.language && this.state.language.includes("Arabic") )? "true" : ''}/>Arabic</label>
-                  <label className="check-box-text">
-                    <input onChange={this.updateCheckBoxValue("language")} type="checkbox" value="Bengali" checked={(this.state.language && this.state.language.includes("Bengali") )? "true" : ''}/>Bengali</label>
-                  <label className="check-box-text">
-                    <input onChange={this.updateCheckBoxValue("language")} type="checkbox" value="Bulgarian" checked={(this.state.language && this.state.language.includes("Bulgarian") )? "true" : ''}/>Bulgarian</label>
-                  <label className="check-box-text">
-                    <input onChange={this.updateCheckBoxValue("language")} type="checkbox" value="Chinese" checked={(this.state.language && this.state.language.includes("Chinese") )? "true" : ''}/>Chinese</label>
-                  <label className="check-box-text">
-                    <input onChange={this.updateCheckBoxValue("language")} type="checkbox" value="Czech" checked={(this.state.language && this.state.language.includes("Czech") )? "true" : ''}/>Czech</label>
-                  <label className="check-box-text">
-                    <input onChange={this.updateCheckBoxValue("language")} type="checkbox" value="Dutch" checked={(this.state.language && this.state.language.includes("Dutch") )? "true" : ''}/>Dutch</label>
-                  <label className="check-box-text">
-                    <input onChange={this.updateCheckBoxValue("language")} type="checkbox" value="English" checked={(this.state.language && this.state.language.includes("English") )? "true" : ''}/>English</label>
-                  <label className="check-box-text">
-                    <input onChange={this.updateCheckBoxValue("language")} type="checkbox" value="Fijian" checked={(this.state.language && this.state.language.includes("Fijian") )? "true" : ''}/>Fijian</label>
-                  <label className="check-box-text">
-                    <input onChange={this.updateCheckBoxValue("language")} type="checkbox" value="French" checked={(this.state.language && this.state.language.includes(" French") )? "true" : ''}/>French</label>
-                  <label className="check-box-text">
-                    <input onChange={this.updateCheckBoxValue("language")} type="checkbox" value="German" checked={(this.state.language && this.state.language.includes("German") )? "true" : ''}/>German</label>
-                  <label className="check-box-text">
-                    <input onChange={this.updateCheckBoxValue("language")} type="checkbox" value="Greek" checked={(this.state.language && this.state.language.includes("Greek") )? "true" : ''}/>Greek</label>
-                  <label className="check-box-text">
-                    <input onChange={this.updateCheckBoxValue("language")} type="checkbox" value="Hebrew" checked={(this.state.language && this.state.language.includes("Hebrew") )? "true" : ''}/>Hebrew</label>
-                  <label className="check-box-text">
-                    <input onChange={this.updateCheckBoxValue("language")} type="checkbox" value="Hindi" checked={(this.state.language && this.state.language.includes("Hindi") )? "true" : ''}/>Hindi</label>
-                  <label className="check-box-text">
-                    <input onChange={this.updateCheckBoxValue("language")} type="checkbox" value="Italian" checked={(this.state.language && this.state.language.includes("Italian") )? "true" : ''}/>Italian</label>
-                  <label className="check-box-text">
-                    <input onChange={this.updateCheckBoxValue("language")} type="checkbox" value="Japanese" checked={(this.state.language && this.state.language.includes("Japanese") )? "true" : ''}/>Japanese</label>
-                  <label className="check-box-text">
-                    <input onChange={this.updateCheckBoxValue("language")} type="checkbox" value="Korean" checked={(this.state.language && this.state.language.includes("Korean") )? "true" : ''}/>Korean</label>
-                  <label className="check-box-text">
-                    <input onChange={this.updateCheckBoxValue("language")} type="checkbox" value="Malay" checked={(this.state.language && this.state.language.includes("Malay") )? "true" : ''}/>Malay</label>
-                  <label className="check-box-text">
-                    <input onChange={this.updateCheckBoxValue("language")} type="checkbox" value="Mandarin" checked={(this.state.language && this.state.language.includes("Mandarin") )? "true" : ''}/>Manadarin</label>
-                  <label className="check-box-text">
-                    <input onChange={this.updateCheckBoxValue("language")} type="checkbox" value="Norwegian" checked={(this.state.language && this.state.language.includes("Norwegian") )? "true" : ''}/>Norwegian</label>
-                  <label className="check-box-text">
-                    <input onChange={this.updateCheckBoxValue("language")} type="checkbox" value="Polish" checked={(this.state.language && this.state.language.includes("Polish") )? "true" : ''}/>Polish</label>
-                  <label className="check-box-text">
-                    <input onChange={this.updateCheckBoxValue("language")} type="checkbox" value="Portuguese"checked={(this.state.language && this.state.language.includes("Portuguese") )? "true" : ''}/>Portuguese</label>
-                  <label className="check-box-text">
-                    <input onChange={this.updateCheckBoxValue("language")} type="checkbox" value="Romanian" checked={(this.state.language && this.state.language.includes("Romanian") )? "true" : ''}/>Romanian</label>
-                  <label className="check-box-text">
-                    <input onChange={this.updateCheckBoxValue("language")} type="checkbox" value="Russian" checked={(this.state.language && this.state.language.includes("Russian") )? "true" : ''}/>Russian</label>
-                  <label className="check-box-text">
-                    <input onChange={this.updateCheckBoxValue("language")} type="checkbox" value="Samoan" checked={(this.state.language && this.state.language.includes("Samoan") )? "true" : ''}/>Samoan</label>
-                  <label className="check-box-text">
-                    <input onChange={this.updateCheckBoxValue("language")} type="checkbox" value="Spanish" checked={(this.state.language && this.state.language.includes("Spanish") )? "true" : ''}/>Spanish</label>
-                  <label className="check-box-text">
-                    <input onChange={this.updateCheckBoxValue("language")} type="checkbox" value="Swedish" checked={(this.state.language && this.state.language.includes("Swedish") )? "true" : ''}/>Swedish</label>
-                  <label className="check-box-text">
-                    <input onChange={this.updateCheckBoxValue("language")} type="checkbox" value="Tagalog" checked={(this.state.language && this.state.language.includes("Tagalog") )? "true" : ''}/>Tagalog</label>
-                  <label className="check-box-text">
-                    <input onChange={this.updateCheckBoxValue("language")} type="checkbox" value="Thai" checked={(this.state.language && this.state.language.includes("Thai") )? "true" : ''}/>Thai</label>
-                  <label className="check-box-text">
-                    <input onChange={this.updateCheckBoxValue("language")} type="checkbox" value="Vietnamese" checked={(this.state.language && this.state.language.includes("Vietnamese") )? "true" : ''}/>Vietnamese</label>
+                  <label onClick={(e) => e.stopPropagation()} className="check-box-text">
+                    <input onClick={(e) => e.stopPropagation()} onChange={this.updateCheckBoxValue("language")} type="checkbox" value="Arabic" checked={(this.state.language && this.state.language.includes("Arabic") )? "true" : ''}/>Arabic</label>
+                  <label onClick={(e) => e.stopPropagation()} className="check-box-text">
+                    <input onClick={(e) => e.stopPropagation()} onChange={this.updateCheckBoxValue("language")} type="checkbox" value="Bengali" checked={(this.state.language && this.state.language.includes("Bengali") )? "true" : ''}/>Bengali</label>
+                  <label onClick={(e) => e.stopPropagation()} className="check-box-text">
+                    <input onClick={(e) => e.stopPropagation()} onChange={this.updateCheckBoxValue("language")} type="checkbox" value="Bulgarian" checked={(this.state.language && this.state.language.includes("Bulgarian") )? "true" : ''}/>Bulgarian</label>
+                  <label onClick={(e) => e.stopPropagation()} className="check-box-text">
+                    <input onClick={(e) => e.stopPropagation()} onChange={this.updateCheckBoxValue("language")} type="checkbox" value="Chinese" checked={(this.state.language && this.state.language.includes("Chinese") )? "true" : ''}/>Chinese</label>
+                  <label onClick={(e) => e.stopPropagation()} className="check-box-text">
+                    <input onClick={(e) => e.stopPropagation()} onChange={this.updateCheckBoxValue("language")} type="checkbox" value="Czech" checked={(this.state.language && this.state.language.includes("Czech") )? "true" : ''}/>Czech</label>
+                  <label onClick={(e) => e.stopPropagation()} className="check-box-text">
+                    <input onClick={(e) => e.stopPropagation()} onChange={this.updateCheckBoxValue("language")} type="checkbox" value="Dutch" checked={(this.state.language && this.state.language.includes("Dutch") )? "true" : ''}/>Dutch</label>
+                  <label onClick={(e) => e.stopPropagation()} className="check-box-text">
+                    <input onClick={(e) => e.stopPropagation()} onChange={this.updateCheckBoxValue("language")} type="checkbox" value="English" checked={(this.state.language && this.state.language.includes("English") )? "true" : ''}/>English</label>
+                  <label onClick={(e) => e.stopPropagation()} className="check-box-text">
+                    <input onClick={(e) => e.stopPropagation()} onChange={this.updateCheckBoxValue("language")} type="checkbox" value="Fijian" checked={(this.state.language && this.state.language.includes("Fijian") )? "true" : ''}/>Fijian</label>
+                  <label onClick={(e) => e.stopPropagation()} className="check-box-text">
+                    <input onClick={(e) => e.stopPropagation()} onChange={this.updateCheckBoxValue("language")} type="checkbox" value="French" checked={(this.state.language && this.state.language.includes(" French") )? "true" : ''}/>French</label>
+                  <label onClick={(e) => e.stopPropagation()} className="check-box-text">
+                    <input onClick={(e) => e.stopPropagation()} onChange={this.updateCheckBoxValue("language")} type="checkbox" value="German" checked={(this.state.language && this.state.language.includes("German") )? "true" : ''}/>German</label>
+                  <label onClick={(e) => e.stopPropagation()} className="check-box-text">
+                    <input onClick={(e) => e.stopPropagation()} onChange={this.updateCheckBoxValue("language")} type="checkbox" value="Greek" checked={(this.state.language && this.state.language.includes("Greek") )? "true" : ''}/>Greek</label>
+                  <label onClick={(e) => e.stopPropagation()} className="check-box-text">
+                    <input onClick={(e) => e.stopPropagation()} onChange={this.updateCheckBoxValue("language")} type="checkbox" value="Hebrew" checked={(this.state.language && this.state.language.includes("Hebrew") )? "true" : ''}/>Hebrew</label>
+                  <label onClick={(e) => e.stopPropagation()} className="check-box-text">
+                    <input onClick={(e) => e.stopPropagation()} onChange={this.updateCheckBoxValue("language")} type="checkbox" value="Hindi" checked={(this.state.language && this.state.language.includes("Hindi") )? "true" : ''}/>Hindi</label>
+                  <label onClick={(e) => e.stopPropagation()} className="check-box-text">
+                    <input onClick={(e) => e.stopPropagation()} onChange={this.updateCheckBoxValue("language")} type="checkbox" value="Italian" checked={(this.state.language && this.state.language.includes("Italian") )? "true" : ''}/>Italian</label>
+                  <label onClick={(e) => e.stopPropagation()} className="check-box-text">
+                    <input onClick={(e) => e.stopPropagation()} onChange={this.updateCheckBoxValue("language")} type="checkbox" value="Japanese" checked={(this.state.language && this.state.language.includes("Japanese") )? "true" : ''}/>Japanese</label>
+                  <label onClick={(e) => e.stopPropagation()} className="check-box-text">
+                    <input onClick={(e) => e.stopPropagation()} onChange={this.updateCheckBoxValue("language")} type="checkbox" value="Korean" checked={(this.state.language && this.state.language.includes("Korean") )? "true" : ''}/>Korean</label>
+                  <label onClick={(e) => e.stopPropagation()} className="check-box-text">
+                    <input onClick={(e) => e.stopPropagation()} onChange={this.updateCheckBoxValue("language")} type="checkbox" value="Malay" checked={(this.state.language && this.state.language.includes("Malay") )? "true" : ''}/>Malay</label>
+                  <label onClick={(e) => e.stopPropagation()} className="check-box-text">
+                    <input onClick={(e) => e.stopPropagation()} onChange={this.updateCheckBoxValue("language")} type="checkbox" value="Mandarin" checked={(this.state.language && this.state.language.includes("Mandarin") )? "true" : ''}/>Manadarin</label>
+                  <label onClick={(e) => e.stopPropagation()} className="check-box-text">
+                    <input onClick={(e) => e.stopPropagation()} onChange={this.updateCheckBoxValue("language")} type="checkbox" value="Norwegian" checked={(this.state.language && this.state.language.includes("Norwegian") )? "true" : ''}/>Norwegian</label>
+                  <label onClick={(e) => e.stopPropagation()} className="check-box-text">
+                    <input onClick={(e) => e.stopPropagation()} onChange={this.updateCheckBoxValue("language")} type="checkbox" value="Polish" checked={(this.state.language && this.state.language.includes("Polish") )? "true" : ''}/>Polish</label>
+                  <label onClick={(e) => e.stopPropagation()} className="check-box-text">
+                    <input onClick={(e) => e.stopPropagation()} onChange={this.updateCheckBoxValue("language")} type="checkbox" value="Portuguese"checked={(this.state.language && this.state.language.includes("Portuguese") )? "true" : ''}/>Portuguese</label>
+                  <label onClick={(e) => e.stopPropagation()} className="check-box-text">
+                    <input onClick={(e) => e.stopPropagation()} onChange={this.updateCheckBoxValue("language")} type="checkbox" value="Romanian" checked={(this.state.language && this.state.language.includes("Romanian") )? "true" : ''}/>Romanian</label>
+                  <label onClick={(e) => e.stopPropagation()} className="check-box-text">
+                    <input onClick={(e) => e.stopPropagation()} onChange={this.updateCheckBoxValue("language")} type="checkbox" value="Russian" checked={(this.state.language && this.state.language.includes("Russian") )? "true" : ''}/>Russian</label>
+                  <label onClick={(e) => e.stopPropagation()} className="check-box-text">
+                    <input onClick={(e) => e.stopPropagation()} onChange={this.updateCheckBoxValue("language")} type="checkbox" value="Samoan" checked={(this.state.language && this.state.language.includes("Samoan") )? "true" : ''}/>Samoan</label>
+                  <label onClick={(e) => e.stopPropagation()} className="check-box-text">
+                    <input onClick={(e) => e.stopPropagation()} onChange={this.updateCheckBoxValue("language")} type="checkbox" value="Spanish" checked={(this.state.language && this.state.language.includes("Spanish") )? "true" : ''}/>Spanish</label>
+                  <label onClick={(e) => e.stopPropagation()} className="check-box-text">
+                    <input onClick={(e) => e.stopPropagation()} onChange={this.updateCheckBoxValue("language")} type="checkbox" value="Swedish" checked={(this.state.language && this.state.language.includes("Swedish") )? "true" : ''}/>Swedish</label>
+                  <label onClick={(e) => e.stopPropagation()} className="check-box-text">
+                    <input onClick={(e) => e.stopPropagation()} onChange={this.updateCheckBoxValue("language")} type="checkbox" value="Tagalog" checked={(this.state.language && this.state.language.includes("Tagalog") )? "true" : ''}/>Tagalog</label>
+                  <label onClick={(e) => e.stopPropagation()} className="check-box-text">
+                    <input onClick={(e) => e.stopPropagation()} onChange={this.updateCheckBoxValue("language")} type="checkbox" value="Thai" checked={(this.state.language && this.state.language.includes("Thai") )? "true" : ''}/>Thai</label>
+                  <label onClick={(e) => e.stopPropagation()} className="check-box-text">
+                    <input onClick={(e) => e.stopPropagation()} onChange={this.updateCheckBoxValue("language")} type="checkbox" value="Vietnamese" checked={(this.state.language && this.state.language.includes("Vietnamese") )? "true" : ''}/>Vietnamese</label>
 
                   <button onClick={this.handleSubmit}>Save changes</button>
                   </div>
@@ -405,18 +406,18 @@ class userInfoForm extends React.Component {
                 </div>
               <div className="overSelect"></div>
                 <div id="pets-checkboxes">
-                  <label className="check-box-text">
-                    <input onChange={this.updateCheckBoxValue("pets")} type="checkbox" value="Have bird(s)" checked={(this.state.pets && this.state.pets.includes("Have bird(s)") )? "true" : ''} />Have bird(s)</label>
-                  <label className="check-box-text">
-                    <input onChange={this.updateCheckBoxValue("pets")} type="checkbox" value="Have cat(s)" checked={(this.state.pets && this.state.pets.includes("Have cat(s)") )? "true" : ''} />Have cat(s)</label>
-                  <label className="check-box-text">
-                    <input onChange={this.updateCheckBoxValue("pets")} type="checkbox" value="Have dog(s)" checked={(this.state.pets && this.state.pets.includes("Have dog(s)") )? "true" : ''} />Have dog(s)</label>
-                  <label className="check-box-text">
-                    <input onChange={this.updateCheckBoxValue("pets")} type="checkbox" value="Have fish" checked={(this.state.pets && this.state.pets.includes("Have fish") )? "true" : ''} />Have fish</label>
-                  <label className="check-box-text">
-                    <input onChange={this.updateCheckBoxValue("pets")} type="checkbox" value="No pets but want them" checked={(this.state.pets && this.state.pets.includes("No pets but want them") )? "true" : ''} />No pets but want them</label>
-                  <label className="check-box-text">
-                    <input onChange={this.updateCheckBoxValue("pets")} type="checkbox" value="Have a pet (ask me)" checked={(this.state.pets && this.state.pets.includes("Have a pet (ask me)") )? "true" : ''} />Have a pet (ask me)</label>
+                  <label onClick={(e) => e.stopPropagation()} className="check-box-text">
+                    <input onClick={(e) => e.stopPropagation()} onChange={this.updateCheckBoxValue("pets")} type="checkbox" value="Have bird(s)" checked={(this.state.pets && this.state.pets.includes("Have bird(s)") )? "true" : ''} />Have bird(s)</label>
+                  <label onClick={(e) => e.stopPropagation()} className="check-box-text">
+                    <input onClick={(e) => e.stopPropagation()} onChange={this.updateCheckBoxValue("pets")} type="checkbox" value="Have cat(s)" checked={(this.state.pets && this.state.pets.includes("Have cat(s)") )? "true" : ''} />Have cat(s)</label>
+                  <label onClick={(e) => e.stopPropagation()} className="check-box-text">
+                    <input onClick={(e) => e.stopPropagation()} onChange={this.updateCheckBoxValue("pets")} type="checkbox" value="Have dog(s)" checked={(this.state.pets && this.state.pets.includes("Have dog(s)") )? "true" : ''} />Have dog(s)</label>
+                  <label onClick={(e) => e.stopPropagation()} className="check-box-text">
+                    <input onClick={(e) => e.stopPropagation()} onChange={this.updateCheckBoxValue("pets")} type="checkbox" value="Have fish" checked={(this.state.pets && this.state.pets.includes("Have fish") )? "true" : ''} />Have fish</label>
+                  <label onClick={(e) => e.stopPropagation()} className="check-box-text">
+                    <input onClick={(e) => e.stopPropagation()} onChange={this.updateCheckBoxValue("pets")} type="checkbox" value="No pets but want them" checked={(this.state.pets && this.state.pets.includes("No pets but want them") )? "true" : ''} />No pets but want them</label>
+                  <label onClick={(e) => e.stopPropagation()} className="check-box-text">
+                    <input onClick={(e) => e.stopPropagation()} onChange={this.updateCheckBoxValue("pets")} type="checkbox" value="Have a pet (ask me)" checked={(this.state.pets && this.state.pets.includes("Have a pet (ask me)") )? "true" : ''} />Have a pet (ask me)</label>
 
                     <button onClick={this.handleSubmit}>Save changes</button>
 
@@ -467,16 +468,16 @@ class userInfoForm extends React.Component {
               </div>
             <div className="overSelect"></div>
               <div id="dates-checkboxes">
-                <label className="check-box-text">
-                  <input onChange={this.updateCheckBoxValue("first_date")} type="checkbox" value="Coffee or tea" checked={(this.state.first_date && this.state.first_date.includes("Coffee or tea") )? "true" : ''}  />Coffee or tea</label>
-                <label className="check-box-text">
-                  <input onChange={this.updateCheckBoxValue("first_date")} type="checkbox" value="Drinks"  checked={(this.state.first_date && this.state.first_date.includes("Drinks") )? "true" : ''}  />Drinks</label>
-                <label className="check-box-text">
-                  <input onChange={this.updateCheckBoxValue("first_date")} type="checkbox" value="A meal"  checked={(this.state.first_date && this.state.first_date.includes("A meal") )? "true" : ''}  />A meal</label>
-                <label className="check-box-text">
-                  <input onChange={this.updateCheckBoxValue("first_date")} type="checkbox" value="To be surprised" checked={(this.state.first_date && this.state.first_date.includes("To be surprised") )? "true" : ''}  />To be surprised</label>
-                <label className="check-box-text">
-                  <input onChange={this.updateCheckBoxValue("first_date")} type="checkbox" value="A walk or hike"  checked={(this.state.first_date && this.state.first_date.includes("A walk or hike") )? "true" : ''}  />A walk or hike</label>
+                <label onClick={(e) => e.stopPropagation()} className="check-box-text">
+                  <input onClick={(e) => e.stopPropagation()} onChange={this.updateCheckBoxValue("first_date")} type="checkbox" value="Coffee or tea" checked={(this.state.first_date && this.state.first_date.includes("Coffee or tea") )? "true" : ''}  />Coffee or tea</label>
+                <label onClick={(e) => e.stopPropagation()} className="check-box-text">
+                  <input onClick={(e) => e.stopPropagation()} onChange={this.updateCheckBoxValue("first_date")} type="checkbox" value="Drinks"  checked={(this.state.first_date && this.state.first_date.includes("Drinks") )? "true" : ''}  />Drinks</label>
+                <label onClick={(e) => e.stopPropagation()} className="check-box-text">
+                  <input onClick={(e) => e.stopPropagation()} onChange={this.updateCheckBoxValue("first_date")} type="checkbox" value="A meal"  checked={(this.state.first_date && this.state.first_date.includes("A meal") )? "true" : ''}  />A meal</label>
+                <label onClick={(e) => e.stopPropagation()} className="check-box-text">
+                  <input onClick={(e) => e.stopPropagation()} onChange={this.updateCheckBoxValue("first_date")} type="checkbox" value="To be surprised" checked={(this.state.first_date && this.state.first_date.includes("To be surprised") )? "true" : ''}  />To be surprised</label>
+                <label onClick={(e) => e.stopPropagation()} className="check-box-text">
+                  <input onClick={(e) => e.stopPropagation()} onChange={this.updateCheckBoxValue("first_date")} type="checkbox" value="A walk or hike"  checked={(this.state.first_date && this.state.first_date.includes("A walk or hike") )? "true" : ''}  />A walk or hike</label>
 
                     <button onClick={this.handleSubmit}>Save changes</button>
 

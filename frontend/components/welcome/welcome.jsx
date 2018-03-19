@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
+import { login } from '../../actions/session_actions'
 
 function Welcome({currentUser, logout}) {
   return (
@@ -21,6 +22,10 @@ function Welcome({currentUser, logout}) {
 
         <div className="link-to-sign-up-box">
           <Link className="link-to-sign-up" to='/signup'>Create an account</Link>
+          <br/>
+          <button className="demo-button"
+            onClick={() => dispatch(login({username: "demoaccount", password: "demoaccount"}))}>
+            DEMO</button>
         </div>
       </div>
 
