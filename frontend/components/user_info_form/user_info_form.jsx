@@ -124,7 +124,8 @@ class userInfoForm extends React.Component {
               <input onChange={this.updateValue("display_name")}
                 onBlur={this.handleSubmit}
                 className="user-info-input-box" type="text"
-                value={this.state.display_name ? this.state.display_name : " Display Name"}/>
+                value={this.state.display_name ? this.state.display_name : "Display Name"}
+                />
               <br/>
               <br/>
 

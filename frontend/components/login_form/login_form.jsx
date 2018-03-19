@@ -32,6 +32,7 @@ class LoginForm extends React.Component {
     this.setState({password: e.target.value});
   }
 
+
   render () {
     return (
     <div className="login-welcome-page">

@@ -26,7 +26,7 @@ class UserIndexProfile extends React.Component {
         </div>
 
         <p className="user-index-profile-name-text">
-          {this.props.profileDisplayName}
+          {this.props.profileDisplayName}, {this.props.profileAge}
         </p>
 
       </div>

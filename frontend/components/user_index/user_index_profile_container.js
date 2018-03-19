@@ -7,7 +7,8 @@ const msp = (state, ownProps) => {
   return {
     profileId: ownProps.id,
     profileDisplayName: ownProps.displayName,
-    profileImgUrl: ownProps.imgUrl
+    profileImgUrl: ownProps.imgUrl,
+    profileAge: ownProps.age
   };
 };
 

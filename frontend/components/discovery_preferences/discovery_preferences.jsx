@@ -145,14 +145,18 @@ class DiscoveryPreferences extends React.Component {
 
         <div id="preferences-distance-container">
 
-          <select class="user-info-select-box" id="distance-choose">
+
+
+          <select onChange={this.updateValue("distance_seek")}
+            onBlur={this.handleSubmit}
+            class="user-info-select-box" id="distance-choose">
               <option default hidden>{this.state.distance_seek ? `${this.state.distance_seek} mi` : "Distance"}</option>
 
               <option  value="5"> 5 mi</option>
 
               <option  value="10">10 mi</option>
 
-              <option  value="25">2 mi</option>
+              <option  value="25">25 mi</option>
 
               <option  value="50">50 mi</option>
 

@@ -27,6 +27,12 @@ window.onclick = function(event) {
 class TopHeader extends React.Component {
   constructor(props) {
     super(props);
+    this.handleLogOut = this.handleLogOut.bind(this);
+  }
+
+  handleLogOut() {
+    this.props.updateUserInfo({id: this.props.currentUser.id, last_online: new Date});
+    this.props.logout();
   }
 
   render (){
@@ -61,7 +67,7 @@ class TopHeader extends React.Component {
         <div id="iconDropDown" className="th-dropdown-content">
           <Link onClick={() => dispatch(getCurrentProfile(this.props.currentUser.id))} className="th-dropdown-link" to={`/profile/${this.props.currentUser.id}`} >My Profile</Link>
           <Link className="th-dropdown-link" to='/discoverypreferences'>Discovery Preferences</Link>
-          <div onClick={() => dispatch(logout())} className="th-dropdown-link">Logout</div>
+          <div onClick={() => this.handleLogOut()} className="th-dropdown-link">Logout</div>
 
         </div>
       </div>

@@ -98,7 +98,7 @@ class UserProfile extends React.Component {
                 this.state.have_kids ||
                 this.state.want_kids ||
                 this.state.relocate ) ?
-                "*" : ""}
+                <img src="https://www.iconsdb.com/icons/preview/caribbean-blue/user-6-xxl.png" width="16"/> : ""}
                 </p>
 
                 <p>{this.state.height}
@@ -126,7 +126,7 @@ class UserProfile extends React.Component {
                 <p className="user-info-icon">
                   {(this.state.religion ||
                   this.state.attendance) ?
-                  "*" : ""}
+                  <img src="http://www.downloadclipart.net/thumb/30485-blue-cross-icon.png" width="13"/> : ""}
                 </p>
 
                 <p>
@@ -147,7 +147,7 @@ class UserProfile extends React.Component {
                 <p className="user-info-icon">
                   {(this.state.occupation ||
                   this.state.education) ?
-                  "*" : ""}
+                  <img src="https://www.iconsdb.com/icons/preview/caribbean-blue/school-xxl.png" width="19"/> : ""}
                 </p>
                 <p id="make-reg-font">
                   {this.state.occupation}
@@ -164,7 +164,7 @@ class UserProfile extends React.Component {
                 <p className="user-info-icon">
                   {(this.state.language ||
                     this.state.ethnicity) ?
-                  "*" : ""}
+                  <img src="https://www.iconsdb.com/icons/preview/caribbean-blue/home-2-xxl.png" width="19" /> : ""}
                 </p>
                 <p>
 
@@ -189,7 +189,7 @@ class UserProfile extends React.Component {
                   {(this.state.pets ||
                   this.state.drink ||
                   this.state.smoke) ?
-                  "*" : ""}
+                  <img src="https://www.iconsdb.com/icons/preview/caribbean-blue/empty-flag-xxl.png" width="21"/>: ""}
                 </p>
                 <p>
 
@@ -222,7 +222,7 @@ class UserProfile extends React.Component {
                   "currently-hidden"}>
 
                 <p className="user-info-icon">
-                {this.state.first_date ? "*" : ""}
+                {this.state.first_date ? <img src="https://www.iconsdb.com/icons/preview/caribbean-blue/coffee-5-xxl.png" width="23"/> : ""}
                 </p>
                 <p>
                   {this.state.first_date ? `On a first date I prefer: ${this.state.first_date.split(",").join(", ")}` : ""}
@@ -231,7 +231,7 @@ class UserProfile extends React.Component {
 
 
               <li className="user-personal-info">
-                <p className="user-info-icon"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRZzkqBCe1bUQkJPNMNZfnbEe4rxej8e0zkcfRKWVb0j0S_IGfA" /></p>
+                <p className="user-info-icon"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTh31jrtcCCYCANXNBpziTKoiPQPuU9qTeHDeOylLbcw4xTvHSr" width="20"/></p>
                 <p className="">
                   I am looking for: {this.sex_seek}
                   {(!this.sex_seek && this.state.gender === "male") ? "Women" : ""}
@@ -241,7 +241,9 @@ class UserProfile extends React.Component {
 
               <li className="user-personal-info">
                 <p className="user-info-icon"><img src="https://cdn2.iconfinder.com/data/icons/metro-uinvert-dock/256/Clock.png" width="18"/></p>
-                <p>Last Online: {this.state.online === true ? "Online Now" : this.state.last_online}</p>
+                <p>
+                  Last Online: {this.state.online === true ? <span id="online-now-text">Online Now</span> : <span>{this.state.last_online}</span>}
+                </p>
               </li>
 
 

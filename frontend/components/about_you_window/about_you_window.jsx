@@ -41,13 +41,17 @@ class AboutYouWindow extends React.Component {
         <div className="about-you-box">
           <form onSubmit={(e) =>this.handleSubmit(e)}>
 
-            <p onClick={() => this.handleClick()} className="about-you-box-close">X</p>
+            <p onClick={() => this.handleClick()} className="about-you-box-close">
+              <img src="https://www.iconsdb.com/icons/preview/caribbean-blue/x-mark-xxl.png" width="10" />
+            </p>
             <div className="about-you-box-text">
               <h3>About You</h3>
             </div>
 
             <div className="about-you-box-input">
-              <textarea onChange={this.updateValue("description")} className="about-you-textarea" value={this.state.description}></textarea>
+              <textarea onChange={this.updateValue("description")}
+                className="about-you-textarea" value={this.state.description}>
+              </textarea>
             </div>
 
             <button className="about-you-save-button">Save Changes</button>

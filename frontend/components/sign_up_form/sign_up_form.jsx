@@ -49,9 +49,7 @@ class SignupForm extends React.Component {
 
     //set the default display name to username
     user["display_name"] = this.state.username;
-    //set the last_online to Online now
-    user["last_online"] = new Date;
-    //set the current age 
+    //set the current age
     user["age"] = Math.abs((new Date(Date.now() - (new Date(user["birth_date"])
                   .getTime()))).getUTCFullYear() - 1970);
 
