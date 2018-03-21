@@ -24,7 +24,7 @@ function Welcome({currentUser, logout}) {
           <Link className="link-to-sign-up" to='/signup'>Create an account</Link>
           <br/>
           <button className="demo-button"
-            onClick={() => dispatch(login({username: "demoaccount", password: "demoaccount"}))}>
+            onClick={() => dispatch(login({username: "demoaccount", password: "password"}))}>
             DEMO</button>
         </div>
       </div>

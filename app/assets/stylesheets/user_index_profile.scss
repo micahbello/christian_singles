@@ -10,6 +10,8 @@
   justify-content: center;
   background-color: white;
   border-radius: 3px;
+  //
+  // box-sizing: border-box;
 }
 
 .user-index-profile-box-pic{
@@ -21,6 +23,8 @@
   margin-top: 13px;
   background-color: grey;
   overflow: hidden;
+  background-size: cover;
+  background-position: center;
 }
 
 .user-index-profile-name-text {

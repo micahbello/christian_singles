@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import TopHeader from './top_header';
-import { updateUserInfo } from '../../actions/user_actions';
+import { updateUserInfo, clearCurrentProfile } from '../../actions/user_actions';
 
 const msp = (state) => {
   return {
@@ -13,8 +13,9 @@ const msp = (state) => {
 const mdp = (dispatch) => {
   return {
     logout: () => dispatch(logout()),
-    getCurrentProfile: () => dispatch(getCurrentProfile()),
-    updateUserInfo: (user) => dispatch(updateUserInfo(user))
+    getCurrentProfile: (user) => dispatch(getCurrentProfile(user)),
+    updateUserInfo: (id) => dispatch(updateUserInfo(id)),
+    clearCurrentProfile: () => dispatch(clearCurrentProfile())
   };
 };
 

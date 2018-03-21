@@ -29,7 +29,7 @@ class UserProfile extends React.Component {
 
 
   render() {
-
+debugger
     if (!this.state) {
       return <p>...Loading...</p>
       } else {
@@ -60,7 +60,7 @@ class UserProfile extends React.Component {
           <div className="info-forms">
 
             <div className="user-info-pic-container">
-              <img src={this.state.image} className="profile-full-pic"/>
+              <img src={this.props.currentProfile.image} className="profile-full-pic"/>
              </div>
 
           <div className="user-info-container">
@@ -68,164 +68,164 @@ class UserProfile extends React.Component {
             <div className="user-bio">
               <div className="user-name-age-container">
                 <p className="user-display_name">
-                  {this.state.display_name ?
-                    this.state.display_name : this.state.username }</p>
-                  <p className="user-age">{this.state.age ? `, ${this.state.age}` : ""}</p>
+                  {this.props.currentProfile.display_name ?
+                    this.props.currentProfile.display_name : this.props.currentProfile.username }</p>
+                  <p className="user-age">{this.props.currentProfile.age ? `, ${this.props.currentProfile.age}` : ""}</p>
               </div>
 
               <div className="user-location">
-                <p className="user-city">{this.state.city}</p>
-                <p className="user-state">{this.state.state ? `, ${this.state.state}` : ""}</p>
+                <p className="user-city">{this.props.currentProfile.city}</p>
+                <p className="user-state">{this.props.currentProfile.state ? `, ${this.props.currentProfile.state}` : ""}</p>
               </div>
 
-              <p className={this.state.description ? "user-about-me" : "currently-hidden"}>{this.state.description}</p>
+              <p className={this.props.currentProfile.description ? "user-about-me" : "currently-hidden"}>{this.props.currentProfile.description}</p>
 
             </div>
 
             <div className="user-attributes-info">
 
               <li className=
-                {(this.state.height ||
-                this.state.have_kids ||
-                this.state.want_kids ||
-                this.state.relocate) ?
+                {(this.props.currentProfile.height ||
+                this.props.currentProfile.have_kids ||
+                this.props.currentProfile.want_kids ||
+                this.props.currentProfile.relocate) ?
                 "user-personal-info" :
                 "currently-hidden"}>
 
 
                 <p className="user-info-icon">
-                {(this.state.height ||
-                this.state.have_kids ||
-                this.state.want_kids ||
-                this.state.relocate ) ?
+                {(this.props.currentProfile.height ||
+                this.props.currentProfile.have_kids ||
+                this.props.currentProfile.want_kids ||
+                this.props.currentProfile.relocate ) ?
                 <img src="https://www.iconsdb.com/icons/preview/caribbean-blue/user-6-xxl.png" width="16"/> : ""}
                 </p>
 
-                <p>{this.state.height}
+                <p>{this.props.currentProfile.height}
 
-                  {(this.state.height && this.state.have_kids) ? `, ${this.state.have_kids}` : ""}
-                  {(!this.state.height && this.state.have_kids) ? this.state.have_kids : ""}
+                  {(this.props.currentProfile.height && this.props.currentProfile.have_kids) ? `, ${this.props.currentProfile.have_kids}` : ""}
+                  {(!this.props.currentProfile.height && this.props.currentProfile.have_kids) ? this.props.currentProfile.have_kids : ""}
 
-                  {((this.state.have_kids || this.state.height) && this.state.want_kids ) ? `, ${this.state.want_kids}` : ""}
-                  {((!this.state.have_kids && !this.state.height) && this.state.want_kids ) ? this.state.want_kids : ""}
+                  {((this.props.currentProfile.have_kids || this.props.currentProfile.height) && this.props.currentProfile.want_kids ) ? `, ${this.props.currentProfile.want_kids}` : ""}
+                  {((!this.props.currentProfile.have_kids && !this.props.currentProfile.height) && this.props.currentProfile.want_kids ) ? this.props.currentProfile.want_kids : ""}
 
 
-                  {((this.state.have_kids || this.state.want_kids || this.state.height) && this.state.relocate) ? `, ${this.state.relocate}` : ""}
-                  {((!this.state.have_kids && !this.state.want_kids && !this.state.height) && this.state.relocate) ? this.state.relocate : ""}
+                  {((this.props.currentProfile.have_kids || this.props.currentProfile.want_kids || this.props.currentProfile.height) && this.props.currentProfile.relocate) ? `, ${this.props.currentProfile.relocate}` : ""}
+                  {((!this.props.currentProfile.have_kids && !this.props.currentProfile.want_kids && !this.props.currentProfile.height) && this.props.currentProfile.relocate) ? this.props.currentProfile.relocate : ""}
                 </p>
               </li>
 
 
 
               <li className=
-                {(this.state.religion ||
-                this.state.attendance) ?
+                {(this.props.currentProfile.religion ||
+                this.props.currentProfile.attendance) ?
                 "user-personal-info" :
                 "currently-hidden"}>
 
                 <p className="user-info-icon">
-                  {(this.state.religion ||
-                  this.state.attendance) ?
+                  {(this.props.currentProfile.religion ||
+                  this.props.currentProfile.attendance) ?
                   <img src="http://www.downloadclipart.net/thumb/30485-blue-cross-icon.png" width="13"/> : ""}
                 </p>
 
                 <p>
-                  {this.state.religion}
+                  {this.props.currentProfile.religion}
 
-                  {(this.state.religion && this.state.attendance) ? `, ${this.state.attendance}` : ""}
-                  {(!this.state.religion && this.state.attendance) ? this.state.attendance : ""}
+                  {(this.props.currentProfile.religion && this.props.currentProfile.attendance) ? `, ${this.props.currentProfile.attendance}` : ""}
+                  {(!this.props.currentProfile.religion && this.props.currentProfile.attendance) ? this.props.currentProfile.attendance : ""}
                 </p>
               </li>
 
 
               <li className=
-                {(this.state.occupation ||
-                this.state.education) ?
+                {(this.props.currentProfile.occupation ||
+                this.props.currentProfile.education) ?
                 "user-personal-info" :
                 "currently-hidden"}>
 
                 <p className="user-info-icon">
-                  {(this.state.occupation ||
-                  this.state.education) ?
+                  {(this.props.currentProfile.occupation ||
+                  this.props.currentProfile.education) ?
                   <img src="https://www.iconsdb.com/icons/preview/caribbean-blue/school-xxl.png" width="19"/> : ""}
                 </p>
                 <p id="make-reg-font">
-                  {this.state.occupation}
+                  {this.props.currentProfile.occupation}
 
-                  {(this.state.occupation && this.state.education) ? `, ${this.state.education}` : "" }
-                  {(!this.state.occupation && this.state.education) ? this.state.education : "" }
+                  {(this.props.currentProfile.occupation && this.props.currentProfile.education) ? `, ${this.props.currentProfile.education}` : "" }
+                  {(!this.props.currentProfile.occupation && this.props.currentProfile.education) ? this.props.currentProfile.education : "" }
                 </p>
               </li>
 
-              <li className={this.state.language ?
+              <li className={this.props.currentProfile.language ?
                   "user-personal-info" :
                   "currently-hidden"}>
 
                 <p className="user-info-icon">
-                  {(this.state.language ||
-                    this.state.ethnicity) ?
+                  {(this.props.currentProfile.language ||
+                    this.props.currentProfile.ethnicity) ?
                   <img src="https://www.iconsdb.com/icons/preview/caribbean-blue/home-2-xxl.png" width="19" /> : ""}
                 </p>
                 <p>
 
-                {(this.state.ethnicity && this.state.ethnicity.includes(",")) ? this.state.ethnicity.split(",").join(", ") : this.state.ethnicity}
+                {(this.props.currentProfile.ethnicity && this.props.currentProfile.ethnicity.includes(",")) ? this.props.currentProfile.ethnicity.split(",").join(", ") : this.props.currentProfile.ethnicity}
 
-                <span id="make-reg-font">{(this.state.language && !this.state.ethnicity) ? "Speaks: " : ""}</span>
-                <span id="make-reg-font">{(this.state.language && this.state.ethnicity) ? ", Speaks: " : ""}</span>
-                {(this.state.language && this.state.language.includes(",")) ? this.state.language.split(",").join(", ") : this.state.language}
+                <span id="make-reg-font">{(this.props.currentProfile.language && !this.props.currentProfile.ethnicity) ? "Speaks: " : ""}</span>
+                <span id="make-reg-font">{(this.props.currentProfile.language && this.props.currentProfile.ethnicity) ? ", Speaks: " : ""}</span>
+                {(this.props.currentProfile.language && this.props.currentProfile.language.includes(",")) ? this.props.currentProfile.language.split(",").join(", ") : this.props.currentProfile.language}
 
                 </p>
               </li>
 
 
               <li className=
-                {(this.state.pets ||
-                this.state.drink ||
-                this.state.smoke) ?
+                {(this.props.currentProfile.pets ||
+                this.props.currentProfile.drink ||
+                this.props.currentProfile.smoke) ?
                 "user-personal-info" :
                 "currently-hidden"}>
 
                 <p className="user-info-icon">
-                  {(this.state.pets ||
-                  this.state.drink ||
-                  this.state.smoke) ?
+                  {(this.props.currentProfile.pets ||
+                  this.props.currentProfile.drink ||
+                  this.props.currentProfile.smoke) ?
                   <img src="https://www.iconsdb.com/icons/preview/caribbean-blue/empty-flag-xxl.png" width="21"/>: ""}
                 </p>
                 <p>
 
-                  {(this.state.pets && this.state.pets.includes(",")) ? this.state.pets.split(",").join(", ") : this.state.pets}
+                  {(this.props.currentProfile.pets && this.props.currentProfile.pets.includes(",")) ? this.props.currentProfile.pets.split(",").join(", ") : this.props.currentProfile.pets}
 
-                  {(this.state.pets && this.state.drink) ? `, ${this.state.drink}` : "" }
-                  {(!this.state.pets && this.state.drink) ? this.state.drink : "" }
+                  {(this.props.currentProfile.pets && this.props.currentProfile.drink) ? `, ${this.props.currentProfile.drink}` : "" }
+                  {(!this.props.currentProfile.pets && this.props.currentProfile.drink) ? this.props.currentProfile.drink : "" }
 
-                  {((this.state.pets || this.state.drink) && this.state.smoke ) ? `, ${this.state.smoke}` : ""}
-                  {((!this.state.pets && !this.state.drink) && this.state.smoke ) ? this.state.smoke : ""}
+                  {((this.props.currentProfile.pets || this.props.currentProfile.drink) && this.props.currentProfile.smoke ) ? `, ${this.props.currentProfile.smoke}` : ""}
+                  {((!this.props.currentProfile.pets && !this.props.currentProfile.drink) && this.props.currentProfile.smoke ) ? this.props.currentProfile.smoke : ""}
                 </p>
               </li>
 
               <li className=
-                {this.state.hobbies ?
+                {this.props.currentProfile.hobbies ?
                 "user-personal-info" :
                 "currently-hidden"}>
 
                 <p className="user-info-icon">
-                  {this.state.hobbies ? "*" : ""}
+                  {this.props.currentProfile.hobbies ? "*" : ""}
                 </p>
                 <p>
-                  {this.state.hobbies}
+                  {this.props.currentProfile.hobbies}
                 </p>
               </li>
 
               <li className={
-                  this.state.first_date ?
+                  this.props.currentProfile.first_date ?
                   "user-personal-info" :
                   "currently-hidden"}>
 
                 <p className="user-info-icon">
-                {this.state.first_date ? <img src="https://www.iconsdb.com/icons/preview/caribbean-blue/coffee-5-xxl.png" width="23"/> : ""}
+                {this.props.currentProfile.first_date ? <img src="https://www.iconsdb.com/icons/preview/caribbean-blue/coffee-5-xxl.png" width="23"/> : ""}
                 </p>
                 <p>
-                  {this.state.first_date ? `On a first date I prefer: ${this.state.first_date.split(",").join(", ")}` : ""}
+                  {this.props.currentProfile.first_date ? `On a first date I prefer: ${this.props.currentProfile.first_date.split(",").join(", ")}` : ""}
                 </p>
               </li>
 
@@ -233,16 +233,16 @@ class UserProfile extends React.Component {
               <li className="user-personal-info">
                 <p className="user-info-icon"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTh31jrtcCCYCANXNBpziTKoiPQPuU9qTeHDeOylLbcw4xTvHSr" width="20"/></p>
                 <p className="">
-                  I am looking for: {this.sex_seek}
-                  {(!this.sex_seek && this.state.gender === "male") ? "Women" : ""}
-                  {(!this.sex_seek && this.state.gender === "female") ? "Men" : ""}
+                  I am looking for: {this.props.currentProfile.sex_seek}
+                  {(!this.props.currentProfile.sex_seek && this.props.currentProfile.gender === "male") ? "Women" : ""}
+                  {(!this.props.currentProfile.sex_seek && this.props.currentProfile.gender === "female") ? "Men" : ""}
                 </p>
               </li>
 
               <li className="user-personal-info">
                 <p className="user-info-icon"><img src="https://cdn2.iconfinder.com/data/icons/metro-uinvert-dock/256/Clock.png" width="18"/></p>
                 <p>
-                  Last Online: {this.state.online === true ? <span id="online-now-text">Online Now</span> : <span>{this.state.last_online}</span>}
+                  Last Online: {this.props.currentProfile.online === true ? <span id="online-now-text">Online Now</span> : <span>{this.props.currentProfile.last_online}</span>}
                 </p>
               </li>
 

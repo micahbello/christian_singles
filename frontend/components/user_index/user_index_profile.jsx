@@ -18,15 +18,13 @@ class UserIndexProfile extends React.Component {
 
       <div className="user-index-profile-box">
 
-        <div className="user-index-profile-box-pic">
-
-          <img src={this.props.profileImgUrl} />
+        <div style={{backgroundImage: `url(${this.props.profileImgUrl})`}} className="user-index-profile-box-pic">
 
 
         </div>
 
         <p className="user-index-profile-name-text">
-          {this.props.profileDisplayName}, {this.props.profileAge}
+          {this.props.profileDisplayName ? this.props.profileDisplayName : this.props.profileUsername}, {this.props.profileAge}
         </p>
 
       </div>

@@ -6,6 +6,7 @@ import { clearCurrentProfile } from '../../actions/user_actions';
 
 
 const mapStateToProps = (state) => {
+  debugger
   return {
     currentProfile: state.users.currentProfile,
     currentUser: state.session.currentUser
