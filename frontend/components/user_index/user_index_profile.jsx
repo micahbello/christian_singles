@@ -27,6 +27,8 @@ class UserIndexProfile extends React.Component {
           {this.props.profileDisplayName ? this.props.profileDisplayName : this.props.profileUsername}, {this.props.profileAge}
         </p>
 
+        <p>{this.props.profileOnlineStatus === true ? <b><font color="#00FF00">Online Now</font></b> : ""}</p>
+
       </div>
     );
   }

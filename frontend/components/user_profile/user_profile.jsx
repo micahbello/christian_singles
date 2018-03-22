@@ -29,8 +29,9 @@ class UserProfile extends React.Component {
 
 
   render() {
-debugger
+
     if (!this.state) {
+
       return <p>...Loading...</p>
       } else {
       return (
@@ -112,6 +113,9 @@ debugger
 
                   {((this.props.currentProfile.have_kids || this.props.currentProfile.want_kids || this.props.currentProfile.height) && this.props.currentProfile.relocate) ? `, ${this.props.currentProfile.relocate}` : ""}
                   {((!this.props.currentProfile.have_kids && !this.props.currentProfile.want_kids && !this.props.currentProfile.height) && this.props.currentProfile.relocate) ? this.props.currentProfile.relocate : ""}
+
+                  {((this.props.currentProfile.have_kids || this.props.currentProfile.want_kids || this.props.currentProfile.height || this.props.currentProfile.relocate) && this.props.currentProfile.marital_status) ? `, ${this.props.currentProfile.marital_status}` : ""}
+                  {((!this.props.currentProfile.have_kids && !this.props.currentProfile.want_kids && !this.props.currentProfile.height && !this.props.currentProfile.relocate) && this.props.currentProfile.marital_status) ? this.props.currentProfile.marital_status : ""}
                 </p>
               </li>
 
@@ -149,7 +153,7 @@ debugger
                   this.props.currentProfile.education) ?
                   <img src="https://www.iconsdb.com/icons/preview/caribbean-blue/school-xxl.png" width="19"/> : ""}
                 </p>
-                <p id="make-reg-font">
+                <p>
                   {this.props.currentProfile.occupation}
 
                   {(this.props.currentProfile.occupation && this.props.currentProfile.education) ? `, ${this.props.currentProfile.education}` : "" }
@@ -225,7 +229,8 @@ debugger
                 {this.props.currentProfile.first_date ? <img src="https://www.iconsdb.com/icons/preview/caribbean-blue/coffee-5-xxl.png" width="23"/> : ""}
                 </p>
                 <p>
-                  {this.props.currentProfile.first_date ? `On a first date I prefer: ${this.props.currentProfile.first_date.split(",").join(", ")}` : ""}
+                  {this.props.currentProfile.first_date ? <span id="make-reg-font">On a first date I prefer:</span> : "" }
+                  {this.props.currentProfile.first_date ? ` ${this.props.currentProfile.first_date.split(",").join(", ")}` : "" }
                 </p>
               </li>
 
@@ -233,7 +238,7 @@ debugger
               <li className="user-personal-info">
                 <p className="user-info-icon"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTh31jrtcCCYCANXNBpziTKoiPQPuU9qTeHDeOylLbcw4xTvHSr" width="20"/></p>
                 <p className="">
-                  I am looking for: {this.props.currentProfile.sex_seek}
+                  <span id="make-reg-font">I am looking for:</span> {this.props.currentProfile.sex_seek}
                   {(!this.props.currentProfile.sex_seek && this.props.currentProfile.gender === "male") ? "Women" : ""}
                   {(!this.props.currentProfile.sex_seek && this.props.currentProfile.gender === "female") ? "Men" : ""}
                 </p>
@@ -242,7 +247,7 @@ debugger
               <li className="user-personal-info">
                 <p className="user-info-icon"><img src="https://cdn2.iconfinder.com/data/icons/metro-uinvert-dock/256/Clock.png" width="18"/></p>
                 <p>
-                  Last Online: {this.props.currentProfile.online === true ? <span id="online-now-text">Online Now</span> : <span>{this.props.currentProfile.last_online}</span>}
+                  <span id="make-reg-font">Last Online:</span> {this.props.currentProfile.online === true ? <span id="online-now-text">Online Now</span> : <span>{this.props.currentProfile.last_online}</span>}
                 </p>
               </li>
 

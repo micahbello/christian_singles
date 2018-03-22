@@ -83,7 +83,6 @@ class userInfoForm extends React.Component {
       return <p>...Loading...</p>
     } else {
 
-      console.log(`this is current state of ethnicity upon render: ${this.state["ethnicity"]}`)
       return (
 
 
@@ -124,7 +123,8 @@ class userInfoForm extends React.Component {
               <input onChange={this.updateValue("display_name")}
                 onBlur={this.handleSubmit}
                 className="user-info-input-box" type="text"
-                value={this.state.display_name ? this.state.display_name : "Display Name"}
+                placeholder={this.state.display_name ? "" : "Display Name"}
+                value={this.state.display_name ? this.state.display_name : ""}
                 />
               <br/>
               <br/>
@@ -136,7 +136,7 @@ class userInfoForm extends React.Component {
               <input onClick={() => this.handleClick()}
 
                 className="user-info-input-box" type="text"
-                value={this.state.description ? this.state.description : " About You"}/>
+                value={this.props.currentProfile.description ? this.props.currentProfile.description : " About You"}/>
               <br/>
               <br/>
 
@@ -253,7 +253,9 @@ class userInfoForm extends React.Component {
               <input onChange={this.updateValue("occupation")}
                 onBlur={this.handleSubmit}
                 className="user-info-input-box" type="text"
-                value={this.state.occupation ? this.state.occupation : " Occupation"}/>
+                placeholder={this.state.occupation ? "" : "Occupation"}
+                value={this.state.occupation ? this.state.occupation : ""}
+                />
               <br/>
               <br/>
 
