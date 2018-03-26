@@ -27,9 +27,14 @@ class SignupForm extends React.Component {
   this.updateValue = this.updateValue.bind(this);
   }
 
+  componentWillUnmount() {
+    this.props.clearSessionErrors();
+  }
+
 
   handleSubmit(e) {
     e.preventDefault();
+    this.props.clearSessionErrors();
     const user = merge({}, this.state);
 
     //set the zip code to an integer for the back end
@@ -77,6 +82,8 @@ class SignupForm extends React.Component {
   //   this.setState({password: e.target.value});
   // }
 
+// {this.props.errors.map((error, idx) => <div className="login-form-error" key={idx}>{error}</div>)}
+
   render () {
 
     return (
@@ -94,12 +101,14 @@ class SignupForm extends React.Component {
           <Link className="link nav-linker" to='/login' >Login Here</Link>
         </div>
       </div>
-
       <br/>
+
+
+      <div className="login-form-error">{this.props.errors.join(", ")}</div>
+
       <form className="sign-up-form-container" onSubmit={(e) => this.handleSubmit(e)}>
 
         <div className="login-form">
-          {this.props.errors.map(error => <div className="login-form-error">{error}</div>)}
           <label className="login-field">Username</label>
           <br/>
           <input className="login-input" onChange={this.updateValue("username")} type="text" value={this.state.username}/>

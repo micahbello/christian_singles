@@ -15,10 +15,15 @@ class LoginForm extends React.Component {
   this.updatePassword = this.updatePassword.bind(this);
   }
 
+  componentWillUnmount() {
+    this.props.clearSessionErrors();
+  }
+
 
 
   handleSubmit(e) {
     e.preventDefault();
+    this.props.clearSessionErrors();
 
     const user = merge({}, this.state);
     this.props.login(user);
@@ -47,10 +52,11 @@ class LoginForm extends React.Component {
       </div>
     </div>
 
+    <div className="login-form-error">{this.props.errors.join(", ")}</div>
+
       <br/>
       <form className="login-form-container" onSubmit={(e) => this.handleSubmit(e)}>
         <div className="login-form">
-      {this.props.errors.map(error => <div className="login-form-error">{error}</div>)}
           <label className="login-field">Username</label>
           <br/>
           <input className="login-input" onChange={this.updateUsername} type="text" value={this.state.username}/>

@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import SignupForm from './sign_up_form';
 import { withRouter } from 'react-router-dom';
-import { signup } from '../../actions/session_actions';
+import { signup, clearSessionErrors } from '../../actions/session_actions';
 import { getCurrentProfile } from '../../actions/user_actions';
 
 
@@ -14,6 +14,7 @@ const msp = (state, ownProps) =>  {
 
 const mdp =(dispatch, ownProps) => {
   return {
+    clearSessionErrors: () => dispatch(clearSessionErrors()),
     signup: (user) => dispatch(signup(user)),
     getCurrentProfile: (user) => dispatch(getCurrentProfile(user))
   };
