@@ -56,11 +56,11 @@ class TopHeader extends React.Component {
         </div>
 
         <div>
-          <Link className="th-link" to='/browse' >Messages</Link>
+          <Link className="th-link" to='/messages' >Messages</Link>
         </div>
 
         <div className="th-matches-cont">
-          <Link className="th-link" to='/browse'>Matches</Link>
+          <Link className="th-link" to='/matches'>Matches</Link>
         </div>
 
       </div>

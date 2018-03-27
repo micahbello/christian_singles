@@ -71,7 +71,10 @@ class UserProfile extends React.Component {
                 <p className="user-display_name">
                   {this.props.currentProfile.display_name ?
                     this.props.currentProfile.display_name : this.props.currentProfile.username }</p>
-                  <p className="user-age">{this.props.currentProfile.age ? `, ${this.props.currentProfile.age}` : ""}</p>
+                  <p className="user-age">{this.props.currentProfile.age ? `, ${this.props.currentProfile.age}` : ""}
+                    {this.props.currentProfile.match_percentage === "no_percent_allowed"
+                      ? "" : ` | ${this.props.currentProfile.match_percentage}% Match`}
+                  </p>
               </div>
 
               <div className="user-location">

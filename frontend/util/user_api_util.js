@@ -18,4 +18,12 @@ export const getAllUsers = () => {
     method: 'GET',
     url: '/api/users'
   });
-}
+};
+
+export const getMatches = (id) => {
+  return $.ajax ({
+    method: 'GET',
+    url: '/api/matches',
+    data: { id }
+  });
+};

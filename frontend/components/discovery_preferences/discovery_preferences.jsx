@@ -283,7 +283,7 @@ class DiscoveryPreferences extends React.Component {
             <label onClick={(e) => e.stopPropagation()} className="check-box-text">
               <input onClick={(e) => e.stopPropagation()} onChange={this.handleSubmit} onClick={this.updateCheckBoxValue("education_seek")} type="checkbox" value="Master's Degree" checked={(this.state.education_seek && this.state.education_seek.includes("Master's Degree") )? "true" : ''} />Master's Degree</label>
             <label onClick={(e) => e.stopPropagation()} className="check-box-text">
-              <input onClick={(e) => e.stopPropagation()} onChange={this.handleSubmit} onClick={this.updateCheckBoxValue("education_seek")} type="checkbox" value="Jd/Ph/Post Doc" checked={(this.state.education_seek && this.state.education_seek.includes("Jd/Ph/Post Doc") )? "true" : ''} />Jd/Ph/Post Doc</label>
+              <input onClick={(e) => e.stopPropagation()} onChange={this.handleSubmit} onClick={this.updateCheckBoxValue("education_seek")} type="checkbox" value="JD/PhD/Post Doc" checked={(this.state.education_seek && this.state.education_seek.includes("JD/PhD/Post Doc") )? "true" : ''} />JD/PhD/Post Doc</label>
 
             <button onClick={this.handleSubmit}>Save changes</button>
           </div>

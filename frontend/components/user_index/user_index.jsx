@@ -9,7 +9,7 @@ class UserIndex extends React.Component {
   }
 
   componentDidMount() {
-    this.props.getAllUsers()
+    this.props.getMatches(this.props.currentUser.id)
   }
 
   componentWillUnmount() {
@@ -33,7 +33,7 @@ class UserIndex extends React.Component {
             map((profile, idx) => <Link key={idx} id="link-to-profiles" to={`/profile/${profile.id}`}>
             <UserIndexProfileContainer id={profile.id} imgUrl={profile.image}
               displayName={profile.display_name} age={profile.age} userName={profile.username}
-              onlineStatus={profile.online}/>
+              onlineStatus={profile.online} matchPercent={profile.percentage}/>
           </Link>) }
 
 

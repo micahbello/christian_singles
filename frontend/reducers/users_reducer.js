@@ -1,4 +1,4 @@
-import { RECEIVE_CURRENT_PROFILE,   RECEIVE_ALL_USERS } from '../actions/user_actions';
+import { RECEIVE_CURRENT_PROFILE, RECEIVE_MATCHES, RECEIVE_ALL_USERS } from '../actions/user_actions';
 import { merge } from 'lodash';
 
 const usersReducer = (oldState = {currentProfile: null, currentIndexProfiles: null}, action) => {
@@ -8,6 +8,8 @@ const usersReducer = (oldState = {currentProfile: null, currentIndexProfiles: nu
       return merge({}, oldState, {currentProfile: action.currentProfile});
     case RECEIVE_ALL_USERS:
       return merge({}, oldState, {currentIndexProfiles: action.currentIndexProfiles})
+    case RECEIVE_MATCHES:
+      return merge({}, oldState, {currentIndexProfiles: action.matches})
     default:
       return oldState;
   }

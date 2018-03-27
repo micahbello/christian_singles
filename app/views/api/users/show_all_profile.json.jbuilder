@@ -60,3 +60,4 @@
     json.max_height_seek @user.max_height_seek
     json.online @user.online
     json.image asset_path(@user.image)
+    json.match_percentage @match_percentage

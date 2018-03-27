@@ -9,7 +9,7 @@ import userInfoForm from './user_info_form/user_info_form_container';
 import WelcomeContainer from './welcome/welcome_container';
 import DiscoveryPreferencesContainer from './discovery_preferences/discovery_preferences_container';
 import UserIndexContainer from './user_index/user_index_container';
-
+import inTheWorks from './in_the_works';
 
 
 const App = () => {
@@ -19,6 +19,9 @@ const App = () => {
     <AuthRoute exact path='/' component={WelcomeContainer} />
     <AuthRoute exact path='/login' component={LoginFormContainer} />
     <AuthRoute exact path='/signup' component={SignupFormContainer} />
+
+    <AuthRoute2 exact path='/messages' component={inTheWorks}/>
+    <AuthRoute2 exact path='/matches' component={inTheWorks}/>
 
     <AuthRoute2 exact path='/discoverypreferences' component={DiscoveryPreferencesContainer}/>
     <AuthRoute2 exact path='/browse' component={UserIndexContainer} />

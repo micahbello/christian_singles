@@ -1,17 +1,24 @@
 class Api::UsersController < ApplicationController
 
-  def index
-    @users = User.all
-    render :index
-  end
-
   def show
     @user = User.find(params[:id])
+    @match_percentage = current_user.match_with_percent_individual(@user)
+
     if @user
       render :show_all_profile
     else
       render json: @user.errors.full_messages, status: 422
     end
+  end
+
+  def index
+    @users = User.all
+    render :index
+  end
+
+  def matches
+    @users = User.find(params[:id]).match_with_percent
+    render :matches
   end
 
   def new
