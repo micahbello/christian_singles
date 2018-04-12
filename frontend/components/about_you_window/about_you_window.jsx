@@ -42,7 +42,7 @@ class AboutYouWindow extends React.Component {
           <form onSubmit={(e) =>this.handleSubmit(e)}>
 
             <p onClick={() => this.handleClick()} className="about-you-box-close">
-              <img src="https://www.iconsdb.com/icons/preview/caribbean-blue/x-mark-xxl.png" width="10" />
+              <img src="https://s3.us-east-2.amazonaws.com/christian-singles-pro/x-mark-xxl.png" width="10" />
             </p>
             <div className="about-you-box-text">
               <h3>About You</h3>

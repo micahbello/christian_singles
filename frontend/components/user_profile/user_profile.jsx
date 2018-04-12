@@ -171,7 +171,7 @@ class UserProfile extends React.Component {
                 <p className="user-info-icon">
                   {(this.props.currentProfile.language ||
                     this.props.currentProfile.ethnicity) ?
-                  <img src="https://www.iconsdb.com/icons/preview/caribbean-blue/home-2-xxl.png" width="19" /> : ""}
+                  <img src="https://s3.us-east-2.amazonaws.com/christian-singles-pro/home-2-xxl.png" width="19" /> : ""}
                 </p>
                 <p>
 
