@@ -102,7 +102,7 @@ class UserProfile extends React.Component {
                 this.props.currentProfile.have_kids ||
                 this.props.currentProfile.want_kids ||
                 this.props.currentProfile.relocate ) ?
-                <img src="https://www.iconsdb.com/icons/preview/caribbean-blue/user-6-xxl.png" width="16"/> : ""}
+                <img src="https://s3.us-east-2.amazonaws.com/christian-singles-pro/x-mark-xxl.png" width="16"/> : ""}
                 </p>
 
                 <p>{this.props.currentProfile.height}
@@ -154,7 +154,7 @@ class UserProfile extends React.Component {
                 <p className="user-info-icon">
                   {(this.props.currentProfile.occupation ||
                   this.props.currentProfile.education) ?
-                  <img src="https://www.iconsdb.com/icons/preview/caribbean-blue/school-xxl.png" width="19"/> : ""}
+                  <img src="https://s3.us-east-2.amazonaws.com/christian-singles-pro/school-xxl.png" width="19"/> : ""}
                 </p>
                 <p>
                   {this.props.currentProfile.occupation}
@@ -229,7 +229,7 @@ class UserProfile extends React.Component {
                   "currently-hidden"}>
 
                 <p className="user-info-icon">
-                {this.props.currentProfile.first_date ? <img src="https://www.iconsdb.com/icons/preview/caribbean-blue/coffee-5-xxl.png" width="23"/> : ""}
+                {this.props.currentProfile.first_date ? <img src="https://s3.us-east-2.amazonaws.com/christian-singles-pro/coffee-5-xxl.png" width="23"/> : ""}
                 </p>
                 <p>
                   {this.props.currentProfile.first_date ? <span id="make-reg-font">On a first date I prefer:</span> : "" }
