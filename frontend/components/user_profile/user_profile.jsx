@@ -102,7 +102,7 @@ class UserProfile extends React.Component {
                 this.props.currentProfile.have_kids ||
                 this.props.currentProfile.want_kids ||
                 this.props.currentProfile.relocate ) ?
-                <img src="https://s3.us-east-2.amazonaws.com/christian-singles-pro/x-mark-xxl.png" width="16"/> : ""}
+                <img src="https://s3.us-east-2.amazonaws.com/christian-singles-pro/user-6-xxl.png" width="16"/> : ""}
                 </p>
 
                 <p>{this.props.currentProfile.height}
@@ -196,7 +196,7 @@ class UserProfile extends React.Component {
                   {(this.props.currentProfile.pets ||
                   this.props.currentProfile.drink ||
                   this.props.currentProfile.smoke) ?
-                  <img src="https://www.iconsdb.com/icons/preview/caribbean-blue/empty-flag-xxl.png" width="21"/>: ""}
+                  <img src="https://s3.us-east-2.amazonaws.com/christian-singles-pro/empty-flag-xxl.png" width="21"/>: ""}
                 </p>
                 <p>
 
