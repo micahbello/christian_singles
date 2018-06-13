@@ -107,6 +107,73 @@
 ////this one is to hide container if there is no current data
 //entered
 
+$button-hover: #000080;
+
 .currently-hidden {
   display: none;
+}
+
+
+//////////////////
+
+.user-profile-body {
+    background-color: #F5F5F5;
+    min-height: 100vh;
+    padding-top: 110px;
+    display: flex;
+    justify-content: center;
+    padding-bottom: 80px;
+}
+
+.user-profile-middle {
+  width: 700px;
+  border: 1px solid;
+}
+
+.user-profile-top-span {
+  display: flex;
+  justify-content: space-between;
+  border: 1px solid;
+}
+
+.user-profile-middle p, .back-browse-link {
+  min-width: 140px;
+  min-height: 40px;
+  font-size: 18px;
+  font-family: sans-serif;
+  display: flex;
+  align-items: flex-end;
+}
+
+.back-browse-link {
+  color: rgba(0, 0, 0, 0.5);
+  text-decoration: none;
+}
+
+.back-browse-link span {
+  padding: 5px;
+}
+
+.user-profile-middle p {
+  text-align: center;
+  justify-content: center;
+  font-size: 21px;
+}
+
+.edit-profile-button {
+  background-color: #0098dc;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid white;
+  color: white;
+  border-radius: 4px;
+  text-decoration: none;
+  min-height: 40px;
+  min-width: 140px;
+  font-size: 18px;
+}
+
+.edit-profile-button:hover {
+  background-color: $button-hover;
 }
