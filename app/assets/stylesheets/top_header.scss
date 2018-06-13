@@ -10,15 +10,7 @@
   width: 98%;
 }
 
-.th-small-logo {
-  display: grid;
-}
-
-.th-small-fish {
-  width: 34px;
-  padding-left: 45px;
-  margin-bottom: -9px;
-}
+//the logo styling is in the footer stylesheet
 
 .top-header-links {
   display: flex;
@@ -26,7 +18,6 @@
   font-family: sans-serif;
   font-size: 16px;
   text-decoration: none;
-
 }
 
 .th-small-logo-link {
@@ -40,24 +31,12 @@
   text-decoration: none;
 }
 
-.th-browse-cont {
-  padding-right: 110px;
-}
-
-.th-matches-cont {
-  padding-left: 110px;
-}
-
-.th-dropbtn {
-  border-radius: 44px;
-  // padding: 23px; //with old icon
+.user-icon {
+  height: 55px;
+  width: 55px;
+  border-radius: 50px;
   cursor: pointer;
-  // margin-left: 93px; //with old icon
-  margin-left: 120px;
-  width: 40px; //with current icon
-  height: 40px;
 }
-
 
 .th-dropdown {
   position: relative;
@@ -65,18 +44,16 @@
   padding-right: 10px;
 }
 
-
-
-
-.th-dropdown-content {
+.dropdown-menu {
   background-color: white;
   border-radius: 2px;
   display: none;
-  min-width: 167px;
-  margin-top: 10px;
+  min-width: 200px;
+  margin-top: 13px;
   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
   position: absolute;
   z-index: 1;
+  margin-left: -137px
 }
 
 .th-dropdown-link {
@@ -85,13 +62,12 @@
   color: black;
   text-decoration: none;
   display: block;
-  padding: 3px;
+  padding: 10px 0px 10px 10px;
+  font-size: 18px;
+  color: rgba(0, 0, 0, 0.5);
+
 }
 
-.show {display: block;}
-// .th-user-icon {
-//   border: 5px solid;
-//   border-radius: 30px;
-//   padding: 14px;
-//   background-color: grey;
-// }
+.show {
+  display: block;
+}

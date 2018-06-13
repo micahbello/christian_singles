@@ -16,6 +16,7 @@ window.getAllUsers = getAllUsers;
 
 
 document.addEventListener('DOMContentLoaded', () => {
+
   const root = document.getElementById('root');
   let store;
   if (window.currentUser) {

@@ -1,29 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-function dropMenu() {
-  document.getElementById("iconDropDown").classList.toggle("show");
-}
-
-window.onclick = function(event) {
-  if (!event.target.matches('.th-dropbtn')) {
-
-    let dropdowns = document.getElementsByClassName("th-dropdown-content");
-    for(let i = 0; i < dropdowns.length; i++) {
-      let openDrowndown = dropdowns[i];
-      if (openDrowndown.classList.contains('show')) {
-        openDrowndown.classList.remove('show');
-      }
-    }
-  }
-}
-
-// function handleClick() {
-//   let user = this.props.currentUser;
-//   debugger
-//   this.props.getCurrentProfile(user.id);
-// }
-
 class TopHeader extends React.Component {
   constructor(props) {
     super(props);
@@ -35,51 +12,36 @@ class TopHeader extends React.Component {
     this.props.logout();
   }
 
-  handleMyProfileClick() {
-
-      this.props.getCurrentProfile(this.props.currentUser.id)
+  dropDownMenu() {
 
   }
 
   render (){
   return (
-    <span className="top-header">
+    <header className="top-header">
 
-      <div className="th-small-logo">
-        <img className="th-small-fish" src={fish} alt="fish"/>
-        <Link className="th-small-logo-link "to='/browse'>Christian Singles</Link>
-      </div>
+      <Link className="footer-header-logo" to='/browse'>
+        <img src={fish} alt="fish"/>
+        <span>Christian Singles</span>
+      </Link>
 
-      <div className="top-header-links">
-        <div className="th-browse-cont">
-          <Link className="th-link" to='/browse' >Browse</Link>
-        </div>
+      <nav className="top-header-links">
+        <Link className="th-link" to='/browse'>Browse</Link>
+        <Link className="th-link" to='/messages'>Messages</Link>
+        <Link className="th-link" to='/matches'>Matches</Link>
+      </nav>
 
-        <div>
-          <Link className="th-link" to='/messages' >Messages</Link>
-        </div>
-
-        <div className="th-matches-cont">
-          <Link className="th-link" to='/matches'>Matches</Link>
-        </div>
-
-      </div>
-
-      <div className="th-dropdown">
-
-          <img className="th-dropbtn" onMouseOver={() => dropMenu()} src={this.props.currentUser.image} />
+      <figure>
+        <img className="user-icon" src={this.props.currentUser.image} />
+          <div className="dropdown-menu" id="dropdown-menu">
+            <Link className="th-dropdown-link" to={`/profile/${this.props.currentUser.id}`} >My Profile</Link>
+            <Link className="th-dropdown-link" to='/discoverypreferences'>Discovery Preferences</Link>
+            <div onClick={() => this.handleLogOut()} className="th-dropdown-link">Logout</div>
+          </div>
+      </figure>
 
 
-        <div id="iconDropDown" className="th-dropdown-content">
-          <Link onClick={() => this.handleMyProfileClick()} className="th-dropdown-link" to={`/profile/${this.props.currentUser.id}`} >My Profile</Link>
-          <Link className="th-dropdown-link" to='/discoverypreferences'>Discovery Preferences</Link>
-          <div onClick={() => this.handleLogOut()} className="th-dropdown-link">Logout</div>
-
-        </div>
-      </div>
-
-
-    </span>
+    </header>
   );
  };
 };
@@ -87,32 +49,16 @@ class TopHeader extends React.Component {
 export default TopHeader;
 
 
+window.onclick = (event) => {
+  let menu = document.getElementById("dropdown-menu");
 
-//new icon drop down-
-//
-// <div className="th-dropdown">
-//
-//     <img className="th-dropbtn" onMouseOver={() => dropMenu()} src={this.props.currentUser.image} />
-//
-//
-//   <div id="iconDropDown" className="th-dropdown-content">
-//     <Link onClick={() => dispatch(getCurrentProfile(this.props.currentUser.id))} className="th-dropdown-link" to={`/profile/${this.props.currentUser.id}`} >My Profile</Link>
-//     <Link className="th-dropdown-link" to='/discoverypreferences'>Discovery Preferences</Link>
-//     <div onClick={() => dispatch(logout())} className="th-dropdown-link">Logout</div>
-//
-//   </div>
-// </div>
-//
-
-//old
-// <div className="th-dropdown">
-//   <button onClick={() => dropMenu()} className="th-dropbtn">
-//   </button>
-//
-//   <div id="iconDropDown" className="th-dropdown-content">
-//     <Link onClick={() => dispatch(getCurrentProfile(this.props.currentUser.id))} className="th-dropdown-link" to={`/profile/${this.props.currentUser.id}`} >My Profile</Link>
-//     <Link className="th-dropdown-link" to='/discoverypreferences'>Discovery Preferences</Link>
-//     <div onClick={() => dispatch(logout())} className="th-dropdown-link">Logout</div>
-//
-//   </div>
-// </div>
+  if (event.target.className === "user-icon") {
+    if (!menu.classList.contains("show")) {
+      menu.classList.add("show");
+    } else {
+      menu.classList.remove("show");
+    }
+  } else {
+    menu.classList.remove("show");
+  }
+}
