@@ -1,3 +1,6 @@
+$link-hover: #DCDCDC;
+$button-hover: #000080;
+
 .login-welcome-page {
   background-image: url("http://s3.us-east-2.amazonaws.com/christian-singles-dev/users/images/000/000/052/original/heart_in_book.jpg?1521169764");
   background-size: cover;
@@ -10,57 +13,83 @@
   justify-content: space-between;
 }
 
-.form-link-to-sign-up-section {
+.login-top section {
   padding: 30px;
 }
 
 .form-link-to-sign-up {
   color: white;
   text-decoration: none;
-  font-size: 15px;
+  font-size: 18px;
   font-family: sans-serif;
+}
+
+.form-link-to-sign-up:hover {
+  color: $link-hover
 }
 
 .login-form-section {
   display: flex;
   justify-content: center;
-  padding-top: 175px;
+  padding-top: 135px;
 }
 
 .login-form-section section {
   display: flex;
   flex-direction: column;
-  text-align: center;
+  // text-align: center;
   background-color: white;
   border-radius: 2px;
-  padding: 50px 30px;
+  padding: 30px;
+  align-items: center;
+  justify-content: center;
+
 };
 
 .login-form-error {
-  color: orangered;
+  color: red;
   text-align: center;
-  font-size: 21px;
-
+  font-size: 18px;
+  font-family: serif;
 }
 
 .login-form-section label {
   color: rgba(0, 0, 0, 0.5);
   font-family: sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-self: normal;
+  min-height: 16px;
+  padding-top: 20px;
 };
 
 .login-form-section button {
   background-color: #0098dc;
-  padding: 10px 35px 10px 35px;
   font-family: sans-serif;
   color: white;
+  height: 40px;
+  width: 120px;
+  font-size: 15px;
+  cursor: pointer;
+  border-radius: 4px;
+  margin-top: 25px;
+}
+
+.login-form-section button:hover {
+  background-color: $button-hover;
 }
 
 .login-button:hover {
-  background-color: 	#4682B4;
+  background-color: #4682B4;
 }
 
 .login-form-section input {
   font-size: 20px;
+  width: 100%;
+}
+
+.login-form-section input::placeholder {
+  color: lightgrey;
 }
 
 .login-top figure {
@@ -71,15 +100,20 @@
   align-items: center;
 }
 
-.login-logo-text {
-  color: white;
-  font-family: sans-serif;
-  font-size: 22px;
+.logo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: 'Roboto Slab';
+  font-weight: bold;
   text-decoration: none;
-}
+  color: white;
+  margin-left: 30px;
+  font-size: 20px;
 
-.login-top img {
-  width: 33%;
-  margin-bottom: -17px;
-  margin-left: 53px;
+  img{
+    width: 40%;
+    margin-bottom: -15px;
+    margin-left: -7px;
+  }
 }

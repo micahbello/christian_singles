@@ -10,6 +10,7 @@ import WelcomeContainer from './welcome/welcome_container';
 import DiscoveryPreferencesContainer from './discovery_preferences/discovery_preferences_container';
 import UserIndexContainer from './user_index/user_index_container';
 import inTheWorks from './in_the_works';
+import Footer from './footer/footer';
 
 
 const App = () => {
@@ -27,6 +28,7 @@ const App = () => {
     <AuthRoute2 exact path='/browse' component={UserIndexContainer} />
     <AuthRoute2 exact path='/editprofile' component ={userInfoForm}/>
     <AuthRoute2 exact path='/profile/:id' component ={UserProfileContainer}/>
+    <Footer />
 
   </div>
   );

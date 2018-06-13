@@ -38,34 +38,38 @@ class LoginForm extends React.Component {
 
   render() {
     return (
-    <div>
+
       <div className="login-welcome-page">
 
         <section className="login-top">
 
-          <figure>
+          <Link className="logo" to='/'>
             <img src={fish} alt="fish"/>
-            <Link to='/' className="login-logo-text">Christian Singles</Link>
-          </figure>
+            <span>Christian Singles</span>
+          </Link>
 
-          <section className="form-link-to-sign-up-section">
+          <section>
             <Link className="form-link-to-sign-up" to='/signup'>Sign Up</Link>
           </section>
 
-        </section>
-
-        <section className="login-form-error">
-          {this.props.errors.join(", ")}
         </section>
 
         <form className="login-form-section" onSubmit={(e) => this.handleSubmit(e)}>
 
           <section>
 
-            <label for="username">Username</label>
-              <input id="username" onChange={this.updateUsername} type="text" value={this.state.username}/>
-            <label for="password">Password</label>
-              <input id="password" onChange={this.updatePassword} type="password" value={this.state.password}/>
+            <span className="login-form-error">
+              {this.props.errors.join(", ")}
+            </span>
+
+            <label for="username">{this.state.username ? "Username" : " "}</label>
+              <input id="username" onChange={this.updateUsername} type="text"
+                     placeholder= "Username" value={this.state.username}/>
+
+            <label for="password">{this.state.password ? "Password" : " "}</label>
+              <input id="password" onChange={this.updatePassword} type="password"
+                     placeholder="Password" value={this.state.password}/>
+
             <button>Login</button>
 
           </section>
@@ -73,8 +77,7 @@ class LoginForm extends React.Component {
         </form>
 
       </div>
-    <Footer/>
-  </div>
+
    );
   };
 };

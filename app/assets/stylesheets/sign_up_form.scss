@@ -1,11 +1,51 @@
 //uses many of the same classes as the login page. see the styling there..
+
+
+//the logo styling on the left hand is shared with the login logo. Check that
+//stylesheet
+
+//the member-login-link-section styling is found in the landing-page stylesheet
+
+#sign-up-section-specific {
+  padding: 0px;
+  margin-top: -25px;
+}
+
+#signup-form-box {
+  width: 225px;
+  min-width: 225px;
+}
+
+.signup-form-error {
+  color: red;
+  text-align: center;
+  font-size: 18px;
+  font-family: serif;
+  margin-bottom: -20px;
+  margin-top: 10px;
+}
+
+.gender-section {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  width: 100%;
+}
+
+.birth_date-input-field {
+  color: lightgray;
+}
+
+.gender-section input {
+  width: 12px;
+}
+
+///
 .birth_date-input-field {
   font-size: 20px;
   padding-left: 14px;
 }
 
-.sign-up-form-container {
-  display: flex;
-  justify-content: center;
-  padding-top: 70px;
+#gender-signup-label {
+  flex-direction: row;
 }

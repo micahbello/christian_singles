@@ -80,75 +80,98 @@ class SignupForm extends React.Component {
 
 // {this.props.errors.map((error, idx) => <div className="login-form-error" key={idx}>{error}</div>)}
 
+  errors() {
+    let errors = this.props.errors;
+    return errors;
+  }
+
   render() {
-
     return (
-    <div className="login-welcome-page">
 
-      <div className="login-nav">
-        <div className="login-logo">
-          <img className="login-fish" src={fish} alt="fish"/>
-          <Link to='/' className="login-logo-text">Christian Singles</Link>
-        </div>
-        <div className="form-link-to-sign-up-container">
-          <div className="nav-text">Already a Member?</div>
-          <Link className="link nav-linker" to='/login' >Login Here</Link>
-        </div>
+      <div className="login-welcome-page">
+
+        <section className="login-top">
+
+          <Link className="logo" to='/'>
+            <img src={fish} alt="fish"/>
+            <span>Christian Singles</span>
+          </Link>
+
+          <section className="member-login-link-section">
+            <span>Already a Member?</span>
+            <Link className="link-to-log-in" to='/login' >Login Here</Link>
+          </section>
+
+        </section>
+
+        <form className="login-form-section" id="sign-up-section-specific" onSubmit={(e) => this.handleSubmit(e)}>
+
+          <section id="signup-form-box">
+
+            <span className="signup-form-error">{this.errors().includes("Username can't be blank") ?
+            "Username cannot be blank" : " "}</span>
+
+            <label>{this.state.username ? "Username" : " "}</label>
+              <input onChange={this.updateValue("username")} type="text"
+              value={this.state.username} placeholder="Username"/>
+
+            <span className="signup-form-error">{this.errors().includes("First name can't be blank") ?
+            "First name cannot be blank" : " "}</span>
+
+            <label>{this.state.first_name ? "First Name" : " "}</label>
+              <input onChange={this.updateValue("first_name")}type="text"
+              value={this.state.first_name} placeholder="First Name"/>
+
+            <span className="signup-form-error">{this.errors().includes("Last name can't be blank") ?
+            "Last name cannot be blank" : " "}</span>
+
+            <label>{this.state.last_name ? "Last Name" : " "}</label>
+              <input onChange={this.updateValue("last_name")} type="text"
+              value={this.state.last_name} placeholder="Last Name"/>
+
+            <span className="signup-form-error">{this.errors().includes("Gender can't be blank") ?
+              "Gender cannot be blank" : " "}</span>
+
+              <div className="gender-section">
+                <label id="gender-signup-label">Male
+                  <input onClick={this.updateValue("gender")} type="radio" name="gender"
+                  value="male" />
+                </label>
+
+                <label id="gender-signup-label"> Female
+                  <input onClick={this.updateValue("gender")} type="radio" name="gender"
+                  value="female"/>
+                </label>
+              </div>
+
+            <span className="signup-form-error">{this.errors().includes("Birth date can't be blank") ?
+            "Birth date cannot be blank" : " "}</span>
+
+            <label>{this.state.birth_date ? "Birthday" : " "}</label>
+              <input className="birth_date-input-field" onChange={this.updateValue("birth_date")} type="date"
+              value={this.state.birth_date} placeholder="Birthday"/>
+
+            <span className="signup-form-error">{this.errors().includes("Zipcode can't be blank") ?
+            "Zipcode can't be blank" : " "}</span>
+
+            <label>{this.state.zip_code ? "Zip Code" : " "}</label>
+              <input onChange={this.updateValue("zip_code")} type= "number"
+              value={this.state.zip_code} placeholder="Zip Code"/>
+
+            <span className="signup-form-error">{this.errors().includes("Password is too short (minimum is 6 characters)") ?
+            "Password is too short (minimum is 6 characters)" : " "}</span>
+
+            <label>{this.state.password ? "Password" : " "}</label>
+              <input onChange={this.updateValue("password")} type="password"
+              value={this.state.password} placeholder="Password"/>
+
+            <button>Sign Up</button>
+
+          </section>
+
+        </form>
       </div>
-      <br/>
-
-
-      <div className="login-form-error">{this.props.errors.join(", ")}</div>
-
-      <form className="sign-up-form-container" onSubmit={(e) => this.handleSubmit(e)}>
-
-        <div className="login-form">
-          <label className="login-field">Username</label>
-          <br/>
-          <input className="login-input" onChange={this.updateValue("username")} type="text" value={this.state.username}/>
-          <br/>
-          <br/>
-
-
-          <label className="login-field">First Name</label>
-          <br/>
-          <input className="login-input" onChange={this.updateValue("first_name")}type="text" value={this.state.first_name}/>
-          <br/>
-          <br/>
-          <label className="login-field">Last Name</label>
-          <br/>
-          <input className="login-input" onChange={this.updateValue("last_name")} type="text" value={this.state.last_name}/>
-
-          <br/>
-            <p className="login-field">I am a:</p>
-            <input onClick={this.updateValue("gender")} type="radio" name="gender" value="male" /> Male
-            <input onClick={this.updateValue("gender")} type="radio" name="gender" value="female"/> Female
-            <br/>
-            <br/>
-
-          <label className="login-field">Birthday</label>
-            <br/>
-            <input className="birth_date-input-field" onChange={this.updateValue("birth_date")} type="date" value={this.state.birth_date} />
-            <br/>
-            <br/>
-          <label className="login-field">Zip Code</label>
-          <br/>
-            <input className="login-input" onChange={this.updateValue("zip_code")} type= "number" value={this.state.zip_code} />
-
-
-
-          <br/>
-          <br/>
-          <label className="login-field">Password</label>
-          <br/>
-          <input className="login-input" onChange={this.updateValue("password")} type="password" value={this.state.password}/>
-          <br/>
-          <br/>
-        <button className="login-button" >Sign Up</button>
-        </div>
-      </form>
-    </div>
-   );
+    );
   };
 };
 
