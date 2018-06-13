@@ -13,13 +13,15 @@
 !/log/.keep
 !/tmp/.keep
 node_modules/
-bundle.js
+
 bundle.js.map
+bundle.js
 
 /node_modules
 /yarn-error.log
 
 .byebug_history
+.DS_Store
 
 # Ignore application configuration
 /config/application.yml

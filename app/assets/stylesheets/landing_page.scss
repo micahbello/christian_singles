@@ -1,0 +1,95 @@
+$link-hover: #DCDCDC;
+
+.landing-page {
+  background-image: url("http://s3.us-east-2.amazonaws.com/christian-singles-dev/users/images/000/000/052/original/heart_in_book.jpg?1521169764");
+  // background-image: url("heart_in_book");
+  background-size: cover;
+  width: 100vw;
+  height: 100vh;
+  display: inline-grid;
+  align-items: flex-start;
+}
+
+.text-box {
+  text-align: center;
+  color: white;
+  font-family: sans-serif;
+  padding-bottom: 100px;
+}
+
+.member-login-link-section {
+  text-align: right;
+  padding-top: 20px;
+  padding-right: 40px;
+  font-size: 18px;
+}
+
+.member-login-link-section span {
+  display: inline-block;
+  font-family: sans-serif;
+  color: white;
+}
+
+.link-to-log-in {
+  padding-left: 10px;
+  color: white;
+}
+
+.link-to-log-in:hover{
+  color: $link-hover;
+}
+
+.text-box h1 {
+  font-family: 'Roboto Slab';
+  font-weight: bold;
+  font-size: 45px;
+  margin-top: 25px;
+}
+
+.text-box h2 {
+  padding: 15px;
+  font-size: 20px;
+}
+
+.text-box p {
+  padding-bottom: 35px;
+  font-size: 13px;
+  font-style: italic;
+}
+
+.text-box img {
+    margin-bottom: -50px;
+}
+
+.link-to-sign-up {
+  display: flex;
+  align-items: center;
+  border: 1px solid white;
+  color: white;
+  border-radius: 4px;
+  text-decoration: none;
+  padding: 0px 10px 1px 10px;
+}
+
+.link-to-sign-up:hover, .guest-login:hover {
+  color: $link-hover;
+  border-color: $link-hover;
+}
+
+.sign-up-section {
+  display: flex;
+  justify-content: center;
+}
+
+.guest-login {
+  border-color: white;
+  color: white;
+  margin-left: 15px;
+  height: 40px;
+  width: 145px;
+  font-family: sans-serif;
+  font-size: 15px;
+  border-radius: 4px;
+  background: transparent;
+  cursor: pointer;
+}

@@ -66,10 +66,6 @@ class SignupForm extends React.Component {
     this.props.signup(user);
   }
 
-
-
-
-
   updateValue(field) {
     return (e) => this.setState({[field]: e.currentTarget.value});
   }
@@ -84,11 +80,9 @@ class SignupForm extends React.Component {
 
 // {this.props.errors.map((error, idx) => <div className="login-form-error" key={idx}>{error}</div>)}
 
-  render () {
+  render() {
 
     return (
-
-
     <div className="login-welcome-page">
 
       <div className="login-nav">

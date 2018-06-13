@@ -1,0 +1,47 @@
+footer {
+  height: 100px;
+  background-color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.footer-logo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: 'Roboto Slab';
+  font-weight: bold;
+  text-decoration: none;
+  color: #000080;
+  margin-right: 20px;
+
+  img{
+    width: 40%;
+    margin-bottom: -15px;
+    margin-left: -7px;
+  }
+}
+
+.footer-icons {
+  display: flex;
+  justify-content: space-evenly;
+  color: grey;
+  cursor: pointer;
+}
+
+.footer-icons i {
+  padding: 5px;
+}
+
+.footer-icons i:hover {
+  color:#000080;
+}
+
+footer section {
+  text-align: center;
+}
+
+footer p {
+  font-family: "Yellowtail";
+}

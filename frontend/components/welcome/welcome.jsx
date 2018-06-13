@@ -1,34 +1,40 @@
-import React from 'react'
+import React from 'react';
 import { Link } from 'react-router-dom';
-import { login } from '../../actions/session_actions'
+import Footer from '../footer/footer';
 
-function Welcome({currentUser, logout}) {
+function Welcome({currentUser, logout, login}) {
   return (
-    <div className="welcome-page">
+    <div>
+      <div className="landing-page">
 
-      <div className="nav-eh">
-        <div className="nav-text">Already a Member?</div>
-        <Link className="link nav-linker" to='/login' >Login Here</Link>
+        <section className="member-login-link-section">
+          <span>Already a Member?</span>
+          <Link className="link-to-log-in" to='/login' >Login Here</Link>
+        </section>
+
+        <section className="text-box">
+          <img src={fish} alt="fish"/>
+
+          <h1>Christian Singles</h1>
+          <h2>1 Corinthians 13:4</h2>
+
+          <p>Love is patient. Love is kind. Come find this love.</p>
+
+          <section className="sign-up-section">
+
+            <Link className="link-to-sign-up" to='/signup'>Create an account</Link>
+
+            <button className= "guest-login"
+                onClick={() => login({username: "demoaccount", password: "password"})}>
+                Guest Login
+            </button>
+
+          </section>
+
+        </section>
+
       </div>
-
-      <div className="text-box">
-        <img className="fish" src={fish} alt="fish"/>
-        <h1 className="heading-1">Christian Singles</h1>
-        <h2 className="heading-2">1 Corinthians 13:4</h2>
-        <p>Christian and single? Sign up today and change at least one of those facts.</p>
-        <br/>
-        <br/>
-        <br/>
-
-        <div className="link-to-sign-up-box">
-          <Link className="link-to-sign-up" to='/signup'>Create an account</Link>
-          <br/>
-          <button className="demo-button"
-            onClick={() => dispatch(login({username: "demoaccount", password: "password"}))}>
-            DEMO</button>
-        </div>
-      </div>
-
+      <Footer />
     </div>
   );
 };

@@ -1,6 +1,7 @@
 import React from 'react';
 import { merge } from 'lodash';
 import { Link } from 'react-router-dom';
+import Footer from '../footer/footer';
 
 class LoginForm extends React.Component {
   constructor(props) {
@@ -19,8 +20,6 @@ class LoginForm extends React.Component {
     this.props.clearSessionErrors();
   }
 
-
-
   handleSubmit(e) {
     e.preventDefault();
     this.props.clearSessionErrors();
@@ -37,42 +36,45 @@ class LoginForm extends React.Component {
     this.setState({password: e.target.value});
   }
 
-
-  render () {
+  render() {
     return (
-    <div className="login-welcome-page">
+    <div>
+      <div className="login-welcome-page">
 
-    <div className="login-nav">
-      <div className="login-logo">
-        <img className="login-fish" src={fish} alt="fish"/>
-        <Link to='/' className="login-logo-text">Christian Singles</Link>
+        <section className="login-top">
+
+          <figure>
+            <img src={fish} alt="fish"/>
+            <Link to='/' className="login-logo-text">Christian Singles</Link>
+          </figure>
+
+          <section className="form-link-to-sign-up-section">
+            <Link className="form-link-to-sign-up" to='/signup'>Sign Up</Link>
+          </section>
+
+        </section>
+
+        <section className="login-form-error">
+          {this.props.errors.join(", ")}
+        </section>
+
+        <form className="login-form-section" onSubmit={(e) => this.handleSubmit(e)}>
+
+          <section>
+
+            <label for="username">Username</label>
+              <input id="username" onChange={this.updateUsername} type="text" value={this.state.username}/>
+            <label for="password">Password</label>
+              <input id="password" onChange={this.updatePassword} type="password" value={this.state.password}/>
+            <button>Login</button>
+
+          </section>
+
+        </form>
+
       </div>
-      <div className="form-link-to-sign-up-container">
-        <Link className="form-link-to-sign-up" to='/signup'>Sign Up</Link>
-      </div>
-    </div>
-
-    <div className="login-form-error">{this.props.errors.join(", ")}</div>
-
-      <br/>
-      <form className="login-form-container" onSubmit={(e) => this.handleSubmit(e)}>
-        <div className="login-form">
-          <label className="login-field">Username</label>
-          <br/>
-          <input className="login-input" onChange={this.updateUsername} type="text" value={this.state.username}/>
-          <br/>
-          <br/>
-          <br/>
-          <br/>
-          <label className="login-field">Password</label>
-          <br/>
-          <input className="login-input" onChange={this.updatePassword} type="password" value={this.state.password}/>
-          <br/>
-          <br/>
-        <button className="login-button">Login</button>
-        </div>
-      </form>
-    </div>
+    <Footer/>
+  </div>
    );
   };
 };

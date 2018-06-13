@@ -3,16 +3,14 @@
   background-size: cover;
   height: 100vh;
   width: 100vw;
-  display: inherit;
-
 }
 
-.login-nav {
+.login-top {
   display: flex;
   justify-content: space-between;
 }
 
-.form-link-to-sign-up-container {
+.form-link-to-sign-up-section {
   padding: 30px;
 }
 
@@ -23,16 +21,18 @@
   font-family: sans-serif;
 }
 
-.login-form-container {
+.login-form-section {
   display: flex;
   justify-content: center;
   padding-top: 175px;
 }
 
-.login-form {
+.login-form-section section {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
   background-color: white;
   border-radius: 2px;
-  text-align: center;
   padding: 50px 30px;
 };
 
@@ -43,13 +43,12 @@
 
 }
 
-.login-field {
+.login-form-section label {
   color: rgba(0, 0, 0, 0.5);
-  padding-right: 154px;
   font-family: sans-serif;
 };
 
-.login-button {
+.login-form-section button {
   background-color: #0098dc;
   padding: 10px 35px 10px 35px;
   font-family: sans-serif;
@@ -60,11 +59,11 @@
   background-color: 	#4682B4;
 }
 
-.login-input {
+.login-form-section input {
   font-size: 20px;
 }
 
-.login-logo {
+.login-top figure {
   text-align: center;
   padding-left: 17px;
   padding-top: 13px;
@@ -79,7 +78,7 @@
   text-decoration: none;
 }
 
-.login-fish {
+.login-top img {
   width: 33%;
   margin-bottom: -17px;
   margin-left: 53px;
