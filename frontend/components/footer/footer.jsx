@@ -11,9 +11,9 @@ const Footer = () => (
 
     <section>
       <figure className= "footer-icons">
-          <i className="fab fa-github-square fa-3x"></i>
-          <i className="fab fa-linkedin fa-3x"></i>
-          <i className="far fa-address-card fa-3x"></i>
+          <a href="https://github.com/micahbello"><i className="fab fa-github-square fa-3x"></i></a>
+          <a href="https://www.linkedin.com/in/miqueasbello/"><i className="fab fa-linkedin fa-3x"></i></a>
+          <a href="http://www.micahbello.com"><i className="far fa-address-card fa-3x"></i></a>
       </figure>
       <p>Created by Miqueas Bello</p>
     </section>

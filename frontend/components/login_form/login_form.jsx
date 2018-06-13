@@ -62,11 +62,11 @@ class LoginForm extends React.Component {
               {this.props.errors.join(", ")}
             </span>
 
-            <label for="username">{this.state.username ? "Username" : " "}</label>
+            <label>{this.state.username ? "Username" : " "}</label>
               <input id="username" onChange={this.updateUsername} type="text"
                      placeholder= "Username" value={this.state.username}/>
 
-            <label for="password">{this.state.password ? "Password" : " "}</label>
+            <label>{this.state.password ? "Password" : " "}</label>
               <input id="password" onChange={this.updatePassword} type="password"
                      placeholder="Password" value={this.state.password}/>
 

@@ -12,8 +12,8 @@ class TopHeader extends React.Component {
     this.props.logout();
   }
 
-  dropDownMenu() {
-
+  handleMyProfileClick() {
+      this.props.getCurrentProfile(this.props.currentUser.id)
   }
 
   render (){
@@ -34,12 +34,11 @@ class TopHeader extends React.Component {
       <figure>
         <img className="user-icon" src={this.props.currentUser.image} />
           <div className="dropdown-menu" id="dropdown-menu">
-            <Link className="th-dropdown-link" to={`/profile/${this.props.currentUser.id}`} >My Profile</Link>
+            <Link onClick={() => this.handleMyProfileClick()} className="th-dropdown-link" to={`/profile/${this.props.currentUser.id}`} >My Profile</Link>
             <Link className="th-dropdown-link" to='/discoverypreferences'>Discovery Preferences</Link>
             <div onClick={() => this.handleLogOut()} className="th-dropdown-link">Logout</div>
           </div>
       </figure>
-
 
     </header>
   );
@@ -49,7 +48,7 @@ class TopHeader extends React.Component {
 export default TopHeader;
 
 
-window.onclick = (event) => {
+document.onclick = (event) => {
   let menu = document.getElementById("dropdown-menu");
 
   if (event.target.className === "user-icon") {

@@ -18,17 +18,13 @@
   font-family: sans-serif;
   font-size: 16px;
   text-decoration: none;
-}
-
-.th-small-logo-link {
-  text-decoration: none;
-  color: #000080;
-  font-family: sans-serif;
+  width: 400px;
 }
 
 .th-link {
   color: rgba(0, 0, 0, 0.5);
   text-decoration: none;
+  font-size: 18px;
 }
 
 .user-icon {
@@ -36,12 +32,6 @@
   width: 55px;
   border-radius: 50px;
   cursor: pointer;
-}
-
-.th-dropdown {
-  position: relative;
-  display: inline-block;
-  padding-right: 10px;
 }
 
 .dropdown-menu {
