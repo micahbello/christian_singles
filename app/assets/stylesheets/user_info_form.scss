@@ -100,3 +100,58 @@
 // }
 
 ///
+
+
+//much of the styling for his container is found in the user_profile
+//component stylesheet
+
+.profile-edit-info-container {
+  float: right;
+  min-width: 345px;
+  max-width: 345px;
+  min-height: 390px;
+  background-color: white;
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  border-radius: 4px;
+}
+
+//this empty div is in order to maintain proper spacing on top span
+.empty-div {
+  min-height: 40px;
+  min-width: 140px;
+}
+
+.user-info-input-attribute {
+  padding: 20px;
+  border: 1px solid;
+}
+
+.user-info-input-label {
+  color: #A9A9A9;
+  font-size: 13px;
+}
+
+.user-info-input-box {
+  border: none;
+  border-bottom: 1px solid #DCDCDC;
+  width: 100%;
+  font-family: sans-serif;
+  font-size: 16px;
+}
+
+.user-info-select-box {
+  background-color: white;
+  border: none;
+  border-bottom: 1px solid #DCDCDC;
+  font-family: sans-serif;
+  font-size: 16px;
+  width: 95%;
+  border-radius: 0px;
+  -webkit-appearance: none;
+}
+
+.test {
+
+}
