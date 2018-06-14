@@ -3,6 +3,7 @@ import { merge } from 'lodash';
 import { Link } from 'react-router-dom';
 import AboutYouWindowContainer from '../about_you_window/about_you_window_container';
 import TopHeaderContainer from '../top_header/top_header_container';
+import LoadingPage from '../loading_page/loading_page';
 
 class userInfoForm extends React.Component {
 
@@ -79,6 +80,7 @@ class userInfoForm extends React.Component {
 
 
   render() {
+
     if (!this.state) {
       return <p>...Loading...</p>
     } else {
@@ -499,9 +501,76 @@ class userInfoForm extends React.Component {
         </div>
       );
     }
+
   }
 
 
 }
 
 export default userInfoForm;
+
+
+
+
+
+
+
+
+///
+
+
+// if (!this.state) {
+//   return <LoadingPage />
+//   } else {
+//   return (
+//
+//     <div>
+//       <TopHeaderContainer />
+//
+//       <section className="user-profile-body">
+//
+//         <div className="user-profile-middle">
+//
+//           <span className="user-profile-top-span">
+//
+//               <Link className="back-browse-link" to="/browse">
+//                 <i class="fas fa-chevron-left"><span>Back</span></i>
+//               </Link>
+//
+//               <p className="my-profile-label">{this.props.currentUser.id === this.props.currentProfile.id ? "My Profile" : ""}</p>
+//
+//               {this.props.currentUser.id === this.props.currentProfile.id ?
+//                 <Link className="edit-profile-button" to='/editprofile'>Edit Profile</Link> : " "
+//               }
+//           </span>
+//
+//           <section className="user-profile-pic-info-container">
+//
+//             <figure>
+//
+//             </figure>
+//
+//             <section className="profile-info-container">
+//
+//                 <section className="profile-info-box-top-part">
+//
+//
+//                 </section>
+//
+//                 <section className="profile-info-box-second-part">
+//
+//                 </section>
+//
+//             </section>
+//
+//           </section>
+//
+//
+//         </div>
+//
+//       </section>
+//
+//     </div>
+//
+//   );
+// }
