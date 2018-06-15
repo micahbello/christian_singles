@@ -1,3 +1,4 @@
+
 // .preferences-page {
 //   background-color: #F5F5F5;
 //   margin-top: 53px;
@@ -61,30 +62,8 @@
 //
 // //
 
-//
-// .preferences-submit-button {
-//   display: flex;
-//   justify-content: center;
-//   align-items: center;
-//   height: 40px;
-//   width: 98px;
-//   margin-left: 133px;
-//   background-color: #0098dc;
-//   font-family: sans-serif;
-//   color: white;
-//   border-radius: 4px;
-// }
-//
-// .preferences-submit-link {
-//   font-family: sans-serif;
-//   color: white;
-//   text-decoration: none;
-// }
-//
 
-
-/////
-
+$button-hover: #000080;
 
 .discovery-preferences-container {
   width: 600px;
@@ -94,6 +73,25 @@
   margin-top: 15px;
   display: flex;
   flex-direction: column;
+  padding: 20px;
+}
+
+.done-button {
+  background-color: #0098dc;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  border-radius: 4px;
+  text-decoration: none;
+  min-height: 40px;
+  min-width: 140px;
+  font-size: 18px;
+  align-self: center;
+}
+
+.done-button:hover {
+  background-color: $button-hover;
 }
 
 

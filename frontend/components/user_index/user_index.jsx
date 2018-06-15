@@ -1,7 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import UserIndexProfileContainer from './user_index_profile_container';
+import UserIndexProfileContainer from './user_index_profiles/user_index_profile_container';
 import TopHeaderContainer from '../top_header/top_header_container';
+import Loading from '../loading_page/loading_page';
 
 class UserIndex extends React.Component {
   constructor(props) {
@@ -19,26 +20,29 @@ class UserIndex extends React.Component {
 
   render() {
     if (!this.props.currentIndexProfiles) {
-      return <p>...Loading...</p>
+      return <Loading />
     } else {
 
       return (
-        <div className="user-index-page">
 
-        <TopHeaderContainer />
+        <div>
+          <TopHeaderContainer />
 
-        <div className="user-index-profiles-container">
+          <div className="user-index-page">
 
-          {Object.values(this.props.currentIndexProfiles).
-            map((profile, idx) => <Link key={idx} id="link-to-profiles" to={`/profile/${profile.id}`}>
-            <UserIndexProfileContainer id={profile.id} imgUrl={profile.image}
-              displayName={profile.display_name} age={profile.age} userName={profile.username}
-              onlineStatus={profile.online} matchPercent={profile.percentage}/>
-          </Link>) }
+            <div className="user-index-profiles-container">
+
+              {Object.values(this.props.currentIndexProfiles).
+                map((profile, idx) => <Link key={idx} id="link-to-profiles" to={`/profile/${profile.id}`}>
+                <UserIndexProfileContainer id={profile.id} imgUrl={profile.image}
+                  displayName={profile.display_name} age={profile.age} userName={profile.username}
+                  onlineStatus={profile.online} matchPercent={profile.percentage}/>
+              </Link>) }
 
 
-        </div>
+            </div>
 
+          </div>
         </div>
       );
     }

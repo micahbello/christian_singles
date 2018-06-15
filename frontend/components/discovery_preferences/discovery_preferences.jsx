@@ -499,7 +499,7 @@ class DiscoveryPreferences extends React.Component {
                   </div>
                 </div>
 
-                <Link to="/editprofile" className="preferences-submit-link">Done</Link>
+                <Link className="done-button" to='/editprofile'>Done</Link>
 
               </section>
 
@@ -576,58 +576,3 @@ export default DiscoveryPreferences;
     //        value={this.state.zip_code}/>
     //
     //    </div>
-
-    //
-
-    //
-    //   <label className="user-info-input-label">{this.state.ethnicity_seek
-    //     ? "Ethnicity" : ""}</label>
-    //     <br/>
-    //
-    //     <div className="selectBox" onClick={() => this.showCheckboxes("ethnicity-seek-checkboxes")}>
-    //       <div className="user-info-input-box" id="check-box-select">
-    //         {this.state.ethnicity_seek
-    //           ? `${this.state.ethnicity_seek.split(",")[0]}...` : "Ethnicity"}
-    //       </div>
-    //     <div className="overSelect"></div>
-    //       <div id="ethnicity-seek-checkboxes">
-    //         <label onClick={(e) => e.stopPropagation()} className="check-box-text">
-    //           <input onClick={(e) => e.stopPropagation()} onChange={this.updateCheckBoxValue("ethnicity_seek")} type="checkbox" value="African"  checked={(this.state.ethnicity_seek && this.state.ethnicity_seek.includes("African") )? "true" : ''}/>African</label>
-    //         <label onClick={(e) => e.stopPropagation()} className="check-box-text">
-    //           <input onClick={(e) => e.stopPropagation()} onChange={this.updateCheckBoxValue("ethnicity_seek")} type="checkbox" value="Asian" checked={(this.state.ethnicity_seek && this.state.ethnicity_seek.includes("Asian") )? "true" : ''}/>Asian</label>
-    //         <label onClick={(e) => e.stopPropagation()} className="check-box-text">
-    //           <input onClick={(e) => e.stopPropagation()} onChange={this.updateCheckBoxValue("ethnicity_seek")} type="checkbox" value="Black/African Descent" checked={(this.state.ethnicity_seek && this.state.ethnicity_seek.includes("Black") )? "true" : ''}/>Black/African Descent</label>
-    //         <label onClick={(e) => e.stopPropagation()} className="check-box-text">
-    //           <input onClick={(e) => e.stopPropagation()} onChange={this.updateCheckBoxValue("ethnicity_seek")} type="checkbox" value="Caribbean" checked={(this.state.ethnicity_seek && this.state.ethnicity_seek.includes("Caribbean") )? "true" : ''}/>Caribbean</label>
-    //         <label onClick={(e) => e.stopPropagation()} className="check-box-text">
-    //           <input onClick={(e) => e.stopPropagation()} onChange={this.updateCheckBoxValue("ethnicity_seek")} type="checkbox" value="Caucasian/White" checked={(this.state.ethnicity_seek && this.state.ethnicity_seek.includes("Caucasian/White") )? "true" : ''}/>Caucasian/White</label>
-    //         <label onClick={(e) => e.stopPropagation()} className="check-box-text">
-    //           <input onClick={(e) => e.stopPropagation()} onChange={this.updateCheckBoxValue("ethnicity_seek")} type="checkbox" value="East Indian" checked={(this.state.ethnicity_seek && this.state.ethnicity_seek.includes("East Indian") )? "true" : ''}/>East Indian</label>
-    //         <label onClick={(e) => e.stopPropagation()} className="check-box-text">
-    //           <input onClick={(e) => e.stopPropagation()} onChange={this.updateCheckBoxValue("ethnicity_seek")} type="checkbox" value="Hispanic/Latin" checked={(this.state.ethnicity_seek && this.state.ethnicity_seek.includes("Hispanic/Latin") )? "true" : ''}/>Hispanic/Latin</label>
-    //         <label onClick={(e) => e.stopPropagation()} className="check-box-text">
-    //           <input onClick={(e) => e.stopPropagation()} onChange={this.updateCheckBoxValue("ethnicity_seek")} type="checkbox" value="Middle Eastern"  checked={(this.state.ethnicity_seek && this.state.ethnicity_seek.includes("Middle Eastern") )? "true" : ''}/>Middle Eastern</label>
-    //         <label onClick={(e) => e.stopPropagation()} className="check-box-text">
-    //           <input onClick={(e) => e.stopPropagation()} onChange={this.updateCheckBoxValue("ethnicity_seek")} type="checkbox" value="Native American"  checked={(this.state.ethnicity_seek && this.state.ethnicity_seek.includes("Native American") )? "true" : ''}/>Native American</label>
-    //         <label onClick={(e) => e.stopPropagation()} className="check-box-text">
-    //           <input onClick={(e) => e.stopPropagation()} onChange={this.updateCheckBoxValue("ethnicity_seek")} type="checkbox" value="Pacific Islander"  checked={(this.state.ethnicity_seek && this.state.ethnicity_seek.includes("Pacific Islander") )? "true" : ''}/>Pacific Islander</label>
-    //         <label onClick={(e) => e.stopPropagation()} className="check-box-text">
-    //           <input onClick={(e) => e.stopPropagation()} onChange={this.updateCheckBoxValue("ethnicity_seek")} type="checkbox" value="Other Ethnicity" checked={(this.state.ethnicity_seek && this.state.ethnicity_seek.includes("Other Ethnicity") )? "true" : ''}/>Other Ethnicity</label>
-    //
-    //           <button onClick={this.handleSubmit}>Save changes</button>
-    //       </div>
-    //      </div>
-    //
-    //     <br/>
-    //     <br/>
-    //
-    //     <div className="preferences-submit-button">
-    //       <Link to="/editprofile" className="preferences-submit-link">
-    //         Submit</Link>
-    //     </div>
-    //
-    //   </div>
-    //
-    //   </div>
-    // );
-    // }

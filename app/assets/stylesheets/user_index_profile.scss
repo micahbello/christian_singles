@@ -1,26 +1,23 @@
 .user-index-profile-box {
   border: 1px solid #e6e6de;
-  width: 250px;
-  max-width: 250px;
-  margin: 5px;
-  height: 280px;
-  max-height: 280px;
+  width: 315px;
+  max-width: 315px;
+  height: 355px;
+  max-height: 355px;
 
   display: inline-grid;
   justify-content: center;
   background-color: white;
   border-radius: 3px;
-  //
-  // box-sizing: border-box;
 }
 
 .user-index-profile-box-pic{
   border: 1px solid #e6e6de;
-  height: 219px;
-  max-height: 219px;
-  width: 222px;
-  max-width: 219px;
-  margin-top: 13px;
+  height: 300px;
+  max-height: 300px;
+  width: 300px;
+  max-width: 300px;
+  margin-top: 7px;
   background-color: grey;
   overflow: hidden;
   background-size: cover;
@@ -28,11 +25,11 @@
 }
 
 .user-index-profile-name-text {
-  margin-top: -58px;
+  margin-top: -40px;
   margin-left: 10px;
   text-decoration: none;
   color: white;
-  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
-  font-size: 23px;
-  font-family: sans-serif;
+  // text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+  font-size: 15px;
+  font-family: "Roboto Slab";
 }
