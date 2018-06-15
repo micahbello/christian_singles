@@ -1,4 +1,4 @@
-
+$button-hover: #000080;
 //much of the styling for his container is found in the user_profile
 //component stylesheet
 
@@ -70,6 +70,24 @@
 
 .dropdown-line-and-icon {
   display: flex;
+}
+
+.edit-preferences-button {
+  background-color: #0098dc;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  border-radius: 4px;
+  text-decoration: none;
+  height: 40px;
+  width: 230px;
+  align-self: center;
+  font-size: 18px;
+}
+
+.edit-preferences-button:hover {
+  background-color: $button-hover;
 }
 
 

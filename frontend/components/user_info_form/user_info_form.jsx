@@ -4,6 +4,8 @@ import { Link } from 'react-router-dom';
 import AboutYouWindowContainer from '../about_you_window/about_you_window_container';
 import TopHeaderContainer from '../top_header/top_header_container';
 import LoadingPage from '../loading_page/loading_page';
+import * as Attributes from '../attributes';
+
 
 class userInfoForm extends React.Component {
 
@@ -161,7 +163,7 @@ class userInfoForm extends React.Component {
                         className="user-info-select-box">
                         <option default hidden>{this.state.have_kids ? this.state.have_kids : "Have Kids"}</option>
 
-                        {haveKids.map((choice) => {
+                        {Attributes.haveKids.map((choice) => {
                           return (
                             <option value={choice}>{choice}</option>
                             );
@@ -185,7 +187,7 @@ class userInfoForm extends React.Component {
                       className="user-info-select-box">
                       <option default hidden>{this.state.want_kids ? this.state.want_kids : "Want Kids"}</option>
 
-                      {wantKids.map((choice) => {
+                      {Attributes.wantKids.map((choice) => {
                         return (
                           <option value={choice}>{choice}</option>
                           );
@@ -208,7 +210,7 @@ class userInfoForm extends React.Component {
                         className="user-info-select-box">
                         <option default hidden>{this.state.marital_status ? this.state.marital_status : "Marital Status"}</option>
 
-                        {maritalStatus.map((choice) => {
+                        {Attributes.maritalStatus.map((choice) => {
                           return (
                             <option value={choice}>{choice}</option>
                             );
@@ -231,7 +233,7 @@ class userInfoForm extends React.Component {
                         className="user-info-select-box">
                         <option default hidden>{this.state.relocate ? this.state.relocate : "Willingness To Relocate"}</option>
 
-                        {relocate.map((choice) => {
+                        {Attributes.relocate.map((choice) => {
                           return (
                             <option value={choice}>{choice}</option>
                             );
@@ -254,7 +256,7 @@ class userInfoForm extends React.Component {
                       className="user-info-select-box">
                       <option default hidden>{this.state.religion ? this.state.religion : "Religion"}</option>
 
-                      {religion.map((choice) => {
+                      {Attributes.religion.map((choice) => {
                         return (
                           <option value={choice}>{choice}</option>
                           );
@@ -278,7 +280,7 @@ class userInfoForm extends React.Component {
                         className="user-info-select-box">
                         <option default hidden>{this.state.attendance ? this.state.attendance : "Church Attendance"}</option>
 
-                        {attendance.map((choice) => {
+                        {Attributes.attendance.map((choice) => {
                           return (
                             <option value={choice}>{choice}</option>
                             );
@@ -316,7 +318,7 @@ class userInfoForm extends React.Component {
                       className="user-info-select-box">
                       <option default hidden>{this.state.education ? this.state.education : "Level of Education"}</option>
 
-                      {education.map((choice) => {
+                      {Attributes.education.map((choice) => {
                         return (
                           <option value={choice}>{choice}</option>
                           );
@@ -346,7 +348,7 @@ class userInfoForm extends React.Component {
 
                       <div id="ethnicity-checkboxes" onMouseOut={this.handleSubmit}>
 
-                        {ethnicities.map((ethnicity) => {
+                        {Attributes.ethnicities.map((ethnicity) => {
                           return (
                             <label onClick={(e) => e.stopPropagation()} >
                               <input onClick={this.updateCheckBoxValue("ethnicity")} type="checkbox" value={ethnicity} checked={(this.state.ethnicity && this.state.ethnicity.includes(ethnicity)) ? "true" : ''}/>{ethnicity}</label>
@@ -377,7 +379,7 @@ class userInfoForm extends React.Component {
 
                       <div id="language-checkboxes" onMouseOut={this.handleSubmit}>
 
-                        {languages.map((language) => {
+                        {Attributes.languages.map((language) => {
                           return (
                             <label onClick={(e) => e.stopPropagation()} >
                               <input onClick={this.updateCheckBoxValue("language")} type="checkbox" value={language} checked={(this.state.language && this.state.language.includes(language)) ? "true" : ''}/>{language}</label>
@@ -409,7 +411,7 @@ class userInfoForm extends React.Component {
 
                       <div id="pets-checkboxes" onMouseOut={this.handleSubmit}>
 
-                        {pets.map((pets) => {
+                        {Attributes.pets.map((pets) => {
                           return (
                             <label onClick={(e) => e.stopPropagation()} >
                               <input onClick={this.updateCheckBoxValue("pets")} type="checkbox" value={pets} checked={(this.state.pets && this.state.pets.includes(pets)) ? "true" : ''}/>{pets}</label>
@@ -433,7 +435,7 @@ class userInfoForm extends React.Component {
                       className="user-info-select-box">
                       <option default hidden>{this.state.drink ? this.state.drink : "Drinking Habits"}</option>
 
-                      {drinkingHabits.map((choice) => {
+                      {Attributes.drinkingHabits.map((choice) => {
                         return (
                           <option value={choice}>{choice}</option>
                           );
@@ -456,7 +458,7 @@ class userInfoForm extends React.Component {
                       className="user-info-select-box">
                       <option default hidden>{this.state.smoke ? this.state.smoke : "Smoking Habits"}</option>
 
-                      {smokingHabits.map((choice) => {
+                      {Attributes.smokingHabits.map((choice) => {
                         return (
                           <option value={choice}>{choice}</option>
                           );
@@ -487,7 +489,7 @@ class userInfoForm extends React.Component {
 
                       <div id="dates-checkboxes" onMouseOut={this.handleSubmit}>
 
-                        {firstDates.map((date) => {
+                        {Attributes.firstDates.map((date) => {
                           return (
                             <label onClick={(e) => e.stopPropagation()} >
                               <input onClick={this.updateCheckBoxValue("first_date")} type="checkbox" value={date} checked={(this.state.first_date && this.state.first_date.includes(date)) ? "true" : ''}/>{date}</label>
@@ -499,6 +501,7 @@ class userInfoForm extends React.Component {
                     </div>
                   </div>
 {/* end of attributes*/}
+                  <Link className="edit-preferences-button" to="/discoverypreferences">Edit Discovery Preferences</Link>
                 </section>
               </section>
 
@@ -515,144 +518,3 @@ class userInfoForm extends React.Component {
 }
 
 export default userInfoForm;
-
-const smokingHabits = [
-    "Smoke regularly",
-    "Smoke ocassionally",
-    "Non-Smoker",
-    "Trying to quit smoking"
-];
-
-const drinkingHabits = [
-    "Drink Frequently",
-    "Drink Socially",
-    "Drink On Occassion",
-    "Never Drink"
-  ];
-
-const education = [
-    "High School",
-    "College",
-    "Bachelor's Degree",
-    "Master's Degree",
-    "JD/PhD/Post Doc"
-  ];
-
-const attendance = [
-    "Attend church every week",
-    "Attend church on special occasions",
-    "Attend church once or twice a month",
-    "Attend church several times a year"
-  ];
-
-const religion = [
-    "Anglican",
-    "Assembly",
-    "Baptist",
-    "Catholic",
-    "Charismatic",
-    "Christian Reformed",
-    "Church of Christ",
-    "Episcopalian",
-    "Evangelical",
-    "Interdenominational",
-    "Lutheran",
-    "Messianic",
-    "Nazerene",
-    "Non-denominational",
-    "Not sure yet",
-    "Orthodox",
-    "Pentecostal",
-    "Presbyeterian",
-    "Seventh-Day Adventist",
-    "Southern Baptist",
-    "Other Religion"
-];
-
-const relocate = [
-    "Would Consider Relocating",
-    "I'd Relocate",
-    "Won't Relocate"
-  ];
-
-const maritalStatus = [
-    "Divorced",
-    "Widowed",
-    "Never Married"
-  ];
-
-const wantKids = [
-    "Want kids",
-    "Don't want kids",
-    "Don't want to have kids but welcome yours"
-  ];
-
-const haveKids = [
-  "No kids",
-  "Have kids and they live with me",
-  "Have kids and they sometimes live with me",
-  "Have grown children"
-  ];
-
-const languages = [
-    "Arabic",
-    "Bengali",
-    "Bulgarian",
-    "Chinese",
-    "Czech",
-    "Dutch",
-    "English",
-    "Fijian",
-    "French",
-    "German",
-    "Greek",
-    "Hebrew",
-    "Hindi",
-    "Italian",
-    "Japanese",
-    "Korean",
-    "Malay",
-    "Manadarin",
-    "Norwegian",
-    "Polish",
-    "Portuguese",
-    "Romanian",
-    "Russian",
-    "Samoan",
-    "Spanish",
-    "Swedish",
-    "Tagalog",
-    "Thai",
-    "Vietnamese"
-  ];
-
-const ethnicities = [
-    "African",
-    "Asian",
-    "Black",
-    "Caribbean",
-    "Caucasian/White",
-    "East Indian",
-    "Hispanic/Latin",
-    "Middle Eastern",
-    "Native American",
-    "Pacific Islander",
-    "Other Ethnicity"
-  ];
-
-const pets = [
-    "Have bird(s)",
-    "Have cat(s)",
-    "Have dog(s)",
-    "Have fish",
-    "No pets but want them",
-    "Have a pet (ask me)"
-  ];
-
-const firstDates = [
-      "Coffee or tea",
-      "Drinks",
-      "A meal",
-      "To be surprised",
-      "A walk or hike"
-    ];

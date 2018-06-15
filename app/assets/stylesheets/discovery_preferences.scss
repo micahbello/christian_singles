@@ -1,65 +1,102 @@
-.preferences-page {
-  background-color: #F5F5F5;
-  margin-top: 53px;
-
-}
-
-.preferences-box {
-  border: 1px solid #e6e6de;
-  width: 370px;
-  background-color: white;
-  border-radius: 3px;
-  padding: 21px;
-  margin-left: 560px;
-}
-
-#preferences-span {
-  margin-right: 415px;
-}
-
-#preferences-ages-container {
-  display: flex;
-  margin-left: 80px;
-}
-
-#age-choose {
-  width: 33px
-}
-
-#age-choose {
-  width: 33px;
-}
-
-#distance-heading {
-  margin-left: 145px;
-}
-
-#of-distance {
-  padding-left: 20px;
-  padding-right: 20px;
-}
-
-#max-age {
-  padding-left: 30px;
-}
-
-#distance-choose {
-  width: 100px;
-
-}
-
-#zip-choose {
-  width: 60px;
-}
-
-#preferences-distance-container {
-  display: flex;
-  margin-left: 75px;
-}
-
-
+// .preferences-page {
+//   background-color: #F5F5F5;
+//   margin-top: 53px;
+//
+// }
+//
+// .preferences-box {
+//   border: 1px solid #e6e6de;
+//   width: 370px;
+//   background-color: white;
+//   border-radius: 3px;
+//   padding: 21px;
+//   margin-left: 560px;
+// }
+//
+// #preferences-span {
+//   margin-right: 415px;
+// }
+//
+// #preferences-ages-container {
+//   display: flex;
+//   margin-left: 80px;
+// }
+//
+// #age-choose {
+//   width: 33px
+// }
+//
+// #age-choose {
+//   width: 33px;
+// }
+//
+// #distance-heading {
+//   margin-left: 145px;
+// }
+//
+// #of-distance {
+//   padding-left: 20px;
+//   padding-right: 20px;
+// }
+//
+// #max-age {
+//   padding-left: 30px;
+// }
+//
+// #distance-choose {
+//   width: 100px;
+//
+// }
+//
+// #zip-choose {
+//   width: 60px;
+// }
+//
+// #preferences-distance-container {
+//   display: flex;
+//   margin-left: 75px;
+// }
+//
+//
+//
+// //
 
 //
+// .preferences-submit-button {
+//   display: flex;
+//   justify-content: center;
+//   align-items: center;
+//   height: 40px;
+//   width: 98px;
+//   margin-left: 133px;
+//   background-color: #0098dc;
+//   font-family: sans-serif;
+//   color: white;
+//   border-radius: 4px;
+// }
+//
+// .preferences-submit-link {
+//   font-family: sans-serif;
+//   color: white;
+//   text-decoration: none;
+// }
+//
+
+
+/////
+
+
+.discovery-preferences-container {
+  width: 600px;
+  max-width: 600px;
+  border-radius: 4px;
+  background: white;
+  margin-top: 15px;
+  display: flex;
+  flex-direction: column;
+}
+
+
 
 #sex-seek-checkboxes {
   display: none;
@@ -117,23 +154,4 @@
   display: none;
   position: absolute;
   background-color: white;
-}
-
-.preferences-submit-button {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 40px;
-  width: 98px;
-  margin-left: 133px;
-  background-color: #0098dc;
-  font-family: sans-serif;
-  color: white;
-  border-radius: 4px;
-}
-
-.preferences-submit-link {
-  font-family: sans-serif;
-  color: white;
-  text-decoration: none;
 }
