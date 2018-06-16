@@ -19,6 +19,7 @@ class userInfoForm extends React.Component {
     this.showCheckboxes = this.showCheckboxes.bind(this);
     this.updateCheckBoxValue = this.updateCheckBoxValue.bind(this);
     this.handleClick = this.handleClick.bind(this);
+    this.constructCheckboxes = this.constructCheckboxes.bind(this);
   }
 
   componentDidMount() {
@@ -54,7 +55,7 @@ class userInfoForm extends React.Component {
       if (this.state[field] === null || this.state[field] === "") {
         this.setState({[field]: e.currentTarget.value});
       }
-      else if (!this.state[field].includes(e.currentTarget.value)) {
+      else if (!this.state[field].split(",").includes(e.currentTarget.value)) {
       this.setState({[field]: this.state[field].concat(`,${e.currentTarget.value}`)})
       } else {
         let oldCheckedOptions = this.state[field].split(",");
@@ -69,6 +70,45 @@ class userInfoForm extends React.Component {
       }
     }
   }
+
+  constructCheckboxes(attribute) {
+
+    let attributeInState = Attributes.setAttributeInStateVariable(attribute, this.state);
+    let options = Attributes.setAttributesArrayVariable(attribute);
+
+    return (
+
+      <div className="user-info-input-attribute">
+
+        <div className="user-info-input-label">{attributeInState
+              ? Attributes.checkboxesLabelText[attribute] : ""}</div>
+
+        <div onClick={() => this.showCheckboxes(`${attribute}-checkboxes`)}>
+
+          <div className="dropdown-line-and-icon">
+
+            <div className="user-info-dropdown-select-box">
+              {attributeInState
+                ? `${attributeInState.split(",")[0]}...` : Attributes.checkboxesLabelText[attribute]}
+            </div>
+            <i className="fas fa-chevron-down"></i>
+          </div>
+
+          <div className="checkbox-options-container" id={`${attribute}-checkboxes`} onMouseOut={(e) => this.handleSubmit(e)}>
+
+            {options.map((choice) => {
+              return (
+                <label onClick={(e) => e.stopPropagation(e)} >
+                  <input onClick={this.updateCheckBoxValue(attribute)} type="checkbox" value={choice} checked={(attributeInState && attributeInState.split(",").includes(choice)) ? "true" : ''}/>{choice}</label>
+                );
+              })
+            }
+          </div>
+        </div>
+      </div>
+    );
+  }
+
 
   handleSubmit(e) {
     e.preventDefault();
@@ -331,97 +371,17 @@ class userInfoForm extends React.Component {
 
 {/* ethnicity attribute*/}
 
-                  <div className="user-info-input-attribute">
-
-                    <div className="user-info-input-label">{this.state.ethnicity
-                      ? "Ethnicity" : ""}</div>
-
-                    <div onClick={() => this.showCheckboxes("ethnicity-checkboxes")}>
-
-                      <div className="dropdown-line-and-icon">
-                        <div className="user-info-dropdown-select-box">
-                          {this.state.ethnicity
-                            ? `${this.state.ethnicity.split(",")[0]}...` : "Ethnicity"}
-                        </div>
-                        <i className="fas fa-chevron-down"></i>
-                      </div>
-
-                      <div id="ethnicity-checkboxes" onMouseOut={this.handleSubmit}>
-
-                        {Attributes.ethnicities.map((ethnicity) => {
-                          return (
-                            <label onClick={(e) => e.stopPropagation()} >
-                              <input onClick={this.updateCheckBoxValue("ethnicity")} type="checkbox" value={ethnicity} checked={(this.state.ethnicity && this.state.ethnicity.includes(ethnicity)) ? "true" : ''}/>{ethnicity}</label>
-                            );
-                          })
-                        }
-
-                      </div>
-                    </div>
-                  </div>
+                  {this.constructCheckboxes("ethnicity")}
 
 {/* Language attribute*/}
-                  <div className="user-info-input-attribute">
 
-                    <div className="user-info-input-label">{this.state.language
-                      ? "Language" : ""}</div>
+                  {this.constructCheckboxes("language")}
 
-                    <div onClick={() => this.showCheckboxes("language-checkboxes")}>
-
-                      <div className="dropdown-line-and-icon">
-
-                        <div className="user-info-dropdown-select-box">
-                          {this.state.language
-                            ? `${this.state.language.split(",")[0]}...` : "Language"}
-                        </div>
-                        <i className="fas fa-chevron-down"></i>
-                      </div>
-
-                      <div id="language-checkboxes" onMouseOut={this.handleSubmit}>
-
-                        {Attributes.languages.map((language) => {
-                          return (
-                            <label onClick={(e) => e.stopPropagation()} >
-                              <input onClick={this.updateCheckBoxValue("language")} type="checkbox" value={language} checked={(this.state.language && this.state.language.includes(language)) ? "true" : ''}/>{language}</label>
-                            );
-                          })
-                        }
-
-                      </div>
-                    </div>
-                  </div>
 
 {/* pets attribute*/}
 
-                  <div className="user-info-input-attribute">
+                  {this.constructCheckboxes("pets")}
 
-                    <div className="user-info-input-label">{this.state.pets
-                      ? "Pets" : ""}</div>
-
-                    <div onClick={() => this.showCheckboxes("pets-checkboxes")}>
-
-                      <div className="dropdown-line-and-icon">
-
-                        <div className="user-info-dropdown-select-box" id="check-box-select">
-                          {this.state.pets
-                            ? `${this.state.pets.split(",")[0]}...` : "Pets"}
-                        </div>
-                          <i className="fas fa-chevron-down"></i>
-                      </div>
-
-                      <div id="pets-checkboxes" onMouseOut={this.handleSubmit}>
-
-                        {Attributes.pets.map((pets) => {
-                          return (
-                            <label onClick={(e) => e.stopPropagation()} >
-                              <input onClick={this.updateCheckBoxValue("pets")} type="checkbox" value={pets} checked={(this.state.pets && this.state.pets.includes(pets)) ? "true" : ''}/>{pets}</label>
-                            );
-                          })
-                        }
-
-                      </div>
-                    </div>
-                  </div>
 
 {/* drinking habits */}
 
@@ -469,37 +429,11 @@ class userInfoForm extends React.Component {
                     <i className="fas fa-chevron-down"></i>
 
                   </div>
-{/* pets attribute*/}
+{/* first_date attribute*/}
 
-                  <div className="user-info-input-attribute">
+                  {this.constructCheckboxes("first_date")}
 
-                    <div className="user-info-input-label">{this.state.first_date
-                      ? "Preferred First Date" : ""}</div>
 
-                    <div onClick={() => this.showCheckboxes("dates-checkboxes")}>
-
-                      <div className="dropdown-line-and-icon">
-
-                        <div className="user-info-dropdown-select-box" id="check-box-select">
-                          {this.state.first_date
-                            ? `${this.state.first_date.split(",")[0]}...` : "Preferred First Date"}
-                        </div>
-                          <i className="fas fa-chevron-down"></i>
-                      </div>
-
-                      <div id="dates-checkboxes" onMouseOut={this.handleSubmit}>
-
-                        {Attributes.firstDates.map((date) => {
-                          return (
-                            <label onClick={(e) => e.stopPropagation()} >
-                              <input onClick={this.updateCheckBoxValue("first_date")} type="checkbox" value={date} checked={(this.state.first_date && this.state.first_date.includes(date)) ? "true" : ''}/>{date}</label>
-                            );
-                          })
-                        }
-
-                      </div>
-                    </div>
-                  </div>
 {/* end of attributes*/}
                   <Link className="edit-preferences-button" to="/discoverypreferences">Edit Discovery Preferences</Link>
                 </section>

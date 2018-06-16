@@ -10,7 +10,8 @@ export const drinkingHabits = [
     "Drink Frequently",
     "Drink Socially",
     "Drink On Occassion",
-    "Never Drink"
+    "Never Drink",
+    "Drunkard in need of help"
   ];
 
 export const education = [
@@ -150,6 +151,9 @@ export const firstDates = [
     "Dinner and a movie",
     "A Bible study",
     "A walk or hike",
+    "Shooting range",
+    "Amusement park",
+    "Museum",
     "To be surprised",
     ];
 
@@ -168,6 +172,11 @@ export const relationship = [
   ];
 
   export const checkboxesLabelText = {
+    first_date: "Preferred First Date",
+    pets: "Pets",
+    language: "Language",
+    ethnicity: "Ethnicity",
+
     sex_seek: "I'm Seeking",
     religion_seek: "Religion",
     relationship_seek: "Relationship Type",
@@ -182,3 +191,55 @@ export const relationship = [
     language_seek: "Language",
     ethnicity_seek: "Ethnicity",
   }
+
+
+ export const setAttributeInStateVariable = (attribute, state) => {
+     let attributeInState;
+
+     attribute === "first_date" ? attributeInState = state.first_date : null;
+     attribute === "pets" ? attributeInState = state.pets : null;
+     attribute === "language" ? attributeInState = state.language : null;
+     attribute === "ethnicity" ? attributeInState = state.ethnicity : null;
+
+
+     attribute === "relationship_seek" ? attributeInState = state.relationship_seek : null;
+     attribute === "sex_seek" ? attributeInState = state.sex_seek : null;
+     attribute === "religion_seek" ? attributeInState = state.religion_seek : null;
+     attribute === "attendance_seek" ? attributeInState = state.attendance_seek : null;
+     attribute === "education_seek" ? attributeInState = state.education_seek : null;
+     attribute === "smoke_seek" ? attributeInState = state.smoke_seek : null;
+     attribute === "drink_seek" ? attributeInState = state.drink_seek : null;
+     attribute === "have_kids_seek" ? attributeInState = state.have_kids_seek : null;
+     attribute === "want_kids_seek" ? attributeInState = state.want_kids_seek : null;
+     attribute === "relocate_seek" ? attributeInState = state.relocate_seek : null;
+     attribute === "marital_status_seek" ? attributeInState = state.marital_status_seek : null;
+     attribute === "language_seek" ? attributeInState = state.language_seek : null;
+     attribute === "ethnicity_seek" ? attributeInState = state.ethnicity_seek : null;
+
+     return attributeInState;
+   }
+
+   export const setAttributesArrayVariable = (attribute) => {
+       let options;
+
+       attribute === "first_date" ? options = firstDates : null;
+       attribute === "pets" ? options = pets : null;
+       attribute === "language" ? options = languages : null;
+       attribute === "ethnicity" ? options = ethnicities : null;
+
+       attribute === "relationship_seek" ? options = relationship : null;
+       attribute === "sex_seek" ? options = sex : null;
+       attribute === "religion_seek" ? options = religion : null;
+       attribute === "education_seek" ? options = education : null;
+       attribute === "attendance_seek" ? options = attendance : null;
+       attribute === "smoke_seek" ? options = smokingHabits : null;
+       attribute === "drink_seek" ? options = drinkingHabits : null;
+       attribute === "have_kids_seek" ? options = haveKids : null;
+       attribute === "want_kids_seek" ? options = wantKids : null;
+       attribute === "relocate_seek" ? options = relocate : null;
+       attribute === "marital_status_seek" ? options = maritalStatus : null;
+       attribute === "language_seek" ? options = languages : null;
+       attribute === "ethnicity_seek" ? options = ethnicities : null;
+
+       return options;
+     }

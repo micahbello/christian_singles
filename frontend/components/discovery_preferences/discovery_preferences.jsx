@@ -16,8 +16,6 @@ class DiscoveryPreferences extends React.Component {
     this.handleClick = this.handleClick.bind(this);
     this.showCheckboxes = this.showCheckboxes.bind(this);
     this.constructCheckboxes = this.constructCheckboxes.bind(this);
-    this.setAttributesArrayVariable = this.setAttributesArrayVariable.bind(this);
-    this.setAttributeInStateVariable = this.setAttributeInStateVariable.bind(this);
   }
 
   componentDidMount() {
@@ -74,52 +72,14 @@ class DiscoveryPreferences extends React.Component {
     }
   }
 
-  setAttributeInStateVariable (attribute) {
-    let attributeInState;
-
-    attribute === "relationship_seek" ? attributeInState = this.state.relationship_seek : null;
-    attribute === "sex_seek" ? attributeInState = this.state.sex_seek : null;
-    attribute === "religion_seek" ? attributeInState = this.state.religion_seek : null;
-    attribute === "attendance_seek" ? attributeInState = this.state.attendance_seek : null;
-    attribute === "education_seek" ? attributeInState = this.state.education_seek : null;
-    attribute === "smoke_seek" ? attributeInState = this.state.smoke_seek : null;
-    attribute === "drink_seek" ? attributeInState = this.state.drink_seek : null;
-    attribute === "have_kids_seek" ? attributeInState = this.state.have_kids_seek : null;
-    attribute === "want_kids_seek" ? attributeInState = this.state.want_kids_seek : null;
-    attribute === "relocate_seek" ? attributeInState = this.state.relocate_seek : null;
-    attribute === "marital_status_seek" ? attributeInState = this.state.marital_status_seek : null;
-    attribute === "language_seek" ? attributeInState = this.state.language_seek : null;
-    attribute === "ethnicity_seek" ? attributeInState = this.state.ethnicity_seek : null;
-
-    return attributeInState;
-  }
-
-  setAttributesArrayVariable(attribute) {
-    let options;
-
-    attribute === "relationship_seek" ? options = Attributes.relationship : null;
-    attribute === "sex_seek" ? options = Attributes.sex : null;
-    attribute === "religion_seek" ? options = Attributes.religion : null;
-    attribute === "education_seek" ? options = Attributes.education : null;
-    attribute === "attendance_seek" ? options = Attributes.attendance : null;
-    attribute === "smoke_seek" ? options = Attributes.smokingHabits : null;
-    attribute === "drink_seek" ? options = Attributes.drinkingHabits : null;
-    attribute === "have_kids_seek" ? options = Attributes.haveKids : null;
-    attribute === "want_kids_seek" ? options = Attributes.wantKids : null;
-    attribute === "relocate_seek" ? options = Attributes.relocate : null;
-    attribute === "marital_status_seek" ? options = Attributes.maritalStatus : null;
-    attribute === "language_seek" ? options = Attributes.languages : null;
-    attribute === "ethnicity_seek" ? options = Attributes.ethnicities : null;
-
-    return options;
-  }
 
   constructCheckboxes(attribute) {
 
-    let attributeInState = this.setAttributeInStateVariable(attribute);
-    let options = this.setAttributesArrayVariable(attribute);
+    let attributeInState = Attributes.setAttributeInStateVariable(attribute, this.state);
+    let options = Attributes.setAttributesArrayVariable(attribute);
 
     return (
+
       <div className="user-info-input-attribute">
 
         <div className="user-info-input-label">{attributeInState
@@ -136,11 +96,11 @@ class DiscoveryPreferences extends React.Component {
             <i className="fas fa-chevron-down"></i>
           </div>
 
-          <div className="checkbox-options-container" id={`${attribute}-checkboxes`} onMouseOut={this.handleSubmit}>
+          <div className="checkbox-options-container" id={`${attribute}-checkboxes`} onMouseOut={(e) => this.handleSubmit(e)}>
 
             {options.map((choice) => {
               return (
-                <label onClick={(e) => e.stopPropagation()} >
+                <label onClick={(e) => e.stopPropagation(e)} >
                   <input onClick={this.updateCheckBoxValue(attribute)} type="checkbox" value={choice} checked={(attributeInState && attributeInState.split(",").includes(choice)) ? "true" : ''}/>{choice}</label>
                 );
               })
@@ -175,7 +135,7 @@ class DiscoveryPreferences extends React.Component {
               <section className="discovery-preferences-container">
 
 {/* gender attribute*/}
-                {this.constructCheckboxes("sex_seek")}
+                {this.constructCheckboxes("sex_seek", this.state)}
 
 {/* religion attribute*/}
 
@@ -223,6 +183,7 @@ class DiscoveryPreferences extends React.Component {
 {/* ethnicity attribute */}
 
                 {this.constructCheckboxes("ethnicity_seek")}
+
 
                 <Link className="done-button" to='/editprofile'>Done</Link>
 
