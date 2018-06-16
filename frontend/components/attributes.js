@@ -36,7 +36,7 @@ export const religion = [
     "Charismatic",
     "Christian Reformed",
     "Church of Christ",
-    "Episcopalian",
+    "Episcopalian/Anglican",
     "Evangelical",
     "Interdenominational",
     "Lutheran",
@@ -88,6 +88,7 @@ export const languages = [
     "Chinese",
     "Czech",
     "Dutch",
+    "Esperanto",
     "Fijian",
     "French",
     "German",
@@ -110,13 +111,12 @@ export const languages = [
     "Tagalog",
     "Thai",
     "Vietnamese",
-    "Esperanto"
   ];
 
 export const ethnicities = [
     "African",
     "Asian",
-    "Black",
+    "Black/African Descent",
     "Caribbean",
     "Caucasian/White",
     "East Indian",

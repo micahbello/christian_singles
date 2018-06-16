@@ -94,6 +94,17 @@ $button-hover: #000080;
   background-color: $button-hover;
 }
 
+.checkbox-options-container {
+  width: 100%;
+}
+
+.checkbox-options-container label {
+  padding: 1px 0px;
+}
+
+input[type=checkbox] {
+  zoom: 1.5;
+}
 
 #sex_seek-checkboxes {
   display: none;

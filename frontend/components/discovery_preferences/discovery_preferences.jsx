@@ -136,7 +136,7 @@ class DiscoveryPreferences extends React.Component {
             <i className="fas fa-chevron-down"></i>
           </div>
 
-          <div id={`${attribute}-checkboxes`} onMouseOut={this.handleSubmit}>
+          <div className="checkbox-options-container" id={`${attribute}-checkboxes`} onMouseOut={this.handleSubmit}>
 
             {options.map((choice) => {
               return (
