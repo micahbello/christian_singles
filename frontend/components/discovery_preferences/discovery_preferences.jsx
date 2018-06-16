@@ -15,6 +15,9 @@ class DiscoveryPreferences extends React.Component {
     this.updateValue = this.updateValue.bind(this);
     this.handleClick = this.handleClick.bind(this);
     this.showCheckboxes = this.showCheckboxes.bind(this);
+    this.constructCheckboxes = this.constructCheckboxes.bind(this);
+    this.setAttributesArrayVariable = this.setAttributesArrayVariable.bind(this);
+    this.setAttributeInStateVariable = this.setAttributeInStateVariable.bind(this);
   }
 
   componentDidMount() {
@@ -55,7 +58,7 @@ class DiscoveryPreferences extends React.Component {
       if (this.state[field] === null || this.state[field] === "") {
         this.setState({[field]: e.currentTarget.value});
       }
-      else if (!this.state[field].includes(e.currentTarget.value)) {
+      else if (!this.state[field].split(",").includes(e.currentTarget.value)) {
       this.setState({[field]: this.state[field].concat(`,${e.currentTarget.value}`)})
       } else {
         let oldCheckedOptions = this.state[field].split(",");
@@ -71,10 +74,81 @@ class DiscoveryPreferences extends React.Component {
     }
   }
 
-  constructCheckboxes() {
+  setAttributeInStateVariable (attribute) {
+    let attributeInState;
 
+    attribute === "relationship_seek" ? attributeInState = this.state.relationship_seek : null;
+    attribute === "sex_seek" ? attributeInState = this.state.sex_seek : null;
+    attribute === "religion_seek" ? attributeInState = this.state.religion_seek : null;
+    attribute === "attendance_seek" ? attributeInState = this.state.attendance_seek : null;
+    attribute === "education_seek" ? attributeInState = this.state.education_seek : null;
+    attribute === "smoke_seek" ? attributeInState = this.state.smoke_seek : null;
+    attribute === "drink_seek" ? attributeInState = this.state.drink_seek : null;
+    attribute === "have_kids_seek" ? attributeInState = this.state.have_kids_seek : null;
+    attribute === "want_kids_seek" ? attributeInState = this.state.want_kids_seek : null;
+    attribute === "relocate_seek" ? attributeInState = this.state.relocate_seek : null;
+    attribute === "marital_status_seek" ? attributeInState = this.state.marital_status_seek : null;
+    attribute === "language_seek" ? attributeInState = this.state.language_seek : null;
+    attribute === "ethnicity_seek" ? attributeInState = this.state.ethnicity_seek : null;
 
+    return attributeInState;
+  }
 
+  setAttributesArrayVariable(attribute) {
+    let options;
+
+    attribute === "relationship_seek" ? options = Attributes.relationship : null;
+    attribute === "sex_seek" ? options = Attributes.sex : null;
+    attribute === "religion_seek" ? options = Attributes.religion : null;
+    attribute === "education_seek" ? options = Attributes.education : null;
+    attribute === "attendance_seek" ? options = Attributes.attendance : null;
+    attribute === "smoke_seek" ? options = Attributes.smokingHabits : null;
+    attribute === "drink_seek" ? options = Attributes.drinkingHabits : null;
+    attribute === "have_kids_seek" ? options = Attributes.haveKids : null;
+    attribute === "want_kids_seek" ? options = Attributes.wantKids : null;
+    attribute === "relocate_seek" ? options = Attributes.relocate : null;
+    attribute === "marital_status_seek" ? options = Attributes.maritalStatus : null;
+    attribute === "language_seek" ? options = Attributes.languages : null;
+    attribute === "ethnicity_seek" ? options = Attributes.ethnicities : null;
+
+    return options;
+  }
+
+  constructCheckboxes(attribute) {
+
+    let attributeInState = this.setAttributeInStateVariable(attribute);
+    let options = this.setAttributesArrayVariable(attribute);
+
+    return (
+      <div className="user-info-input-attribute">
+
+        <div className="user-info-input-label">{attributeInState
+              ? Attributes.checkboxesLabelText[attribute] : ""}</div>
+
+        <div onClick={() => this.showCheckboxes(`${attribute}-checkboxes`)}>
+
+          <div className="dropdown-line-and-icon">
+
+            <div className="user-info-dropdown-select-box">
+              {attributeInState
+                ? `${attributeInState.split(",")[0]}...` : Attributes.checkboxesLabelText[attribute]}
+            </div>
+            <i className="fas fa-chevron-down"></i>
+          </div>
+
+          <div id={`${attribute}-checkboxes`} onMouseOut={this.handleSubmit}>
+
+            {options.map((choice) => {
+              return (
+                <label onClick={(e) => e.stopPropagation()} >
+                  <input onClick={this.updateCheckBoxValue(attribute)} type="checkbox" value={choice} checked={(attributeInState && attributeInState.split(",").includes(choice)) ? "true" : ''}/>{choice}</label>
+                );
+              })
+            }
+          </div>
+        </div>
+      </div>
+    );
   }
 
   render() {
@@ -101,409 +175,54 @@ class DiscoveryPreferences extends React.Component {
               <section className="discovery-preferences-container">
 
 {/* gender attribute*/}
-                <div className="user-info-input-attribute">
-
-                  <div className="user-info-input-label">{this.state.sex_seek
-                      ? "I'm Seeking" : ""}</div>
-
-                  <div onClick={() => this.showCheckboxes("sex-seek-checkboxes")}>
-
-                    <div className="dropdown-line-and-icon">
-
-                      <div className="user-info-dropdown-select-box">
-                        {this.state.sex_seek
-                          ? `${this.state.sex_seek.split(",")[0]}...` : "I'm seeking"}
-                      </div>
-                      <i className="fas fa-chevron-down"></i>
-                    </div>
-
-                    <div id="sex-seek-checkboxes" onMouseOut={this.handleSubmit}>
-
-                      {["Men", "Women"].map((gender) => {
-                        return (
-                          <label onClick={(e) => e.stopPropagation()} >
-                            <input onClick={this.updateCheckBoxValue("sex_seek")} type="checkbox" value={gender} checked={(this.state.sex_seek && this.state.sex_seek.includes(gender)) ? "true" : ''}/>{gender}</label>
-                          );
-                        })
-                      }
-
-                    </div>
-                  </div>
-                </div>
+                {this.constructCheckboxes("sex_seek")}
 
 {/* religion attribute*/}
-                <div className="user-info-input-attribute">
 
-                  <div className="user-info-input-label">{this.state.religion_seek
-                      ? "Religion" : ""}</div>
-
-                  <div onClick={() => this.showCheckboxes("religion-seek-checkboxes")}>
-
-                    <div className="dropdown-line-and-icon">
-
-                      <div className="user-info-dropdown-select-box">
-                        {this.state.religion_seek
-                          ? `${this.state.religion_seek.split(",")[0]}...` : "Religion"}
-                      </div>
-                      <i className="fas fa-chevron-down"></i>
-                    </div>
-
-                    <div id="religion-seek-checkboxes" onMouseOut={this.handleSubmit}>
-
-                      {Attributes.religion.map((choice) => {
-                        return (
-                          <label onClick={(e) => e.stopPropagation()} >
-                            <input onClick={this.updateCheckBoxValue("religion_seek")} type="checkbox" value={choice} checked={(this.state.religion_seek && this.state.religion_seek.includes(choice)) ? "true" : ''}/>{choice}</label>
-                          );
-                        })
-                      }
-                    </div>
-                  </div>
-                </div>
-
+                {this.constructCheckboxes("religion_seek")}
 {/* relationship type attribute*/}
 
-                <div className="user-info-input-attribute">
-
-                  <div className="user-info-input-label">{this.state.relationship_seek
-                        ? "Relationship Type" : ""}</div>
-
-                  <div onClick={() => this.showCheckboxes("relationship-seek-checkboxes")}>
-
-                    <div className="dropdown-line-and-icon">
-
-                      <div className="user-info-dropdown-select-box">
-                        {this.state.relationship_seek
-                          ? `${this.state.relationship_seek.split(",")[0]}...` : "Relationship Type"}
-                      </div>
-                      <i className="fas fa-chevron-down"></i>
-                    </div>
-
-                    <div id="relationship-seek-checkboxes" onMouseOut={this.handleSubmit}>
-
-                      {Attributes.relationshipType.map((choice) => {
-                        return (
-                          <label onClick={(e) => e.stopPropagation()} >
-                            <input onClick={this.updateCheckBoxValue("relationship_seek")} type="checkbox" value={choice} checked={(this.state.relationship_seek && this.state.relationship_seek.split(",").includes(choice)) ? "true" : ''}/>{choice}</label>
-                          );
-                        })
-                      }
-                    </div>
-                  </div>
-                </div>
+                {this.constructCheckboxes("relationship_seek")}
 
 {/* education_seek attribute*/}
 
-                <div className="user-info-input-attribute">
-
-                  <div className="user-info-input-label">{this.state.education_seek
-                      ? "Education" : ""}</div>
-
-                  <div onClick={() => this.showCheckboxes("education-seek-checkboxes")}>
-
-                    <div className="dropdown-line-and-icon">
-
-                      <div className="user-info-dropdown-select-box">
-                        {this.state.education_seek
-                          ? `${this.state.education_seek.split(",")[0]}...` : "Level of Education"}
-                      </div>
-                      <i className="fas fa-chevron-down"></i>
-                    </div>
-
-                    <div id="education-seek-checkboxes" onMouseOut={this.handleSubmit}>
-
-                      {Attributes.education.map((choice) => {
-                        return (
-                          <label onClick={(e) => e.stopPropagation()} >
-                            <input onClick={this.updateCheckBoxValue("education_seek")} type="checkbox" value={choice} checked={(this.state.education_seek && this.state.education_seek.includes(choice)) ? "true" : ''}/>{choice}</label>
-                          );
-                        })
-                      }
-                    </div>
-                  </div>
-                </div>
+                {this.constructCheckboxes("education_seek")}
 
 {/* attendance_seek attribute */}
 
-                <div className="user-info-input-attribute">
-
-                  <div className="user-info-input-label">{this.state.attendance_seek
-                      ? "Church Attendance" : ""}</div>
-
-                  <div onClick={() => this.showCheckboxes("attendance-seek-checkboxes")}>
-
-                    <div className="dropdown-line-and-icon">
-
-                      <div className="user-info-dropdown-select-box">
-                        {this.state.attendance_seek
-                          ? `${this.state.attendance_seek.split(",")[0]}...` : "Church Attendance"}
-                      </div>
-                      <i className="fas fa-chevron-down"></i>
-                    </div>
-
-                    <div id="attendance-seek-checkboxes" onMouseOut={this.handleSubmit}>
-
-                      {Attributes.attendance.map((choice) => {
-                        return (
-                          <label onClick={(e) => e.stopPropagation()} >
-                            <input onClick={this.updateCheckBoxValue("attendance_seek")} type="checkbox" value={choice} checked={(this.state.attendance_seek && this.state.attendance_seek.includes(choice)) ? "true" : ''}/>{choice}</label>
-                          );
-                        })
-                      }
-                    </div>
-                  </div>
-                </div>
+                {this.constructCheckboxes("attendance_seek")}
 
 {/* smoking attribute */}
 
-                <div className="user-info-input-attribute">
-
-                  <div className="user-info-input-label">{this.state.smoke_seek
-                      ? "Smoking Habits" : ""}</div>
-
-                  <div onClick={() => this.showCheckboxes("smoke-seek-checkboxes")}>
-
-                    <div className="dropdown-line-and-icon">
-
-                      <div className="user-info-dropdown-select-box">
-                        {this.state.smoke_seek
-                          ? `${this.state.smoke_seek.split(",")[0]}...` : "Smoking Habits"}
-                      </div>
-                      <i className="fas fa-chevron-down"></i>
-                    </div>
-
-                    <div id="smoke-seek-checkboxes" onMouseOut={this.handleSubmit}>
-
-                      {Attributes.smokingHabits.map((choice) => {
-                        return (
-                          <label onClick={(e) => e.stopPropagation()} >
-                            <input onClick={this.updateCheckBoxValue("smoke_seek")} type="checkbox" value={choice} checked={(this.state.smoke_seek && this.state.smoke_seek.includes(choice)) ? "true" : ''}/>{choice}</label>
-                          );
-                        })
-                      }
-                    </div>
-                  </div>
-                </div>
+                {this.constructCheckboxes("smoke_seek")}
 
 {/* drinking attribute */}
 
-                <div className="user-info-input-attribute">
-
-                  <div className="user-info-input-label">{this.state.drink_seek
-                      ? "Drinking Habits" : ""}</div>
-
-                  <div onClick={() => this.showCheckboxes("drink-seek-checkboxes")}>
-
-                    <div className="dropdown-line-and-icon">
-
-                      <div className="user-info-dropdown-select-box">
-                        {this.state.drink_seek
-                          ? `${this.state.drink_seek.split(",")[0]}...` : "Drinking Habits"}
-                      </div>
-                      <i className="fas fa-chevron-down"></i>
-                    </div>
-
-                    <div id="drink-seek-checkboxes" onMouseOut={this.handleSubmit}>
-
-                      {Attributes.drinkingHabits.map((choice) => {
-                        return (
-                          <label onClick={(e) => e.stopPropagation()} >
-                            <input onClick={this.updateCheckBoxValue("drink_seek")} type="checkbox" value={choice} checked={(this.state.drink_seek && this.state.drink_seek.includes(choice)) ? "true" : ''}/>{choice}</label>
-                          );
-                        })
-                      }
-                    </div>
-                  </div>
-                </div>
+                {this.constructCheckboxes("drink_seek")}
 
 {/* have_kidsattribute */}
 
-                <div className="user-info-input-attribute">
-
-                  <div className="user-info-input-label">{this.state.have_kids_seek
-                      ? "Have Kids" : ""}</div>
-
-                  <div onClick={() => this.showCheckboxes("have-kids-seek-checkboxes")}>
-
-                    <div className="dropdown-line-and-icon">
-
-                      <div className="user-info-dropdown-select-box">
-                        {this.state.have_kids_seek
-                          ? `${this.state.have_kids_seek.split(",")[0]}...` : "Have Kids"}
-                      </div>
-                      <i className="fas fa-chevron-down"></i>
-                    </div>
-
-                    <div id="have-kids-seek-checkboxes" onMouseOut={this.handleSubmit}>
-
-                      {Attributes.haveKids.map((choice) => {
-                        return (
-                          <label onClick={(e) => e.stopPropagation()} >
-                            <input onClick={this.updateCheckBoxValue("have_kids_seek")} type="checkbox" value={choice} checked={(this.state.have_kids_seek && this.state.have_kids_seek.includes(choice)) ? "true" : ''}/>{choice}</label>
-                          );
-                        })
-                      }
-                    </div>
-                  </div>
-                </div>
+                {this.constructCheckboxes("have_kids_seek")}
 
 {/* want_kids attribute */}
 
-                <div className="user-info-input-attribute">
-
-                  <div className="user-info-input-label">{this.state.want_kids_seek
-                      ? "Want Kids" : ""}</div>
-
-                  <div onClick={() => this.showCheckboxes("want-kids-seek-checkboxes")}>
-
-                    <div className="dropdown-line-and-icon">
-
-                      <div className="user-info-dropdown-select-box">
-                        {this.state.want_kids_seek
-                          ? `${this.state.want_kids_seek.split(",")[0]}...` : "Want Kids"}
-                      </div>
-                      <i className="fas fa-chevron-down"></i>
-                    </div>
-
-                    <div id="want-kids-seek-checkboxes" onMouseOut={this.handleSubmit}>
-
-                      {Attributes.wantKids.map((choice) => {
-                        return (
-                          <label onClick={(e) => e.stopPropagation()} >
-                            <input onClick={this.updateCheckBoxValue("want_kids_seek")} type="checkbox" value={choice} checked={(this.state.want_kids_seek && this.state.want_kids_seek.includes(choice)) ? "true" : ''}/>{choice}</label>
-                          );
-                        })
-                      }
-                    </div>
-                  </div>
-                </div>
+                {this.constructCheckboxes("want_kids_seek")}
 
 {/* relocate attribute */}
 
-                <div className="user-info-input-attribute">
-
-                  <div className="user-info-input-label">{this.state.relocate_seek
-                      ? "Willingness to Relocate" : ""}</div>
-
-                  <div onClick={() => this.showCheckboxes("relocate-seek-checkboxes")}>
-
-                    <div className="dropdown-line-and-icon">
-
-                      <div className="user-info-dropdown-select-box">
-                      {this.state.relocate_seek
-                        ? `${this.state.relocate_seek.split(",")[0]}...` : "Willingness to Relocate"}
-                      </div>
-                      <i className="fas fa-chevron-down"></i>
-                    </div>
-
-                    <div id="relocate-seek-checkboxes" onMouseOut={this.handleSubmit}>
-
-                      {Attributes.relocate.map((choice) => {
-                        return (
-                          <label onClick={(e) => e.stopPropagation()} >
-                            <input onClick={this.updateCheckBoxValue("relocate_seek")} type="checkbox" value={choice} checked={(this.state.relocate_seek && this.state.relocate_seek.includes(choice)) ? "true" : ''}/>{choice}</label>
-                          );
-                        })
-                      }
-                    </div>
-                  </div>
-                </div>
+                {this.constructCheckboxes("relocate_seek")}
 
 {/* marital_status attribute */}
 
-
-                <div className="user-info-input-attribute">
-
-                  <div className="user-info-input-label">{this.state.marital_status_seek
-                      ? "Marital Status" : ""}</div>
-
-                  <div onClick={() => this.showCheckboxes("marital-status-seek-checkboxes")}>
-
-                    <div className="dropdown-line-and-icon">
-
-                      <div className="user-info-dropdown-select-box">
-                        {this.state.marital_status_seek
-                          ? `${this.state.marital_status_seek.split(",")[0]}...` : "Marital Status"}
-                      </div>
-                      <i className="fas fa-chevron-down"></i>
-                    </div>
-
-                    <div id="marital-status-seek-checkboxes" onMouseOut={this.handleSubmit}>
-
-                      {Attributes.maritalStatus.map((choice) => {
-                        return (
-                          <label onClick={(e) => e.stopPropagation()} >
-                            <input onClick={this.updateCheckBoxValue("marital_status_seek")} type="checkbox" value={choice} checked={(this.state.marital_status_seek && this.state.marital_status_seek.includes(choice)) ? "true" : ''}/>{choice}</label>
-                          );
-                        })
-                      }
-                    </div>
-                  </div>
-                </div>
+                {this.constructCheckboxes("marital_status_seek")}
 
 {/* language attribute */}
 
-
-                <div className="user-info-input-attribute">
-
-                  <div className="user-info-input-label">{this.state.language_seek
-                      ? "Language" : ""}</div>
-
-                  <div onClick={() => this.showCheckboxes("language-seek-checkboxes")}>
-
-                    <div className="dropdown-line-and-icon">
-
-                      <div className="user-info-dropdown-select-box">
-                        {this.state.language_seek
-                          ? `${this.state.language_seek.split(",")[0]}...` : "Language"}
-                      </div>
-                      <i className="fas fa-chevron-down"></i>
-                    </div>
-
-                    <div id="language-seek-checkboxes" onMouseOut={this.handleSubmit}>
-
-                      {Attributes.languages.map((choice) => {
-                        return (
-                          <label onClick={(e) => e.stopPropagation()} >
-                            <input onClick={this.updateCheckBoxValue("language_seek")} type="checkbox" value={choice} checked={(this.state.language_seek && this.state.language_seek.includes(choice)) ? "true" : ''}/>{choice}</label>
-                          );
-                        })
-                      }
-                    </div>
-                  </div>
-                </div>
+                {this.constructCheckboxes("language_seek")}
 
 {/* ethnicity attribute */}
 
-
-                <div className="user-info-input-attribute">
-
-                  <div className="user-info-input-label">{this.state.ethnicity_seek
-                      ? "Ethnicity" : ""}</div>
-
-                  <div onClick={() => this.showCheckboxes("ethnicity-seek-checkboxes")}>
-
-                    <div className="dropdown-line-and-icon">
-
-                      <div className="user-info-dropdown-select-box">
-                        {this.state.ethnicity_seek
-                          ? `${this.state.ethnicity_seek.split(",")[0]}...` : "Ethnicity"}
-                      </div>
-                      <i className="fas fa-chevron-down"></i>
-                    </div>
-
-                    <div id="ethnicity-seek-checkboxes" onMouseOut={this.handleSubmit}>
-
-                      {Attributes.ethnicities.map((choice) => {
-                        return (
-                          <label onClick={(e) => e.stopPropagation()} >
-                            <input onClick={this.updateCheckBoxValue("ethnicity_seek")} type="checkbox" value={choice} checked={(this.state.ethnicity_seek && this.state.ethnicity_seek.includes(choice)) ? "true" : ''}/>{choice}</label>
-                          );
-                        })
-                      }
-                    </div>
-                  </div>
-                </div>
+                {this.constructCheckboxes("ethnicity_seek")}
 
                 <Link className="done-button" to='/editprofile'>Done</Link>
 

@@ -1,3 +1,4 @@
+
 export const smokingHabits = [
     "Smoke regularly",
     "Smoke ocassionally",
@@ -152,11 +153,18 @@ export const firstDates = [
     "To be surprised",
     ];
 
-export const relationshipType = [
+// variables for discovery component
+
+export const relationship = [
     "Friendly/Activity Partner",
     "Long Term Relationship",
     "Marriage",
     "Marriage and Kids",
+  ];
+
+  export const sex = [
+    "Men",
+    "Women"
   ];
 
   export const checkboxesLabelText = {
