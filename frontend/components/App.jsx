@@ -17,8 +17,6 @@ const App = () => {
   return (
   <div>
 
-    <Route exact path='/loading' component={LoadingPage}/>
-
     <AuthRoute exact path='/' component={WelcomeContainer} />
     <AuthRoute exact path='/login' component={LoginFormContainer} />
     <AuthRoute exact path='/signup' component={SignupFormContainer} />

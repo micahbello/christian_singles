@@ -109,7 +109,7 @@ class User < ApplicationRecord
 
   def match_with_percent
 
-    #select the users that macth the sex_seek preference(s) of the current user(this
+    #select the users that match the sex_seek preference(s) of the current user(this
     #will be refactored to be the distance instead)
     gender_preference = self.sex_seek
     curr_user_id = self.id

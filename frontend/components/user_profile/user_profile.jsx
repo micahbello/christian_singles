@@ -45,7 +45,7 @@ class UserProfile extends React.Component {
               <span className="user-profile-top-span">
 
                   <Link className="back-browse-link" to="/browse">
-                    <i class="fas fa-chevron-left"><span>Back</span></i>
+                    <i className="fas fa-chevron-left"><span>Back</span></i>
                   </Link>
 
                   <p className="my-profile-label">{this.props.currentUser.id === this.props.currentProfile.id ? "My Profile" : ""}</p>
@@ -108,7 +108,7 @@ class UserProfile extends React.Component {
                           this.props.currentProfile.have_kids ||
                           this.props.currentProfile.want_kids ||
                           this.props.currentProfile.relocate ) ?
-                          <i class="fas fa-user"></i>: ""}
+                          <i className="fas fa-user"></i>: ""}
                         </span>
 
                         <span>{this.props.currentProfile.height}
@@ -138,7 +138,7 @@ class UserProfile extends React.Component {
                         <span className="user-info-icon">
                           {(this.props.currentProfile.religion ||
                           this.props.currentProfile.attendance) ?
-                          <i class="fas fa-church"></i> : ""}
+                          <i className="fas fa-church"></i> : ""}
                         </span>
 
                         <span>
@@ -159,7 +159,7 @@ class UserProfile extends React.Component {
                           <span className="user-info-icon">
                             {(this.props.currentProfile.occupation ||
                             this.props.currentProfile.education) ?
-                            <i class="fas fa-building"></i> : ""}
+                            <i className="fas fa-building"></i> : ""}
                           </span>
                           <span>
                             {this.props.currentProfile.occupation}
@@ -177,7 +177,7 @@ class UserProfile extends React.Component {
                           <span className="user-info-icon">
                             {(this.props.currentProfile.language ||
                               this.props.currentProfile.ethnicity) ?
-                            <i class="fas fa-home"></i> : ""}
+                            <i className="fas fa-home"></i> : ""}
                           </span>
                           <span>
 
@@ -201,7 +201,7 @@ class UserProfile extends React.Component {
                           {(this.props.currentProfile.pets ||
                           this.props.currentProfile.drink ||
                           this.props.currentProfile.smoke) ?
-                          <i class="fas fa-flag"></i>: ""}
+                          <i className="fas fa-flag"></i>: ""}
                         </span>
                         <span>
                           {(this.props.currentProfile.pets && this.props.currentProfile.pets.includes(",")) ? this.props.currentProfile.pets.split(",").join(", ") : this.props.currentProfile.pets}
@@ -233,7 +233,7 @@ class UserProfile extends React.Component {
                             "currently-hidden"}>
 
                           <span className="user-info-icon">
-                            {this.props.currentProfile.first_date ? <i class="fas fa-coffee"></i> : ""}
+                            {this.props.currentProfile.first_date ? <i className="fas fa-coffee"></i> : ""}
                           </span>
                           <span>
                             {this.props.currentProfile.first_date ? <span id="make-reg-font">On a first date I prefer:</span> : "" }
@@ -242,16 +242,18 @@ class UserProfile extends React.Component {
                         </span>
 
                         <span className="user-personal-info">
-                          <span className="user-info-icon"><i class="fas fa-search"></i></span>
+                          <span className="user-info-icon"><i className="fas fa-search"></i></span>
                           <span className="">
-                            <span id="make-reg-font">I am looking for:</span> {this.props.currentProfile.sex_seek}
+                            <span id="make-reg-font">I am looking for:</span> {this.props.currentProfile.sex_seek.split(",").join(", ")}
                             {(!this.props.currentProfile.sex_seek && this.props.currentProfile.gender === "male") ? "Women" : ""}
                             {(!this.props.currentProfile.sex_seek && this.props.currentProfile.gender === "female") ? "Men" : ""}
+                            , Ages {this.props.currentProfile.min_age_seek}-{this.props.currentProfile.max_age_seek}
+                            {this.props.currentProfile.relationship_seek ? `, ${this.props.currentProfile.relationship_seek}` : ""}
                           </span>
                         </span>
 
                         <span className="user-personal-info">
-                          <span className="user-info-icon"><i class="fas fa-clock"></i></span>
+                          <span className="user-info-icon"><i className="fas fa-clock"></i></span>
                           <span>
                             <span id="make-reg-font">Last Online:</span> {this.props.currentProfile.online === true ? <span id="online-now-text">Online Now</span> : <span>{this.props.currentProfile.last_online}</span>}
                           </span>

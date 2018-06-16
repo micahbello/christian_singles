@@ -71,6 +71,12 @@ class DiscoveryPreferences extends React.Component {
     }
   }
 
+  constructCheckboxes() {
+
+
+
+  }
+
   render() {
     if (!this.state) {
       return <LoadingPage />
@@ -178,7 +184,7 @@ class DiscoveryPreferences extends React.Component {
                       {Attributes.relationshipType.map((choice) => {
                         return (
                           <label onClick={(e) => e.stopPropagation()} >
-                            <input onClick={this.updateCheckBoxValue("relationship_seek")} type="checkbox" value={choice} checked={(this.state.relationship_seek && this.state.relationship_seek.includes(choice)) ? "true" : ''}/>{choice}</label>
+                            <input onClick={this.updateCheckBoxValue("relationship_seek")} type="checkbox" value={choice} checked={(this.state.relationship_seek && this.state.relationship_seek.split(",").includes(choice)) ? "true" : ''}/>{choice}</label>
                           );
                         })
                       }
@@ -514,6 +520,10 @@ class DiscoveryPreferences extends React.Component {
 
 
 export default DiscoveryPreferences;
+
+
+
+
 
 
 
