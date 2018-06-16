@@ -20,6 +20,7 @@ class userInfoForm extends React.Component {
     this.updateCheckBoxValue = this.updateCheckBoxValue.bind(this);
     this.handleClick = this.handleClick.bind(this);
     this.constructCheckboxes = this.constructCheckboxes.bind(this);
+    this.constructDropDownMenu = this.constructDropDownMenu.bind(this);
   }
 
   componentDidMount() {
@@ -109,6 +110,36 @@ class userInfoForm extends React.Component {
     );
   }
 
+  constructDropDownMenu (attribute) {
+
+    let attributeInState = Attributes.setAttributeInStateVariable(attribute, this.state);
+    let options = Attributes.setAttributesArrayVariable(attribute);
+
+    return (
+      <div className="user-info-input-attribute">
+
+        <div className="user-info-input-label">{attributeInState
+          ? Attributes.checkboxesLabelText[attribute] : ""}</div>
+
+          <select onChange={this.updateValue(attribute)}
+            onMouseOut={(e) => this.handleSubmit(e)}
+            className="user-info-select-box">
+            <option default hidden>{attributeInState ? attributeInState : Attributes.checkboxesLabelText[attribute]}</option>
+
+            {options.map((choice) => {
+              return (
+                <option value={choice}>{choice}</option>
+                );
+              })
+            }
+
+          </select>
+          <i className="fas fa-chevron-down"></i>
+
+      </div>
+    );
+  }
+
 
   handleSubmit(e) {
     e.preventDefault();
@@ -193,143 +224,28 @@ class userInfoForm extends React.Component {
 
 {/* have kids attribute*/}
 
-                  <div className="user-info-input-attribute">
-
-                    <div className="user-info-input-label">{this.state.have_kids
-                      ? "Have Kids" : ""}</div>
-
-                      <select onChange={this.updateValue("have_kids")}
-                        onMouseOut={this.handleSubmit}
-                        className="user-info-select-box">
-                        <option default hidden>{this.state.have_kids ? this.state.have_kids : "Have Kids"}</option>
-
-                        {Attributes.haveKids.map((choice) => {
-                          return (
-                            <option value={choice}>{choice}</option>
-                            );
-                          })
-                        }
-
-                      </select>
-                      <i className="fas fa-chevron-down"></i>
-
-                  </div>
+                  {this.constructDropDownMenu("have_kids")}
 
 {/* want kids attribute*/}
 
-                  <div className="user-info-input-attribute">
-
-                  <div className="user-info-input-label">{this.state.want_kids
-                    ? "Want Kids" : ""}</div>
-
-                    <select onChange={this.updateValue("want_kids")}
-                      onMouseOut={this.handleSubmit}
-                      className="user-info-select-box">
-                      <option default hidden>{this.state.want_kids ? this.state.want_kids : "Want Kids"}</option>
-
-                      {Attributes.wantKids.map((choice) => {
-                        return (
-                          <option value={choice}>{choice}</option>
-                          );
-                        })
-                      }
-
-                    </select>
-                    <i className="fas fa-chevron-down"></i>
-                  </div>
+                  {this.constructDropDownMenu("want_kids")}
 
 {/* marital status attribute*/}
 
-                  <div className="user-info-input-attribute">
-
-                    <div className="user-info-input-label">{this.state.marital_status
-                      ? "Marital Status" : ""}</div>
-
-                      <select onChange={this.updateValue("marital_status")}
-                        onMouseOut={this.handleSubmit}
-                        className="user-info-select-box">
-                        <option default hidden>{this.state.marital_status ? this.state.marital_status : "Marital Status"}</option>
-
-                        {Attributes.maritalStatus.map((choice) => {
-                          return (
-                            <option value={choice}>{choice}</option>
-                            );
-                          })
-                        }
-
-                      </select>
-                      <i className="fas fa-chevron-down"></i>
-                  </div>
+                  {this.constructDropDownMenu("marital_status")}
 
 {/* Willingness to relocate attribute*/}
 
-                  <div className="user-info-input-attribute">
-
-                    <div className="user-info-input-label">{this.state.relocate
-                      ? "Willingness to Relocate" : ""}</div>
-
-                      <select onChange={this.updateValue("relocate")}
-                        onMouseOut={this.handleSubmit}
-                        className="user-info-select-box">
-                        <option default hidden>{this.state.relocate ? this.state.relocate : "Willingness To Relocate"}</option>
-
-                        {Attributes.relocate.map((choice) => {
-                          return (
-                            <option value={choice}>{choice}</option>
-                            );
-                          })
-                        }
-
-                      </select>
-                      <i className="fas fa-chevron-down"></i>
-                  </div>
+                  {this.constructDropDownMenu("relocate")}
 
 {/* religion attribute*/}
 
-                  <div className="user-info-input-attribute">
+                  {this.constructDropDownMenu("religion")}
 
-                  <div className="user-info-input-label">{this.state.religion
-                    ? "Religion" : ""}</div>
-
-                    <select onChange={this.updateValue("religion")}
-                      onMouseOut={this.handleSubmit}
-                      className="user-info-select-box">
-                      <option default hidden>{this.state.religion ? this.state.religion : "Religion"}</option>
-
-                      {Attributes.religion.map((choice) => {
-                        return (
-                          <option value={choice}>{choice}</option>
-                          );
-                        })
-                      }
-
-                    </select>
-                    <i className="fas fa-chevron-down"></i>
-
-                  </div>
 
 {/* church attendance attribute*/}
 
-                  <div className="user-info-input-attribute">
-
-                    <div className="user-info-input-label">{this.state.attendance
-                      ? "Church Attendance" : ""}</div>
-
-                      <select onChange={this.updateValue("attendance")}
-                        onMouseOut={this.handleSubmit}
-                        className="user-info-select-box">
-                        <option default hidden>{this.state.attendance ? this.state.attendance : "Church Attendance"}</option>
-
-                        {Attributes.attendance.map((choice) => {
-                          return (
-                            <option value={choice}>{choice}</option>
-                            );
-                          })
-                        }
-
-                      </select>
-                      <i className="fas fa-chevron-down"></i>
-                  </div>
+                  {this.constructDropDownMenu("attendance")}
 
 {/* occupation attribute*/}
 
@@ -348,26 +264,7 @@ class userInfoForm extends React.Component {
 
 {/* education attribute*/}
 
-                  <div className="user-info-input-attribute">
-
-                    <div className="user-info-input-label">{this.state.education
-                      ? "Level of Education" : ""}</div>
-
-                    <select onChange={this.updateValue("education")}
-                      onMouseOut={this.handleSubmit}
-                      className="user-info-select-box">
-                      <option default hidden>{this.state.education ? this.state.education : "Level of Education"}</option>
-
-                      {Attributes.education.map((choice) => {
-                        return (
-                          <option value={choice}>{choice}</option>
-                          );
-                        })
-                      }
-
-                    </select>
-                    <i className="fas fa-chevron-down"></i>
-                  </div>
+                  {this.constructDropDownMenu("education")}
 
 {/* ethnicity attribute*/}
 
@@ -385,50 +282,11 @@ class userInfoForm extends React.Component {
 
 {/* drinking habits */}
 
-                  <div className="user-info-input-attribute">
-
-                    <div className="user-info-input-label">{this.state.drink
-                      ? "Drinking Habits" : ""}</div>
-
-                    <select onChange={this.updateValue("drink")}
-                      onMouseOut={this.handleSubmit}
-                      className="user-info-select-box">
-                      <option default hidden>{this.state.drink ? this.state.drink : "Drinking Habits"}</option>
-
-                      {Attributes.drinkingHabits.map((choice) => {
-                        return (
-                          <option value={choice}>{choice}</option>
-                          );
-                        })
-                      }
-
-                    </select>
-                    <i className="fas fa-chevron-down"></i>
-                  </div>
+                  {this.constructDropDownMenu("drink")}
 
 {/* smoking habits */}
 
-                  <div className="user-info-input-attribute">
-
-                    <div className="user-info-input-label">{this.state.smoke
-                      ? "Smoking Habits" : ""}</div>
-
-                    <select onChange={this.updateValue("smoke")}
-                      onMouseOut={this.handleSubmit}
-                      className="user-info-select-box">
-                      <option default hidden>{this.state.smoke ? this.state.smoke : "Smoking Habits"}</option>
-
-                      {Attributes.smokingHabits.map((choice) => {
-                        return (
-                          <option value={choice}>{choice}</option>
-                          );
-                        })
-                      }
-
-                    </select>
-                    <i className="fas fa-chevron-down"></i>
-
-                  </div>
+                  {this.constructDropDownMenu("smoke")}
 {/* first_date attribute*/}
 
                   {this.constructCheckboxes("first_date")}

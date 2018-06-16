@@ -17,6 +17,7 @@ export const drinkingHabits = [
 export const education = [
     "High School",
     "College",
+    "Some College",
     "Bachelor's Degree",
     "Master's Degree",
     "JD/PhD/Post Doc"
@@ -40,18 +41,19 @@ export const religion = [
     "Episcopalian/Anglican",
     "Evangelical",
     "Interdenominational",
+    "Jehovah's Witness",
     "Lutheran",
     "Messianic",
+    "Mormon/Latter-Day Saint",
     "Nazerene",
     "Non-denominational",
+    "Oneness Pentecostal",
     "Orthodox",
     "Pentecostal",
     "Presbyeterian",
     "Seventh-Day Adventist",
     "Southern Baptist",
     "Other Religion",
-    "Mormon/Latter-Day Saint",
-    "Jehovah's Witness",
     "Not sure yet",
 ];
 
@@ -137,6 +139,7 @@ export const pets = [
     "Have hamster(s)",
     "Have ferret(s)",
     "Have rabbit(s)",
+    "Have an ant farm",
     "No pets but want them",
     "Have a pet (ask me)"
   ];
@@ -154,7 +157,9 @@ export const firstDates = [
     "Shooting range",
     "Amusement park",
     "Museum",
-    "To be surprised",
+    "Dance club",
+    "Comedy club",
+    "To be surprised"
     ];
 
 // variables for discovery component
@@ -172,11 +177,22 @@ export const relationship = [
   ];
 
   export const checkboxesLabelText = {
+//for the user edit profile
     first_date: "Preferred First Date",
     pets: "Pets",
     language: "Language",
     ethnicity: "Ethnicity",
+    have_kids: "Have Kids",
+    want_kids: "Want Kids",
+    marital_status: "Marital Status",
+    relocate: "Willingness to Relocate",
+    religion: "Religion",
+    attendance: "Church Attendance",
+    education: "Level of Education",
+    drink: "Drinking Habits",
+    smoke: "Smoking Habits",
 
+//for discovery preferences
     sex_seek: "I'm Seeking",
     religion_seek: "Religion",
     relationship_seek: "Relationship Type",
@@ -196,12 +212,23 @@ export const relationship = [
  export const setAttributeInStateVariable = (attribute, state) => {
      let attributeInState;
 
+//for the user edit profile
      attribute === "first_date" ? attributeInState = state.first_date : null;
      attribute === "pets" ? attributeInState = state.pets : null;
      attribute === "language" ? attributeInState = state.language : null;
      attribute === "ethnicity" ? attributeInState = state.ethnicity : null;
+     attribute === "have_kids" ? attributeInState = state.have_kids : null;
+     attribute === "want_kids" ? attributeInState = state.want_kids : null;
+     attribute === "marital_status" ? attributeInState = state.marital_status : null;
+     attribute === "relocate" ? attributeInState = state.relocate: null;
+     attribute === "religion" ? attributeInState = state.religion : null;
+     attribute === "attendance" ? attributeInState = state.attendance : null;
+     attribute === "education" ? attributeInState = state.education: null;
+     attribute === "drink" ? attributeInState = state.drink : null;
+     attribute === "smoke" ? attributeInState = state.smoke : null;
 
 
+//for discovery preferences
      attribute === "relationship_seek" ? attributeInState = state.relationship_seek : null;
      attribute === "sex_seek" ? attributeInState = state.sex_seek : null;
      attribute === "religion_seek" ? attributeInState = state.religion_seek : null;
@@ -222,24 +249,35 @@ export const relationship = [
    export const setAttributesArrayVariable = (attribute) => {
        let options;
 
-       attribute === "first_date" ? options = firstDates : null;
-       attribute === "pets" ? options = pets : null;
-       attribute === "language" ? options = languages : null;
-       attribute === "ethnicity" ? options = ethnicities : null;
+//for user edit profile
+     attribute === "first_date" ? options = firstDates : null;
+     attribute === "pets" ? options = pets : null;
+     attribute === "language" ? options = languages : null;
+     attribute === "ethnicity" ? options = ethnicities : null;
+     attribute === "have_kids" ? options = haveKids : null;
+     attribute === "want_kids" ? options = wantKids : null;
+     attribute === "marital_status" ? options = maritalStatus : null;
+     attribute === "relocate" ? options = relocate : null;
+     attribute === "religion" ? options = religion : null;
+     attribute === "attendance" ? options = attendance : null;
+     attribute === "education" ? options = education : null;
+     attribute === "drink" ? options = drinkingHabits : null;
+     attribute === "smoke" ? options = smokingHabits : null;
 
-       attribute === "relationship_seek" ? options = relationship : null;
-       attribute === "sex_seek" ? options = sex : null;
-       attribute === "religion_seek" ? options = religion : null;
-       attribute === "education_seek" ? options = education : null;
-       attribute === "attendance_seek" ? options = attendance : null;
-       attribute === "smoke_seek" ? options = smokingHabits : null;
-       attribute === "drink_seek" ? options = drinkingHabits : null;
-       attribute === "have_kids_seek" ? options = haveKids : null;
-       attribute === "want_kids_seek" ? options = wantKids : null;
-       attribute === "relocate_seek" ? options = relocate : null;
-       attribute === "marital_status_seek" ? options = maritalStatus : null;
-       attribute === "language_seek" ? options = languages : null;
-       attribute === "ethnicity_seek" ? options = ethnicities : null;
+//for discovery preferences
+     attribute === "relationship_seek" ? options = relationship : null;
+     attribute === "sex_seek" ? options = sex : null;
+     attribute === "religion_seek" ? options = religion : null;
+     attribute === "education_seek" ? options = education : null;
+     attribute === "attendance_seek" ? options = attendance : null;
+     attribute === "smoke_seek" ? options = smokingHabits : null;
+     attribute === "drink_seek" ? options = drinkingHabits : null;
+     attribute === "have_kids_seek" ? options = haveKids : null;
+     attribute === "want_kids_seek" ? options = wantKids : null;
+     attribute === "relocate_seek" ? options = relocate : null;
+     attribute === "marital_status_seek" ? options = maritalStatus : null;
+     attribute === "language_seek" ? options = languages : null;
+     attribute === "ethnicity_seek" ? options = ethnicities : null;
 
-       return options;
+     return options;
      }
