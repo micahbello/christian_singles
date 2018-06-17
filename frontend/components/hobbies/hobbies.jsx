@@ -6,19 +6,33 @@ class HobbiesWindow extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      hobbies: this.props.userHobbies
+      hobbies: this.props.userHobbies,
+      currentSearch: ""
     };
 
     this.updateHobbies = this.updateHobbies.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.includedInFilter = this.includedInFilter.bind(this);
   }
 
-  filterHobbies() {
+  updateSearch(e) {
+    this.setState({currentSearch: e.currentTarget.value})
+  }
 
+  includedInFilter(hobby) {
+    let currentSearch = this.state.currentSearch.toLowerCase().split(" ").join("");
+    let currentHobby = hobby.toLowerCase().split(" ").join("");
+
+    if (currentSearch === "") {
+      return true;
+    } else if (currentHobby.includes(currentSearch)) {
+      return true;
+    } else {
+      return false;
+    }
   }
 
   updateHobbies(e) {
-    console.log(this.state);
 
     if (this.state.hobbies === null || this.state.hobbies === "") {
       this.setState({hobbies: e.currentTarget.value});
@@ -41,7 +55,7 @@ class HobbiesWindow extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    const user = merge({}, this.state, {id: this.props.currentUserId});
+    const user = merge({}, {hobbies: this.state.hobbies}, {id: this.props.currentUserId});
     this.props.updateUserInfo(user);
   }
 
@@ -56,7 +70,7 @@ class HobbiesWindow extends React.Component {
 
           <span className="hobbies-search-span">
 
-            <input type="text" placeholder="Search Interests"/>
+            <input onChange={(e) => this.updateSearch(e)} type="text" placeholder="Search Interests"/>
             <i class="fas fa-search"></i>
 
           </span>
@@ -66,12 +80,15 @@ class HobbiesWindow extends React.Component {
             <h2>Sports and Fitness</h2>
 
             {hobbies[0].map((hobby, idx) => {
-              return (
-                <button key={idx} className="hobby-button" onClick={(e) => this.updateHobbies(e)} value={hobby} id={this.state.hobbies.includes(hobby) ? "clicked-hobbies-button" : null}>
-                  <span>{hobby}</span>
-                  {this.state.hobbies.includes(hobby) ? <i className="fas fa-check"></i> : null }
-                </button>
-                );
+
+            if (this.includedInFilter(hobby)) {
+                return (
+                  <button key={idx} className="hobby-button" onClick={(e) => this.updateHobbies(e)} value={hobby} id={this.state.hobbies.includes(hobby) ? "clicked-hobbies-button" : null}>
+                    <span>{hobby}</span>
+                    {this.state.hobbies.includes(hobby) ? <i className="fas fa-check"></i> : null }
+                  </button>
+                  );
+                }
               }
             )}
 
@@ -82,12 +99,14 @@ class HobbiesWindow extends React.Component {
             <h2>Activities</h2>
 
             {hobbies[1].map((hobby, idx) => {
-              return (
-                <button key={idx} className="hobby-button" onClick={(e) => this.updateHobbies(e)} value={hobby} id={this.state.hobbies.includes(hobby) ? "clicked-hobbies-button" : null}>
-                  <span>{hobby}</span>
-                  {this.state.hobbies.includes(hobby) ? <i className="fas fa-check"></i> : null }
-                </button>
-                );
+              if (this.includedInFilter(hobby)) {
+                return (
+                  <button key={idx} className="hobby-button" onClick={(e) => this.updateHobbies(e)} value={hobby} id={this.state.hobbies.includes(hobby) ? "clicked-hobbies-button" : null}>
+                    <span>{hobby}</span>
+                    {this.state.hobbies.includes(hobby) ? <i className="fas fa-check"></i> : null }
+                  </button>
+                  );
+                }
               }
             )}
 
@@ -98,12 +117,14 @@ class HobbiesWindow extends React.Component {
             <h2>Arts and Entertainment</h2>
 
             {hobbies[2].map((hobby, idx) => {
-              return (
-                <button key={idx} className="hobby-button" onClick={(e) => this.updateHobbies(e)} value={hobby} id={this.state.hobbies.includes(hobby) ? "clicked-hobbies-button" : null}>
-                  <span>{hobby}</span>
-                    {this.state.hobbies.includes(hobby) ? <i className="fas fa-check"></i> : null }
-                </button>
-                );
+              if (this.includedInFilter(hobby)) {
+                return (
+                  <button key={idx} className="hobby-button" onClick={(e) => this.updateHobbies(e)} value={hobby} id={this.state.hobbies.includes(hobby) ? "clicked-hobbies-button" : null}>
+                    <span>{hobby}</span>
+                      {this.state.hobbies.includes(hobby) ? <i className="fas fa-check"></i> : null }
+                  </button>
+                  );
+                }
               }
             )}
 
@@ -114,12 +135,14 @@ class HobbiesWindow extends React.Component {
             <h2>Travel</h2>
 
             {hobbies[3].map((hobby, idx) => {
-              return (
-                <button key={idx} className="hobby-button" onClick={(e) => this.updateHobbies(e)} value={hobby} id={this.state.hobbies.includes(hobby) ? "clicked-hobbies-button" : null}>
-                  <span>{hobby}</span>
-                    {this.state.hobbies.includes(hobby) ? <i className="fas fa-check"></i> : null }
-                </button>
-                );
+              if (this.includedInFilter(hobby)) {
+                return (
+                  <button key={idx} className="hobby-button" onClick={(e) => this.updateHobbies(e)} value={hobby} id={this.state.hobbies.includes(hobby) ? "clicked-hobbies-button" : null}>
+                    <span>{hobby}</span>
+                      {this.state.hobbies.includes(hobby) ? <i className="fas fa-check"></i> : null }
+                  </button>
+                  );
+                }
               }
             )}
 
@@ -130,12 +153,14 @@ class HobbiesWindow extends React.Component {
             <h2>Music</h2>
 
             {hobbies[4].map((hobby, idx) => {
-              return (
-                <button key={idx} className="hobby-button" onClick={(e) => this.updateHobbies(e)} value={hobby} id={this.state.hobbies.includes(hobby) ? "clicked-hobbies-button" : null}>
-                  <span>{hobby}</span>
-                    {this.state.hobbies.includes(hobby) ? <i className="fas fa-check"></i> : null }
-                </button>
-                );
+              if (this.includedInFilter(hobby)) {
+                return (
+                  <button key={idx} className="hobby-button" onClick={(e) => this.updateHobbies(e)} value={hobby} id={this.state.hobbies.includes(hobby) ? "clicked-hobbies-button" : null}>
+                    <span>{hobby}</span>
+                      {this.state.hobbies.includes(hobby) ? <i className="fas fa-check"></i> : null }
+                  </button>
+                  );
+                }
               }
             )}
 
@@ -146,12 +171,14 @@ class HobbiesWindow extends React.Component {
             <h2>Eats and Drinks</h2>
 
             {hobbies[5].map((hobby, idx) => {
-              return (
-                <button key={idx} className="hobby-button" onClick={(e) => this.updateHobbies(e)} value={hobby} id={this.state.hobbies.includes(hobby) ? "clicked-hobbies-button" : null}>
-                  <span>{hobby}</span>
-                    {this.state.hobbies.includes(hobby) ? <i className="fas fa-check"></i> : null }
-                </button>
-                );
+              if (this.includedInFilter(hobby)) {
+                return (
+                  <button key={idx} className="hobby-button" onClick={(e) => this.updateHobbies(e)} value={hobby} id={this.state.hobbies.includes(hobby) ? "clicked-hobbies-button" : null}>
+                    <span>{hobby}</span>
+                      {this.state.hobbies.includes(hobby) ? <i className="fas fa-check"></i> : null }
+                  </button>
+                  );
+                }
               }
             )}
 
