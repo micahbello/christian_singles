@@ -168,7 +168,7 @@ class userInfoForm extends React.Component {
           <TopHeaderContainer />
 {/* HobbiesWindow*/}
 
-          <HobbiesWindowContainer />
+          <HobbiesWindowContainer currentUserHobbies={this.props.currentProfile.hobbies} currentUserId={this.props.currentProfile.id} />
 
 {/* About you window modal*/}
           {this.props.currentWindow === "AboutYouWindow" ? <AboutYouWindowContainer /> : null}

@@ -214,18 +214,19 @@ class UserProfile extends React.Component {
                         </span>
                       </span>
 
-{/*                      //         <li className=
-                      //           {this.props.currentProfile.hobbies ?
-                      //           "user-personal-info" :
-                      //           "currently-hidden"}>
-                      //
-                      //           <p className="user-info-icon">
-                      //             {this.props.currentProfile.hobbies ? "*" : ""}
-                      //           </p>
-                      //           <p>
-                      //             {this.props.currentProfile.hobbies}
-                      //           </p>
-                      //         </li> */}
+                      <span className=
+                        {this.props.currentProfile.hobbies ?
+                        "user-personal-info" :
+                        "currently-hidden"}>
+
+                        <span className="user-info-icon">
+                          {this.props.currentProfile.hobbies ?
+                          <i class="fas fa-smile"></i>: ""}
+                        </span>
+                        <span>
+                          {this.props.currentProfile.hobbies ? `I like ${this.props.currentProfile.hobbies.split(",").join(", ")}` : null }
+                        </span>
+                      </span>
 
                         <span className={
                             this.props.currentProfile.first_date ?

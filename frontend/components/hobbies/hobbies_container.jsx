@@ -4,9 +4,10 @@ import { withRouter } from 'react-router-dom';
 import { updateUserInfo } from '../../actions/user_actions';
 import HobbiesWindow from './hobbies';
 
-const msp = (state) => {
+const msp = (state, ownProps) => {
   return {
-    currentProfile: state.users.currentProfile
+    userHobbies: ownProps.currentUserHobbies,
+    currentUserId: ownProps.currentUserId
   };
 };
 
