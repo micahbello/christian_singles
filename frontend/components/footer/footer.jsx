@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 const Footer = () => (
-  <footer>
+  <footer className="page-footer">
 
     <Link className="footer-header-logo" to='/browse'>
       <img src={fish} alt="fish"/>

@@ -248,7 +248,7 @@ class UserProfile extends React.Component {
                             {(!this.props.currentProfile.sex_seek && this.props.currentProfile.gender === "male") ? "Women" : ""}
                             {(!this.props.currentProfile.sex_seek && this.props.currentProfile.gender === "female") ? "Men" : ""}
                             , Ages {this.props.currentProfile.min_age_seek}-{this.props.currentProfile.max_age_seek}
-                            {this.props.currentProfile.relationship_seek ? `, ${this.props.currentProfile.relationship_seek}` : ""}
+                            {this.props.currentProfile.relationship_seek ? `, ${this.props.currentProfile.relationship_seek.split(",").join(", ")}` : ""}
                           </span>
                         </span>
 

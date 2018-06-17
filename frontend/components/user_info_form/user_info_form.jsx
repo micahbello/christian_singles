@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import AboutYouWindowContainer from '../about_you_window/about_you_window_container';
 import TopHeaderContainer from '../top_header/top_header_container';
 import LoadingPage from '../loading_page/loading_page';
+import HobbiesWindowContainer from  '../hobbies/hobbies_container';
 import * as Attributes from '../attributes';
 
 
@@ -165,6 +166,9 @@ class userInfoForm extends React.Component {
 
         <div>
           <TopHeaderContainer />
+{/* HobbiesWindow*/}
+
+          <HobbiesWindowContainer />
 
 {/* About you window modal*/}
           {this.props.currentWindow === "AboutYouWindow" ? <AboutYouWindowContainer /> : null}

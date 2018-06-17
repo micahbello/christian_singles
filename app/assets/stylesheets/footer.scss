@@ -1,4 +1,4 @@
-footer {
+.page-footer {
   height: 100px;
   background-color: white;
   display: flex;
@@ -40,10 +40,10 @@ footer {
   color:#000080;
 }
 
-footer section {
+.page-footer section {
   text-align: center;
 }
 
-footer p {
+.page-footer p {
   font-family: "Yellowtail";
 }

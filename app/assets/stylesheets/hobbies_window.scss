@@ -1,0 +1,36 @@
+.hobbies-container {
+  width: 560px;
+  max-width: 560px;
+  max-height: 630px;
+  border-radius: 4px;
+  background: white;
+  font-family: sans-serif;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+
+  border: 1px solid;
+  margin-bottom: 30px;
+  position: fixed;
+  z-index: 1;
+}
+
+.hobbies-container header {
+  height: 95px;
+  text-align: center;
+
+  border: 1px solid;
+}
+
+.hobbies-container footer {
+  height: 95px;
+  text-align: center;
+
+  border: 1px solid;
+}
+
+.hobbies-container-choices {
+  min-height: 440px;
+  border: 1px solid green;
+  overflow: scroll;
+}

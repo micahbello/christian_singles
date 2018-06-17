@@ -12,10 +12,13 @@ import UserIndexContainer from './user_index/user_index_container';
 import inTheWorks from './in_the_works';
 import Footer from './footer/footer';
 import LoadingPage from './loading_page/loading_page';
+import HobbiesWindow from './hobbies/hobbies';
 
 const App = () => {
   return (
   <div>
+
+    <Route path='/hobbies' component={HobbiesWindow} />
 
     <AuthRoute exact path='/' component={WelcomeContainer} />
     <AuthRoute exact path='/login' component={LoginFormContainer} />
