@@ -178,10 +178,12 @@ export const relationship = [
 
   export const hobbies = [
 
-    ["Basketball",
+    ["Baseball",
+    "Basketball",
     "Biking",
     "Birdwatching",
     "Bowling",
+    "Competetive Eating",
     "Drama",
     "Fishing",
     "Golf",
@@ -190,9 +192,11 @@ export const relationship = [
     "Horseback Riding",
     "Hunting",
     "Ice Skating",
+    "Kayaking",
     "Martial Arts",
     "Pilates",
     "Rock Climbing",
+    "Rolleblading",
     "Running",
     "Sailing",
     "Scuba",
@@ -279,6 +283,7 @@ export const relationship = [
     "Country",
     "EDM",
     "Electronica",
+    "Hip Hop",
     "Indie/Alternative",
     "Jazz",
     "Metal",

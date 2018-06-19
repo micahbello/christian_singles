@@ -145,11 +145,14 @@ class userInfoForm extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     const user = merge({}, this.state, {id: this.props.currentUser.id});
+    //deletes hobbies. Hobbies only gets handled on the hobbies component. On this component
+    //it only gets displayed, otherwise if it gets handled here, it will not reflect accuracy.
+    delete user.hobbies;
     this.props.updateUserInfo(user);
   }
 
-  handleClick() {
-    this.props.updateUiWindow("AboutYouWindow");
+  handleClick(componentName) {
+    this.props.updateUiWindow(componentName);
   }
 
   handleCheckBoxClick(e) {
@@ -168,7 +171,8 @@ class userInfoForm extends React.Component {
           <TopHeaderContainer />
 {/* HobbiesWindow*/}
 
-          <HobbiesWindowContainer currentUserHobbies={this.props.currentProfile.hobbies} currentUserId={this.props.currentProfile.id} />
+          {this.props.currentWindow === "HobbiesWindow" ? <HobbiesWindowContainer currentUserHobbies={this.props.currentProfile.hobbies}
+          currentUserId={this.props.currentProfile.id} /> : null}
 
 {/* About you window modal*/}
           {this.props.currentWindow === "AboutYouWindow" ? <AboutYouWindowContainer /> : null}
@@ -217,7 +221,7 @@ class userInfoForm extends React.Component {
                     <div className="user-info-input-label">{this.state.description
                       ? "About You" : ""}</div>
 
-                      {/* onClick={() => this.handleClick()} */}
+                      {/* onClick={() => this.handleClick("about_you_window")} */}
                       {/* value={this.props.currentProfile.description ? this.props.currentProfile.description : "About You"}/>*/}
                       <input onChange={this.updateValue("description")}
                         onBlur={this.handleSubmit}
@@ -225,6 +229,7 @@ class userInfoForm extends React.Component {
                         placeholder="About You"
                         value={this.state.description ? this.state.description : ""}/>
                   </div>
+
 
 {/* have kids attribute*/}
 
@@ -291,6 +296,22 @@ class userInfoForm extends React.Component {
 {/* smoking habits */}
 
                   {this.constructDropDownMenu("smoke")}
+
+{/* hobbies */}
+
+                  <div className="user-info-input-attribute">
+
+                    <div className="user-info-input-label">{this.state.hobbies
+                      ? "Search Interests" : ""}</div>
+
+                      {/* onClick={() => this.handleClick()} */}
+                      {/* value={this.props.currentProfile.description ? this.props.currentProfile.description : "About You"}/>*/}
+                      <input
+                        onClick={() => this.handleClick("HobbiesWindow")}
+                        className="user-info-input-box" type="text"
+                        placeholder="Search Interests"
+                        value={this.props.currentProfile.hobbies ? this.props.currentProfile.hobbies.split(",").join(", ") : ""}/>
+                  </div>
 {/* first_date attribute*/}
 
                   {this.constructCheckboxes("first_date")}

@@ -12,6 +12,7 @@ class HobbiesWindow extends React.Component {
 
     this.updateHobbies = this.updateHobbies.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.closeWindow = this.closeWindow.bind(this);
     this.includedInFilter = this.includedInFilter.bind(this);
   }
 
@@ -59,137 +60,143 @@ class HobbiesWindow extends React.Component {
     this.props.updateUserInfo(user);
   }
 
+  closeWindow() {
+    this.props.updateUiWindow(null);
+  }
+
   render() {
     return (
-      <div className= "hobbies-container">
-        <header>
-          <h1>Add Interests</h1>
-        </header>
 
-        <section className="hobbies-container-choices">
+        <div className= "hobbies-container" id="hidden-hobbies-window">
+          <header>
+            <h1>Add Interests</h1>
+            <i className="fas fa-times" id="hobbies-window-close-icon" onClick={() => this.closeWindow()}></i>
+          </header>
 
-          <span className="hobbies-search-span">
+          <section className="hobbies-container-choices">
 
-            <input onChange={(e) => this.updateSearch(e)} type="text" placeholder="Search Interests"/>
-            <i class="fas fa-search"></i>
+            <span className="hobbies-search-span">
 
-          </span>
+              <input onChange={(e) => this.updateSearch(e)} type="text" placeholder="Search Interests"/>
+              <i className="fas fa-search"></i>
 
-          <section onMouseOut={(e) => this.handleSubmit(e)} className="hobby-type-list-container">
+            </span>
 
-            <h2>Sports and Fitness</h2>
+            <section onMouseOut={(e) => this.handleSubmit(e)} className="hobby-type-list-container">
 
-            {hobbies[0].map((hobby, idx) => {
+              <h2>Sports and Fitness</h2>
 
-            if (this.includedInFilter(hobby)) {
-                return (
-                  <button key={idx} className="hobby-button" onClick={(e) => this.updateHobbies(e)} value={hobby} id={this.state.hobbies.includes(hobby) ? "clicked-hobbies-button" : null}>
-                    <span>{hobby}</span>
-                    {this.state.hobbies.includes(hobby) ? <i className="fas fa-check"></i> : null }
-                  </button>
-                  );
-                }
-              }
-            )}
+              {hobbies[0].map((hobby, idx) => {
 
-          </section>
-
-          <section onMouseOut={(e) => this.handleSubmit(e)} className="hobby-type-list-container">
-
-            <h2>Activities</h2>
-
-            {hobbies[1].map((hobby, idx) => {
               if (this.includedInFilter(hobby)) {
-                return (
-                  <button key={idx} className="hobby-button" onClick={(e) => this.updateHobbies(e)} value={hobby} id={this.state.hobbies.includes(hobby) ? "clicked-hobbies-button" : null}>
-                    <span>{hobby}</span>
-                    {this.state.hobbies.includes(hobby) ? <i className="fas fa-check"></i> : null }
-                  </button>
-                  );
-                }
-              }
-            )}
-
-          </section>
-
-          <section onMouseOut={(e) => this.handleSubmit(e)} className="hobby-type-list-container">
-
-            <h2>Arts and Entertainment</h2>
-
-            {hobbies[2].map((hobby, idx) => {
-              if (this.includedInFilter(hobby)) {
-                return (
-                  <button key={idx} className="hobby-button" onClick={(e) => this.updateHobbies(e)} value={hobby} id={this.state.hobbies.includes(hobby) ? "clicked-hobbies-button" : null}>
-                    <span>{hobby}</span>
+                  return (
+                    <button key={idx} className="hobby-button" onClick={(e) => this.updateHobbies(e)} value={hobby} id={this.state.hobbies.includes(hobby) ? "clicked-hobbies-button" : null}>
+                      <span>{hobby}</span>
                       {this.state.hobbies.includes(hobby) ? <i className="fas fa-check"></i> : null }
-                  </button>
-                  );
+                    </button>
+                    );
+                  }
                 }
-              }
-            )}
+              )}
 
-          </section>
+            </section>
 
-          <section onMouseOut={(e) => this.handleSubmit(e)} className="hobby-type-list-container">
+            <section onMouseOut={(e) => this.handleSubmit(e)} className="hobby-type-list-container">
 
-            <h2>Travel</h2>
+              <h2>Activities</h2>
 
-            {hobbies[3].map((hobby, idx) => {
-              if (this.includedInFilter(hobby)) {
-                return (
-                  <button key={idx} className="hobby-button" onClick={(e) => this.updateHobbies(e)} value={hobby} id={this.state.hobbies.includes(hobby) ? "clicked-hobbies-button" : null}>
-                    <span>{hobby}</span>
+              {hobbies[1].map((hobby, idx) => {
+                if (this.includedInFilter(hobby)) {
+                  return (
+                    <button key={idx} className="hobby-button" onClick={(e) => this.updateHobbies(e)} value={hobby} id={this.state.hobbies.includes(hobby) ? "clicked-hobbies-button" : null}>
+                      <span>{hobby}</span>
                       {this.state.hobbies.includes(hobby) ? <i className="fas fa-check"></i> : null }
-                  </button>
-                  );
+                    </button>
+                    );
+                  }
                 }
-              }
-            )}
+              )}
+
+            </section>
+
+            <section onMouseOut={(e) => this.handleSubmit(e)} className="hobby-type-list-container">
+
+              <h2>Arts and Entertainment</h2>
+
+              {hobbies[2].map((hobby, idx) => {
+                if (this.includedInFilter(hobby)) {
+                  return (
+                    <button key={idx} className="hobby-button" onClick={(e) => this.updateHobbies(e)} value={hobby} id={this.state.hobbies.includes(hobby) ? "clicked-hobbies-button" : null}>
+                      <span>{hobby}</span>
+                        {this.state.hobbies.includes(hobby) ? <i className="fas fa-check"></i> : null }
+                    </button>
+                    );
+                  }
+                }
+              )}
+
+            </section>
+
+            <section onMouseOut={(e) => this.handleSubmit(e)} className="hobby-type-list-container">
+
+              <h2>Travel</h2>
+
+              {hobbies[3].map((hobby, idx) => {
+                if (this.includedInFilter(hobby)) {
+                  return (
+                    <button key={idx} className="hobby-button" onClick={(e) => this.updateHobbies(e)} value={hobby} id={this.state.hobbies.includes(hobby) ? "clicked-hobbies-button" : null}>
+                      <span>{hobby}</span>
+                        {this.state.hobbies.includes(hobby) ? <i className="fas fa-check"></i> : null }
+                    </button>
+                    );
+                  }
+                }
+              )}
+
+            </section>
+
+            <section onMouseOut={(e) => this.handleSubmit(e)} className="hobby-type-list-container">
+
+              <h2>Music</h2>
+
+              {hobbies[4].map((hobby, idx) => {
+                if (this.includedInFilter(hobby)) {
+                  return (
+                    <button key={idx} className="hobby-button" onClick={(e) => this.updateHobbies(e)} value={hobby} id={this.state.hobbies.includes(hobby) ? "clicked-hobbies-button" : null}>
+                      <span>{hobby}</span>
+                        {this.state.hobbies.includes(hobby) ? <i className="fas fa-check"></i> : null }
+                    </button>
+                    );
+                  }
+                }
+              )}
+
+            </section>
+
+            <section onMouseOut={(e) => this.handleSubmit(e)} className="hobby-type-list-container">
+
+              <h2>Eats and Drinks</h2>
+
+              {hobbies[5].map((hobby, idx) => {
+                if (this.includedInFilter(hobby)) {
+                  return (
+                    <button key={idx} className="hobby-button" onClick={(e) => this.updateHobbies(e)} value={hobby} id={this.state.hobbies.includes(hobby) ? "clicked-hobbies-button" : null}>
+                      <span>{hobby}</span>
+                        {this.state.hobbies.includes(hobby) ? <i className="fas fa-check"></i> : null }
+                    </button>
+                    );
+                  }
+                }
+              )}
+
+            </section>
 
           </section>
 
-          <section onMouseOut={(e) => this.handleSubmit(e)} className="hobby-type-list-container">
-
-            <h2>Music</h2>
-
-            {hobbies[4].map((hobby, idx) => {
-              if (this.includedInFilter(hobby)) {
-                return (
-                  <button key={idx} className="hobby-button" onClick={(e) => this.updateHobbies(e)} value={hobby} id={this.state.hobbies.includes(hobby) ? "clicked-hobbies-button" : null}>
-                    <span>{hobby}</span>
-                      {this.state.hobbies.includes(hobby) ? <i className="fas fa-check"></i> : null }
-                  </button>
-                  );
-                }
-              }
-            )}
-
-          </section>
-
-          <section onMouseOut={(e) => this.handleSubmit(e)} className="hobby-type-list-container">
-
-            <h2>Eats and Drinks</h2>
-
-            {hobbies[5].map((hobby, idx) => {
-              if (this.includedInFilter(hobby)) {
-                return (
-                  <button key={idx} className="hobby-button" onClick={(e) => this.updateHobbies(e)} value={hobby} id={this.state.hobbies.includes(hobby) ? "clicked-hobbies-button" : null}>
-                    <span>{hobby}</span>
-                      {this.state.hobbies.includes(hobby) ? <i className="fas fa-check"></i> : null }
-                  </button>
-                  );
-                }
-              }
-            )}
-
-          </section>
-
-        </section>
-
-        <footer>
-          <button>Done</button>
-        </footer>
-      </div>
+          <footer>
+            <button onClick={() => this.closeWindow()}>Done</button>
+          </footer>
+        </div>
     );
   }
 
