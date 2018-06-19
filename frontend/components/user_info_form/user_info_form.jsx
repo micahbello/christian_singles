@@ -159,6 +159,10 @@ class userInfoForm extends React.Component {
     this.updateCheckBoxValue("ethnicity");
   }
 
+  killScrollForModal() {
+    document.getElementsByTagName("body")[0].style="overflow: hidden";
+  }
+
 
   render() {
 
@@ -168,6 +172,9 @@ class userInfoForm extends React.Component {
       return (
 
         <div>
+
+          {this.props.currentWindow != null ? this.killScrollForModal(): null}
+
           <TopHeaderContainer />
 {/* HobbiesWindow*/}
 
@@ -304,13 +311,15 @@ class userInfoForm extends React.Component {
                     <div className="user-info-input-label">{this.state.hobbies
                       ? "Search Interests" : ""}</div>
 
-                      {/* onClick={() => this.handleClick()} */}
-                      {/* value={this.props.currentProfile.description ? this.props.currentProfile.description : "About You"}/>*/}
-                      <input
-                        onClick={() => this.handleClick("HobbiesWindow")}
-                        className="user-info-input-box" type="text"
-                        placeholder="Search Interests"
-                        value={this.props.currentProfile.hobbies ? this.props.currentProfile.hobbies.split(",").join(", ") : ""}/>
+                      <div className="dropdown-line-and-icon">
+
+                        <input
+                          onClick={() => this.handleClick("HobbiesWindow")}
+                          className="user-info-input-box" type="text"
+                          placeholder="Search Interests"
+                          value={this.props.currentProfile.hobbies ? this.props.currentProfile.hobbies.split(",").join(", ") : ""}/>
+                        <i class="fas fa-plus"></i>
+                      </div>
                   </div>
 {/* first_date attribute*/}
 

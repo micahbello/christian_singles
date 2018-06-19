@@ -62,11 +62,16 @@ class HobbiesWindow extends React.Component {
 
   closeWindow() {
     this.props.updateUiWindow(null);
+    document.getElementsByTagName("body")[0].style="overflow: scroll";
+  }
+
+  eliminateSpacesInHobbiesList() {
+
   }
 
   render() {
     return (
-
+      <div className="hobbies-component-modal">
         <div className= "hobbies-container" id="hidden-hobbies-window">
           <header>
             <h1>Add Interests</h1>
@@ -90,9 +95,9 @@ class HobbiesWindow extends React.Component {
 
               if (this.includedInFilter(hobby)) {
                   return (
-                    <button key={idx} className="hobby-button" onClick={(e) => this.updateHobbies(e)} value={hobby} id={this.state.hobbies.includes(hobby) ? "clicked-hobbies-button" : null}>
+                    <button key={idx} className="hobby-button" onClick={(e) => this.updateHobbies(e)} value={hobby} id={this.state.hobbies.split(",").includes(hobby) ? "clicked-hobbies-button" : null}>
                       <span>{hobby}</span>
-                      {this.state.hobbies.includes(hobby) ? <i className="fas fa-check"></i> : null }
+                      {this.state.hobbies.split(",").includes(hobby) ? <i className="fas fa-check"></i> : null }
                     </button>
                     );
                   }
@@ -108,9 +113,9 @@ class HobbiesWindow extends React.Component {
               {hobbies[1].map((hobby, idx) => {
                 if (this.includedInFilter(hobby)) {
                   return (
-                    <button key={idx} className="hobby-button" onClick={(e) => this.updateHobbies(e)} value={hobby} id={this.state.hobbies.includes(hobby) ? "clicked-hobbies-button" : null}>
+                    <button key={idx} className="hobby-button" onClick={(e) => this.updateHobbies(e)} value={hobby} id={this.state.hobbies.split(",").includes(hobby) ? "clicked-hobbies-button" : null}>
                       <span>{hobby}</span>
-                      {this.state.hobbies.includes(hobby) ? <i className="fas fa-check"></i> : null }
+                      {this.state.hobbies.split(",").includes(hobby) ? <i className="fas fa-check"></i> : null }
                     </button>
                     );
                   }
@@ -126,9 +131,9 @@ class HobbiesWindow extends React.Component {
               {hobbies[2].map((hobby, idx) => {
                 if (this.includedInFilter(hobby)) {
                   return (
-                    <button key={idx} className="hobby-button" onClick={(e) => this.updateHobbies(e)} value={hobby} id={this.state.hobbies.includes(hobby) ? "clicked-hobbies-button" : null}>
+                    <button key={idx} className="hobby-button" onClick={(e) => this.updateHobbies(e)} value={hobby} id={this.state.hobbies.split(",").includes(hobby) ? "clicked-hobbies-button" : null}>
                       <span>{hobby}</span>
-                        {this.state.hobbies.includes(hobby) ? <i className="fas fa-check"></i> : null }
+                        {this.state.hobbies.split(",").includes(hobby) ? <i className="fas fa-check"></i> : null }
                     </button>
                     );
                   }
@@ -144,9 +149,9 @@ class HobbiesWindow extends React.Component {
               {hobbies[3].map((hobby, idx) => {
                 if (this.includedInFilter(hobby)) {
                   return (
-                    <button key={idx} className="hobby-button" onClick={(e) => this.updateHobbies(e)} value={hobby} id={this.state.hobbies.includes(hobby) ? "clicked-hobbies-button" : null}>
+                    <button key={idx} className="hobby-button" onClick={(e) => this.updateHobbies(e)} value={hobby} id={this.state.hobbies.split(",").includes(hobby) ? "clicked-hobbies-button" : null}>
                       <span>{hobby}</span>
-                        {this.state.hobbies.includes(hobby) ? <i className="fas fa-check"></i> : null }
+                        {this.state.hobbies.split(",").includes(hobby) ? <i className="fas fa-check"></i> : null }
                     </button>
                     );
                   }
@@ -162,9 +167,9 @@ class HobbiesWindow extends React.Component {
               {hobbies[4].map((hobby, idx) => {
                 if (this.includedInFilter(hobby)) {
                   return (
-                    <button key={idx} className="hobby-button" onClick={(e) => this.updateHobbies(e)} value={hobby} id={this.state.hobbies.includes(hobby) ? "clicked-hobbies-button" : null}>
+                    <button key={idx} className="hobby-button" onClick={(e) => this.updateHobbies(e)} value={hobby} id={this.state.hobbies.split(",").includes(hobby) ? "clicked-hobbies-button" : null}>
                       <span>{hobby}</span>
-                        {this.state.hobbies.includes(hobby) ? <i className="fas fa-check"></i> : null }
+                        {this.state.hobbies.split(",").includes(hobby) ? <i className="fas fa-check"></i> : null }
                     </button>
                     );
                   }
@@ -180,9 +185,9 @@ class HobbiesWindow extends React.Component {
               {hobbies[5].map((hobby, idx) => {
                 if (this.includedInFilter(hobby)) {
                   return (
-                    <button key={idx} className="hobby-button" onClick={(e) => this.updateHobbies(e)} value={hobby} id={this.state.hobbies.includes(hobby) ? "clicked-hobbies-button" : null}>
+                    <button key={idx} className="hobby-button" onClick={(e) => this.updateHobbies(e)} value={hobby} id={this.state.hobbies.split(",").includes(hobby) ? "clicked-hobbies-button" : null}>
                       <span>{hobby}</span>
-                        {this.state.hobbies.includes(hobby) ? <i className="fas fa-check"></i> : null }
+                        {this.state.hobbies.split(",").includes(hobby) ? <i className="fas fa-check"></i> : null }
                     </button>
                     );
                   }
@@ -197,6 +202,7 @@ class HobbiesWindow extends React.Component {
             <button onClick={() => this.closeWindow()}>Done</button>
           </footer>
         </div>
+      </div>
     );
   }
 
