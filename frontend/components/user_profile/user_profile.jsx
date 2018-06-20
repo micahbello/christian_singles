@@ -27,6 +27,13 @@ class UserProfile extends React.Component {
     this.props.clearCurrentProfile();
   }
 
+  inchesToFeet(inches) {
+    let feet = Math.floor(inches/12);
+    let remainingInches = inches % 12;
+
+    return `${feet}'${remainingInches}"`
+  }
+
 
   render() {
 
@@ -111,7 +118,7 @@ class UserProfile extends React.Component {
                           <i className="fas fa-user"></i>: ""}
                         </span>
 
-                        <span>{this.props.currentProfile.height}
+                        <span>{this.inchesToFeet(this.props.currentProfile.height)}
 
                           {(this.props.currentProfile.height && this.props.currentProfile.have_kids) ? `, ${this.props.currentProfile.have_kids}` : ""}
                           {(!this.props.currentProfile.height && this.props.currentProfile.have_kids) ? this.props.currentProfile.have_kids : ""}

@@ -1,28 +1,29 @@
+.about-you-modal {
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(0,0,0,0.7);
+}
+
 .about-you-box {
   border: 1px solid lightgrey;
   height: 428px;
-  width: 600px;
+  width: 540px;
+  max-height: 428px;
   background-color: white;
-  border-radius: 3px;
-  z-index: 2;
-  cursor: pointer;
-  position: absolute;
-  margin: auto;
-  margin-left: 451px;
-  margin-top: 200px;
-}
-
-.about-you-box-input {
-
+  border-radius: 4px;
+  margin: 10% auto;
+  font-family: sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .about-you-box-close {
-  margin-left: 564px;
   color: #0098dc;
-}
-
-.about-you-box-text {
-  text-align: center;
 }
 
 .about-you-textarea {
@@ -30,20 +31,24 @@
   resize: none;
   height: 200px;
   width: 500px;
-  margin-left: 41px;
-  margin-top: 22px;
-  background-color: gainsboro;
+  background-color: #F5F5F5;
   font-size: 15px;
   font-family: sans-serif;
   border-radius: 3px;
 }
 
-.about-you-save-button {
+.about-you-modal button {
   background-color: #0098dc;
-  padding: 10px 35px 10px 35px;
-  font-family: sans-serif;
+  display: flex;
+  justify-content: center;
   color: white;
-  margin-left: 221px;
-  margin-top: 24px;
-  font-size: 14px;
+  border-radius: 4px;
+  text-decoration: none;
+  height: 40px;
+  width: 130px;
+  font-size: 15px;
+}
+
+.about-you-modal button:hover {
+  background-color: #000080;
 }

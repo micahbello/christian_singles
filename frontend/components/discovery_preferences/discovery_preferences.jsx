@@ -72,7 +72,6 @@ class DiscoveryPreferences extends React.Component {
     }
   }
 
-
   constructCheckboxes(attribute) {
 
     let attributeInState = Attributes.setAttributeInStateVariable(attribute, this.state);
@@ -111,6 +110,8 @@ class DiscoveryPreferences extends React.Component {
     );
   }
 
+  
+
   render() {
     if (!this.state) {
       return <LoadingPage />
@@ -143,6 +144,19 @@ class DiscoveryPreferences extends React.Component {
 {/* relationship type attribute*/}
 
                 {this.constructCheckboxes("relationship_seek")}
+
+{/* height attribute*/}
+
+              <div className="user-info-input-attribute">
+
+                <div className="preferences-height-ranges">
+                    <input id="range-1"
+                      type="range" min="48" max="96" />
+                    <input id="range-2"
+                      type="range" min="48" max="96" />
+                </div>
+
+              </div>
 
 {/* education_seek attribute*/}
 

@@ -39,7 +39,7 @@ $button-hover: #000080;
   border: none;
   border-bottom: 1px solid #DCDCDC;
   font-family: sans-serif;
-  font-size: 16px;
+  font-size: 15px;
   width: 95%;
 }
 
@@ -48,7 +48,7 @@ $button-hover: #000080;
   border: none;
   border-bottom: 1px solid #DCDCDC;
   font-family: sans-serif;
-  font-size: 16px;
+  font-size: 15px;
   width: 95%;
   border-radius: 0px;
   -webkit-appearance: none;
@@ -63,7 +63,7 @@ $button-hover: #000080;
   border: none;
   border-bottom: 1px solid #DCDCDC;
   font-family: sans-serif;
-  font-size: 16px;
+  font-size: 15px;
   border-radius: -3px;
   width: 95%;
 }
@@ -88,6 +88,14 @@ $button-hover: #000080;
 
 .edit-preferences-button:hover {
   background-color: $button-hover;
+}
+
+.height-edit-range {
+  width: 95%;
+}
+
+.profile-height {
+  font-size: 15px;
 }
 
 

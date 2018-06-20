@@ -35,26 +35,26 @@ class AboutYouWindow extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className="about-you-modal">
 
 
         <div className="about-you-box">
           <form onSubmit={(e) =>this.handleSubmit(e)}>
 
-            <p onClick={() => this.handleClick()} className="about-you-box-close">
-              <img src="https://s3.us-east-2.amazonaws.com/christian-singles-pro/x-mark-xxl.png" width="10" />
-            </p>
-            <div className="about-you-box-text">
-              <h3>About You</h3>
-            </div>
+            <span onClick={() => this.handleClick()} className="about-you-box-close">
+              <i class="fas fa-times"></i>
+            </span>
+            <span className="about-you-box-text">
+              <h2>About You</h2>
+            </span>
 
-            <div className="about-you-box-input">
+            <section className="about-you-box-input">
               <textarea onChange={this.updateValue("description")}
                 className="about-you-textarea" value={this.state.description}>
               </textarea>
-            </div>
+            </section>
 
-            <button className="about-you-save-button">Save Changes</button>
+            <button className="about-you-button">Save Changes</button>
 
             </form>
 

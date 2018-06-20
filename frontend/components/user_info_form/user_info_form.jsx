@@ -22,6 +22,8 @@ class userInfoForm extends React.Component {
     this.handleClick = this.handleClick.bind(this);
     this.constructCheckboxes = this.constructCheckboxes.bind(this);
     this.constructDropDownMenu = this.constructDropDownMenu.bind(this);
+    this.updateHeight = this.updateHeight.bind(this);
+    this.inchesToFeet = this.inchesToFeet.bind(this);
   }
 
   componentDidMount() {
@@ -163,6 +165,19 @@ class userInfoForm extends React.Component {
     document.getElementsByTagName("body")[0].style="overflow: hidden";
   }
 
+  updateHeight(e) {
+    e.preventDefault();
+    this.setState({"height" : e.currentTarget.value})
+
+  }
+
+  inchesToFeet(inches) {
+    let feet = Math.floor(inches/12);
+    let remainingInches = inches % 12;
+
+    return `${feet}'${remainingInches}"`
+  }
+
 
   render() {
 
@@ -230,12 +245,23 @@ class userInfoForm extends React.Component {
 
                       {/* onClick={() => this.handleClick("about_you_window")} */}
                       {/* value={this.props.currentProfile.description ? this.props.currentProfile.description : "About You"}/>*/}
-                      <input onChange={this.updateValue("description")}
+                      <input onClick={() => this.handleClick("AboutYouWindow")}
                         onBlur={this.handleSubmit}
                         className="user-info-input-box" type="text"
                         placeholder="About You"
-                        value={this.state.description ? this.state.description : ""}/>
+                        value={this.props.currentProfile.description ? this.props.currentProfile.description : "About You"}/>
                   </div>
+
+{/* height attribute*/}
+
+
+                  <div className="user-info-input-attribute">
+
+                    <div className="profile-height">{this.state.height === null ? "Height:" : `Height: ${this.inchesToFeet(this.state.height)}`}</div>
+                      <input onMouseOut={(e) => this.handleSubmit(e)} onChange={(e) => this.updateHeight(e)} className="height-edit-range"
+                        type="range" min="48" max="96" value={this.state.height} />
+                  </div>
+
 
 
 {/* have kids attribute*/}
@@ -308,8 +334,8 @@ class userInfoForm extends React.Component {
 
                   <div className="user-info-input-attribute">
 
-                    <div className="user-info-input-label">{this.state.hobbies
-                      ? "Search Interests" : ""}</div>
+                    <div className="user-info-input-label">{this.props.currentProfile.hobbies
+                      ? "Search Interests" : "" }</div>
 
                       <div className="dropdown-line-and-icon">
 
@@ -318,7 +344,7 @@ class userInfoForm extends React.Component {
                           className="user-info-input-box" type="text"
                           placeholder="Search Interests"
                           value={this.props.currentProfile.hobbies ? this.props.currentProfile.hobbies.split(",").join(", ") : ""}/>
-                        <i class="fas fa-plus"></i>
+                        <i className="fas fa-plus"></i>
                       </div>
                   </div>
 {/* first_date attribute*/}
