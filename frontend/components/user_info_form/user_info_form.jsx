@@ -150,6 +150,7 @@ class userInfoForm extends React.Component {
     //deletes hobbies. Hobbies only gets handled on the hobbies component. On this component
     //it only gets displayed, otherwise if it gets handled here, it will not reflect accuracy.
     delete user.hobbies;
+    delete user.description;
     this.props.updateUserInfo(user);
   }
 

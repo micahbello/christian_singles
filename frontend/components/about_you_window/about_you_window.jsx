@@ -23,6 +23,7 @@ class AboutYouWindow extends React.Component {
     const user = merge({}, this.state);
     this.props.updateUserInfo(user);
     this.props.updateUiWindow(null);
+    document.getElementsByTagName("body")[0].style="overflow: scroll";
   }
 
   updateValue(field) {
@@ -31,6 +32,7 @@ class AboutYouWindow extends React.Component {
 
   handleClick() {
     this.props.updateUiWindow(null);
+    document.getElementsByTagName("body")[0].style="overflow: scroll";
   }
 
   render() {
@@ -40,13 +42,16 @@ class AboutYouWindow extends React.Component {
 
         <div className="about-you-box">
           <form onSubmit={(e) =>this.handleSubmit(e)}>
-
             <span onClick={() => this.handleClick()} className="about-you-box-close">
-              <i class="fas fa-times"></i>
+              <i class="fas fa-times" id="about-you-exit-icon"></i>
             </span>
-            <span className="about-you-box-text">
-              <h2>About You</h2>
-            </span>
+
+            <header className="about-you-header">
+              <span className="about-you-box-text">
+                <h2>About You</h2>
+              </span>
+            </header>
+
 
             <section className="about-you-box-input">
               <textarea onChange={this.updateValue("description")}
@@ -54,8 +59,9 @@ class AboutYouWindow extends React.Component {
               </textarea>
             </section>
 
-            <button className="about-you-button">Save Changes</button>
-
+            <footer>
+              <button className="about-you-button">Save Changes</button>
+            </footer>
             </form>
 
           </div>

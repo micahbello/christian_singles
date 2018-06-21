@@ -22,6 +22,11 @@
   align-items: center;
 }
 
+.about-you-header {
+  display: flex;
+  justify-content: center;
+}
+
 .about-you-box-close {
   color: #0098dc;
 }
@@ -35,6 +40,7 @@
   font-size: 15px;
   font-family: sans-serif;
   border-radius: 3px;
+  margin: 40px 0px;
 }
 
 .about-you-modal button {
@@ -51,4 +57,16 @@
 
 .about-you-modal button:hover {
   background-color: #000080;
+}
+
+.about-you-box footer {
+  display: flex;
+  justify-content: center;
+}
+
+#about-you-exit-icon {
+  float: right;
+  position: relative;
+  margin-top: -32px;
+  margin-right: -8px;
 }

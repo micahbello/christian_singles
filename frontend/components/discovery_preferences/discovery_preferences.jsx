@@ -110,7 +110,25 @@ class DiscoveryPreferences extends React.Component {
     );
   }
 
-  
+  handleHeightRange(e) {
+
+    let currentValue = e.currentTarget.value;
+
+    if (!currentValue === this.state.min_height_seek){
+      // $("#range-1")[0].value = currentValue;
+      e.currentTarget.value = this.state.min_height_seek;
+      // this.setState({min_height_seek: e.currentTarget.value})
+    }
+
+    let rangeToGrab = $("#range-1")[0]
+
+    rangeToGrab.value = e.currentTarget.value;
+
+    this.setState({min_height_seek: e.currentTarget.value})
+
+
+
+  }
 
   render() {
     if (!this.state) {
@@ -147,16 +165,23 @@ class DiscoveryPreferences extends React.Component {
 
 {/* height attribute*/}
 
+{/*}
+
               <div className="user-info-input-attribute">
 
-                <div className="preferences-height-ranges">
-                    <input id="range-1"
-                      type="range" min="48" max="96" />
-                    <input id="range-2"
-                      type="range" min="48" max="96" />
+                <div className="profile-height">{`Height: ${this.state.min_height_seek} - ${this.state.max_height_seek}`}</div>
+
+                <div  className="preferences-height-ranges">
+
+                    <input onChange={(e) => this.handleHeightRange(e)} id="range-1"
+                      type="range" min="48" max="96" value={this.state.min_height_seek}  />
+
+                    <input onChange={(e) => this.handleHeightRange(e)} id="range-2"
+                      type="range" min="48" max="96" value={this.state.max_height_seek}/>
                 </div>
 
               </div>
+*/}
 
 {/* education_seek attribute*/}
 
