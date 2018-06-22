@@ -5,10 +5,19 @@ import { merge } from 'lodash';
 class HobbiesWindow extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
-      hobbies: this.props.userHobbies,
-      currentSearch: ""
-    };
+
+    if (this.props.userHobbies === null) {
+      this.state = {
+        hobbies: "",
+        currentSearch: ""
+      };
+    } else {
+      this.state = {
+        hobbies: this.props.userHobbies,
+        currentSearch: ""
+      }
+    }
+
 
     this.updateHobbies = this.updateHobbies.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -65,12 +74,10 @@ class HobbiesWindow extends React.Component {
     document.getElementsByTagName("body")[0].style="overflow: scroll";
   }
 
-  eliminateSpacesInHobbiesList() {
-
-  }
 
   render() {
     return (
+
       <div className="hobbies-component-modal">
         <div className= "hobbies-container" id="hidden-hobbies-window">
           <header>

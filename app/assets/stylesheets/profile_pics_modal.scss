@@ -1,0 +1,43 @@
+
+.profile-pic-modal {
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  height: 100vh;
+  width: 100vw;
+  background-color: rgba(0,0,0,0.8);
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.pic-modal-top-span, .pic-modal-bottom-span{
+  background: black;
+  height: 60px;
+  width: 100%
+}
+
+#pic-modal-exit-icon {
+  float: right;
+  margin: 6px 10px;
+  color: gainsboro;
+  cursor: pointer;
+}
+
+#pic-modal-exit-icon:hover {
+  color: white;
+}
+
+
+.profile-pic-modal figure {
+    max-width: 700px;
+    border-radius: 2px;
+    overflow: scroll;
+
+    img {
+      width: 100%;
+    }
+}

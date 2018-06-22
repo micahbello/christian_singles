@@ -3,6 +3,7 @@ import { merge } from 'lodash';
 import { Link } from 'react-router-dom';
 import TopHeaderContainer from '../top_header/top_header_container';
 import LoadingPage from '../loading_page/loading_page';
+import ProfilePicsModal from '../profile_pics_modal/profile_pics_modal_container';
 
 
 
@@ -34,6 +35,15 @@ class UserProfile extends React.Component {
     return `${feet}'${remainingInches}"`
   }
 
+  openModal() {
+    //this will not open the modal is the pic is just the user icon bc user has not uploaded pic yet
+
+    if (this.props.currentProfile.image != "/assets/user_icon-c979c5188d8fcd98b2a1d0776ecf465fa8088100e0df965ebead09efa89df371.png") {
+      this.props.updateUiWindow("ProfilePicsModal");
+    } else {
+      null
+    }
+  }
 
   render() {
 
@@ -44,6 +54,9 @@ class UserProfile extends React.Component {
 
         <div>
           <TopHeaderContainer />
+
+          {this.props.currentWindow === "ProfilePicsModal" ? <ProfilePicsModal currentProfilePic={this.props.currentProfile.image }/> : null}
+          {this.props.currentWindow != "ProfilePicsModal" ? document.getElementsByTagName("body")[0].style="overflow: scroll" : document.getElementsByTagName("body")[0].style="overflow: hidden"}
 
           <section className="user-profile-body">
 
@@ -64,7 +77,7 @@ class UserProfile extends React.Component {
 
               <section className="user-profile-pic-info-container">
 
-                <figure className="full-pic-container">
+                <figure onClick={() => this.openModal()} className="full-pic-container">
                     <img src={this.props.currentProfile.image} className="profile-full-pic"/>
                 </figure>
 
@@ -118,7 +131,7 @@ class UserProfile extends React.Component {
                           <i className="fas fa-user"></i>: ""}
                         </span>
 
-                        <span>{this.inchesToFeet(this.props.currentProfile.height)}
+                        <span>{this.props.currentProfile.height ? this.inchesToFeet(this.props.currentProfile.height) : null }
 
                           {(this.props.currentProfile.height && this.props.currentProfile.have_kids) ? `, ${this.props.currentProfile.have_kids}` : ""}
                           {(!this.props.currentProfile.height && this.props.currentProfile.have_kids) ? this.props.currentProfile.have_kids : ""}
