@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 class TopHeader extends React.Component {
   constructor(props) {
     super(props);
+
     this.handleLogOut = this.handleLogOut.bind(this);
   }
 

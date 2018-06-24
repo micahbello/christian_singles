@@ -13,13 +13,11 @@ import inTheWorks from './in_the_works';
 import Footer from './footer/footer';
 import LoadingPage from './loading_page/loading_page';
 import Pics from './profile_pics_modal/profile_pics_modal_container';
+import PicUpload from './pic_upload/pic_upload_container';
 
 const App = () => {
   return (
   <div>
-
-    <Route path='/pics' component={Pics} />
-
     <AuthRoute exact path='/' component={WelcomeContainer} />
     <AuthRoute exact path='/login' component={LoginFormContainer} />
     <AuthRoute exact path='/signup' component={SignupFormContainer} />

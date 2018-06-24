@@ -6,6 +6,16 @@ export const updateUserInfo = (user) => {
   });
 };
 
+export const updateUserPicture = (formData, id) => {
+  return $.ajax ({
+      method: 'PATCH',
+      url: `/api/users/${id}`,
+      contentType: false,
+      processData: false,
+      data: formData
+  });
+};
+
 export const getCurrentProfile = (id) => {
   return $.ajax ({
     method: 'GET',

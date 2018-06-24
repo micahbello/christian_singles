@@ -1,0 +1,77 @@
+.pic-upload-modal {
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  height: 100vh;
+  width: 100vw;
+  background-color: rgba(0,0,0,0.8);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.pic-upload-container {
+
+}
+
+.pic-upload-container figure {
+  min-height: 390px;
+  max-width: 345px;
+  max-height: 390px;
+  border-radius: 4px;
+  overflow: hidden;
+  background: white;
+
+  img {
+    width: 100%;
+  }
+}
+
+.pic-upload-form {
+  margin-top: 20px;
+  width: 345px;
+  max-width: 345px;
+
+  height: 150px;
+  background: white;
+  border-radius: 4px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.pic-upload-form section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.pic-upload-form input {
+  border: 1px solid;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.pic-upload-form button {
+  background-color: #0098dc;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  border-radius: 4px;
+  text-decoration: none;
+  height: 30px;
+  width: 120px;
+  align-self: center;
+  font-size: 15px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.pic-upload-form button:hover {
+  background-color: #000080;
+}

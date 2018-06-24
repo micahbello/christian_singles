@@ -35,6 +35,11 @@ export const updateUserInfo = (user) => dispatch => {
   errors => dispatch(receiveErrors(errors.responseJSON)));
 };
 
+export const updateUserPicture = (formData, id) => dispatch => {
+  return APIUtil.updateUserPicture(formData, id).then(user => dispatch(receiveCurrentProfile(user)),
+  errors => dispatch(receiveErrors(errors.responseJSON)));
+};
+
 export const getCurrentProfile = (user) => dispatch => {
   return APIUtil.getCurrentProfile(user).then(user => dispatch(receiveCurrentProfile(user)),
   errors => dispatch(receiveErrors(errors.responseJSON)));

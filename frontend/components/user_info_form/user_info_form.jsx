@@ -5,6 +5,7 @@ import AboutYouWindowContainer from '../about_you_window/about_you_window_contai
 import TopHeaderContainer from '../top_header/top_header_container';
 import LoadingPage from '../loading_page/loading_page';
 import HobbiesWindowContainer from  '../hobbies/hobbies_container';
+import PicUpload from '../pic_upload/pic_upload_container';
 import * as Attributes from '../attributes';
 
 
@@ -179,7 +180,6 @@ class userInfoForm extends React.Component {
     return `${feet}'${remainingInches}"`
   }
 
-
   render() {
 
     if (!this.state) {
@@ -199,6 +199,11 @@ class userInfoForm extends React.Component {
 
 {/* About you window modal*/}
           {this.props.currentWindow === "AboutYouWindow" ? <AboutYouWindowContainer /> : null}
+
+{/* pic upload modal */}
+
+          {this.props.currentWindow === "PicUpload" ? <PicUpload /> : null}
+
 {/* */}
 
           <section className="user-profile-body">
@@ -219,7 +224,8 @@ class userInfoForm extends React.Component {
               <section className="user-profile-pic-info-container">
 
                 <figure>
-                  <img src={this.props.currentProfile.image} className="profile-full-pic"/>
+                  <span>Click Image to Update Profile Photo</span>
+                  <img onClick={() => this.props.updateUiWindow("PicUpload")} src={this.props.currentProfile.image} className="profile-full-pic"/>
                 </figure>
 
 {/* display name attribute*/}
