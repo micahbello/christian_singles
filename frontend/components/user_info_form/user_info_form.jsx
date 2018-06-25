@@ -25,6 +25,7 @@ class userInfoForm extends React.Component {
     this.constructDropDownMenu = this.constructDropDownMenu.bind(this);
     this.updateHeight = this.updateHeight.bind(this);
     this.inchesToFeet = this.inchesToFeet.bind(this);
+    this.triggerClick = this.triggerClick.bind(this);
   }
 
   componentDidMount() {
@@ -76,6 +77,10 @@ class userInfoForm extends React.Component {
     }
   }
 
+  triggerClick() {
+    document.getElementById("hi").click(); //
+  }
+
   constructCheckboxes(attribute) {
 
     let attributeInState = Attributes.setAttributeInStateVariable(attribute, this.state);
@@ -125,7 +130,7 @@ class userInfoForm extends React.Component {
         <div className="user-info-input-label">{attributeInState
           ? Attributes.checkboxesLabelText[attribute] : ""}</div>
 
-          <select onChange={this.updateValue(attribute)}
+          <select id="hi" onChange={this.updateValue(attribute)}
             onMouseOut={(e) => this.handleSubmit(e)}
             className="user-info-select-box">
             <option default hidden>{attributeInState ? attributeInState : Attributes.checkboxesLabelText[attribute]}</option>
@@ -138,7 +143,7 @@ class userInfoForm extends React.Component {
             }
 
           </select>
-          <i className="fas fa-chevron-down"></i>
+          <i onClick={() => this.triggerClick()} className="fas fa-chevron-down"></i>
 
       </div>
     );
@@ -224,10 +229,18 @@ class userInfoForm extends React.Component {
 
               <section className="user-profile-pic-info-container">
 
+              <section className="profile-pic-section">
                 <figure>
                   <img onClick={() => this.props.updateUiWindow("PicUpload")} src={this.props.currentProfile.image} className="profile-full-pic"/>
-                  <div>HELLO</div>
                 </figure>
+
+                <div className="profile-pic-footer">
+                  <span>
+                    <i className="fas fa-edit"></i>
+                    Click image to update
+                  </span>
+                </div>
+              </section>
 
 
 

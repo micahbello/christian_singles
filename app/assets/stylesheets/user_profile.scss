@@ -74,13 +74,32 @@ $button-hover: #000080;
   cursor: pointer;
 }
 
+.profile-pic-section {
+  position: fixed;
+}
+
 .user-profile-pic-info-container figure {
   min-height: 390px;
   max-width: 345px;
   max-height: 390px;
-  position: fixed;
   border-radius: 4px;
   overflow: hidden;
+}
+
+.profile-pic-footer {
+  display: flex;
+  height: 31px;
+  width: 335px;
+  background: white;
+  position: relative;
+  border-radius: 4px;
+  margin-top: -36px;
+  margin-left: 5px;
+  justify-content: center;
+  align-items: center;
+  i {
+    color: #0098dc;
+  }
 }
 
 .profile-info-container {
