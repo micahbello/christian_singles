@@ -152,6 +152,7 @@ class userInfoForm extends React.Component {
     //it only gets displayed, otherwise if it gets handled here, it will not reflect accuracy.
     delete user.hobbies;
     delete user.description;
+    delete user.image;
     this.props.updateUserInfo(user);
   }
 
@@ -224,9 +225,11 @@ class userInfoForm extends React.Component {
               <section className="user-profile-pic-info-container">
 
                 <figure>
-                  <span>Click Image to Update Profile Photo</span>
                   <img onClick={() => this.props.updateUiWindow("PicUpload")} src={this.props.currentProfile.image} className="profile-full-pic"/>
+                  <div>HELLO</div>
                 </figure>
+
+
 
 {/* display name attribute*/}
                 <section className="profile-edit-info-container">

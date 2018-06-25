@@ -6,13 +6,13 @@ $button-hover: #000080;
 }
 
 .user-profile-body {
-    background-color: #F5F5F5;
-    min-height: 100vh;
-    padding-top: 95px;
-    display: flex;
-    justify-content: center;
-    padding-bottom: 80px;
-    font-family: sans-serif;
+  background-color: #F5F5F5;
+  min-height: 100vh;
+  padding-top: 95px;
+  display: flex;
+  justify-content: center;
+  padding-bottom: 80px;
+  font-family: cambria;
 }
 
 .user-profile-middle {
@@ -28,7 +28,7 @@ $button-hover: #000080;
   min-width: 140px;
   min-height: 40px;
   font-size: 18px;
-  font-family: sans-serif;
+  font-family: cambria;
   display: flex;
   align-items: flex-end;
 }
@@ -112,7 +112,7 @@ $button-hover: #000080;
 
 .profile-info-box-second-part span {
   line-height: 1.5;
-  font-family: sans-serif;
+  font-family: cambria;
   // font-weight: bold;
 }
 
@@ -127,7 +127,7 @@ $button-hover: #000080;
 
 .profile-name {
   font-size: 20px;
-  font-family: sans-serif;
+  font-family: cambria;
   font-weight: bold;
 }
 
