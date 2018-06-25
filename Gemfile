@@ -32,6 +32,9 @@ gem 'aws-sdk', '< 3.0'
 gem "paperclip", '~> 5.0.0'
 gem 'figaro'
 
+# validating zip code and figuring out distances
+ gem 'geokit'
+
 # gem 'ruby', '~> 2.3.4'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
