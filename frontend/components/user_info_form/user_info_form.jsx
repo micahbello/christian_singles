@@ -106,10 +106,10 @@ class userInfoForm extends React.Component {
 
           <div className="checkbox-options-container" id={`${attribute}-checkboxes`} onMouseOut={(e) => this.handleSubmit(e)}>
 
-            {options.map((choice) => {
+            {options.map((choice, idx) => {
               return (
-                <label onClick={(e) => e.stopPropagation(e)} >
-                  <input onClick={this.updateCheckBoxValue(attribute)} type="checkbox" value={choice} checked={(attributeInState && attributeInState.split(",").includes(choice)) ? "true" : ''}/>{choice}</label>
+                <label key={idx} onClick={(e) => e.stopPropagation(e)} >
+                  <input key={idx} onClick={this.updateCheckBoxValue(attribute)} type="checkbox" defaultValue={choice} defaultChecked={(attributeInState && attributeInState.split(",").includes(choice)) ? "true" : ''}/>{choice}</label>
                 );
               })
             }
@@ -133,11 +133,11 @@ class userInfoForm extends React.Component {
           <select id="hi" onChange={this.updateValue(attribute)}
             onMouseOut={(e) => this.handleSubmit(e)}
             className="user-info-select-box">
-            <option default hidden>{attributeInState ? attributeInState : Attributes.checkboxesLabelText[attribute]}</option>
+            <option checked hidden>{attributeInState ? attributeInState : Attributes.checkboxesLabelText[attribute]}</option>
 
-            {options.map((choice) => {
+            {options.map((choice, idx) => {
               return (
-                <option value={choice}>{choice}</option>
+                <option key={idx} value={choice}>{choice}</option>
                 );
               })
             }
@@ -255,7 +255,7 @@ class userInfoForm extends React.Component {
                       onBlur={this.handleSubmit}
                       className="user-info-input-box" type="text"
                       placeholder={this.state.display_name ? "" : "Display Name"}
-                      value={this.state.display_name ? this.state.display_name : ""}
+                      defaultValue={this.state.display_name ? this.state.display_name : ""}
                       />
                   </div>
 
@@ -272,7 +272,7 @@ class userInfoForm extends React.Component {
                         onBlur={this.handleSubmit}
                         className="user-info-input-box" type="text"
                         placeholder="About You"
-                        value={this.props.currentProfile.description ? this.props.currentProfile.description : "About You"}/>
+                        defaultValue={this.props.currentProfile.description ? this.props.currentProfile.description : "About You"}/>
                   </div>
 
 {/* height attribute*/}
@@ -323,7 +323,7 @@ class userInfoForm extends React.Component {
                         onBlur={this.handleSubmit}
                         className="user-info-input-box" type="text"
                         placeholder={this.state.occupation ? "" : "Occupation"}
-                        value={this.state.occupation ? this.state.occupation : ""}
+                        defaultValue={this.state.occupation ? this.state.occupation : ""}
                         />
                   </div>
 
@@ -366,7 +366,7 @@ class userInfoForm extends React.Component {
                           onClick={() => this.handleClick("HobbiesWindow")}
                           className="user-info-input-box" type="text"
                           placeholder="Search Interests"
-                          value={this.props.currentProfile.hobbies ? this.props.currentProfile.hobbies.split(",").join(", ") : ""}/>
+                          defaultValue={this.props.currentProfile.hobbies ? this.props.currentProfile.hobbies.split(",").join(", ") : ""}/>
                         <i className="fas fa-plus"></i>
                       </div>
                   </div>

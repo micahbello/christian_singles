@@ -243,7 +243,7 @@ class UserProfile extends React.Component {
 
                         <span className="user-info-icon">
                           {this.props.currentProfile.hobbies ?
-                          <i class="fas fa-smile"></i>: ""}
+                          <i className="fas fa-smile"></i>: ""}
                         </span>
                         <span>
                           {this.props.currentProfile.hobbies ? `I like ${this.props.currentProfile.hobbies.split(",").join(", ")}` : null }

@@ -43,7 +43,7 @@ class AboutYouWindow extends React.Component {
         <div className="about-you-box">
           <form onSubmit={(e) =>this.handleSubmit(e)}>
             <span onClick={() => this.handleClick()} className="about-you-box-close">
-              <i class="fas fa-times" id="about-you-exit-icon"></i>
+              <i className="fas fa-times" id="about-you-exit-icon"></i>
             </span>
 
             <header className="about-you-header">

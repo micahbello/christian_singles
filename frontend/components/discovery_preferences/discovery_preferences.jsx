@@ -97,10 +97,10 @@ class DiscoveryPreferences extends React.Component {
 
           <div className="checkbox-options-container" id={`${attribute}-checkboxes`} onMouseOut={(e) => this.handleSubmit(e)}>
 
-            {options.map((choice) => {
+            {options.map((choice, idx) => {
               return (
-                <label onClick={(e) => e.stopPropagation(e)} >
-                  <input onClick={this.updateCheckBoxValue(attribute)} type="checkbox" value={choice} checked={(attributeInState && attributeInState.split(",").includes(choice)) ? "true" : ''}/>{choice}</label>
+                <label key={idx} onClick={(e) => e.stopPropagation(e)} >
+                  <input key={idx} onClick={this.updateCheckBoxValue(attribute)} type="checkbox" value={choice} checked={(attributeInState && attributeInState.split(",").includes(choice)) ? "true" : ''}/>{choice}</label>
                 );
               })
             }
