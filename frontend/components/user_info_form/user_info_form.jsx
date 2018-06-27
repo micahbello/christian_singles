@@ -25,7 +25,7 @@ class userInfoForm extends React.Component {
     this.constructDropDownMenu = this.constructDropDownMenu.bind(this);
     this.updateHeight = this.updateHeight.bind(this);
     this.inchesToFeet = this.inchesToFeet.bind(this);
-    this.triggerClick = this.triggerClick.bind(this);
+    // this.triggerClick = this.triggerClick.bind(this);
   }
 
   componentDidMount() {
@@ -77,9 +77,9 @@ class userInfoForm extends React.Component {
     }
   }
 
-  triggerClick() {
-    document.getElementById("hi").click(); //
-  }
+  // triggerClick() {
+  //   document.getElementById("hi").click(); //
+  // }
 
   constructCheckboxes(attribute) {
 
@@ -106,10 +106,11 @@ class userInfoForm extends React.Component {
 
           <div className="checkbox-options-container" id={`${attribute}-checkboxes`} onMouseOut={(e) => this.handleSubmit(e)}>
 
+
             {options.map((choice, idx) => {
               return (
                 <label key={idx} onClick={(e) => e.stopPropagation(e)} >
-                  <input key={idx} onClick={this.updateCheckBoxValue(attribute)} type="checkbox" defaultValue={choice} defaultChecked={(attributeInState && attributeInState.split(",").includes(choice)) ? "true" : ''}/>{choice}</label>
+                  <input key={idx} onClick={this.updateCheckBoxValue(attribute)} type="checkbox" value={choice} checked={(attributeInState && attributeInState.split(",").includes(choice)) ? "true" : ''}/>{choice}</label>
                 );
               })
             }
@@ -125,14 +126,15 @@ class userInfoForm extends React.Component {
     let options = Attributes.setAttributesArrayVariable(attribute);
 
     return (
-      <div className="user-info-input-attribute">
+      <div className="user-info-input-attribute" >
 
         <div className="user-info-input-label">{attributeInState
           ? Attributes.checkboxesLabelText[attribute] : ""}</div>
 
-          <select id="hi" onChange={this.updateValue(attribute)}
-            onMouseOut={(e) => this.handleSubmit(e)}
-            className="user-info-select-box">
+
+          <select onChange={this.updateValue(attribute)}
+            className="user-info-select-box"
+            onMouseOut={(e) => this.handleSubmit(e)}>
             <option checked hidden>{attributeInState ? attributeInState : Attributes.checkboxesLabelText[attribute]}</option>
 
             {options.map((choice, idx) => {
@@ -158,6 +160,7 @@ class userInfoForm extends React.Component {
     delete user.hobbies;
     delete user.description;
     delete user.image;
+    delete user.zip_code;
     this.props.updateUserInfo(user);
   }
 
@@ -245,7 +248,7 @@ class userInfoForm extends React.Component {
 
 
 {/* display name attribute*/}
-                <section className="profile-edit-info-container">
+                <section className="profile-edit-info-container" onClick={(e)=> this.handleSubmit(e)}>
 
                   <div className="user-info-input-attribute">
                     <div className="user-info-input-label">{this.state.display_name
@@ -272,7 +275,7 @@ class userInfoForm extends React.Component {
                         onBlur={this.handleSubmit}
                         className="user-info-input-box" type="text"
                         placeholder="About You"
-                        defaultValue={this.props.currentProfile.description ? this.props.currentProfile.description : "About You"}/>
+                        value={this.props.currentProfile.description ? this.props.currentProfile.description : "About You"}/>
                   </div>
 
 {/* height attribute*/}
@@ -281,8 +284,11 @@ class userInfoForm extends React.Component {
                   <div className="user-info-input-attribute">
 
                     <div className="profile-height">{this.state.height === null ? "Height:" : `Height: ${this.inchesToFeet(this.state.height)}`}</div>
-                      <input onMouseOut={(e) => this.handleSubmit(e)} onChange={(e) => this.updateHeight(e)} className="height-edit-range"
-                        type="range" min="48" max="96" value={this.state.height} />
+
+                      <input
+                        onMouseOut={(e) => this.handleSubmit(e)}
+                        onChange={(e) => this.updateHeight(e)} className="height-edit-range"
+                        type="range" min="48" max="96" value={this.state.height ? this.state.height : ""} />
                   </div>
 
 
@@ -318,6 +324,7 @@ class userInfoForm extends React.Component {
 
                     <div className="user-info-input-label">{this.state.occupation
                       ? "Occupation" : ""}</div>
+
 
                       <input onChange={this.updateValue("occupation")}
                         onBlur={this.handleSubmit}
@@ -366,7 +373,7 @@ class userInfoForm extends React.Component {
                           onClick={() => this.handleClick("HobbiesWindow")}
                           className="user-info-input-box" type="text"
                           placeholder="Search Interests"
-                          defaultValue={this.props.currentProfile.hobbies ? this.props.currentProfile.hobbies.split(",").join(", ") : ""}/>
+                          value={this.props.currentProfile.hobbies ? this.props.currentProfile.hobbies.split(",").join(", ") : ""}/>
                         <i className="fas fa-plus"></i>
                       </div>
                   </div>

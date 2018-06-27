@@ -52,13 +52,15 @@ export default TopHeader;
 document.onclick = (event) => {
   let menu = document.getElementById("dropdown-menu");
 
-  if (event.target.className === "user-icon") {
-    if (!menu.classList.contains("show")) {
-      menu.classList.add("show");
+  if (menu) {
+    if (event.target.className === "user-icon") {
+      if (!menu.classList.contains("show")) {
+        menu.classList.add("show");
+      } else {
+        menu.classList.remove("show");
+      }
     } else {
       menu.classList.remove("show");
     }
-  } else {
-    menu.classList.remove("show");
   }
 }

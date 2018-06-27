@@ -32,7 +32,7 @@ class PicUpload extends React.Component {
 
     this.props.updateUserPicture(formData, this.props.userId)
     .then(
-      () => dispatch(this.props.receiveCurrentUser({image: this.state.imageUrl})));
+      (user) => dispatch(this.props.receiveCurrentUser({image: user.image})));
 
     this.closeWindow();
   }
