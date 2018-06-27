@@ -66,7 +66,7 @@ class User < ApplicationRecord
   validates :session_token, :password_digest, :zip_code, :first_name, :last_name, :gender, :birth_date, presence: true
   validates :username, presence: true, uniqueness: true
   validates :password, length: {minimum: 6, allow_nil: true}
-  # validate :validate_zipcode, on: :create
+  validate :validate_zipcode, on: :create
 
   has_attached_file :image, default_url: "user_icon.png"
   validates_attachment_content_type :image, content_type: /\Aimage\/.*\Z/
@@ -75,15 +75,16 @@ class User < ApplicationRecord
 
   after_initialize :ensure_session_token
 
-  # def validate_zipcode
-  #   unless geo(self.zip_code.to_s).success
-  #     errors[:zip_code] << "Requires a valid zipcode"
-  #   end
-  # end
-  # # #
-  # def geo(zipcode)
-  #   @geo =  Geokit::Geocoders::MultiGeocoder.geocode(zipcode)
-  # end
+  def validate_zipcode
+    unless geo(self.zip_code.to_s).success
+      errors[:zip_code] << "Requires a valid zipcode"
+    end
+  end
+  # #
+  def geo(zipcode)
+    debugger
+    @geo =  Geokit::Geocoders::MultiGeocoder.geocode(zipcode)
+  end
 
   def password=(password)
     @password = password
