@@ -267,15 +267,12 @@ class userInfoForm extends React.Component {
 
                   <div className="user-info-input-attribute">
 
-                    <div className="user-info-input-label">{this.state.description
+                    <div className="user-info-input-label">{this.props.currentProfile.description
                       ? "About You" : ""}</div>
 
-                      {/* onClick={() => this.handleClick("about_you_window")} */}
-                      {/* value={this.props.currentProfile.description ? this.props.currentProfile.description : "About You"}/>*/}
-                      <input onClick={() => this.handleClick("AboutYouWindow")}
-                        className="user-info-input-box" type="text"
-                        placeholder="About You"
-                        value={this.props.currentProfile.description ? this.props.currentProfile.description : "About You"}/>
+                    <div onClick={() => this.handleClick("AboutYouWindow")}
+                      className="user-info-input-box">{this.props.currentProfile.description ? this.props.currentProfile.description : "About You"}
+                    </div>
                   </div>
 
 {/* height attribute*/}
@@ -369,11 +366,9 @@ class userInfoForm extends React.Component {
 
                       <div className="dropdown-line-and-icon">
 
-                        <input
-                          onClick={() => this.handleClick("HobbiesWindow")}
-                          className="user-info-input-box" type="text"
-                          placeholder="Search Interests"
-                          value={this.props.currentProfile.hobbies ? this.props.currentProfile.hobbies.split(",").join(", ") : ""}/>
+                        <div onClick={() => this.handleClick("HobbiesWindow")} className="user-info-input-box">
+                          {this.props.currentProfile.hobbies ? this.props.currentProfile.hobbies.split(",").join(", ") : "Search Interests"}
+                        </div>
                         <i className="fas fa-plus"></i>
                       </div>
                   </div>
