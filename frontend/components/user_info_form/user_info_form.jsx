@@ -273,7 +273,6 @@ class userInfoForm extends React.Component {
                       {/* onClick={() => this.handleClick("about_you_window")} */}
                       {/* value={this.props.currentProfile.description ? this.props.currentProfile.description : "About You"}/>*/}
                       <input onClick={() => this.handleClick("AboutYouWindow")}
-                        onBlur={this.handleSubmit}
                         className="user-info-input-box" type="text"
                         placeholder="About You"
                         value={this.props.currentProfile.description ? this.props.currentProfile.description : "About You"}/>

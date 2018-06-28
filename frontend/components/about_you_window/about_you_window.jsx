@@ -21,6 +21,9 @@ class AboutYouWindow extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     const user = merge({}, this.state);
+    delete user.hobbies;
+    delete user.image;
+    delete user.zip_code;
     this.props.updateUserInfo(user);
     this.props.updateUiWindow(null);
     document.getElementsByTagName("body")[0].style="overflow: scroll";
