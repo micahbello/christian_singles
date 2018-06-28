@@ -63,7 +63,7 @@
 
 class User < ApplicationRecord
 
-  validates :session_token, :password_digest, :zip_code, :first_name, :last_name, :gender, :birth_date, presence: true
+  validates :session_token, :password_digest, :first_name, :last_name, :gender, :birth_date, presence: true
   validates :username, presence: true, uniqueness: true
   validates :password, length: {minimum: 6, allow_nil: true}
   validate :validate_zipcode, on: :create
@@ -76,14 +76,18 @@ class User < ApplicationRecord
   after_initialize :ensure_session_token
 
   def validate_zipcode
-    unless geo(self.zip_code.to_s).success
-      errors[:zip_code] << "Requires a valid zipcode"
+
+    geo(self.zip_code.to_s)
+
+    unless self.zip_code.to_s.length == 5 && self.state && self.city
+      errors[:base] << "Requires a valid zipcode"
     end
   end
   # #
   def geo(zipcode)
-    debugger
     @geo =  Geokit::Geocoders::MultiGeocoder.geocode(zipcode)
+    self.state = @geo.state_code
+    self.city = @geo.city
   end
 
   def password=(password)

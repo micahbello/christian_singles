@@ -18,7 +18,8 @@ class SignupForm extends React.Component {
       last_online: '',
       min_age_seek: '',
       max_age_seek: '',
-      age: ''
+      age: '',
+      description: ''
     };
 
   this.handleSubmit = this.handleSubmit.bind(this);
@@ -37,6 +38,7 @@ class SignupForm extends React.Component {
     this.props.clearSessionErrors();
     const user = merge({}, this.state);
 
+    //check that the zipcode is the correct length
     //set the zip code to an integer for the back end
     const zip_code = parseInt(user["zip_code"]);
     user["zip_code"] = zip_code;
@@ -151,8 +153,8 @@ class SignupForm extends React.Component {
               <input className="birth_date-input-field" onChange={this.updateValue("birth_date")} type="date"
               value={this.state.birth_date} placeholder="Birthday"/>
 
-            <span className="signup-form-error">{this.errors().includes("Zipcode can't be blank") ?
-            "Zipcode can't be blank" : " "}</span>
+            <span className="signup-form-error">{this.errors().includes("Zipcode can't be blank") || this.errors().includes("Requires a valid zipcode")  ?
+            "Requires a valid zip code" : " "}</span>
 
             <label>{this.state.zip_code ? "Zip Code" : " "}</label>
               <input onChange={this.updateValue("zip_code")} type= "number"

@@ -81,6 +81,7 @@ class userInfoForm extends React.Component {
   //   document.getElementById("hi").click(); //
   // }
 
+
   constructCheckboxes(attribute) {
 
     let attributeInState = Attributes.setAttributeInStateVariable(attribute, this.state);
@@ -104,12 +105,12 @@ class userInfoForm extends React.Component {
             <i className="fas fa-chevron-down"></i>
           </div>
 
-          <div className="checkbox-options-container" id={`${attribute}-checkboxes`} onMouseOut={(e) => this.handleSubmit(e)}>
+          <div className="checkbox-options-container" id={`${attribute}-checkboxes`}>
 
 
             {options.map((choice, idx) => {
               return (
-                <label key={idx} onClick={(e) => e.stopPropagation(e)} >
+                <label key={idx} onClick={(e) => e.stopPropagation(e)} onMouseOut={(e) => this.handleSubmit(e)} >
                   <input key={idx} onClick={this.updateCheckBoxValue(attribute)} type="checkbox" value={choice} checked={(attributeInState && attributeInState.split(",").includes(choice)) ? "true" : ''}/>{choice}</label>
                 );
               })
@@ -145,7 +146,7 @@ class userInfoForm extends React.Component {
             }
 
           </select>
-          <i onClick={() => this.triggerClick()} className="fas fa-chevron-down"></i>
+          <i onClick={this.triggerClick} className="fas fa-chevron-down"></i>
 
       </div>
     );
