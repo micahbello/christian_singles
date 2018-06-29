@@ -1,3 +1,12 @@
+export const distance = [
+    5,
+    10,
+    25,
+    50,
+    200,
+    500
+];
+
 
 export const smokingHabits = [
     "Smoke regularly",
@@ -340,6 +349,7 @@ export const relationship = [
     marital_status_seek: "Marital Status",
     language_seek: "Language",
     ethnicity_seek: "Ethnicity",
+    distance_seek: "Distance"
   }
 
 
@@ -376,6 +386,7 @@ export const relationship = [
      attribute === "marital_status_seek" ? attributeInState = state.marital_status_seek : null;
      attribute === "language_seek" ? attributeInState = state.language_seek : null;
      attribute === "ethnicity_seek" ? attributeInState = state.ethnicity_seek : null;
+     attribute === "distance_seek" ? attributeInState = state.distance_seek : null;
 
      return attributeInState;
    }
@@ -412,6 +423,8 @@ export const relationship = [
      attribute === "marital_status_seek" ? options = maritalStatus : null;
      attribute === "language_seek" ? options = languages : null;
      attribute === "ethnicity_seek" ? options = ethnicities : null;
+     attribute === "distance_seek" ? options = distance : null;
+
 
      return options;
      }

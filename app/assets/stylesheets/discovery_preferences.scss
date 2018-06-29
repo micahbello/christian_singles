@@ -158,17 +158,32 @@ input[type=checkbox] {
   display: none;
 }
 
-// #distance_seek-checkboxes {
-//   display: none;
-//   position: absolute;
-//   background-color: white;
-// }
-
-.preferences-height-ranges input {
-  width: 96%;
+#distance-discovery {
+  width: 94%;
 }
 
-#range-2 {
-  position: relative;
-  top: -20px;
+.age-discovery-range {
+  width: 42%
+}
+
+.age-discovery-range:first-of-type {
+  margin-right: 58px;
+}
+
+.distance-discovery-section {
+  display: flex;
+}
+
+.distance-discovery-dropdown {
+  width: 50%
+}
+
+.distance-discovery-location {
+  margin-left: 20px;
+  display: flex;
+  align-items: center;
+}
+
+.distance-discovery-location span:first-of-type {
+  margin-right: 50px;
 }

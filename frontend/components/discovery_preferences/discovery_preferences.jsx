@@ -4,6 +4,8 @@ import { merge } from 'lodash';
 import TopHeaderContainer from '../top_header/top_header_container';
 import LoadingPage from '../loading_page/loading_page';
 import * as Attributes from '../attributes';
+import 'nouislider';
+
 
 
 class DiscoveryPreferences extends React.Component {
@@ -100,12 +102,43 @@ class DiscoveryPreferences extends React.Component {
             {options.map((choice, idx) => {
               return (
                 <label key={idx} onClick={(e) => e.stopPropagation(e)} >
-                  <input key={idx} onClick={this.updateCheckBoxValue(attribute)} type="checkbox" value={choice} checked={(attributeInState && attributeInState.split(",").includes(choice)) ? "true" : ''}/>{choice}</label>
+                  <input key={idx} onChange={this.updateCheckBoxValue(attribute)} type="checkbox" value={choice} checked={(attributeInState && attributeInState.split(",").includes(choice)) ? "true" : ''}/>{choice}</label>
                 );
               })
             }
           </div>
         </div>
+      </div>
+    );
+  }
+
+  constructDropDownMenuForDistance (attribute) {
+
+    let attributeInState = Attributes.setAttributeInStateVariable(attribute, this.state);
+    let options = Attributes.setAttributesArrayVariable(attribute);
+
+    return (
+      <div className="user-info-input-attribute" >
+
+        <div className="user-info-input-label">{attributeInState
+          ? Attributes.checkboxesLabelText[attribute] : ""}</div>
+
+
+          <select onChange={this.updateValue(attribute)}
+            className="user-info-select-box" id="distance-discovery"
+            onMouseOut={(e) => this.handleSubmit(e)}>
+            <option checked hidden>{attributeInState ? `${attributeInState} mi` : Attributes.checkboxesLabelText[attribute]}</option>
+
+            {options.map((choice, idx) => {
+              return (
+                <option key={idx} value={choice}>{choice} mi</option>
+                );
+              })
+            }
+
+          </select>
+          <i onClick={this.triggerClick} className="fas fa-chevron-down"></i>
+
       </div>
     );
   }
@@ -156,6 +189,29 @@ class DiscoveryPreferences extends React.Component {
 {/* gender attribute*/}
                 {this.constructCheckboxes("sex_seek", this.state)}
 
+  {/* age attribute RANGE SLIDER eventually*/}
+                <div className="user-info-input-attribute">
+
+                  <div></div>
+
+                    <input className="age-discovery-range" type="range" min="18" max="75" ></input>
+                    <input className="age-discovery-range" type="range" min="18" max="75" ></input>
+
+                </div>
+
+{/* distance*/}
+
+                <section className="distance-discovery-section">
+                  <div className="distance-discovery-dropdown">
+                    {this.constructDropDownMenuForDistance("distance_seek")}
+                  </div>
+
+                  <div className="distance-discovery-location">
+                    <span>of</span>
+                    <span>{this.props.currentProfile.city}, {this.props.currentProfile.state}</span>
+                  </div>
+
+                </section>
 {/* religion attribute*/}
 
                 {this.constructCheckboxes("religion_seek")}
@@ -164,6 +220,15 @@ class DiscoveryPreferences extends React.Component {
                 {this.constructCheckboxes("relationship_seek")}
 
 {/* height attribute*/}
+
+                <div className="user-info-input-attribute">
+
+                  <div></div>
+
+                    <input className="age-discovery-range" type="range" min="18" max="75" ></input>
+                    <input className="age-discovery-range" type="range" min="18" max="75" ></input>
+
+                </div>
 
 {/*}
 
