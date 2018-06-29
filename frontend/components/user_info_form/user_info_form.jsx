@@ -111,7 +111,7 @@ class userInfoForm extends React.Component {
             {options.map((choice, idx) => {
               return (
                 <label key={idx} onClick={(e) => e.stopPropagation(e)} onMouseOut={(e) => this.handleSubmit(e)} >
-                  <input key={idx} onClick={this.updateCheckBoxValue(attribute)} type="checkbox" value={choice} checked={(attributeInState && attributeInState.split(",").includes(choice)) ? "true" : ''}/>{choice}</label>
+                  <input key={idx} onChange={this.updateCheckBoxValue(attribute)} type="checkbox" value={choice} checked={(attributeInState && attributeInState.split(",").includes(choice)) ? "true" : ''}/>{choice}</label>
                 );
               })
             }
