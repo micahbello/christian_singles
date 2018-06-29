@@ -44,8 +44,28 @@ class DiscoveryPreferences extends React.Component {
     this.props.updateUiWindow(null);
   }
 
+
   updateValue(field) {
-    return (e) => this.setState({[field]: e.currentTarget.value});
+
+    return (e) => {
+
+      let value = e.currentTarget.value;
+      //make sure that if the field is related to height or
+      //age, the min and max do not get switched
+
+      if (field === "max_age_seek" && value < this.state.min_age_seek ) {
+          return;
+      } else if (field === "min_age_seek" && value > this.state.max_age_seek) {
+        return;
+      } else if (field === "max_height_seek" && value < this.state.min_height_seek) {
+        return;
+      } else if (field === "min_height_seek" && value > this.state.max_height_seek) {
+        return;
+      }
+
+
+      this.setState({[field]: value});
+    }
   }
 
   handleClick() {
@@ -120,6 +140,7 @@ class DiscoveryPreferences extends React.Component {
     return (
       <div className="user-info-input-attribute" >
 
+
         <div className="user-info-input-label">{attributeInState
           ? Attributes.checkboxesLabelText[attribute] : ""}</div>
 
@@ -127,11 +148,12 @@ class DiscoveryPreferences extends React.Component {
           <select onChange={this.updateValue(attribute)}
             className="user-info-select-box" id="distance-discovery"
             onMouseOut={(e) => this.handleSubmit(e)}>
+            {attributeInState && attributeInState === 500 ? attributeInState = attributeInState.toString().concat("+") : null }
             <option checked hidden>{attributeInState ? `${attributeInState} mi` : Attributes.checkboxesLabelText[attribute]}</option>
 
             {options.map((choice, idx) => {
               return (
-                <option key={idx} value={choice}>{choice} mi</option>
+                <option key={idx} value={choice}>{choice === 500 ? `${choice}+ mi` : `${choice} mi`}</option>
                 );
               })
             }
@@ -143,25 +165,6 @@ class DiscoveryPreferences extends React.Component {
     );
   }
 
-  handleHeightRange(e) {
-
-    let currentValue = e.currentTarget.value;
-
-    if (!currentValue === this.state.min_height_seek){
-      // $("#range-1")[0].value = currentValue;
-      e.currentTarget.value = this.state.min_height_seek;
-      // this.setState({min_height_seek: e.currentTarget.value})
-    }
-
-    let rangeToGrab = $("#range-1")[0]
-
-    rangeToGrab.value = e.currentTarget.value;
-
-    this.setState({min_height_seek: e.currentTarget.value})
-
-
-
-  }
 
   render() {
     if (!this.state) {
@@ -192,10 +195,13 @@ class DiscoveryPreferences extends React.Component {
   {/* age attribute RANGE SLIDER eventually*/}
                 <div className="user-info-input-attribute">
 
-                  <div></div>
 
-                    <input className="age-discovery-range" type="range" min="18" max="75" ></input>
-                    <input className="age-discovery-range" type="range" min="18" max="75" ></input>
+                    <div>Ages: {this.state.min_age_seek} - {this.state.max_age_seek === "75" || this.state.max_age_seek === 75 ? "75+" : this.state.max_age_seek}</div>
+
+                      <input className="age-discovery-range" type="range" min="18" max="75"
+                        onChange={this.updateValue("min_age_seek")} value={this.state.min_age_seek}></input>
+                      <input className="age-discovery-range" type="range" min="18" max="75"
+                        onChange={this.updateValue("max_age_seek")} value={this.state.max_age_seek}></input>
 
                 </div>
 
@@ -223,12 +229,16 @@ class DiscoveryPreferences extends React.Component {
 
                 <div className="user-info-input-attribute">
 
-                  <div></div>
 
-                    <input className="age-discovery-range" type="range" min="18" max="75" ></input>
-                    <input className="age-discovery-range" type="range" min="18" max="75" ></input>
+                    <div>Height: {this.state.min_height_seek} - {this.state.max_height_seek === "96" || this.state.max_height_seek === 96 ? "96+" : this.state.max_height_seek}</div>
+
+                      <input className="age-discovery-range" type="range" min="48" max="96"
+                        onChange={this.updateValue("min_height_seek")} value={this.state.min_height_seek}></input>
+                      <input className="age-discovery-range" type="range" min="48" max="96"
+                        onChange={this.updateValue("max_height_seek")} value={this.state.max_height_seek}></input>
 
                 </div>
+
 
 {/*}
 

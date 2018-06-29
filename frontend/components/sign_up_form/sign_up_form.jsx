@@ -19,7 +19,9 @@ class SignupForm extends React.Component {
       min_age_seek: '',
       max_age_seek: '',
       age: '',
-      description: ''
+      description: '',
+      min_height_seek: 48,
+      max_height_seek: 96
     };
 
   this.handleSubmit = this.handleSubmit.bind(this);
