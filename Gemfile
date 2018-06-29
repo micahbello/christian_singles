@@ -34,6 +34,7 @@ gem 'figaro'
 
 # validating zip code and figuring out distances
  gem 'geokit'
+ gem 'geocoder'
 
 # gem 'ruby', '~> 2.3.4'
 # Use Redis adapter to run Action Cable in production

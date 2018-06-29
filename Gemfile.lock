@@ -90,6 +90,7 @@ GEM
     ffi (1.9.23)
     figaro (1.1.1)
       thor (~> 0.14)
+    geocoder (1.4.9)
     geokit (1.13.0)
     globalid (0.4.1)
       activesupport (>= 4.2.0)
@@ -227,6 +228,7 @@ DEPENDENCIES
   capybara (~> 2.13)
   coffee-rails (~> 4.2)
   figaro
+  geocoder
   geokit
   jbuilder (~> 2.5)
   jquery-rails

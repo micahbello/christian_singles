@@ -71,7 +71,7 @@ class User < ApplicationRecord
   has_attached_file :image, default_url: "user_icon.png"
   validates_attachment_content_type :image, content_type: /\Aimage\/.*\Z/
 
-  attr_reader :password
+  attr_reader :password, :geo
 
   after_initialize :ensure_session_token
 
@@ -88,6 +88,8 @@ class User < ApplicationRecord
     @geo =  Geokit::Geocoders::MultiGeocoder.geocode(zipcode)
     self.state = @geo.state_code
     self.city = @geo.city
+    self.latitude = @geo.lat
+    self.longitude = @geo.lng
   end
 
   def password=(password)
