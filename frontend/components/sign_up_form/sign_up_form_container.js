@@ -17,6 +17,7 @@ const mdp =(dispatch, ownProps) => {
     clearSessionErrors: () => dispatch(clearSessionErrors()),
     signup: (user) => dispatch(signup(user)),
     getCurrentProfile: (user) => dispatch(getCurrentProfile(user)),
+    receiveErrors: (errors) => dispatch(receiveErrors(errors))
   };
 };
 

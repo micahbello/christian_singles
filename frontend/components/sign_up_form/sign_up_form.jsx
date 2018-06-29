@@ -63,6 +63,12 @@ class SignupForm extends React.Component {
     user["age"] = Math.abs((new Date(Date.now() - (new Date(user["birth_date"])
                   .getTime()))).getUTCFullYear() - 1970);
 
+    //makes sure that no one under 18 is signing up
+
+    if (user.age < 18) {
+      this.props.receiveErrors("Too young to date");
+      return;
+    }
     //set min age and max age
 
     user["min_age_seek"] = user["age"] - 10;
@@ -151,6 +157,9 @@ class SignupForm extends React.Component {
 
             <span className="signup-form-error">{this.errors().includes("Birth date can't be blank") ?
             "Birth date cannot be blank" : " "}</span>
+
+          <span className="signup-form-error">{this.errors().includes("Too young to date") ?
+            "You must be at least 18 years old to use this site" : " "}</span>
 
             <label>{this.state.birth_date ? "Birthday" : " "}</label>
               <input className="birth_date-input-field" onChange={this.updateValue("birth_date")} type="date"
