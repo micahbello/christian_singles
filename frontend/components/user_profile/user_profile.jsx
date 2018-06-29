@@ -272,6 +272,7 @@ class UserProfile extends React.Component {
                             {(!this.props.currentProfile.sex_seek && this.props.currentProfile.gender === "female") ? "Men" : ""}
                             , Ages {this.props.currentProfile.min_age_seek}-{this.props.currentProfile.max_age_seek}
                             {this.props.currentProfile.relationship_seek ? `, ${this.props.currentProfile.relationship_seek.split(",").join(", ")}` : ""}
+                            , Within {this.props.currentProfile.distance_seek === 500 ? "500+ miles" : `${this.props.currentProfile.distance_seek} miles` } of {this.props.currentProfile.city}, {this.props.currentProfile.state}
                           </span>
                         </span>
 

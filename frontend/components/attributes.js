@@ -220,7 +220,11 @@ export const relationship = [
     "Volleyball",
     "Weight Training",
     "Working Out",
-    "Yoga"],
+    "Yoga",
+    "Air bending",
+    "Water bending",
+    "Fire bending",
+    "Earth bending"],
 
     ["Bible",
     "Blogging",

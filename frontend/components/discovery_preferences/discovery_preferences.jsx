@@ -18,6 +18,7 @@ class DiscoveryPreferences extends React.Component {
     this.handleClick = this.handleClick.bind(this);
     this.showCheckboxes = this.showCheckboxes.bind(this);
     this.constructCheckboxes = this.constructCheckboxes.bind(this);
+    this.inchesToFeet = this.inchesToFeet.bind(this);
   }
 
   componentDidMount() {
@@ -25,6 +26,10 @@ class DiscoveryPreferences extends React.Component {
         this.setState(action.currentProfile)
       })
     }
+
+  componentWillUnmount() {
+    this.props.clearErrors(null);
+  }
 
   showCheckboxes(id) {
 
@@ -40,6 +45,16 @@ class DiscoveryPreferences extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     const user = merge({}, this.state);
+
+    delete user.image;
+    //make sure that the sex_seek is not empty
+    if (this.state.sex_seek === "") {
+      this.props.receiveErrors("Gender field empty");
+      return;
+    } else {
+      this.props.clearErrors(null);
+    }
+
     this.props.updateUserInfo(user);
     this.props.updateUiWindow(null);
   }
@@ -52,7 +67,6 @@ class DiscoveryPreferences extends React.Component {
       let value = e.currentTarget.value;
       //make sure that if the field is related to height or
       //age, the min and max do not get switched
-
       if (field === "max_age_seek" && value < this.state.min_age_seek ) {
           return;
       } else if (field === "min_age_seek" && value > this.state.max_age_seek) {
@@ -165,6 +179,12 @@ class DiscoveryPreferences extends React.Component {
     );
   }
 
+  inchesToFeet(inches) {
+    let feet = Math.floor(inches/12);
+    let remainingInches = inches % 12;
+
+    return `${feet}'${remainingInches}"`
+  }
 
   render() {
     if (!this.state) {
@@ -190,10 +210,12 @@ class DiscoveryPreferences extends React.Component {
               <section className="discovery-preferences-container">
 
 {/* gender attribute*/}
-                {this.constructCheckboxes("sex_seek", this.state)}
+                {this.props.errors.includes("Gender field empty") ? <span className="gender-error-span">You need to pick a gender</span> : "" }
+
+                {this.constructCheckboxes("sex_seek")}
 
   {/* age attribute RANGE SLIDER eventually*/}
-                <div className="user-info-input-attribute">
+                <div className="user-info-input-attribute" onMouseOut={(e) => this.handleSubmit(e)}>
 
 
                     <div>Ages: {this.state.min_age_seek} - {this.state.max_age_seek === "75" || this.state.max_age_seek === 75 ? "75+" : this.state.max_age_seek}</div>
@@ -207,7 +229,7 @@ class DiscoveryPreferences extends React.Component {
 
 {/* distance*/}
 
-                <section className="distance-discovery-section">
+                <section className="distance-discovery-section" onMouseOut={(e) => this.handleSubmit(e)}>
                   <div className="distance-discovery-dropdown">
                     {this.constructDropDownMenuForDistance("distance_seek")}
                   </div>
@@ -227,10 +249,10 @@ class DiscoveryPreferences extends React.Component {
 
 {/* height attribute*/}
 
-                <div className="user-info-input-attribute">
+                <div className="user-info-input-attribute" onMouseOut={(e) => this.handleSubmit(e)}>
 
 
-                    <div>Height: {this.state.min_height_seek} - {this.state.max_height_seek === "96" || this.state.max_height_seek === 96 ? "96+" : this.state.max_height_seek}</div>
+                    <div>Height: {this.inchesToFeet(this.state.min_height_seek)} - {this.state.max_height_seek === "96" || this.state.max_height_seek === 96 ? `8'0"+` : this.inchesToFeet(this.state.max_height_seek)}</div>
 
                       <input className="age-discovery-range" type="range" min="48" max="96"
                         onChange={this.updateValue("min_height_seek")} value={this.state.min_height_seek}></input>
@@ -238,25 +260,6 @@ class DiscoveryPreferences extends React.Component {
                         onChange={this.updateValue("max_height_seek")} value={this.state.max_height_seek}></input>
 
                 </div>
-
-
-{/*}
-
-              <div className="user-info-input-attribute">
-
-                <div className="profile-height">{`Height: ${this.state.min_height_seek} - ${this.state.max_height_seek}`}</div>
-
-                <div  className="preferences-height-ranges">
-
-                    <input onChange={(e) => this.handleHeightRange(e)} id="range-1"
-                      type="range" min="48" max="96" value={this.state.min_height_seek}  />
-
-                    <input onChange={(e) => this.handleHeightRange(e)} id="range-2"
-                      type="range" min="48" max="96" value={this.state.max_height_seek}/>
-                </div>
-
-              </div>
-*/}
 
 {/* education_seek attribute*/}
 
@@ -314,69 +317,3 @@ class DiscoveryPreferences extends React.Component {
 
 
 export default DiscoveryPreferences;
-
-
-
-
-
-
-
-    //   <div id="preferences-ages-container">
-    //
-    //     <div>
-    //     <label className="user-info-input-label">Minimum Age:</label>
-    //       <br/>
-    //       <input onChange={this.updateValue("min_age_seek")}
-    //         onBlur={this.handleSubmit}
-    //         className="user-info-input-box" id="age-choose" type="number" min= "18" max="75"
-    //         value={this.state.min_age_seek? this.state.min_age_seek : 18}/>
-    //       <br/>
-    //     </div>
-    //
-    //     <div id="max-age">
-    //     <label className="user-info-input-label">Maximum Age:</label>
-    //       <br/>
-    //       <input onChange={this.updateValue("max_age_seek")}
-    //         onBlur={this.handleSubmit}
-    //         className="user-info-input-box" id="age-choose" type="number" min= "18" max="75"
-    //         value={this.state.max_age_seek? this.state.max_age_seek : 75}/>
-    //       <br/>
-    //       <br/>
-    //     </div>
-    //
-    //     </div>
-    //
-    //
-    //       <label className="user-info-input-label" id="distance-heading">{this.state.distance_seek
-    //         ? "Distance" : ""}</label>
-    //
-    //     <div id="preferences-distance-container">
-    //
-    //
-    //
-    //       <select onChange={this.updateValue("distance_seek")}
-    //         onBlur={this.handleSubmit}
-    //         class="user-info-select-box" id="distance-choose">
-    //           <option default hidden>{this.state.distance_seek ? `${this.state.distance_seek} mi` : "Distance"}</option>
-    //
-    //           <option  value="5"> 5 mi</option>
-    //
-    //           <option  value="10">10 mi</option>
-    //
-    //           <option  value="25">25 mi</option>
-    //
-    //           <option  value="50">50 mi</option>
-    //
-    //           <option  value="100"> 100 mi</option>
-    //
-    //           <option  value="500"> 500 mi</option>
-    //       </select>
-    //
-    //
-    //      <span id="of-distance">of</span>
-    //      <input onChange={this.updateValue("zip_code")}
-    //        onBlur={this.handleSubmit}
-    //        className="user-info-input-box" id="zip-choose" type="number"
-    //        value={this.state.zip_code}/>
-    //
-    //    </div>
