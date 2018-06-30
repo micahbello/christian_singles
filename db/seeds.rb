@@ -25,7 +25,7 @@ user1 = User.create(username: "kennydaguy2", password: "bereshitbara", first_nam
   image: "http://www.mens-hairstyle.com/wp-content/uploads/2017/09/Bearded-Guy.jpg")
 
 user1 = User.create(username: "kevinbello", password: "bereshitbara", first_name: "John",
-  last_name: "Smith", gender: "male", birth_date: "1989-08-09", zip_code: 08647,
+  last_name: "Smith", gender: "male", birth_date: "1989-08-09", zip_code: 11385,
   age: 28, last_online: "2018-03-20", sex_seek: "Women", min_age_seek: 18, max_age_seek: 49,
   min_height_seek: 48, max_height_seek: 96, distance_seek: 100,
   image: "http://atlantablackstar.com/wp-content/uploads/2015/09/michael-b-jordan-gq.jpg")
