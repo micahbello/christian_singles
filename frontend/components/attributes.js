@@ -41,7 +41,7 @@ export const attendance = [
 
 export const religion = [
     "Anglican",
-    "Assembly",
+    "Assembly of God",
     "Baptist",
     "Catholic",
     "Charismatic",
