@@ -26,22 +26,41 @@ class SignupForm extends React.Component {
     };
 
   this.handleSubmit = this.handleSubmit.bind(this);
+  this.updateValue = this.updateValue.bind(this);
   // this.updateUsername = this.updateUsername.bind(this);
   // this.updatePassword = this.updatePassword.bind(this);
-  this.updateValue = this.updateValue.bind(this);
   }
 
   componentWillUnmount() {
     this.props.clearSessionErrors();
   }
 
-
   handleSubmit(e) {
     e.preventDefault();
     this.props.clearSessionErrors();
+
+    //validate that all fields are filled. This is also done on backend,
+    //but it will lighten the workload if done here as well as well as
+    //elimiate lag when the zip code geocoding validation fails on backend
+
+    let currentErrors = [];
+
+    this.state.username === "" ? currentErrors.push("Username can't be blank") : null
+    this.state.first_name === "" ? currentErrors.push("First name can't be blank") : null
+    this.state.last_name === "" ? currentErrors.push("Last name can't be blank") : null
+    this.state.gender === "" ? currentErrors.push("Gender can't be blank") : null
+    this.state.birth_date === "" ? currentErrors.push("Birth date can't be blank") : null
+    this.state.zip_code === "" ? currentErrors.push("Requires a valid zipcode") : null
+    this.state.password === "" || this.state.password.length < 6 ? currentErrors.push("Password is too short (minimum is 6 characters)") : null
+
+
+
+
+
     const user = merge({}, this.state);
 
     //check that the zipcode is the correct length
+
     //set the zip code to an integer for the back end
     const zip_code = parseInt(user["zip_code"]);
     user["zip_code"] = zip_code;
@@ -51,7 +70,6 @@ class SignupForm extends React.Component {
     if (user["gender"] === "male") {
       sex_seek = "Women";
     } else {
-
       sex_seek = "Men";
     }
 

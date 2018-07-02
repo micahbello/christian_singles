@@ -243,6 +243,7 @@ export const relationship = [
     "Activism",
     "Reading",
     "Sewing and Crafts",
+    "Singing",
     "Stock Trading",
     "Theology",
     "Theme Parks",
