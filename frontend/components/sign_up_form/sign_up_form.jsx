@@ -38,59 +38,48 @@ class SignupForm extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     this.props.clearSessionErrors();
-
     //validate that all fields are filled. This is also done on backend,
-    //but it will lighten the workload if done here as well as well as
+    //but it will lighten the workload if done here as well as
     //elimiate lag when the zip code geocoding validation fails on backend
-
     let currentErrors = [];
 
-    this.state.username === "" ? currentErrors.push("Username can't be blank") : null
-    this.state.first_name === "" ? currentErrors.push("First name can't be blank") : null
-    this.state.last_name === "" ? currentErrors.push("Last name can't be blank") : null
-    this.state.gender === "" ? currentErrors.push("Gender can't be blank") : null
-    this.state.birth_date === "" ? currentErrors.push("Birth date can't be blank") : null
-    this.state.zip_code === "" ? currentErrors.push("Requires a valid zipcode") : null
-    this.state.password === "" || this.state.password.length < 6 ? currentErrors.push("Password is too short (minimum is 6 characters)") : null
+    this.state.username === "" ? currentErrors.push("Username can't be blank") : null;
+    this.state.first_name === "" ? currentErrors.push("First name can't be blank") : null;
+    this.state.last_name === "" ? currentErrors.push("Last name can't be blank") : null;
+    this.state.gender === "" ? currentErrors.push("Gender can't be blank") : null;
+    this.state.birth_date === "" ? currentErrors.push("Birth date can't be blank") : null;
+    this.state.zip_code === "" || this.state.zip_code.length != 5 ? currentErrors.push("Requires a valid zipcode") : null;
+    this.state.password === "" || this.state.password.length < 6 ? currentErrors.push("Password is too short (minimum is 6 characters)") : null;
 
-
-
-
-
-    const user = merge({}, this.state);
-
-    //check that the zipcode is the correct length
-
-    //set the zip code to an integer for the back end
-    const zip_code = parseInt(user["zip_code"]);
-    user["zip_code"] = zip_code;
-
-    //set the default sex_seek to the opposite gender
-    let sex_seek = "";
-    if (user["gender"] === "male") {
-      sex_seek = "Women";
-    } else {
-      sex_seek = "Men";
+    if (currentErrors.length > 0) {
+      this.props.receiveErrors(currentErrors);
+      return;
     }
 
-    user["sex_seek"] = sex_seek
-
-    //set the default display name to username
-    user["display_name"] = this.state.username;
-    //set the current age
-    user["age"] = Math.abs((new Date(Date.now() - (new Date(user["birth_date"])
+    const user = merge({}, this.state);
+    // if validations above passed, some of the following attributes need to be set by default
+    //sex_seek is set by default depending on the gender of user
+    user.gender === "male" ? user.sex_seek = "Women" : user.sex_seek = "Men";
+    //display name is set to the username
+    user.display_name = user.username;
+    //set the age based on birth_date
+    let age =  Math.abs((new Date(Date.now() - (new Date(this.state.birth_date)
                   .getTime()))).getUTCFullYear() - 1970);
 
-    //makes sure that no one under 18 is signing up
-
+    user.age = age;
+    //validate that user is 18 or older otherwise return out
     if (user.age < 18) {
       this.props.receiveErrors("Too young to date");
       return;
     }
-    //set min age and max age
-
-    user["min_age_seek"] = user["age"] - 10;
-    user["max_age_seek"] = user["age"] + 10;
+    //set the default min_age_seek and max_age_seek
+    if (user.age < 29) {
+      user.min_age_seek = 18;
+      user.max_age_seek = user.age + 10;
+    } else {
+      user.min_age_seek = user.age - 10;
+      user.max_age_seek = user.age + 10;
+    }
 
     this.props.signup(user);
   }
