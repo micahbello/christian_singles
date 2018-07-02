@@ -26,11 +26,31 @@
 }
 
 .user-index-profile-name-text {
+  display: flex;
   margin-top: -40px;
   margin-left: 10px;
   text-decoration: none;
   color: white;
   // text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
-  font-size: 15px;
+  font-size: 17px;
   font-family: "Roboto Slab";
+}
+
+.online-green-circle {
+  margin-left: 10px;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  background: #00FF00;
+}
+
+.user-index-city-state-text {
+  margin-top: -25px;
+  margin-left: 9px;
+  color: white;
+  font-size: 15px;
+}
+
+.user-index-religion-occupation, .user-index-match {
+  color: black;
 }

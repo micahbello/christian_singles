@@ -10,6 +10,8 @@ class UserIndexProfile extends React.Component {
 
   }
 
+  //<b><font color="#00FF00">Online Now</font></b>
+
 
   render() {
     return (
@@ -20,13 +22,24 @@ class UserIndexProfile extends React.Component {
 
         </div>
 
-          <p className="user-index-profile-name-text">
+          <span className="user-index-profile-name-text">
             {this.props.profileDisplayName ? this.props.profileDisplayName : this.props.profileUsername}, {this.props.profileAge}
-          </p>
+            {this.props.profileOnlineStatus === true ? <div className="online-green-circle"></div> : ""}
+          </span>
 
-          <p>
-            <b><font color="black">{this.props.matchPercent}% Match</font></b>  {this.props.profileOnlineStatus === true ? <b><font color="#00FF00">Online Now</font></b> : ""}
-          </p>
+          <span className="user-index-city-state-text">
+            {this.props.profileCity}, {this.props.profileState}
+          </span>
+
+          <span className="user-index-match">
+            {this.props.matchPercent}% Match
+          </span>
+
+          <span className="user-index-religion-occupation">
+            {this.props.profileReligion ? this.props.profileReligion : ""}
+            {this.props.profileOccupation && this.props.profileReligion ? `, ${this.props.profileOccupation}` : ""}
+            {this.props.profileOccupation && !this.props.profileReligion ? this.props.profileOccupation : ""}
+          </span>
 
       </div>
     );
