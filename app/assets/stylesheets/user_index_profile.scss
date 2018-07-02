@@ -51,6 +51,23 @@
   font-size: 15px;
 }
 
+.user-index-match {
+}
+
+.user-index-height {
+  margin-left: 20px;
+}
+
 .user-index-religion-occupation, .user-index-match {
   color: black;
+}
+
+.user-index-profile-box section:first-of-type {
+  margin-bottom: 16px;
+}
+
+.index-match-height {
+  font-weight: bold;
+  display: flex;
+  margin-top: -10px;
 }
