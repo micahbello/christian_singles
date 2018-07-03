@@ -81,7 +81,15 @@ class UserProfile extends React.Component {
                   <figure onClick={() => this.openModal()} className="full-pic-container">
                       <img src={this.props.currentProfile.image} className="profile-full-pic"/>
                   </figure>
+
+                  <section className="profile-interaction-section">
+                  </section>
+                  <div className="heart-circle">
+                    <i className="far fa-heart fa-2x" id="heart-unliked"></i>
+                  </div>
+
                 </section>
+
 
                 <section className="profile-info-container">
 

@@ -21,9 +21,9 @@ class UserIndexProfile extends React.Component {
 
       <div className="user-index-profile-box">
 
-        <div style={{backgroundImage: `url(${this.props.profileImgUrl})`}} className="user-index-profile-box-pic">
+        <figure style={{backgroundImage: `url(${this.props.profileImgUrl})`}} className="user-index-profile-box-pic">
 
-        </div>
+        </figure>
 
           <section>
             <span className="user-index-profile-name-text">
