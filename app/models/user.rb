@@ -75,6 +75,11 @@ class User < ApplicationRecord
 
   after_initialize :ensure_session_token
 
+  has_many :likes,
+  primary_key: :id,
+  foreign_key: :liker_id,
+  class_name: :like
+
   def validate_zipcode
 
     geo(self.zip_code.to_s)
