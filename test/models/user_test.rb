@@ -59,6 +59,8 @@
 #  image_content_type  :string
 #  image_file_size     :integer
 #  image_updated_at    :datetime
+#  longitude           :decimal(15, 10)
+#  latitude            :decimal(15, 10)
 #
 
 require 'test_helper'

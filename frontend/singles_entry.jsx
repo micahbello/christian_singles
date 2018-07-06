@@ -7,6 +7,9 @@ import Root from './components/root';
 import  { getCurrentProfile } from './actions/user_actions'; ///testing
 import { getAllUsers } from './actions/user_actions'; ///testingggg
 
+import { createLike } from './util/like_util';
+window.createLike = createLike;
+
 
 window.getCurrentProfile = getCurrentProfile;
 window.signup = signup;
