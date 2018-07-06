@@ -68,7 +68,11 @@ class UserProfile extends React.Component {
                     <i className="fas fa-chevron-left"><span>Back</span></i>
                   </Link>
 
+                  {this.props.currentUser.likes.includes(this.props.currentProfile.id) && this.props.currentProfile.gender === "male" ? <span className="you-like-text">You like him!</span> : ""}
+                  {this.props.currentUser.likes.includes(this.props.currentProfile.id) && this.props.currentProfile.gender === "female" ? <span className="you-like-text">You like her!</span> : ""}
+
                   <p className="my-profile-label">{this.props.currentUser.id === this.props.currentProfile.id ? "My Profile" : ""}</p>
+
 
                   {this.props.currentUser.id === this.props.currentProfile.id ?
                     <Link className="edit-profile-button" to='/editprofile'>Edit Profile</Link> : " "
@@ -85,7 +89,8 @@ class UserProfile extends React.Component {
                   <section className="profile-interaction-section">
                   </section>
                   <div className="heart-circle">
-                    <i className="far fa-heart fa-2x" id="heart-unliked"></i>
+
+                    {this.props.currentUser.likes.includes(this.props.currentProfile.id) ? <i className="fas fa-heart fa-2x"></i>: <i className="far fa-heart fa-2x" id="heart-unliked"></i>}
                   </div>
 
                 </section>

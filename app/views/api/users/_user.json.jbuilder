@@ -4,3 +4,4 @@ json.id user.id
 json.username user.username
 # json.password user.password
 json.image asset_path(user.image)
+json.likes user.list_likes
