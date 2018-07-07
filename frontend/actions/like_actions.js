@@ -1,3 +1,9 @@
-import * as APIUtil from '../util/like_util';
+import * as likeUtil from '../util/like_util';
+import { receiveCurrentUser, receiveErrors } from './session_actions';
 
-export const CREATE_LIKE = "CREATE_LIKE";
+
+//thunks
+export const createLike = (currentUserId, likedUserId) => dispatch => {
+  return likeUtil.createLike(currentUserId, likedUserId).then((user) => dispatch(receiveCurrentUser(user)),
+  errors => dispatch(receiveErrors(errors.responseJSON)));
+};

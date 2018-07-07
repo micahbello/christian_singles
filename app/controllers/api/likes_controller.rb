@@ -2,7 +2,8 @@ class Api::LikesController < ApplicationController
   def create
     @like = Like.new(like_params)
     if @like.save
-      render json: "Like created"
+      @user = User.find(params[:user_id])
+      render :show
     else
       render json: @like.errors.full_messages, status: 422
     end
