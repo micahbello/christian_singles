@@ -11,6 +11,13 @@ class Api::LikesController < ApplicationController
   end
 
   def destroy
+    @like = Like.find_by(liker_id: params[:liker_id], liked_id: params[:liked_id])
+    if @like.delete
+      @user = User.find(params[:id])
+      render :show
+    else
+      render json: @like.errors.full_messages, status: 422
+    end
   end
 
   def index

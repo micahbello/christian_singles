@@ -7,8 +7,9 @@ import Root from './components/root';
 import  { getCurrentProfile } from './actions/user_actions'; ///testing
 import { getAllUsers } from './actions/user_actions'; ///testingggg
 
-import { createLike } from './util/like_util';
-window.createLike = createLike;
+import { deleteLike } from './util/like_util';
+window.deleteLike = deleteLike;
+
 
 
 window.getCurrentProfile = getCurrentProfile;

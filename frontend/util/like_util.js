@@ -5,3 +5,12 @@ export const createLike = (currentUserId, likedUserId) => {
       data: { like: {liker_id: currentUserId, liked_id: likedUserId }}
   });
 };
+
+
+export const deleteLike = (currentUserId, likedUserId) => {
+  return $.ajax ({
+    method: 'DELETE',
+    url: `/api/likes/${currentUserId}`,
+    data: {liker_id: currentUserId, liked_id: likedUserId}
+  });
+}
