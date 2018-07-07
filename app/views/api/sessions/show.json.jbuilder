@@ -7,3 +7,4 @@ json.password @user.password
 json.birth_date @user.birth_date
 json.image asset_path(@user.image)
 json.age @user.age
+json.likes @user.list_likes

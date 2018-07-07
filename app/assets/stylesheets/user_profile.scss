@@ -79,7 +79,7 @@ $button-hover: #000080;
 }
 
 .user-profile-pic-info-container figure {
-  min-height: 390px;
+  // min-height: 390px;
   max-width: 345px;
   max-height: 390px;
   border-radius: 4px;
@@ -171,12 +171,10 @@ $button-hover: #000080;
 
 .profile-interaction-section {
   height: 50px;
-  border: 1px solid;
-  background: white;
-  border-radius: 4px;
+  // border: 1px solid;
+  // background: white;
+  // border-radius: 4px;
   height: 50px;
-  border: 1px solid;
-  background: white;
   border-radius: 4px;
   width: 337px;
   margin-left: 3px;
@@ -189,7 +187,7 @@ $button-hover: #000080;
 }
 
 .heart-circle {
-  border: 1px solid;
+  // border: 1px solid;
   height: 41px;
   width: 41px;
   border-radius: 50%;
@@ -198,6 +196,11 @@ $button-hover: #000080;
   background: orange;
   margin: -47px auto;
   position: relative;
+}
+
+#heart-circle-unliked {
+  background: none;
+  border: none;
 }
 
 .heart-circle:hover {

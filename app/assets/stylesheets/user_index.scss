@@ -21,3 +21,30 @@
 #link-to-profiles {
   text-decoration: none;
 }
+
+.heart-circle-in-index {
+  // border: 1px solid;
+  height: 41px;
+  width: 41px;
+  border-radius: 50%;
+  display: flex;
+  cursor: pointer;
+  background: orange;
+  // margin: -47px auto;
+  margin-left: 16pc;
+  margin-top: -301px;
+}
+
+#heart-circle-unliked {
+  background: none;
+  border: none;
+}
+
+.heart-circle-in-index:hover {
+  background: #ffd280;
+}
+
+.heart-circle-in-index i {
+  color: white;
+  margin: 7px auto;
+}

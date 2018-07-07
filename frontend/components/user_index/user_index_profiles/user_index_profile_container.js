@@ -15,7 +15,8 @@ const msp = (state, ownProps) => {
     profileCity: ownProps.city,
     profileState: ownProps.state,
     profileOccupation: ownProps.occupation,
-    profileReligion: ownProps.religion
+    profileReligion: ownProps.religion,
+    currentUser: state.session.currentUser
   };
 };
 
