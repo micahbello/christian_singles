@@ -32,7 +32,8 @@
   background: orange;
   // margin: -47px auto;
   margin-left: 16pc;
-  margin-top: -301px;
+  position: relative;
+  margin-bottom: -60px;
 }
 
 #heart-circle-unliked {
@@ -47,4 +48,11 @@
 .heart-circle-in-index i {
   color: white;
   margin: 7px auto;
+}
+
+.heart-and-pic-section {
+  margin-top: 25px;
+  /* min-height: 372px; */
+  display: flex;
+  flex-direction: column;
 }

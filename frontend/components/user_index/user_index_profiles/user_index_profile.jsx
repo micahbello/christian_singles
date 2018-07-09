@@ -25,8 +25,6 @@ class UserIndexProfile extends React.Component {
         <figure style={{backgroundImage: `url(${this.props.profileImgUrl})`}} className="user-index-profile-box-pic">
 
         </figure>
-        {this.props.currentUser.likes.includes(this.props.profileId) ? <div className="heart-circle-in-index"><i className="fas fa-heart fa-2x"></i></div>
-        : <div className="heart-circle-in-index" id="heart-circle-unliked"><i className="far fa-heart fa-2x"></i></div>}
 
           <section>
             <span className="user-index-profile-name-text">

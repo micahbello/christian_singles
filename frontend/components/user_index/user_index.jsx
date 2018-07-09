@@ -17,6 +17,18 @@ class UserIndex extends React.Component {
     this.props.clearCurrentIndexProfiles();
   }
 
+ createLikeIcon(profile) {
+   if (this.props.currentUser.likes.includes(profile.id)) {
+     return(
+     <div className="heart-circle-in-index" onClick={() => this.props.deleteLike(this.props.currentUser.id, profile.id)}><i className="fas fa-heart fa-2x"></i></div>
+     )
+   } else {
+     return (
+    <div className="heart-circle-in-index" id="heart-circle-unliked" onClick={() => this.props.createLike(this.props.currentUser.id, profile.id)}><i className="far fa-heart fa-2x"></i></div>
+    )
+   }
+ }
+
 
   render() {
     if (!this.props.currentIndexProfiles) {
@@ -33,15 +45,19 @@ class UserIndex extends React.Component {
             <div className="user-index-profiles-container">
 
               {Object.values(this.props.currentIndexProfiles).
-                map((profile, idx) => <Link key={idx} id="link-to-profiles" to={`/profile/${profile.id}`}>
-                <UserIndexProfileContainer id={profile.id} imgUrl={profile.image}
-                  displayName={profile.display_name} age={profile.age} userName={profile.username}
-                  onlineStatus={profile.online} matchPercent={profile.percentage} height={profile.height}
-                  occupation={profile.occupation} religion={profile.religion} city={profile.city}
-                  state={profile.state}/>
-              </Link>) }
+                map((profile, idx) =>
+                <section key={idx} className="heart-and-pic-section">
 
+                  {this.createLikeIcon(profile)}
 
+                  <Link id="link-to-profiles" to={`/profile/${profile.id}`}>
+                    <UserIndexProfileContainer id={profile.id} imgUrl={profile.image}
+                      displayName={profile.display_name} age={profile.age} userName={profile.username}
+                      onlineStatus={profile.online} matchPercent={profile.percentage} height={profile.height}
+                      occupation={profile.occupation} religion={profile.religion} city={profile.city}
+                      state={profile.state}/>
+                  </Link>
+                </section>) }
             </div>
 
           </div>
