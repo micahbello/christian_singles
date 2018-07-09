@@ -10,7 +10,8 @@ class UserIndex extends React.Component {
   }
 
   componentDidMount() {
-    this.props.getMatches(this.props.currentUser.id)
+    this.props.getMatches(this.props.currentUser.id);
+    window.scrollTo(0,0);
   }
 
   componentWillUnmount() {
