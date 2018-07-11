@@ -9,6 +9,10 @@ class Activity  extends React.Component {
     super(props);
   }
 
+  componentDidMount() {
+    window.scrollTo(0,0);
+  }
+
   countLikes() {
     return this.props.currentUser.likes.length;
   }
@@ -28,32 +32,36 @@ class Activity  extends React.Component {
   }
 
   mapMutualLikes() {
-
+    return (
     this.props.currentUser.like_profiles.map((profile, idx) => {
       if (profile.mutual === true) {
-        debugger
         return (
           <div key={idx} className="activity-index-profile">
-            <figure className="activity-user-image"style={{backgroundImage: `url(${profile.image})`}}>
-            </figure>
+            <Link to={`/profile/${profile.id}`}>
+              <figure className="activity-user-image"style={{backgroundImage: `url(${profile.image})`}}>
+              </figure>
+            </ Link>
 
             <div className="activity-user-info">
-              <h4>{profile.display_name ? profile.display_name : profile.username}</h4>
+              <Link to={`/profile/${profile.id}`}>
+                <h4>{profile.display_name ? profile.display_name : profile.username}</h4>
+              </Link>
               <p>{profile.age}</p>
               <span>{profile.city}, {profile.state}</span>
             </div>
 
             <div>
-              <div className="heart-circle-in-activity">
+              <div className="heart-circle-in-activity" onClick={() => this.props.deleteLike(this.props.currentUser.id, profile.id)}>
                 <i className="fas fa-heart fa-2x"></i>
               </div>
             </div>
           </div>
         );
-      } else {
-        null
-      }
-    });
+        } else {
+          null
+        }
+    })
+  );
   }
 
   render() {
@@ -88,17 +96,21 @@ class Activity  extends React.Component {
                       this.props.currentUser.like_profiles.map((profile, idx) => {
                         return (
                           <div key={idx} className="activity-index-profile">
-                            <figure className="activity-user-image"style={{backgroundImage: `url(${profile.image})`}}>
-                            </figure>
+                            <Link to={`/profile/${profile.id}`}>
+                              <figure className="activity-user-image"style={{backgroundImage: `url(${profile.image})`}}>
+                              </figure>
+                            </Link>
 
                             <div className="activity-user-info">
-                              <h4>{profile.display_name ? profile.display_name : profile.username}</h4>
+                              <Link to={`/profile/${profile.id}`}>
+                                <h4>{profile.display_name ? profile.display_name : profile.username}</h4>
+                              </Link>
                               <p>{profile.age}</p>
                               <span>{profile.city}, {profile.state}</span>
                             </div>
 
                             <div>
-                              <div className="heart-circle-in-activity">
+                              <div className="heart-circle-in-activity" onClick={() => this.props.deleteLike(this.props.currentUser.id, profile.id)}>
                                 <i className="fas fa-heart fa-2x"></i>
                               </div>
                             </div>
@@ -120,6 +132,17 @@ class Activity  extends React.Component {
                 </section>
 
                 <section className="activity-middle-split-container">
+                  <section className="specific-activity-section">
+                    <div className="my-views-div">
+                      <h3 className="activity-heading">I Viewed</h3>
+                    </div>
+                  </section>
+
+                  <section className="specific-activity-section">
+                    <div className="mutual-views-div">
+                      <h3 className="activity-heading">Viewed Me</h3>
+                    </div>
+                  </section>
 
                 </section>
 

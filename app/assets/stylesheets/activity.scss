@@ -25,7 +25,7 @@
   margin-bottom: 20px;
 }
 
-.my-likes-div, .my-mutual-likes-div {
+.my-likes-div, .my-mutual-likes-div, .my-views-div, .mutual-views-div {
   padding: 20px;
 }
 
@@ -47,10 +47,35 @@
 }
 
 .activity-user-info {
-  width: 160px;
-  max-width: 160px;
+  width: 145px;
+  max-width: 145px;
+  margin-left: 20px;
 }
 
-.heart-circle-in-activity {
+.activity-user-info a {
+  text-decoration: none;
+  color: #0098dc;
+}
 
+.activity-user-info a:hover {
+  text-decoration: underline;
+}
+
+
+.heart-circle-in-activity {
+  height: 41px;
+  width: 41px;
+  border-radius: 50%;
+  display: flex;
+  cursor: pointer;
+  background: orange;
+}
+
+.heart-circle-in-activity:hover {
+  background: #ffd280;
+}
+
+.heart-circle-in-activity i {
+  color: white;
+  margin: 7px auto;
 }

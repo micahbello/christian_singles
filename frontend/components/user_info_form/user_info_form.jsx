@@ -35,6 +35,7 @@ class userInfoForm extends React.Component {
       this.props.getCurrentProfile(this.props.currentUser.id).then((action) => {
         this.setState(action.currentProfile)
       });
+      window.scrollTo(0,0);
     }
   // }
 
