@@ -183,12 +183,30 @@ class User < ApplicationRecord
     self.online = boolean
   end
 
-  def list_likes
+  def list_likes_ids
     list_of_likes = []
     self.likes.each do |like|
       list_of_likes << like.liked_id
     end
     return list_of_likes
+  end
+
+  def list_like_profiles
+    like_profiles = []
+    user_likes = self.likes
+
+    user_likes.each do |like|
+      liked_user = User.find(like.liked_id)
+      #for mutual likes
+      if liked_user.list_likes_ids.include?(self.id)
+        like_profiles << {id: liked_user.id, display_name:liked_user.display_name, username: liked_user.username, age: liked_user.age, city: liked_user.city, state: liked_user.state, image: liked_user.image, mutual: true}
+      else
+        #for nonmutual likes
+        like_profiles << {id: liked_user.id, display_name:liked_user.display_name, username: liked_user.username, age: liked_user.age, city: liked_user.city, state: liked_user.state, image: liked_user.image, mutual: false}
+      end
+    end
+
+    return  like_profiles
   end
 
   def match_with_percent

@@ -15,11 +15,11 @@
 - [x] Display match percentage between users based on preferences
 
 #### User Authentication
-BCrypt gem used for safely keeping users passwords.
+BCrypt gem used for safely hashing users passwords.
 
 <img width= "50%" src="./app/assets/images/auth_demo.gif" />
 
-#### Profile Maintanance
+#### Profile Maintenance
 
 Users have the ability to create and maintain a profile that contains all the information necessary for formulating percentage matches with other users. Individual profiles display each user's personal information. Users also fill out a preference form that corresponds to what he or she looks for in a potential romantic partner.
 

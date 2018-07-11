@@ -1,0 +1,56 @@
+//some of the stylung of this component are shared by others for the sake od consistency and thus found in
+//other stylesheets
+
+
+.activity-middle-section {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 15px;
+}
+
+
+.activity-middle-split-container {
+  width: 345px;
+  max-width: 345px;
+}
+
+.specific-activity-section {
+  width: 100%;
+  background: white;
+  min-height: 80px;
+  margin-bottom: 10px;
+}
+
+.specific-activity-section h3 {
+  margin-bottom: 20px;
+}
+
+.my-likes-div, .my-mutual-likes-div {
+  padding: 20px;
+}
+
+.activity-index-profile {
+  border-top: #f3f3f3 solid 0.12em;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  padding: 13px;
+}
+
+.activity-user-image {
+  width: 70px;
+  height: 70px;
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  border-radius: 50%;
+}
+
+.activity-user-info {
+  width: 160px;
+  max-width: 160px;
+}
+
+.heart-circle-in-activity {
+
+}

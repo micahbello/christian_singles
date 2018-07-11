@@ -14,10 +14,12 @@ import Footer from './footer/footer';
 import LoadingPage from './loading_page/loading_page';
 import Pics from './profile_pics_modal/profile_pics_modal_container';
 import PicUpload from './pic_upload/pic_upload_container';
+import UserActivityContainer from './activity/activity_container';
 
 const App = () => {
   return (
   <div>
+
     <AuthRoute exact path='/' component={WelcomeContainer} />
     <AuthRoute exact path='/login' component={LoginFormContainer} />
     <AuthRoute exact path='/signup' component={SignupFormContainer} />
@@ -29,6 +31,9 @@ const App = () => {
     <ProtectedRoute exact path='/browse' component={UserIndexContainer} />
     <ProtectedRoute exact path='/editprofile' component ={userInfoForm}/>
     <ProtectedRoute exact path='/profile/:id' component ={UserProfileContainer}/>
+    <ProtectedRoute exact path='/activity' component ={UserActivityContainer}/>
+
+
     <Footer />
 
   </div>
