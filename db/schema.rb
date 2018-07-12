@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180703205519) do
+ActiveRecord::Schema.define(version: 20180711235047) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -81,6 +81,13 @@ ActiveRecord::Schema.define(version: 20180703205519) do
     t.datetime "image_updated_at"
     t.decimal "longitude", precision: 15, scale: 10
     t.decimal "latitude", precision: 15, scale: 10
+  end
+
+  create_table "views", force: :cascade do |t|
+    t.integer "viewer_id"
+    t.integer "viewed_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
 end
