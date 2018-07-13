@@ -199,33 +199,135 @@ class User < ApplicationRecord
       liked_user = User.find(like.liked_id)
       #for mutual likes
       if liked_user.list_likes_ids.include?(self.id)
-        like_profiles << {id: liked_user.id, display_name:liked_user.display_name, username: liked_user.username, age: liked_user.age, city: liked_user.city, state: liked_user.state, image: liked_user.image, mutual: true}
+        like_profiles << {id: liked_user.id, display_name:liked_user.display_name, username: liked_user.username, age: liked_user.age, city: liked_user.city,
+          state: liked_user.state, image: liked_user.image, mutual: true}
       else
         #for nonmutual likes
-        like_profiles << {id: liked_user.id, display_name:liked_user.display_name, username: liked_user.username, age: liked_user.age, city: liked_user.city, state: liked_user.state, image: liked_user.image, mutual: false}
+        like_profiles << {id: liked_user.id, display_name:liked_user.display_name, username: liked_user.username, age: liked_user.age, city: liked_user.city,
+          state: liked_user.state, image: liked_user.image, mutual: false}
       end
     end
 
     return  like_profiles
   end
 
+  def within_distance?(other_user)
+    # curr_user_coords = Geocoder.coordinates(self.zip_code)
+    # other_user_coords = Geocoder.coordinates(other_user.zip_code)
+
+    # distance_between_users = Geocoder::Calculations.distance_between(curr_user_coords, other_user_coords)
+    #
+    curr_user_long = self.longitude.to_f
+    curr_user_lat =  self.latitude.to_f
+    other_user_long = other_user.longitude.to_f
+    other_user_lat = other_user.latitude.to_f
+
+    distance_between_users = Geocoder::Calculations.distance_between([curr_user_lat, curr_user_long], [other_user_lat, other_user_long])
+
+    curr_user_distance_seek = self.distance_seek
+    other_user_distance_seek = other_user.distance_seek
+
+    if curr_user_distance_seek == 500 && other_user_distance_seek == 500 #if both users have a distance_seek of 500, all is game
+      return true
+    elsif distance_between_users <= curr_user_distance_seek && distance_between_users <= other_user_distance_seek
+      # as long as the distance_seek of each user is less than or equal to the distance between the two users, all is game
+      return true
+    else
+      return false
+    end
+  end
+
+  def within_age?(other_user)
+    #refactor this to account for people older than 75
+
+
+    if self.age <= other_user.max_age_seek && self.age >= other_user.min_age_seek
+      if other_user.age <= self.max_age_seek && other_user.age >= self.min_age_seek
+        return true
+      end
+    end
+
+    return false
+  end
+
   def match_with_percent
 
-    #select the users that match the sex_seek preference(s) of the current user(this
-    #will be refactored to be the distance instead)
     gender_preference = self.sex_seek
+    user_gender = self.gender
     curr_user_id = self.id
 
-    if gender_preference.length == 9
-      users = User.find_by_sql(
-        "SELECT * FROM users WHERE id != '#{curr_user_id}'" )
-    elsif gender_preference.length == 3
-      users = User.find_by_sql(
-        "SELECT * FROM users WHERE gender = 'male' AND id != '#{curr_user_id}'" )
-    else
-      users = User.find_by_sql(
-        "SELECT * FROM users WHERE gender = 'female' AND id != '#{curr_user_id}'")
+#GENDER
+    if user_gender == "female"
+      if gender_preference == "Men,Women" || gender_preference == "Women,Men" #if searcher is female and bi, she should get back all bis and lesbians
+        users = User.find_by_sql(
+          "
+          SELECT * FROM users
+          WHERE id != '#{curr_user_id}'
+          AND ((sex_seek = 'Men,Women') OR (sex_seek = 'Women,Men'))
+
+          OR ((gender = 'female') AND (sex_seek = 'Women'))
+          "
+        )
+      elsif gender_preference == "Women" #if searcher is female and lesbian, she should get back only lesbians and women who are bi
+        users = User.find_by_sql(
+          "
+          SELECT * FROM users
+          WHERE id != '#{curr_user_id}'
+          AND gender = 'female'
+
+          AND ((sex_seek = 'Women') OR (sex_seek = 'Men,Women') OR (sex_seek = 'Women,Men'))
+          "
+        )
+      elsif gender_preference == "Men" #if searcher is female and straight, she should get back all straight males
+        users = User.find_by_sql(
+          "
+          SELECT * FROM users
+          WHERE gender = 'male'
+          AND sex_seek = 'Women'
+          "
+        )
+      end
+    elsif user_gender == "male"
+      if gender_preference == "Men,Women" || gender_preference == "Women,Men" #if searcher is male and bi, he should get back all bis and homosexuals
+        users = User.find_by_sql(
+          "
+          SELECT * FROM users
+          WHERE id != '#{curr_user_id}'
+          AND ((sex_seek = 'Men,Women') OR (sex_seek = 'Women,Men'))
+
+          OR ((gender = 'male') AND (sex_seek = 'Men'))
+          "
+        )
+      elsif gender_preference == "Men" #if searcher is male and homosexual, he should get back only homosexual and men who are bi
+        users = User.find_by_sql(
+          "
+          SELECT * FROM users
+          WHERE id != '#{curr_user_id}'
+          AND gender = 'male'
+
+          AND ((sex_seek = 'Men') OR (sex_seek = 'Men,Women') OR (sex_seek = 'Women,Men'))
+          "
+        )
+      elsif gender_preference == "Women" #if searcher is male and homosexual, he should get back only straight women
+        users = User.find_by_sql(
+          "
+          SELECT * FROM users
+          WHERE gender = 'female'
+          AND sex_seek = 'Men'
+          "
+        )
+      end
     end
+#GENDER^
+
+#distance- here only the users are passed along that return true with the within_distance? method
+    users.select! {|user| self.within_distance?(user)}
+#distance^
+
+#age - here only the users are passed along that are wihin the age seek of the searcher
+
+  users.select! {|user| self.within_age?(user)}
+#age  ^
 
     users_with_percentages = [] # this will be returned to th controller to then shoot off to the
     #jbuilder

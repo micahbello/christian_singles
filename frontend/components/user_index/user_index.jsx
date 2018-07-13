@@ -44,6 +44,10 @@ class UserIndex extends React.Component {
           <div className="user-index-page">
 
             <div className="user-index-profiles-container">
+              {Object.values(this.props.currentIndexProfiles).length === 0 ?
+                <p className="no-matches-message">It seems we didn't have any luck finding members that
+                  match your preferences. But all is not lost.
+                  To find more matches, adjust your preferences and try again.</p> : null}
 
               {Object.values(this.props.currentIndexProfiles).
                 map((profile, idx) =>

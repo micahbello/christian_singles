@@ -4,6 +4,7 @@ export const distance = [
     25,
     50,
     200,
+    100,
     500
 ];
 
