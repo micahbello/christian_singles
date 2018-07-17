@@ -3,8 +3,8 @@ export const distance = [
     10,
     25,
     50,
-    200,
     100,
+    200,
     500
 ];
 

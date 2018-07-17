@@ -171,11 +171,9 @@ class User < ApplicationRecord
 
   users_with_percentages = []
 
-  # users = match_gender(self.sex_seek, self.gender, self.id)
-  # users.select! {|user| within_distance?(user)}
-  # users.select! {|user| within_age?(user)}
-
-  users = User.all
+  users = match_gender(self.sex_seek, self.gender, self.id)
+  users.select! {|user| within_distance?(user)}
+  users.select! {|user| within_age?(user)}
 
     users.each do |user|
 
