@@ -1,39 +1,58 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import Footer from '../footer/footer';
+import GuestLoginWindowContainer from '../guest_login_window/guest_login_container';
 
-function Welcome({currentUser, logout, login}) {
-  return (
-    <div className="landing-page">
+class Welcome extends React.Component {
+  constructor(props) {
+    super(props)
+  }
 
-      <section className="member-login-link-section">
-        <span>Already a Member?</span>
-        <Link className="link-to-log-in" to='/login' >Login Here</Link>
-      </section>
+  closeWindow() {
+    document.getElementsByTagName("body")[0].style="overflow: scroll";
+    this.props.updateUiWindow(null);
+  }
 
-      <section className="text-box">
-        <img src={fish} alt="fish"/>
+  render() {
+    return (
+      <div className="landing-page" onClick={this.props.currentWindow === "GuestLoginWindow" ? () => this.closeWindow() : null}>
+        { this.props.currentWindow === "GuestLoginWindow" ? <GuestLoginWindowContainer /> : null}
+        { this.props.currentWindow != null ? document.getElementsByTagName("body")[0].style="overflow: hidden" : null}
 
-        <h1>Christian Singles</h1>
-        <h2>1 Corinthians 13:4</h2>
+        <section className="member-login-link-section">
+          <span>Already a Member?</span>
+          <Link className="link-to-log-in" to='/login' >Login Here</Link>
+        </section>
 
-        <p>Love is patient. Love is kind. Come find this love.</p>
+        <section className="text-box">
+          <img src={fish} alt="fish"/>
 
-        <section className="sign-up-section">
+          <h1>Christian Singles</h1>
+          <h2>1 Corinthians 13:4</h2>
 
-          <Link className="link-to-sign-up" to='/signup'>Create an account</Link>
+          <p>Love is patient. Love is kind. Come find this love.</p>
 
-          <button className= "guest-login"
-              onClick={() => login({username: "demoaccount", password: "password"})}>
-              Guest Login
-          </button>
+          <section className="sign-up-section">
+
+            <Link className="link-to-sign-up" to='/signup'>Create an account</Link>
+
+            <button className= "guest-login"
+                onClick={() => this.props.updateUiWindow("GuestLoginWindow")}>
+                Guest Login
+            </button>
+
+          </section>
 
         </section>
 
-      </section>
-
-    </div>
-  );
+      </div>
+    );
+  }
 };
 
 export default Welcome;
+
+// <button className= "guest-login"
+//     onClick={() => login({username: "demoaccount", password: "password"})}>
+//     Guest Login
+// </button>
