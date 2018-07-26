@@ -1,13 +1,19 @@
 class Api::ViewsController < ApplicationController
   def create
-    @view = View.new(view_params)
-    #write code so that no views with the same viewer and viewed cannot be produced twice.
-    if @view.save
-      debugger
-      @user = User.find(params[:user_id])
-      render :show
+    if current_user.id != params[:view][:viewed_id].to_i && current_user.check_if_view_exists(params[:view][:viewed_id]) == false 
+      #the front end will check but this is just for extra protectiont to make sure that
+      #no two 'views' are created with the same viewer and viewed.
+      @view = View.new(view_params)
+
+      if @view.save
+        @user = User.find(params[:user_id])
+        render :show
+      else
+        render json: @view.errors.full_messages, status: 422
+      end
+
     else
-      render json: @view.errors.full_messages, status: 422
+      render :show
     end
   end
 

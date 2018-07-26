@@ -81,6 +81,10 @@ class User < ApplicationRecord
   foreign_key: :liker_id,
   class_name: :Like
 
+  has_many :views,
+  primary_key: :id,
+  foreign_key: :viewer_id,
+  class_name: :View
 
 
   def validate_zipcode
@@ -157,6 +161,37 @@ class User < ApplicationRecord
     end
 
     return  like_profiles
+  end
+
+  #write a check if like exists bc it lags on the local version
+
+  def check_if_view_exists(viewed_id_to_check)
+
+    views = self.views
+
+    views.each do |view|
+      if view.viewed_id == viewed_id_to_check.to_i
+        return true
+      end
+    end
+    return false
+  end
+
+  def list_viewed_profiles
+    viewed_profiles = []
+
+    profiles = self.views
+
+    profiles.each do |view|
+
+      viewed_user = User.find(view.viewed_id)
+
+      viewed_profiles << {id: viewed_user.id, display_name:viewed_user.display_name, username: viewed_user.username, age: viewed_user.age, city: viewed_user.city,
+        state: viewed_user.state, image: viewed_user.image}
+    end
+
+    return viewed_profiles
+
   end
 
   def match_with_percent

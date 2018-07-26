@@ -17,6 +17,10 @@ class Activity  extends React.Component {
     return this.props.currentUser.likes.length;
   }
 
+  countMyViews() {
+    return this.props.currentUser.viewed_profiles.length;
+  }
+
   countMutualLikes() {
     let mutualLikes = 0;
 
@@ -134,7 +138,33 @@ class Activity  extends React.Component {
                 <section className="activity-middle-split-container">
                   <section className="specific-activity-section">
                     <div className="my-views-div">
-                      <h3 className="activity-heading">I Viewed</h3>
+                      <h3 className="activity-heading">I Viewed ({this.countMyViews()})</h3>
+                        {
+                          this.props.currentUser.viewed_profiles.map((profile, idx) => {
+                            return (
+                              <div key={idx} className="activity-index-profile">
+                                <Link to={`/profile/${profile.id}`}>
+                                  <figure className="activity-user-image"style={{backgroundImage: `url(${profile.image})`}}>
+                                  </figure>
+                                </Link>
+
+                                <div className="activity-user-info">
+                                  <Link to={`/profile/${profile.id}`}>
+                                    <h4>{profile.display_name ? profile.display_name : profile.username}</h4>
+                                  </Link>
+                                  <p>{profile.age}</p>
+                                  <span>{profile.city}, {profile.state}</span>
+                                </div>
+
+                                <div>
+                                  <div className="heart-circle-in-activity" onClick={() => this.props.deleteLike(this.props.currentUser.id, profile.id)}>
+                                    <i className="fas fa-heart fa-2x"></i>
+                                  </div>
+                                </div>
+                              </div>
+                            );
+                          })
+                        }
                     </div>
                   </section>
 
