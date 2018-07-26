@@ -194,6 +194,21 @@ class User < ApplicationRecord
 
   end
 
+  def list_users_that_viewed_me
+    profiles_that_viewed_me = []
+
+    profiles = View.where(viewed_id: self.id)
+    
+    profiles.each do |view|
+      viewer = User.find(view.viewer_id)
+
+      profiles_that_viewed_me << {id: viewer.id, display_name:viewer.display_name, username: viewer.username, age: viewer.age, city: viewer.city,
+        state: viewer.state, image: viewer.image}
+    end
+
+    return profiles_that_viewed_me
+  end
+
   def match_with_percent
 
   two_sided_attributes = [["religion","religion_seek"], ["education", "education_seek"], ["attendance", "attendance_seek"],
