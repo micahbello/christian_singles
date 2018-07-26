@@ -15,14 +15,22 @@ class UserProfile extends React.Component {
   }
 
   componentDidMount() {
-    if (this.state) {
-      null
-    } else {
+    // this.props.createLike(this.props.currentUser.id, this.props.currentProfile.id)
+
+    // if (this.state) {
+    //   debugger
+    //   console.log("hello");
+    // } else {
       this.props.getCurrentProfile(this.props.match.params.id).then((action) => {
         this.setState(action.currentProfile)
       });
-      window.scrollTo(0,0);
-    }
+    window.scrollTo(0,0);
+    // }
+  }
+
+  createAView() {
+    //if i call this in the render it turns into an infite loop
+    // this.props.createLike(this.props.currentUser.id, this.props.currentProfile.id)
   }
 
   componentWillUnmount() {
@@ -76,6 +84,7 @@ class UserProfile extends React.Component {
         <div>
           <TopHeaderContainer />
 
+          {this.createAView()}
           {this.props.currentWindow === "ProfilePicsModal" ? <ProfilePicsModal currentProfilePic={this.props.currentProfile.image }/> : null}
           {this.props.currentWindow != "ProfilePicsModal" ? document.getElementsByTagName("body")[0].style="overflow: scroll" : document.getElementsByTagName("body")[0].style="overflow: hidden"}
 

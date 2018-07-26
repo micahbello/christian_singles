@@ -6,8 +6,10 @@ Rails.application.routes.draw do
     resource :session, only: [:create, :destroy]
     resources :users do
       resources :likes, only: [:create]
+      resources :views, only: [:create]
     end
     resources :likes, only: [:destroy, :index]
+    resources :views, only: [:index]
     get 'matches', :to => 'users#matches'
   end
 end

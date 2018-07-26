@@ -1,14 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { signup, login, logout } from './actions/session_actions'; ///TESTING
 import configureStore from './store/store';
 import Root from './components/root';
 
+import { signup, login, logout } from './actions/session_actions'; ///TESTING
 import  { getCurrentProfile } from './actions/user_actions'; ///testing
 import { getAllUsers } from './actions/user_actions'; ///testingggg
 
-import { deleteLike } from './util/like_util';
-window.deleteLike = deleteLike;
+import { createView } from './util/view_util';
+window.createView = createView;
 
 
 
@@ -30,8 +30,8 @@ document.addEventListener('DOMContentLoaded', () => {
   } else {
     store = configureStore();
   }
-
-window.getState = store.getState; ///TESTING
+//
+// window.getState = store.getState; ///TESTING
 window.dispatch = store.dispatch; ///TESTING
 
   ReactDOM.render(<Root store={store} />, root);
