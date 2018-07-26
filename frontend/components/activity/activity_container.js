@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import Activity from './activity';
-import { deleteLike } from '../../actions/like_actions';
+import { deleteLike, createLike } from '../../actions/like_actions';
 
 
 const msp = (state) => {
@@ -13,7 +13,8 @@ const msp = (state) => {
 
 const mdp = (dispatch) => {
   return {
-    deleteLike: (currentUserId, likedUserId) => dispatch(deleteLike(currentUserId, likedUserId))
+    deleteLike: (currentUserId, likedUserId) => dispatch(deleteLike(currentUserId, likedUserId)),
+    createLike: (currentUserId, likedUserId) => dispatch(createLike(currentUserId, likedUserId))
   };
 };
 

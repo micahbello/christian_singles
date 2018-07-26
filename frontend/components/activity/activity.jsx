@@ -72,6 +72,23 @@ class Activity  extends React.Component {
   );
   }
 
+  createlikeIcon (liked_id) {
+    return (
+      <div className="heart-circle-in-activity" id="heart-circle-unliked" onClick={() => this.props.createLike(this.props.currentUser.id, liked_id)}>
+        <i className="far fa-heart fa-2x" id="heart-in-view-section"></i>
+      </div>
+    )
+  }
+
+  uncreateLikeIcon(liked_id) {
+    console.log("hello")
+    return (
+      <div className="heart-circle-in-activity" onClick={() => this.props.deleteLike(this.props.currentUser.id, liked_id)}>
+        <i className="fas fa-heart fa-2x"></i>
+      </div>
+    )
+  }
+
   render() {
     return (
       <div>
@@ -161,9 +178,7 @@ class Activity  extends React.Component {
                                 </div>
 
                                 <div>
-                                  <div className="heart-circle-in-activity" onClick={() => this.props.deleteLike(this.props.currentUser.id, profile.id)}>
-                                    <i className="fas fa-heart fa-2x"></i>
-                                  </div>
+                                  {this.props.currentUser.likes.includes(profile.id) ? this.uncreateLikeIcon(profile.id) : this.createlikeIcon(profile.id)}
                                 </div>
                               </div>
                             );
@@ -191,11 +206,9 @@ class Activity  extends React.Component {
                                   <p>{profile.age}</p>
                                   <span>{profile.city}, {profile.state}</span>
                                 </div>
-
+                                  {this.props.currentUser.likes.includes(profile.id) ? this.uncreateLikeIcon(profile.id) : this.createlikeIcon(profile.id)}
                                 <div>
-                                  <div className="heart-circle-in-activity" onClick={() => this.props.deleteLike(this.props.currentUser.id, profile.id)}>
-                                    <i className="fas fa-heart fa-2x"></i>
-                                  </div>
+
                                 </div>
                               </div>
                             );
