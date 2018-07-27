@@ -58,7 +58,8 @@ class AboutYouWindow extends React.Component {
 
             <section className="about-you-box-input">
               <textarea onChange={this.updateValue("description")}
-                className="about-you-textarea" value={this.state.description}>
+                className="about-you-textarea" value={this.state.description}
+                maxLength="1500">
               </textarea>
             </section>
 

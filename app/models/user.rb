@@ -197,7 +197,6 @@ class User < ApplicationRecord
 
     matching_points = 5
 
-
     within_distance?(user_viewed) == true ? matching_points += 5 : nil
     within_age?(user_viewed) == true ? matching_points += 5 : nil
 
@@ -225,7 +224,6 @@ class User < ApplicationRecord
     matching_points_total = 15 + (two_sided_attributes.length * 2) + (user_viewed.relationship_seek.split(",").length + self.relationship_seek.split(",").length + 2 + self.hobbies.split(",").length + user_viewed.hobbies.split(",").length)
 
     percent_match = (100 * matching_points) / matching_points_total
-
     return percent_match
 
   end

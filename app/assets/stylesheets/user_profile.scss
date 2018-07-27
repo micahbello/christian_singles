@@ -157,6 +157,19 @@ $button-hover: #000080;
   font-size: 16px;
 }
 
+#user-about-me-less {
+  padding-bottom: 0px;
+  max-height: 250px;
+  overflow: hidden;
+}
+
+.fas.fa-plus-circle, .fa-plus-circle.fas, .fas.fa-minus-circle {
+  float: right;
+  margin-right: 8px;
+  margin-bottom: -9px;
+  color: #0098dc;
+}
+
 .user-personal-info {
   padding: 10px 20px 10px 20px;
   display: flex;

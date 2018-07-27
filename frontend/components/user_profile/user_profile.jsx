@@ -20,6 +20,13 @@ class UserProfile extends React.Component {
       this.setState(action.currentProfile)
     }).then(()=> this.createAView());
 
+// //uncomment to display infinite loop problem
+//     this.props.getCurrentProfile(this.props.match.params.id).then((action) => {
+//       this.setState(action.currentProfile)
+//     });
+//
+// //
+
     window.scrollTo(0,0);
   }
 
@@ -69,10 +76,38 @@ class UserProfile extends React.Component {
   }
 
   createDescriptionSection() {
-    return (
-    <p className={this.props.currentProfile.description ? "user-about-me" : "currently-hidden"}>{this.props.currentProfile.description}</p>
-    );
+    if (this.props.currentProfile.description != null && this.props.currentProfile.description.length > 527) {
+      return (
+        <div>
+          <p className="user-about-me" id="user-about-me-less">{this.props.currentProfile.description}</p>
+          <div>
+            <i className="fas fa-plus-circle" id="description-ex-dim-icon" onClick={(e) => this.expandDiminishDescription(e)}></i>
+          </div>
+        </div>
+      );
+    } else if (this.props.currentProfile.description === null || this.props.currentProfile.description === "") {
+      return (
+      <p className="currently-hidden">{this.props.currentProfile.description}</p>
+      );
+    } else {
+      return (
+      <p className={"user-about-me"}>{this.props.currentProfile.description}</p>
+      );
+    }
   }
+
+  expandDiminishDescription(e) {
+    if (e.currentTarget.className === "fas fa-plus-circle" || e.currentTarget.className === "fa-plus-circle fas"){
+      $(".user-about-me").html(this.props.currentProfile.description);
+      $(".user-about-me").attr('id', '');
+    } else if (e.currentTarget.className === "fas fa-minus-circle") {
+      $(".user-about-me").html(this.props.currentProfile.description);
+      $(".user-about-me").attr('id', 'user-about-me-less');
+
+    }
+    $("#description-ex-dim-icon").toggleClass("fas fa-plus-circle fas fa-minus-circle");
+  }
+
 
   render() {
 
@@ -83,6 +118,8 @@ class UserProfile extends React.Component {
 
         <div>
           <TopHeaderContainer />
+
+        {/* uncommment to show infinite loop issue {this.createAView()} */}
 
           {this.props.currentWindow === "ProfilePicsModal" ? <ProfilePicsModal currentProfilePic={this.props.currentProfile.image }/> : null}
           {this.props.currentWindow != "ProfilePicsModal" ? document.getElementsByTagName("body")[0].style="overflow: scroll" : document.getElementsByTagName("body")[0].style="overflow: hidden"}

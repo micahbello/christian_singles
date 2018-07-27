@@ -257,6 +257,7 @@ class userInfoForm extends React.Component {
                       ? "Display Name" : ""}</div>
 
                     <input onChange={this.updateValue("display_name")}
+                      maxLength="25"
                       onBlur={this.handleSubmit}
                       className="user-info-input-box" type="text"
                       placeholder={this.state.display_name ? "" : "Display Name"}
