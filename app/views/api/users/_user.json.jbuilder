@@ -4,8 +4,8 @@ json.id user.id
 json.username user.username
 # json.password user.password
 json.image asset_path(user.image)
-json.likes user.list_likes_ids
-json.like_profiles user.list_like_profiles
+json.likes Like.list_likes_ids(user)
+json.like_profiles Like.list_like_profiles(user)
 
-json.viewed_profiles user.list_viewed_profiles
-json.profiles_that_viewed_me  user.list_users_that_viewed_me
+json.viewed_profiles View.list_viewed_profiles(user)
+json.profiles_that_viewed_me  View.list_users_that_viewed_me(user)
