@@ -68,6 +68,12 @@ class UserProfile extends React.Component {
     }
   }
 
+  createDescriptionSection() {
+    return (
+    <p className={this.props.currentProfile.description ? "user-about-me" : "currently-hidden"}>{this.props.currentProfile.description}</p>
+    );
+  }
+
   render() {
 
     if (!this.state) {
@@ -143,7 +149,7 @@ class UserProfile extends React.Component {
                         {this.props.currentProfile.state ? `, ${this.props.currentProfile.state}` : ""}
                       </span>
 
-                      <p className={this.props.currentProfile.description ? "user-about-me" : "currently-hidden"}>{this.props.currentProfile.description}</p>
+                      {this.createDescriptionSection()}
 
 
                     </section>

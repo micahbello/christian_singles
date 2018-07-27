@@ -81,7 +81,6 @@ class Activity  extends React.Component {
   }
 
   uncreateLikeIcon(liked_id) {
-    console.log("hello")
     return (
       <div className="heart-circle-in-activity" onClick={() => this.props.deleteLike(this.props.currentUser.id, liked_id)}>
         <i className="fas fa-heart fa-2x"></i>
