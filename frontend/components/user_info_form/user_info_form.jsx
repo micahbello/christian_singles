@@ -101,7 +101,7 @@ class userInfoForm extends React.Component {
 
             <div className="user-info-dropdown-select-box">
               {attributeInState
-                ? `${attributeInState.split(",")[0]}...` : Attributes.checkboxesLabelText[attribute]}
+                ? `${attributeInState.split(",").join(", ")}` : Attributes.checkboxesLabelText[attribute]}
             </div>
             <i className="fas fa-chevron-down"></i>
           </div>
