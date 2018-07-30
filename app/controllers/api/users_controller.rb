@@ -21,6 +21,11 @@ class Api::UsersController < ApplicationController
     render :matches
   end
 
+  def activity
+    @user = User.find(params[:id])
+    render :activity
+  end
+
   def new
   end
 

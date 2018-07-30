@@ -37,3 +37,11 @@ export const getMatches = (id) => {
     data: { id }
   });
 };
+
+export const getUserActivity = (id) => {
+  return $.ajax ({
+    method: 'GET',
+    url: '/api/activity',
+    data: { id }
+  });
+};

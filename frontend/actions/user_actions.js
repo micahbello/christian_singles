@@ -5,6 +5,7 @@ import { receiveCurrentUser, receiveErrors } from './session_actions';
 export const RECEIVE_CURRENT_PROFILE = "RECEIVE_CURRENT_PROFILE";
 export const RECEIVE_ALL_USERS = "RECEIVE_ALL_USERS";
 export const RECEIVE_MATCHES = "RECEIVE_MATCHES";
+export const RECEIVE_ACTIVITY = "RECEIVE_ACTIVITY";
 
 
 export const receiveCurrentProfile = (user) => {
@@ -28,7 +29,12 @@ export const receiveMatches = (users) => {
   };
 };
 
-
+export const receiveCurrentUserActivity = (userActivityInfo) => {
+  return {
+    type: RECEIVE_ACTIVITY,
+    userActivityInfo
+  };
+};
 
 export const updateUserInfo = (user) => dispatch => {
   return APIUtil.updateUserInfo(user).then(user => dispatch(receiveCurrentProfile(user)),
@@ -62,4 +68,9 @@ export const getMatches = (id) => dispatch => {
 
 export const clearCurrentIndexProfiles = () => {
   return dispatch(receiveAllUsers(null));
+};
+
+export const getCurrentUserActivity = (id) => dispatch => {
+  return APIUtil.getUserActivity(id).then((userActivityInfo) => dispatch(receiveCurrentUserActivity(userActivityInfo)),
+  errors => dispatch(receiveErrors(errors.responseJSON)));
 };

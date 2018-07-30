@@ -11,5 +11,6 @@ Rails.application.routes.draw do
     resources :likes, only: [:destroy, :index]
     resources :views, only: [:index]
     get 'matches', :to => 'users#matches'
+    get 'activity', :to => 'users#activity'
   end
 end

@@ -5,10 +5,10 @@ import Root from './components/root';
 
 import { signup, login, logout } from './actions/session_actions'; ///TESTING
 import  { getCurrentProfile } from './actions/user_actions'; ///testing
-import { getAllUsers } from './actions/user_actions'; ///testingggg
+import { getAllUsers, getCurrentUserActivity } from './actions/user_actions'; ///testingggg
 
-import { createView } from './util/view_util';
-window.createView = createView;
+
+window.getCurrentUserActivity = getCurrentUserActivity;
 
 
 

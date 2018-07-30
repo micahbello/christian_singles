@@ -8,6 +8,7 @@ import { deleteLike, createLike } from '../../actions/like_actions';
 const msp = (state) => { //the state is available here bc of the provider at the root component
   return {
     currentUser: state.session.currentUser,
+    currentUserLikes: state.session.currentUserLikesArray,
     currentIndexProfiles: state.users.currentIndexProfiles
   };
 };
