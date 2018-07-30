@@ -40,7 +40,7 @@ $button-hover: #000080;
   border-bottom: 1px solid #DCDCDC;
   font-family: cambria;
   font-size: 15px;
-  width: 95%;
+  width: 100%;
 }
 
 .user-info-select-box {
@@ -49,27 +49,46 @@ $button-hover: #000080;
   border-bottom: 1px solid #DCDCDC;
   font-family: cambria;
   font-size: 15px;
-  width: 95%;
+  width: 100%;
   border-radius: 0px;
   -webkit-appearance: none;
+  cursor: pointer;
+  position: relative;
+  z-index: 1;
+  background: transparent;
 }
 
 .user-info-input-attribute i {
   color: #0098dc;
+  margin-left: 1px;
+  position: relative;
+  z-index: 0;
+  cursor: pointer;
+}
+
+#icon-for-select-box {
+  margin-left: -14px;
+}
+
+#remove-border {
+  border-bottom: none;
 }
 
 .user-info-dropdown-select-box {
   background-color: white;
   border: none;
-  border-bottom: 1px solid #DCDCDC;
+  // border-bottom: 1px solid #DCDCDC;
   font-family: cambria;
   font-size: 15px;
   border-radius: -3px;
   width: 95%;
+  cursor: pointer;
+
 }
 
 .dropdown-line-and-icon {
   display: flex;
+  border-bottom: 1px solid #DCDCDC;
 }
 
 .edit-preferences-button {
@@ -93,6 +112,7 @@ $button-hover: #000080;
 
 .height-edit-range {
   width: 95%;
+  cursor: pointer;
 }
 
 .profile-height {

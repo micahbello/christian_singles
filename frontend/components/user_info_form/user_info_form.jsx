@@ -78,11 +78,6 @@ class userInfoForm extends React.Component {
     }
   }
 
-  // triggerClick() {
-  //   document.getElementById("hi").click(); //
-  // }
-
-
   constructCheckboxes(attribute) {
 
     let attributeInState = Attributes.setAttributeInStateVariable(attribute, this.state);
@@ -134,7 +129,7 @@ class userInfoForm extends React.Component {
           ? Attributes.checkboxesLabelText[attribute] : ""}</div>
 
 
-          <select onChange={this.updateValue(attribute)}
+          <select onChange={this.updateValue(attribute)} onClick={() => console.log("hello")}
             className="user-info-select-box"
             onMouseOut={(e) => this.handleSubmit(e)}>
             <option checked hidden>{attributeInState ? attributeInState : Attributes.checkboxesLabelText[attribute]}</option>
@@ -147,7 +142,7 @@ class userInfoForm extends React.Component {
             }
 
           </select>
-          <i onClick={this.triggerClick} className="fas fa-chevron-down"></i>
+          <i className="fas fa-chevron-down" id="icon-for-select-box"></i>
 
       </div>
     );
@@ -368,7 +363,7 @@ class userInfoForm extends React.Component {
 
                       <div className="dropdown-line-and-icon">
 
-                        <div onClick={() => this.handleClick("HobbiesWindow")} className="user-info-input-box">
+                        <div onClick={() => this.handleClick("HobbiesWindow")} className="user-info-input-box" id="remove-border">
                           {this.props.currentProfile.hobbies ? this.props.currentProfile.hobbies.split(",").join(", ") : "Search Interests"}
                         </div>
                         <i className="fas fa-plus"></i>
