@@ -15,6 +15,10 @@ class Activity  extends React.Component {
     window.scrollTo(0,0);
   }
 
+  componentWillUnmount() {
+
+  }
+
   countLikes() {
     return this.props.currentUser.likes.length;
   }
@@ -44,6 +48,7 @@ class Activity  extends React.Component {
   mapMutualLikes() {
     return (
     this.props.likedProfiles.slice(0, 4).map((profile, idx) => {
+      console.log(profile)
       if (profile.mutual === true) {
         return (
           <div key={idx} className="activity-index-profile">
@@ -121,7 +126,10 @@ class Activity  extends React.Component {
 
                     <section className="specific-activity-section">
                       <div className="my-likes-div">
-                        <h3 className="activity-heading">My Likes ({this.countLikes()})</h3>
+                        <div className="specific-activity-section-header">
+                          <h3 className="activity-heading">My Likes ({this.countLikes()})</h3>
+                          <h3> <Link to="/my-likes">View All</Link></h3>
+                        </div>
 
                       {
                         this.props.likedProfiles.slice(0, 4).map((profile, idx) => {
@@ -155,7 +163,10 @@ class Activity  extends React.Component {
 
                     <section className="specific-activity-section">
                       <div className="my-mutual-likes-div">
-                        <h3>Mutual Likes ({this.countMutualLikes()})</h3>
+                        <div className="specific-activity-section-header">
+                          <h3>Mutual Likes ({this.countMutualLikes()})</h3>
+                          <h3><Link to="/my-mutual-likes">View All</Link></h3>
+                        </div>
                           {this.mapMutualLikes()}
                       </div>
                     </section>
@@ -165,7 +176,10 @@ class Activity  extends React.Component {
                   <section className="activity-middle-split-container">
                     <section className="specific-activity-section">
                       <div className="my-views-div">
-                        <h3 className="activity-heading">I Viewed ({this.countMyViews()})</h3>
+                        <div className="specific-activity-section-header">
+                          <h3 className="activity-heading">I Viewed ({this.countMyViews()})</h3>
+                          <h3><Link to="/my-views">View All</Link></h3>
+                        </div>
                           {
                             this.props.viewedProfiles.slice(0, 4).map((profile, idx) => {
                               return (
@@ -195,7 +209,11 @@ class Activity  extends React.Component {
 
                     <section className="specific-activity-section">
                       <div className="views-of-me-div">
-                        <h3 className="activity-heading">Viewed Me ({this.countOthersViewsOfMe()})</h3>
+                        <div className="specific-activity-section-header">
+                          <h3 className="activity-heading">Viewed Me ({this.countOthersViewsOfMe()})</h3>
+                          <h3><Link to="/viewed-me">View All</Link></h3>
+                        </div>
+
                           {
                             this.props.usersThatViewedMe.slice(0, 4).map((profile, idx) => {
                               return (
@@ -225,7 +243,7 @@ class Activity  extends React.Component {
 
                   </section>
 
-      {/*  he styling from here down is unique to this compoent */}
+      {/*  he styling from here up is unique to this compoent */}
                 </section>
 
               </div>

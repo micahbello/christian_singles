@@ -15,6 +15,7 @@ import LoadingPage from './loading_page/loading_page';
 import Pics from './profile_pics_modal/profile_pics_modal_container';
 import PicUpload from './pic_upload/pic_upload_container';
 import UserActivityContainer from './activity/activity_container';
+import LikesViewsIndexContainer from './likes_and_views_index/likes_and_views_index_container';
 
 const App = () => {
   return (
@@ -32,6 +33,10 @@ const App = () => {
     <ProtectedRoute exact path='/editprofile' component ={userInfoForm}/>
     <ProtectedRoute exact path='/profile/:id' component ={UserProfileContainer}/>
     <ProtectedRoute exact path='/activity' component ={UserActivityContainer}/>
+    <ProtectedRoute exact path='/my-likes' component ={ LikesViewsIndexContainer }/>
+    <ProtectedRoute exact path='/my-mutual-likes' component ={ LikesViewsIndexContainer }/>
+    <ProtectedRoute exact path='/my-views' component ={ LikesViewsIndexContainer }/>
+    <ProtectedRoute exact path='/viewed-me' component ={ LikesViewsIndexContainer }/>
 
 
     <Footer />

@@ -8,7 +8,6 @@
   margin-top: 15px;
 }
 
-
 .activity-middle-split-container {
   width: 345px;
   max-width: 345px;
@@ -19,6 +18,11 @@
   background: white;
   min-height: 80px;
   margin-bottom: 10px;
+}
+
+.specific-activity-section-header {
+  display: flex;
+  justify-content: space-between;
 }
 
 .specific-activity-section h3 {
