@@ -4,6 +4,8 @@
   min-width: 100vw;
   display: flex;
   justify-content: center;
+  flex-direction: column;
+  align-items: center;
 }
 
 
@@ -14,8 +16,36 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: space-evenly;
-  padding-top: 95px;
+  // padding-top: 95px;
   padding-bottom: 80px;
+}
+
+.browse-display-header {
+  height: 40px;
+  width: 955px;
+  max-width: 955px;
+  margin-top: 95px;
+  display: flex;
+}
+
+.browse-display-header div {
+  width: 100%;
+  border:1px solid #f3f3f3;
+  border-radius: 4px;
+  background: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+#underlined-box {
+  border-bottom: 2px solid #0098dc;
+}
+
+#bold-browse-link {
+  font-weight: bold;
+  color: #0098dc;
 }
 
 #link-to-profiles {

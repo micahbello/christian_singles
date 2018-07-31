@@ -27,7 +27,7 @@ class TopHeader extends React.Component {
       </Link>
 
       <nav className="top-header-links">
-        <Link className="th-link" to='/browse'>Browse</Link>
+        <Link className="th-link" to='/browse-new'>Browse</Link>
         <Link className="th-link" to='/activity'>Activity</Link>
       </nav>
 

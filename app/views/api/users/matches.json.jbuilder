@@ -15,5 +15,5 @@
       json.occupation User.find(user[0]).occupation
       json.religion User.find(user[0]).religion
 
-  end
+  end  
 end
