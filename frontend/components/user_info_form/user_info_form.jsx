@@ -321,6 +321,7 @@ class userInfoForm extends React.Component {
 
 
                       <input onChange={this.updateValue("occupation")}
+                        maxLength="25"
                         onBlur={this.handleSubmit}
                         className="user-info-input-box" type="text"
                         placeholder={this.state.occupation ? "" : "Occupation"}

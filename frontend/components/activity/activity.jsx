@@ -128,7 +128,7 @@ class Activity  extends React.Component {
                       <div className="my-likes-div">
                         <div className="specific-activity-section-header">
                           <h3 className="activity-heading">My Likes ({this.countLikes()})</h3>
-                          <h3> <Link to="/my-likes">View All</Link></h3>
+                          <h3> <Link className= "activity-index-link" to="/my-likes">View All</Link></h3>
                         </div>
 
                       {
@@ -165,7 +165,7 @@ class Activity  extends React.Component {
                       <div className="my-mutual-likes-div">
                         <div className="specific-activity-section-header">
                           <h3>Mutual Likes ({this.countMutualLikes()})</h3>
-                          <h3><Link to="/my-mutual-likes">View All</Link></h3>
+                          <h3><Link className= "activity-index-link" to="/my-mutual-likes">View All</Link></h3>
                         </div>
                           {this.mapMutualLikes()}
                       </div>
@@ -178,7 +178,7 @@ class Activity  extends React.Component {
                       <div className="my-views-div">
                         <div className="specific-activity-section-header">
                           <h3 className="activity-heading">I Viewed ({this.countMyViews()})</h3>
-                          <h3><Link to="/my-views">View All</Link></h3>
+                          <h3><Link className= "activity-index-link" to="/my-views">View All</Link></h3>
                         </div>
                           {
                             this.props.viewedProfiles.slice(0, 4).map((profile, idx) => {
@@ -211,7 +211,7 @@ class Activity  extends React.Component {
                       <div className="views-of-me-div">
                         <div className="specific-activity-section-header">
                           <h3 className="activity-heading">Viewed Me ({this.countOthersViewsOfMe()})</h3>
-                          <h3><Link to="/viewed-me">View All</Link></h3>
+                          <h3><Link className= "activity-index-link" to="/viewed-me">View All</Link></h3>
                         </div>
 
                           {

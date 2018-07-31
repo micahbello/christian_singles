@@ -8,6 +8,15 @@
   margin-top: 15px;
 }
 
+.activity-index-link {
+  text-decoration: none;
+  color: #0098dc;
+}
+
+.activity-index-link:hover {
+  text-decoration: underline;
+}
+
 .activity-middle-split-container {
   width: 345px;
   max-width: 345px;
@@ -27,6 +36,7 @@
 
 .specific-activity-section h3 {
   margin-bottom: 20px;
+  font-weight: bold;
 }
 
 .my-likes-div, .my-mutual-likes-div, .my-views-div, .views-of-me-div {
