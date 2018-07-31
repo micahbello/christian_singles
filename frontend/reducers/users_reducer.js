@@ -6,6 +6,7 @@ import { merge } from 'lodash';
 const usersReducer = (oldState = {currentProfile: null, currentIndexProfiles: null,
                       currentUserActivity: {likedProfiles: null, usersThatViewedMe: null, viewedProfiles: null}}, action) => {
   Object.freeze(oldState);
+  let newActivitySlice;
   switch (action.type) {
     case RECEIVE_CURRENT_PROFILE:
       return merge({}, oldState, {currentProfile: action.currentProfile});
@@ -13,17 +14,19 @@ const usersReducer = (oldState = {currentProfile: null, currentIndexProfiles: nu
       return merge({}, oldState, {currentIndexProfiles: action.currentIndexProfiles});
     case RECEIVE_MATCHES:
       return merge({}, oldState, {currentIndexProfiles: action.matches});
-    // case UPDATE_LIKE_INFO:
-    //   debugger
+    case UPDATE_LIKE_INFO:
+      newActivitySlice = oldState.currentUserActivity;
+      newActivitySlice.likedProfiles = action.userLikeInfo.like_profiles;
     // case UPDATE_VIEW_INFO:
-    //   return merge({}, oldState, {currentUserViews: action.userViewInfo})
+      return  merge({}, oldState, {currentUserActivity: newActivitySlice});
+
     case RECEIVE_ACTIVITY:
-      let newActivitySlice = oldState.currentUserActivity;
+      newActivitySlice = oldState.currentUserActivity;
       newActivitySlice.likedProfiles = action.userActivityInfo.like_profiles;
       newActivitySlice.usersThatViewedMe = action.userActivityInfo.profiles_that_viewed_me;
       newActivitySlice.viewedProfiles = action.userActivityInfo.viewed_profiles;
 
-      return  merge({}, oldState, {currentUserActivity: newActivitySlice})
+      return  merge({}, oldState, {currentUserActivity: newActivitySlice});
     default:
       return oldState;
   }

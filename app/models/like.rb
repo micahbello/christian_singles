@@ -34,6 +34,19 @@ class Like < ApplicationRecord
     return list_of_likes
   end
 
+  def self.list_mutual_likes_ids(user)
+    list_of_mutual_likes = []
+
+    user.likes.each do |like|
+      liked_user = User.find(like.liked_id)
+      if Like.list_likes_ids(liked_user).include?(user.id)
+        list_of_mutual_likes << like.liked_id
+      end
+    end
+
+    return list_of_mutual_likes
+  end
+
   def self.list_like_profiles(user)
     like_profiles = []
     user_likes = user.likes
@@ -41,7 +54,7 @@ class Like < ApplicationRecord
     user_likes.each do |like|
       liked_user = User.find(like.liked_id)
       #for mutual likes
-      if Like.list_likes_ids(user).include?(user.id)
+      if Like.list_likes_ids(liked_user).include?(user.id)
         like_profiles.unshift({id: liked_user.id, display_name:liked_user.display_name, username: liked_user.username, age: liked_user.age, city: liked_user.city,
           state: liked_user.state, image: liked_user.image, mutual: true})
       else

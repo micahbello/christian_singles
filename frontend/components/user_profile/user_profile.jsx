@@ -31,7 +31,11 @@ class UserProfile extends React.Component {
   }
 
   createAView() {
-    this.props.createView(this.props.currentUser.id, this.props.currentProfile.id);
+    if (this.props.currentUser.id === this.props.currentProfile.id) {
+      null
+    } else {
+      this.props.createView(this.props.currentUser.id, this.props.currentProfile.id);
+    }
   }
 
   componentWillUnmount() {
@@ -108,6 +112,32 @@ class UserProfile extends React.Component {
     $("#description-ex-dim-icon").toggleClass("fas fa-plus-circle fas fa-minus-circle");
   }
 
+  //
+  // {this.props.currentUser.likes.includes(this.props.currentProfile.id) && this.props.currentProfile.gender === "male" ? <span className="you-like-text">You like him!</span> : ""}
+  // {this.props.currentUser.likes.includes(this.props.currentProfile.id) && this.props.currentProfile.gender === "female" ? <span className="you-like-text">You like her!</span> : ""}
+
+  createYouLikeText() {
+    if (this.props.currentUser.mutualLikes.includes(this.props.currentProfile.id)) {
+      return (
+        <span className="you-like-text">You BOTH like each other!!!</span>
+      );
+    } else if (this.props.currentUser.likes.includes(this.props.currentProfile.id)) {
+      if (this.props.currentProfile.gender === "male") {
+        return (
+          <span className="you-like-text">You like him!</span>
+        );
+      } else if (this.props.currentProfile.gender === "female") {
+        return (
+          <span className="you-like-text">You like her!</span>
+        );
+      }
+    } else {
+      return (
+        ""
+      );
+    }
+  }
+
 
   render() {
 
@@ -134,10 +164,9 @@ class UserProfile extends React.Component {
                     <i className="fas fa-chevron-left"><span>Back</span></i>
                   </Link>
 
-                  {this.props.currentUser.likes.includes(this.props.currentProfile.id) && this.props.currentProfile.gender === "male" ? <span className="you-like-text">You like him!</span> : ""}
-                  {this.props.currentUser.likes.includes(this.props.currentProfile.id) && this.props.currentProfile.gender === "female" ? <span className="you-like-text">You like her!</span> : ""}
-                  <p className="my-profile-label">{this.props.currentUser.id === this.props.currentProfile.id ? "My Profile" : ""}</p>
 
+                  {this.createYouLikeText()}
+                  <p className="my-profile-label">{this.props.currentUser.id === this.props.currentProfile.id ? "My Profile" : ""}</p>
 
                   {this.props.currentUser.id === this.props.currentProfile.id ?
                     <Link className="edit-profile-button" to='/editprofile'>Edit Profile</Link> : " "

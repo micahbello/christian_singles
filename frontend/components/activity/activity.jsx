@@ -43,7 +43,7 @@ class Activity  extends React.Component {
 
   mapMutualLikes() {
     return (
-    this.props.likedProfiles.map((profile, idx) => {
+    this.props.likedProfiles.slice(0, 4).map((profile, idx) => {
       if (profile.mutual === true) {
         return (
           <div key={idx} className="activity-index-profile">
@@ -124,7 +124,7 @@ class Activity  extends React.Component {
                         <h3 className="activity-heading">My Likes ({this.countLikes()})</h3>
 
                       {
-                        this.props.likedProfiles.map((profile, idx) => {
+                        this.props.likedProfiles.slice(0, 4).map((profile, idx) => {
                           return (
                             <div key={idx} className="activity-index-profile">
                               <Link to={`/profile/${profile.id}`}>
@@ -167,7 +167,7 @@ class Activity  extends React.Component {
                       <div className="my-views-div">
                         <h3 className="activity-heading">I Viewed ({this.countMyViews()})</h3>
                           {
-                            this.props.viewedProfiles.map((profile, idx) => {
+                            this.props.viewedProfiles.slice(0, 4).map((profile, idx) => {
                               return (
                                 <div key={idx} className="activity-index-profile">
                                   <Link to={`/profile/${profile.id}`}>
@@ -197,7 +197,7 @@ class Activity  extends React.Component {
                       <div className="views-of-me-div">
                         <h3 className="activity-heading">Viewed Me ({this.countOthersViewsOfMe()})</h3>
                           {
-                            this.props.usersThatViewedMe.map((profile, idx) => {
+                            this.props.usersThatViewedMe.slice(0, 4).map((profile, idx) => {
                               return (
                                 <div key={idx} className="activity-index-profile">
                                   <Link to={`/profile/${profile.id}`}>

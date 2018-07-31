@@ -5,6 +5,7 @@ json.username user.username
 # json.password user.password
 json.image asset_path(user.image)
 json.likes Like.list_likes_ids(user)
+json.mutualLikes Like.list_mutual_likes_ids(user)
 
 
 # json.like_profiles Like.list_like_profiles(user)

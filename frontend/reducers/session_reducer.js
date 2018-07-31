@@ -10,6 +10,7 @@ const sessionReducer = (oldState = {currentUser: null}, action) => {
     case UPDATE_LIKE_INFO:
       let newCurrentUserSlice = oldState.currentUser;
       newCurrentUserSlice.likes = action.userLikeInfo.likesArray;
+      newCurrentUserSlice.mutualLikes = action.userLikeInfo.mutualLikesArray;
       return merge({}, oldState, {currentUser: newCurrentUserSlice});
     default:
       return oldState;
