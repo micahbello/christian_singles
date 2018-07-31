@@ -213,6 +213,7 @@ class UserProfile extends React.Component {
                       <span>
                         {this.props.currentProfile.city}
                         {this.props.currentProfile.state ? `, ${this.props.currentProfile.state}` : ""}
+                        {` (${Math.ceil(this.props.currentProfile.distance_from_user)} mi. from you)`}
                       </span>
 
                       {this.createDescriptionSection()}

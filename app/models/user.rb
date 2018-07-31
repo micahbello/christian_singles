@@ -177,7 +177,7 @@ class User < ApplicationRecord
       matching_points_total = 15 + (two_sided_attributes.length * 2) + (user.relationship_seek.split(",").length + self.relationship_seek.split(",").length + 2 + self.hobbies.split(",").length + user.hobbies.split(",").length)
 
       percent_match = (100 * matching_points) / matching_points_total
-      users_with_percentages << [user.id, percent_match]
+      users_with_percentages << [user.id, percent_match, calculate_distance(user)]
     end
 
     return users_with_percentages
@@ -228,20 +228,20 @@ class User < ApplicationRecord
 
   end
 
-private
-
-  def within_distance?(other_user)
-    # curr_user_coords = Geocoder.coordinates(self.zip_code)
-    # other_user_coords = Geocoder.coordinates(other_user.zip_code)
-
-    # distance_between_users = Geocoder::Calculations.distance_between(curr_user_coords, other_user_coords)
-    #
+  def calculate_distance(other_user)
     curr_user_long = self.longitude.to_f
     curr_user_lat =  self.latitude.to_f
     other_user_long = other_user.longitude.to_f
     other_user_lat = other_user.latitude.to_f
 
     distance_between_users = Geocoder::Calculations.distance_between([curr_user_lat, curr_user_long], [other_user_lat, other_user_long])
+  end
+
+private
+
+  def within_distance?(other_user)
+
+    distance_between_users = self.calculate_distance(other_user)
 
     curr_user_distance_seek = self.distance_seek
     other_user_distance_seek = other_user.distance_seek
@@ -255,6 +255,7 @@ private
       return false
     end
   end
+
 
   def within_age?(other_user)
     #refactor this to account for people older than 75

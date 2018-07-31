@@ -8,6 +8,7 @@
       json.age User.find(user[0]).age
       json.image asset_path(User.find(user[0]).image)
       json.percentage user[1]
+      json.distance_from_user user[2]
       json.height User.find(user[0]).height
       json.city User.find(user[0]).city
       json.state User.find(user[0]).state

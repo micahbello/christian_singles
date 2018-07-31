@@ -3,6 +3,7 @@ class Api::UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @match_percentage = current_user.match_with_percent_individual(@user)
+    @distance_from_user = current_user.calculate_distance(@user)
 
     if @user
       render :show_all_profile
