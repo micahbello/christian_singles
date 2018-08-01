@@ -160,7 +160,7 @@ class UserProfile extends React.Component {
 
               <span className="user-profile-top-span">
 
-                  <Link className="back-browse-link" to="/browse">
+                  <Link className="back-browse-link" to="/browse-new">
                     <i className="fas fa-chevron-left"><span>Back</span></i>
                   </Link>
 
