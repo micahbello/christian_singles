@@ -18,6 +18,72 @@ class UserIndex extends React.Component {
     this.props.clearCurrentIndexProfiles();
   }
 
+  returnProfilesToMap() {
+    if (this.props.match.path === "/browse-new") {
+      return Object.values(this.props.currentIndexProfiles).reverse();
+    } else if (this.props.match.path === "/browse-distance") {
+      return this.bubbleSortDistanceOrder();
+    } else if (this.props.match.path === "/browse-score") {
+      return this.bubbleSortPercentageOrder();
+    } else if (this.props.match.path === "/browse-online") {
+      return this.sortProfileByOnline()
+    }
+  }
+
+  bubbleSortDistanceOrder() {
+    let profilesToOrder = Object.values(this.props.currentIndexProfiles);
+    let isSorted = false;
+
+    while (isSorted === false) {
+
+      isSorted = true;
+
+      for(let i = 0; i < (profilesToOrder.length - 1); i++) {
+        if (profilesToOrder[i].distance_from_user > profilesToOrder[i + 1].distance_from_user) {
+          [profilesToOrder[i], profilesToOrder[i + 1]] = [profilesToOrder[i + 1], profilesToOrder[i]];
+          isSorted = false;
+        }
+      }
+    }
+
+    return profilesToOrder;
+  }
+
+
+  bubbleSortPercentageOrder() {
+    let profilesToOrder = Object.values(this.props.currentIndexProfiles);
+    let isSorted = false;
+
+    while (isSorted === false) {
+
+      isSorted = true;
+
+      for(let i = 0; i < (profilesToOrder.length - 1); i++) {
+        if (profilesToOrder[i].percentage > profilesToOrder[i + 1].percentage) {
+          [profilesToOrder[i], profilesToOrder[i + 1]] = [profilesToOrder[i + 1], profilesToOrder[i]];
+          isSorted = false;
+        }
+      }
+    }
+
+    return profilesToOrder;
+  }
+
+  sortProfileByOnline() {
+    let profilesToOrder = Object.values(this.props.currentIndexProfiles).reverse();
+    let orderedProfiles = [];
+
+    profilesToOrder.forEach(profile => {
+      if (profile.online === true ) {
+        orderedProfiles.unshift(profile);
+      } else {
+        orderedProfiles.push(profile);
+      }
+    });
+
+    return orderedProfiles;
+  }
+
  createLikeIcon(profile) {
    if (this.props.currentUser.likes.includes(profile.id)) {
      return(
@@ -44,21 +110,22 @@ class UserIndex extends React.Component {
           <div className="user-index-page">
 
             <section className="browse-display-header">
-              <div className="browse-ordering-boxes" id={this.props.match.path === "/browse-new" ? "underlined-box" : ""}>
+              <Link to="/browse-new" className="browse-ordering-boxes" id={this.props.match.path === "/browse-new" ? "underlined-box" : ""}>
                 <span id={this.props.match.path === "/browse-new" ? "bold-browse-link" : ""}>New</span>
-              </div>
+              </Link>
 
-              <div className="browse-ordering-boxes">
-                <span>Online</span>
-              </div>
+              <Link to="/browse-online" className="browse-ordering-boxes" id={this.props.match.path === "/browse-online" ? "underlined-box" : ""}>
+                <span id={this.props.match.path === "/browse-online" ? "bold-browse-link" : ""}>Online</span>
+              </Link>
 
-              <div className="browse-ordering-boxes">
-                <span>Distance</span>
-              </div>
 
-              <div className="browse-ordering-boxes">
-                <span>Match %</span>
-              </div>
+              <Link to="/browse-distance" className="browse-ordering-boxes" id={this.props.match.path === "/browse-distance" ? "underlined-box" : ""}>
+                <span id={this.props.match.path === "/browse-distance" ? "bold-browse-link" : ""}>Distance</span>
+              </Link>
+
+              <Link to="/browse-score" className="browse-ordering-boxes" id={this.props.match.path === "/browse-score" ? "underlined-box" : ""}>
+                <span id={this.props.match.path === "/browse-score" ? "bold-browse-link" : ""}>Match %</span>
+              </Link>
 
             </section>
 
@@ -68,8 +135,7 @@ class UserIndex extends React.Component {
                   match your preferences. But all is not lost.
                   To find more matches, adjust your preferences and try again.</p> : null}
 
-              {Object.values(this.props.currentIndexProfiles).reverse().
-                map((profile, idx) =>
+              {this.returnProfilesToMap().map((profile, idx) =>
                 <section key={idx} className="heart-and-pic-section">
 
                   {this.createLikeIcon(profile)}
@@ -92,5 +158,3 @@ class UserIndex extends React.Component {
 }
 
 export default UserIndex;
-
-// <Link to="/editprofile"><UserIndexProfileContainer /></Link>

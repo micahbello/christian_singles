@@ -21,7 +21,7 @@ class TopHeader extends React.Component {
   return (
     <header className="top-header">
 
-      <Link className="footer-header-logo" to='/browse'>
+      <Link className="footer-header-logo" to='/browse-new'>
         <img src={fish} alt="fish"/>
         <span>Christian Singles</span>
       </Link>

@@ -29,7 +29,13 @@ const App = () => {
     <ProtectedRoute exact path='/matches' component={inTheWorks}/>
 
     <ProtectedRoute exact path='/discoverypreferences' component={DiscoveryPreferencesContainer}/>
+
     <ProtectedRoute exact path='/browse-new' component={UserIndexContainer} />
+    <ProtectedRoute exact path='/browse-distance' component={UserIndexContainer} />
+    <ProtectedRoute exact path='/browse-score' component={UserIndexContainer} />
+    <ProtectedRoute exact path='/browse-online' component={UserIndexContainer} />
+
+
     <ProtectedRoute exact path='/editprofile' component ={userInfoForm}/>
     <ProtectedRoute exact path='/profile/:id' component ={UserProfileContainer}/>
     <ProtectedRoute exact path='/activity' component ={UserActivityContainer}/>

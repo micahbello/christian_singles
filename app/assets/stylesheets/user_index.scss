@@ -28,7 +28,7 @@
   display: flex;
 }
 
-.browse-display-header div {
+.browse-display-header div, .browse-display-header a {
   width: 100%;
   border:1px solid #f3f3f3;
   border-radius: 4px;
@@ -36,6 +36,8 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  text-decoration: none;
+  color: black;
   cursor: pointer;
 }
 
