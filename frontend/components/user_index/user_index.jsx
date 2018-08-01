@@ -59,7 +59,7 @@ class UserIndex extends React.Component {
       isSorted = true;
 
       for(let i = 0; i < (profilesToOrder.length - 1); i++) {
-        if (profilesToOrder[i].percentage > profilesToOrder[i + 1].percentage) {
+        if (profilesToOrder[i].percentage < profilesToOrder[i + 1].percentage) {
           [profilesToOrder[i], profilesToOrder[i + 1]] = [profilesToOrder[i + 1], profilesToOrder[i]];
           isSorted = false;
         }
