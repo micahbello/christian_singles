@@ -26,7 +26,7 @@ class GuestLoginWindow extends React.Component {
     } else if (user === "katara") {
       document.getElementsByTagName("body")[0].style="overflow: scroll";
       this.props.updateUiWindow(null);
-      this.props.login({username: "katara", password: "bereshitbara"}); 
+      this.props.login({username: "katara", password: "bereshitbara"});
     }
   }
 
@@ -41,17 +41,19 @@ class GuestLoginWindow extends React.Component {
 
 
           <div className="guest-login-buttons">
-            <button className= "guest-login"
-                onClick={() => this.handleSubmit("demoaccount")}
+            <button className= "guest-login" onClick={() => this.handleSubmit("demoaccount")}>
+            Air
+            {/*
                 onMouseOver={() => this.changeBackGroundImage("air")}
-                onMouseOut={() => this.changeBackGroundImage("aangkatara")}>
-                Air
+                onMouseOut={() => this.changeBackGroundImage("aangkatara")} */}
+
             </button>
 
-            <button className= "guest-login"
-                onClick={() => this.handleSubmit("katara")}
+            <button className= "guest-login" onClick={() => this.handleSubmit("katara")}>
+            {/* 
                 onMouseOver={() => this.changeBackGroundImage("water")}
-                onMouseOut={() => this.changeBackGroundImage("aangkatara")}>
+                onMouseOut={() => this.changeBackGroundImage("aangkatara")} */}
+
                 Water
             </button>
 
