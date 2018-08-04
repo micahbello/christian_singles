@@ -140,8 +140,7 @@ class LikesViewsIndex extends React.Component {
                       );
                     })
                   }
-
-
+                  
                   {/*  he styling from here down is unique to this compoent */}
                 </section>
 

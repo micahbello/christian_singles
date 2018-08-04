@@ -48,7 +48,6 @@ class Activity  extends React.Component {
   mapMutualLikes() {
     return (
     this.props.likedProfiles.slice(0, 4).map((profile, idx) => {
-      console.log(profile)
       if (profile.mutual === true) {
         return (
           <div key={idx} className="activity-index-profile">

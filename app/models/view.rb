@@ -37,7 +37,7 @@ class View < ApplicationRecord
         viewed_user = User.find(view.viewed_id)
 
         viewed_profiles.unshift({id: viewed_user.id, display_name:viewed_user.display_name, username: viewed_user.username, age: viewed_user.age, city: viewed_user.city,
-          state: viewed_user.state, image: viewed_user.image})
+          state: viewed_user.state, image: viewed_user.image, time_last_viewed: View.find(view.id).time_last_viewed.to_f * 1000})
       end
 
       return viewed_profiles
@@ -49,11 +49,12 @@ class View < ApplicationRecord
 
       profiles = View.where(viewed_id: user.id)
 
+
       profiles.each do |view|
         viewer = User.find(view.viewer_id)
 
         profiles_that_viewed_me.unshift({id: viewer.id, display_name:viewer.display_name, username: viewer.username, age: viewer.age, city: viewer.city,
-          state: viewer.state, image: viewer.image})
+        state: viewer.state, image: viewer.image, time_last_viewed: View.find(view.id).time_last_viewed.to_f * 1000})
       end
 
       return profiles_that_viewed_me
