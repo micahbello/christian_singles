@@ -64,16 +64,17 @@ class Activity  extends React.Component {
               <span>{profile.city}, {profile.state}</span>
             </div>
 
-            <div>
+            <div className="activity-heart-and-time">
               <div className="heart-circle-in-activity" onClick={() => this.props.deleteLike(this.props.currentUser.id, profile.id)}>
                 <i className="fas fa-heart fa-2x"></i>
               </div>
+              <span >{this.measureElapsedTime(profile.created_at)}</span>
             </div>
-          </div>
-        );
+        </div>
+      );
         } else {
           null
-        }
+      }
     })
   );
   }
@@ -92,6 +93,24 @@ class Activity  extends React.Component {
         <i className="fas fa-heart fa-2x"></i>
       </div>
     )
+  }
+
+  measureElapsedTime(timeStamp) {
+    let endTime = new Date();
+    let startTime = new Date(timeStamp);
+
+    let differenceInSeconds = ((endTime - startTime) / 1000);
+
+    if (differenceInSeconds < 60) {
+      return `${Math.round(differenceInSeconds)} sec`;
+    } else if (differenceInSeconds > 60 && differenceInSeconds < 3600) {
+      return `${Math.round(differenceInSeconds / 60)} min`;
+    } else if (differenceInSeconds > 3600 && differenceInSeconds < 86400) {
+      return `${Math.round(differenceInSeconds / 60 / 60)} hours`;
+    } else if (differenceInSeconds > 86400) {
+      return `${Math.round(differenceInSeconds / 86400)} days`;
+    }
+
   }
 
   render() {
@@ -147,10 +166,11 @@ class Activity  extends React.Component {
                                 <span>{profile.city}, {profile.state}</span>
                               </div>
 
-                              <div>
+                              <div className="activity-heart-and-time">
                                 <div className="heart-circle-in-activity" onClick={() => this.props.deleteLike(this.props.currentUser.id, profile.id)}>
                                   <i className="fas fa-heart fa-2x"></i>
                                 </div>
+                                <span>{this.measureElapsedTime(profile.created_at)}</span>
                               </div>
                             </div>
                           );
@@ -196,9 +216,11 @@ class Activity  extends React.Component {
                                     <span>{profile.city}, {profile.state}</span>
                                   </div>
 
-                                  <div>
+                                  <div className="activity-heart-and-time">
                                     {this.props.currentUser.likes.includes(profile.id) ? this.uncreateLikeIcon(profile.id) : this.createlikeIcon(profile.id)}
+                                    <span>{this.measureElapsedTime(profile.time_last_viewed)}</span>
                                   </div>
+
                                 </div>
                               );
                             })
@@ -229,9 +251,10 @@ class Activity  extends React.Component {
                                     <p>{profile.age}</p>
                                     <span>{profile.city}, {profile.state}</span>
                                   </div>
-                                    {this.props.currentUser.likes.includes(profile.id) ? this.uncreateLikeIcon(profile.id) : this.createlikeIcon(profile.id)}
-                                  <div>
 
+                                  <div className="activity-heart-and-time">
+                                    {this.props.currentUser.likes.includes(profile.id) ? this.uncreateLikeIcon(profile.id) : this.createlikeIcon(profile.id)}
+                                    <span>{this.measureElapsedTime(profile.time_last_viewed)}</span>
                                   </div>
                                 </div>
                               );

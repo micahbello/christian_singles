@@ -1,3 +1,15 @@
+# == Schema Information
+#
+# Table name: views
+#
+#  id               :integer          not null, primary key
+#  viewer_id        :integer
+#  viewed_id        :integer
+#  created_at       :datetime         not null
+#  updated_at       :datetime         not null
+#  time_last_viewed :datetime
+#
+
 class View < ApplicationRecord
 
   validates :viewer_id, presence: true
