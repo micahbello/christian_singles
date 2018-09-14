@@ -12,7 +12,7 @@ $button-hover: #000080;
   display: flex;
   justify-content: center;
   padding-bottom: 80px;
-  font-family: cambria;
+  // font-family: cambria;//////
 }
 
 .user-profile-middle {
@@ -29,7 +29,7 @@ $button-hover: #000080;
   min-width: 140px;
   min-height: 40px;
   font-size: 18px;
-  font-family: cambria;
+  // font-family: cambria;//////
   display: flex;
   align-items: flex-end;
 }
@@ -132,7 +132,7 @@ $button-hover: #000080;
 
 .profile-info-box-second-part span {
   line-height: 1.5;
-  font-family: cambria;
+  // font-family: cambria;//////
   // font-weight: bold;
 }
 
@@ -147,7 +147,7 @@ $button-hover: #000080;
 
 .profile-name {
   font-size: 20px;
-  font-family: cambria;
+  // font-family: cambria;//////
   font-weight: bold;
 }
 
@@ -208,7 +208,7 @@ $button-hover: #000080;
   border-radius: 50%;
   display: flex;
   cursor: pointer;
-  background: orange;
+  // background: orange;
   margin: -47px auto;
   position: relative;
 }
@@ -219,11 +219,11 @@ $button-hover: #000080;
 }
 
 .heart-circle:hover {
-  background: #ffd280;
+  // background: #ffd280;
 }
 
 .heart-circle i {
-  color: white;
+  color: #FF6347;
   margin: 7px auto;
 }
 

@@ -61,24 +61,25 @@
   border-radius: 50%;
   display: flex;
   cursor: pointer;
-  background: orange;
+  // background: orange;
   // margin: -47px auto;
   margin-left: 16pc;
   position: relative;
   margin-bottom: -60px;
 }
 
-#heart-circle-unliked {
+#heart-circle-unliked-index i {
   background: none;
   border: none;
+  color: white;
 }
 
 .heart-circle-in-index:hover {
-  background: #ffd280;
+  // background: #ffd280;
 }
 
 .heart-circle-in-index i {
-  color: white;
+  color: #FF6347;
   margin: 7px auto;
 }
 

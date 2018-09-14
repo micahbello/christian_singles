@@ -91,15 +91,16 @@
   border-radius: 50%;
   display: flex;
   cursor: pointer;
-  background: orange;
+  // background: orange;
 }
 
+
 .heart-circle-in-activity:hover {
-  background: #ffd280;
+  // background: #ffd280;
 }
 
 .heart-circle-in-activity i {
-  color: white;
+  color: #FF6347;
   margin: 7px auto;
 }
 

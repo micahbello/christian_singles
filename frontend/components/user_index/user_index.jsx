@@ -91,7 +91,7 @@ class UserIndex extends React.Component {
      )
    } else {
      return (
-    <div className="heart-circle-in-index" id="heart-circle-unliked" onClick={() => this.props.createLike(this.props.currentUser.id, profile.id)}><i className="far fa-heart fa-2x"></i></div>
+    <div className="heart-circle-in-index" id="heart-circle-unliked-index" onClick={() => this.props.createLike(this.props.currentUser.id, profile.id)}><i className="far fa-heart fa-2x"></i></div>
     )
    }
  }
