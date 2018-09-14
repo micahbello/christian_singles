@@ -106,9 +106,9 @@ class Activity  extends React.Component {
     } else if (differenceInSeconds > 60 && differenceInSeconds < 3600) {
       return `${Math.round(differenceInSeconds / 60)} min`;
     } else if (differenceInSeconds > 3600 && differenceInSeconds < 86400) {
-      return `${Math.round(differenceInSeconds / 60 / 60)} hours`;
+      return `${Math.round(differenceInSeconds / 60 / 60)} hr`;
     } else if (differenceInSeconds > 86400) {
-      return `${Math.round(differenceInSeconds / 86400)} days`;
+      return `${Math.round(differenceInSeconds / 86400)} d`;
     }
 
   }
