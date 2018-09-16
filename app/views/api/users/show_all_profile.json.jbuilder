@@ -61,4 +61,5 @@
     json.online @user.online
     json.image asset_path(@user.image)
     json.match_percentage @match_percentage
+    json.match_summary @match_summary
     json.distance_from_user @distance_from_user

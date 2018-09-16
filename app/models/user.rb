@@ -73,6 +73,7 @@ class User < ApplicationRecord
   validates_attachment_content_type :image, content_type: /\Aimage\/.*\Z/
 
   attr_reader :password, :geo
+  attr_accessor :hello
 
   after_initialize :ensure_session_token
 
@@ -85,7 +86,6 @@ class User < ApplicationRecord
   primary_key: :id,
   foreign_key: :viewer_id,
   class_name: :View
-
 
   def validate_zipcode
 
@@ -135,96 +135,74 @@ class User < ApplicationRecord
     self.online = boolean
   end
 
-  def match_with_percent
+  def return_matched_users
 
-  two_sided_attributes = [["religion","religion_seek"], ["education", "education_seek"], ["attendance", "attendance_seek"],
-                          ["have_kids", "have_kids_seek"], ["want_kids", "want_kids_seek"], ["relocate", "relocate_seek"],
-                          ["marital_status", "marital_status_seek"], ["drink", "drink_seek"], ["smoke", "smoke_seek"]]
-  one_sided_attributes = ["relationship_seek"]
-  multi_select_attributes = [["language", "language_seek"], ["ethnicity", "ethnicity_seek"]]
-  #height is currently not being taken into account
-  #first date not currently taken into account
+    users = match_gender(self.sex_seek, self.gender, self.id)
+    users.select! {|user| within_distance?(user)}
+    users.select! {|user| within_age?(user)}
 
-  users_with_percentages = []
-
-  users = match_gender(self.sex_seek, self.gender, self.id)
-  users.select! {|user| within_distance?(user)}
-  users.select! {|user| within_age?(user)}
-
-    users.each do |user|
-
-      matching_points = 15
-      two_sided_attributes.each do |attribute_set|
-        matching_points += return_match_number_two_sid_attr(user, attribute_set[0], attribute_set[1])
-      end
-
-      one_sided_attributes.each do |attribute|
-        matching_points += return_match_number_one_sid_attr(user, attribute)
-      end
-
-      multi_select_attributes.each do |attribute_set|
-          matching_points += return_match_number_multi_select(user, attribute_set[0], attribute_set[1])
-      end
-
-      matching_points += return_match_number_hobbies(user)
-
-      ## for total points
-      user.relationship_seek == nil ? user.relationship_seek = "" : nil
-      self.relationship_seek == nil ? self.relationship_seek = "" : nil
-      user.hobbies == nil ? user.hobbies = "" : nil
-      self.hobbies == nil ? self.hobbies = "" : nil
-
-      matching_points_total = 15 + (two_sided_attributes.length * 2) + (user.relationship_seek.split(",").length + self.relationship_seek.split(",").length + 2 + self.hobbies.split(",").length + user.hobbies.split(",").length)
-
-      percent_match = (100 * matching_points) / matching_points_total
-      users_with_percentages << [user.id, percent_match, calculate_distance(user)]
-    end
-
-    return users_with_percentages
   end
 
-  def match_with_percent_individual(user_viewed)
+  def match_percent_and_summary(user_viewed)
 
     if !match_gender(self.sex_seek, self.gender, self.id).include?(user_viewed) || self.id == user_viewed.id
       return "no_percent_allowed"
     end
 
+    #need height
+
     two_sided_attributes = [["religion","religion_seek"], ["education", "education_seek"], ["attendance", "attendance_seek"],
                             ["have_kids", "have_kids_seek"], ["want_kids", "want_kids_seek"], ["relocate", "relocate_seek"],
                             ["marital_status", "marital_status_seek"], ["drink", "drink_seek"], ["smoke", "smoke_seek"]]
-    one_sided_attributes = ["relationship_seek"]
-    multi_select_attributes = [["language", "language_seek"], ["ethnicity", "ethnicity_seek"]]
+    multi_select_attributes = [["language", "language_seek"], ["ethnicity", "ethnicity_seek"], ["pets, pets_seek"]]
 
-    matching_points = 5
+    matching_points = 9
+    match_summary = "User meets your gender preference. "
+    user_pronoun = user_viewed.gender == "male" ? "He" : "She"
 
-    within_distance?(user_viewed) == true ? matching_points += 5 : nil
-    within_age?(user_viewed) == true ? matching_points += 5 : nil
+    if within_distance?(user_viewed) == true
+      matching_points += 9
+      match_summary = match_summary.concat("#{user_pronoun} is within your desired distance. ")
+    else
+      match_summary = match_summary.concat("#{user_pronoun} is NOT within your desired distance. ")
+    end
 
+    if within_age?(user_viewed) == true
+      matching_points += 9
+      match_summary = match_summary.concat("#{user_pronoun} is within your desired age range. ")
+    else
+      match_summary = match_summary.concat("#{user_pronoun} is NOT within your desired age range. ")
+    end
+
+    matching_points_total = 27 + 18 + 6 + 5 + 4 + 1#27 for gender, distance, age, 18 for two sided, 6 for multi selct, 5 for relationship_seek, 4 for hobbies, 1 for first date match
 
     two_sided_attributes.each do |attribute_set|
-      matching_points += return_match_number_two_sid_attr(user_viewed, attribute_set[0], attribute_set[1])
+      results = return_match_number_two_sid_attr(user_viewed, attribute_set[0], attribute_set[1])
+      matching_points += results[0]
+      match_summary = match_summary.concat(results[1])
     end
 
-    one_sided_attributes.each do |attribute|
-      matching_points += return_match_number_one_sid_attr(user_viewed, attribute)
-    end
+    results = return_relationship_seek_match(user_viewed)
+    matching_points += results[0]
+    match_summary = match_summary.concat(results[1])
+
+    results = return_first_date_match(user_viewed)
+    matching_points += results[0]
+    match_summary = match_summary.concat(results[1])
 
     multi_select_attributes.each do |attribute_set|
-        matching_points += return_match_number_multi_select(user_viewed, attribute_set[0], attribute_set[1])
+      results = return_match_number_multi_select(user_viewed, attribute_set[0], attribute_set[1])
+      matching_points += results[0]
+      match_summary = match_summary.concat(results[1])
     end
 
-    matching_points += return_match_number_hobbies(user_viewed)
-
-    ## for total points
-    user_viewed.relationship_seek == nil ? user_viewed.relationship_seek = "" : nil
-    self.relationship_seek == nil ? self.relationship_seek = "" : nil
-    user_viewed.hobbies == nil ? user_viewed.hobbies = "" : nil
-    self.hobbies == nil ? self.hobbies = "" : nil
-
-    matching_points_total = 15 + (two_sided_attributes.length * 2) + (user_viewed.relationship_seek.split(",").length + self.relationship_seek.split(",").length + 2 + self.hobbies.split(",").length + user_viewed.hobbies.split(",").length)
+    hobbies_results = return_match_number_hobbies(user_viewed)
+    matching_points += hobbies_results[0]
+    match_summary += hobbies_results[1]
 
     percent_match = (100 * matching_points) / matching_points_total
-    return percent_match
+
+    return [percent_match, match_summary]
 
   end
 
@@ -255,7 +233,6 @@ private
       return false
     end
   end
-
 
   def within_age?(other_user)
     #refactor this to account for people older than 75
@@ -343,10 +320,12 @@ private
     current_user_seek_attribute = self[attribute_seek]
 
     count = 0
+    message = ""
 
     unless current_user_seek_attribute == "" || current_user_seek_attribute == nil || other_user_attribute == "" || other_user_attribute == nil
       if current_user_seek_attribute.include?(other_user_attribute)
         count =+ 1
+        message += create_user_matches_you_sentence(attribute, other_user_attribute)
       end
     end
 
@@ -354,33 +333,82 @@ private
     unless other_user_seek_attribute == "" || other_user_seek_attribute == nil || current_user_attribute == "" || current_user_attribute == nil
       if other_user_seek_attribute.include?(current_user_attribute)
         count =+ 1
+        message += create_you_match_user_sentence(attribute, other_user_attribute)
       end
     end
 
-    return count
+    return [count, message]
+
   end
 
-  def return_match_number_one_sid_attr(other_user, attribute_seek)
+  def create_user_matches_you_sentence(attribute, matched_attribute)
+    if attribute == "education"
+      return "User matches your prefered education level. "
+    else
+      return ""
+    end
+  end
 
-    other_user_seek_attribute = other_user[attribute_seek]
-    current_user_seek_attribute = self[attribute_seek]
+  def create_you_match_user_sentence(attribute, matched_attribute)
+    if attribute == "education"
+      return "You match user's prefered education level. "
+    elsif attribute == "religion"
+      return "Because you identify as #{matched_attribute} you match user's prefered religious affiliation. "
+    else
+      return ""
+    end
+  end
+
+  def return_relationship_seek_match(other_user)
+
+    other_user_seek_attribute = other_user["relationship_seek"]
+    current_user_seek_attribute = self["relationship_seek"]
 
     count = 0
+    message = ""
 
     unless other_user_seek_attribute == "" || other_user_seek_attribute == nil || current_user_seek_attribute == "" || current_user_seek_attribute == nil
       other_user_seek_attribute.split(",").each do |attribute|
         current_user_seek_attribute.split(",").each do |attribute_2|
           if attribute == attribute_2
-            count =+ 1
-            break
+            message += "You and user are both looking for #{attribute}. "
+            count < 5 ? count += 5 : nil
           end
         end
       end
+
     end
 
-    return count
+    return [count, message]
   end
 
+  def return_first_date_match(user_viewed)
+    other_user_seek_attribute = user_viewed["first_date"]
+    current_user_seek_attribute = self["first_date"]
+
+    count = 0
+    message = "On your first date, you would both prefer "
+
+    unless other_user_seek_attribute == "" || other_user_seek_attribute == nil || current_user_seek_attribute == "" || current_user_seek_attribute == nil
+      other_user_seek_attribute.split(",").each do |attribute|
+        current_user_seek_attribute.split(",").each do |attribute_2|
+          if attribute == attribute_2
+
+            if message == "On your first date, you would both prefer "
+              message += "#{attribute}. "
+            else
+              message = message.chars[0...-2].join("").concat(", or #{attribute}. ")
+            end
+            count < 1 ? count += 1 : nil
+          end
+        end
+      end
+
+    end
+
+    return [count, message]
+  end
+  #
   def return_match_number_multi_select(other_user, attribute, attribute_seek)
     other_user_attribute = other_user[attribute]
     current_user_attribute = self[attribute]
@@ -389,46 +417,65 @@ private
     current_user_seek_attribute = self[attribute_seek]
 
     count = 0
+    match = false
+    message = ""
 
-    unless current_user_seek_attribute == "" || current_user_seek_attribute == nil || other_user_attribute == "" || other_user_attribute == nil
+    unless other_user_seek_attribute == "" || other_user_seek_attribute == nil || current_user_attribute == "" || current_user_attribute == nil
       other_user_seek_attribute.split(",").each do |attribute|
         current_user_attribute.split(",").each do |attribute_2|
           if attribute == attribute_2
-            count =+ 1
-            break
+            message += "User is seeking #{attribute} and you match. "
+            match = true
           end
         end
       end
+
+      if match == true
+        count += 1
+        match = false
+      end
+
     end
 
-    unless other_user_seek_attribute == "" || other_user_seek_attribute == nil || current_user_attribute == "" || current_user_attribute == nil
+    unless other_user_attribute == "" || other_user_attribute == nil || current_user_seek_attribute == "" || current_user_seek_attribute == nil
       other_user_attribute.split(",").each do |attribute|
         current_user_seek_attribute.split(",").each do |attribute_2|
           if attribute == attribute_2
-            count =+ 1
-            break
+            message += "You are seeking #{attribute} and user matches. "
+            match = true
           end
         end
       end
+
+      if match == true
+        count += 1
+        match = false
+      end
+
     end
 
-    return count
+    return [count, message]
   end
-
+  #
   def return_match_number_hobbies(other_user)
     count = 0
-
+    message = "You both like "
     unless other_user["hobbies"] == "" || other_user["hobbies"] == nil || self["hobbies"]== "" || self["hobbies"] == nil
       other_user["hobbies"].split(",").each do |attribute|
         self["hobbies"].split(",").each do |attribute_2|
           if attribute == attribute_2
-            count =+ 1
+            if message == "You both like "
+              message += "#{attribute}. "
+            else
+              message = message.chars[0...-2].join("").concat(", #{attribute}. ")
+              count < 4 ? count += 1 : nil
+            end
           end
         end
       end
     end
 
-    return count
+    return [count, message]
   end
 #
 end

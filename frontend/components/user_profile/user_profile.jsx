@@ -221,6 +221,10 @@ class UserProfile extends React.Component {
 
                     </section>
 
+                    <section className="match-summary">
+                      <p>{this.props.currentProfile.match_summary}</p>
+                    </section>
+
                     <section className="profile-info-box-second-part">
 
                       <span className=

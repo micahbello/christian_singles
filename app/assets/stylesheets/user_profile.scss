@@ -109,6 +109,23 @@ $button-hover: grey;
   float: right;
 }
 
+.match-summary {
+  min-width: 345px;
+  max-width: 345px;
+  min-height: 100px;
+  background-color: white;
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 4px;
+}
+
+.match-summary p {
+  padding: 20px;
+  line-height: 1.3;
+}
+
 .profile-info-box-top-part {
   min-width: 345px;
   max-width: 345px;

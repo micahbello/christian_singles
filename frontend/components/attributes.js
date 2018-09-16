@@ -164,11 +164,11 @@ export const firstDates = [
     "Dinner and a movie",
     "A Bible study",
     "A walk or hike",
-    "Shooting range",
-    "Amusement park",
-    "Museum",
-    "Dance club",
-    "Comedy club",
+    "A Shooting range",
+    "An Amusement park",
+    "A Museum",
+    "A Dance club",
+    "A Comedy club",
     "To be surprised"
     ];
 
@@ -310,7 +310,7 @@ export const relationship = [
     ["Baking",
     "Barbecues",
     "Cocktails",
-    "Coffee Geek",
+    "Coffee",
     "Cooking",
     "Craft Beers",
     "Dive Bars",
@@ -318,10 +318,9 @@ export const relationship = [
     "Gluten Free",
     "Healthy Eating",
     "Hot Sauce",
-    "Meatatarian",
     "Sports Bars",
-    "Vegan",
-    "Vegetarian",
+    "Vegan Food",
+    "Vegetarian Food",
     "Wine Tastings"]
   ];
 
