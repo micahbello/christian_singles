@@ -218,10 +218,9 @@ class UserProfile extends React.Component {
 
                       {this.createDescriptionSection()}
 
-
                     </section>
 
-                    <section className="match-summary">
+                    <section className={this.props.currentUser.id === this.props.currentProfile.id ? "currently-hidden" : "match-summary"}>
                       <p>{this.props.currentProfile.match_summary}</p>
                     </section>
 

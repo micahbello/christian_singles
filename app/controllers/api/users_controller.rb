@@ -20,7 +20,6 @@ class Api::UsersController < ApplicationController
   end
 
   def matches
-    # @users = User.find(params[:id]).match_with_percent
     @users = User.find(params[:id]).return_matched_users
     render :matches
   end
