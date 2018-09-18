@@ -67,4 +67,11 @@ class Like < ApplicationRecord
     return  like_profiles
   end
 
+  def order_profiles(profiles)
+
+    #Ihave to write this function
+
+
+  end
+
 end

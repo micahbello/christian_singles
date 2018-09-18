@@ -18,18 +18,29 @@ class LikesViewsIndex extends React.Component {
 
   createlikeIcon (liked_id) {
     return (
-      <div className="heart-circle-in-activity" id="heart-circle-unliked" onClick={() => this.props.createLike(this.props.currentUser.id, liked_id)}>
-        <i className="far fa-heart fa-2x" id="heart-in-view-section"></i>
+      <div className="heart-circle-in-activity" id="heart-circle-unliked" onClick={(e) => this.likeIconCreateAnimation(e, liked_id)}>
+        <i className="far fa-heart fa-2x"></i>
       </div>
     )
   }
 
   uncreateLikeIcon(liked_id) {
     return (
-      <div className="heart-circle-in-activity" onClick={() => this.props.deleteLike(this.props.currentUser.id, liked_id)}>
+      <div className="heart-circle-in-activity" onClick={(e) => this.deleteLikeIcon(e, liked_id)}>
         <i className="fas fa-heart fa-2x"></i>
       </div>
     )
+  }
+
+  deleteLikeIcon(e, liked_id) {
+    $(e.target).attr("id", " ");
+    this.props.deleteLike(this.props.currentUser.id, liked_id);
+  }
+
+
+  likeIconCreateAnimation(e, liked_id) {
+    $(e.target).attr("id", "heart-clicked-animation");
+    this.props.createLike(this.props.currentUser.id, liked_id);
   }
 
   createHeaderText() {
@@ -133,14 +144,13 @@ class LikesViewsIndex extends React.Component {
                             <span>{profile.city}, {profile.state}</span>
                           </div>
 
-                          <div className="heart-circle-in-activity" onClick={() => this.props.deleteLike(this.props.currentUser.id, profile.id)}>
-                            <i className="fas fa-heart fa-2x"></i>
-                          </div>
+                          {this.props.currentUser.likes.includes(profile.id) ? this.uncreateLikeIcon(profile.id) : this.createlikeIcon(profile.id)}
+
                         </div>
                       );
                     })
                   }
-                  
+
                   {/*  he styling from here down is unique to this compoent */}
                 </section>
 
