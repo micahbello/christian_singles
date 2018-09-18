@@ -220,7 +220,12 @@ class UserProfile extends React.Component {
 
                     </section>
 
-                    <section className={this.props.currentUser.id === this.props.currentProfile.id ? "currently-hidden" : "match-summary"}>
+                    <section className={this.props.currentUser.id === this.props.currentProfile.id
+                                        ? "currently-hidden" : "match-summary"}>
+                      <h3>Match Summary</h3>
+                      <h4>{this.props.currentProfile.match_percentage != "no_percent_allowed" ?
+                          `${this.props.currentProfile.match_percentage} %` : ""}</h4>
+
                       <p>{this.props.currentProfile.match_summary}</p>
                     </section>
 

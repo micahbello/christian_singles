@@ -156,7 +156,7 @@ class User < ApplicationRecord
     #5 for relationship_seek, 1 for first date match, 6 for height, 4 for hobbies)
 
     if !match_gender(self.sex_seek, self.gender, self.id).include?(user_viewed) || self.id == user_viewed.id
-      return "no_percent_allowed"
+      return ["no_percent_allowed", "This user is incompatible with you."]
     end
     #^^will return if the gender preferences do not match.
 
@@ -176,6 +176,11 @@ class User < ApplicationRecord
     else
       match_summary = match_summary.concat("user is NOT within your desired age range. ")
     end
+
+    #call method to return points from height
+    height_results = return_match_height(user_viewed)
+    matching_points += height_results[0]
+    match_summary += height_results[1]
 
     #arrays of "attributes" to compare through in order to make calculations
     #two_sided_attributes allow user to only pick one for himself
@@ -211,10 +216,6 @@ class User < ApplicationRecord
     matching_points += results[0]
     match_summary = match_summary.concat(results[1])
 
-    #call method to return points from height
-    height_results = return_match_height(user_viewed)
-    matching_points += height_results[0]
-    match_summary += height_results[1]
 
     #call method to return points from hobbies shared
     hobbies_results = return_match_number_hobbies(user_viewed)
@@ -367,9 +368,14 @@ private
 
     pronoun = other_user_gender == "male" ? "he" : "she"
     possessive = other_user_gender == "male" ? "his" : "her"
-    name = other_user_display_name != nil ? other_user_display_name : other_user_username
 
-    current_summary.gsub!("User", "#{name.capitalize}") #change all "user's" with user's name
+    if other_user_display_name != nil && other_user_display_name.length != 0
+      name = other_user_display_name
+    else
+      name = other_user_username
+    end
+
+    current_summary.gsub!("User", "#{name[0].upcase + name[1..-1]}") #change all "user's" with user's name
     current_summary.gsub!("user", "#{name}")
     current_summary.gsub!("#{name.capitalize}'s", "#{possessive.capitalize}")
     current_summary.gsub!("#{name}'s", "#{possessive}")
@@ -569,12 +575,12 @@ private
 
     if other_user.height >= self.min_height_seek && other_user.height <= self.max_height_seek
       count += 3
-      message += "User meets your height preferences. "
+      message += "User meets your height preference. "
     end
 
     if self.height >= other_user.min_height_seek && self.height <= other_user.max_height_seek
       count += 3
-      message += "You meet user's height preferences. "
+      message += "You meet user's height preference. "
     end
 
     return [count, message]

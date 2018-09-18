@@ -154,6 +154,8 @@ class userInfoForm extends React.Component {
     const user = merge({}, this.state, {id: this.props.currentUser.id});
     //deletes hobbies. Hobbies only gets handled on the hobbies component. On this component
     //it only gets displayed, otherwise if it gets handled here, it will not reflect accuracy.
+    user.display_name.length < 1 ? user.display_name = "" : null
+
     delete user.hobbies;
     delete user.description;
     delete user.image;
