@@ -87,14 +87,26 @@ class UserIndex extends React.Component {
  createLikeIcon(profile) {
    if (this.props.currentUser.likes.includes(profile.id)) {
      return(
-     <div className="heart-circle-in-index" onClick={() => this.props.deleteLike(this.props.currentUser.id, profile.id)}><i className="fas fa-heart fa-2x"></i></div>
+     <div className="heart-circle-in-index" onClick={(e) => this.deleteLikeIcon(e, profile.id)}><i className="fas fa-heart fa-2x"></i></div>
      )
    } else {
      return (
-    <div className="heart-circle-in-index" id="heart-circle-unliked-index" onClick={() => this.props.createLike(this.props.currentUser.id, profile.id)}><i className="far fa-heart fa-2x"></i></div>
+    <div className="heart-circle-in-index" id="heart-circle-unliked-index" onClick={(e) => this.likeIconCreateAnimation(e, profile.id)}><i className="far fa-heart fa-2x"></i></div>
     )
    }
  }
+
+ deleteLikeIcon(e, profileId) {
+   $(e.target).attr("id", " ");
+   this.props.deleteLike(this.props.currentUser.id, profileId);
+ }
+
+
+ likeIconCreateAnimation(e, profileId) {
+   $(e.target).attr("id", "heart-clicked-animation");
+   this.props.createLike(this.props.currentUser.id, profileId);
+ }
+
 
 
   render() {

@@ -237,6 +237,17 @@ $button-hover: grey;
   position: relative;
 }
 
+#heart-clicked-animation {
+  animation-name: clicked-heart;
+  animation-duration: 2s;
+}
+
+@keyframes clicked-heart {
+  0% {opacity: 0;}
+  50% {opacity: .5;}
+  100% {opacity: 1;}
+}
+
 #heart-circle-unliked {
   background: none;
   border: none;

@@ -67,16 +67,28 @@ class UserProfile extends React.Component {
     } else if (this.props.currentUser.likes.includes(this.props.currentProfile.id)) {
       return (
       <div className="heart-circle">
-        <i className="fas fa-heart fa-2x" onClick={() => this.props.deleteLike(this.props.currentUser.id, this.props.currentProfile.id)}></i>
+        <i className="fas fa-heart fa-2x" onClick={(e) => this.deleteLikeIcon(e)}></i>
       </div>
       )
     } else {
       return (
-      <div className="heart-circle" id="heart-circle-unliked" onClick={() => this.props.createLike(this.props.currentUser.id, this.props.currentProfile.id)}>
+      <div className="heart-circle" id="heart-circle-unliked" onClick={(e) => this.likeIconCreateAnimation(e)}>
         <i className="far fa-heart fa-2x"></i>
       </div>
       )
     }
+  }
+
+
+  deleteLikeIcon(e) {
+    $(e.target).attr("id", " ");
+    this.props.deleteLike(this.props.currentUser.id, this.props.currentProfile.id);
+  }
+
+
+  likeIconCreateAnimation(e) {
+    $(e.target).attr("id", "heart-clicked-animation");
+    this.props.createLike(this.props.currentUser.id, this.props.currentProfile.id);
   }
 
   createDescriptionSection() {

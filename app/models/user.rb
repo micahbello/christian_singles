@@ -421,7 +421,7 @@ private
     elsif attribute == relocate
       return "To the question of relocating, you answered `#{matched_attribute.downcase},` as user prefers. "
     elsif attribute == "marital_status"
-      return "You have #{matched_attribute.downcase}, as user prefers. "
+      return "You are #{matched_attribute.downcase}, as user prefers. "
     elsif attribute == "drink"
       return "Your drinking habit: `#{matched_attribute.downcase},` as user prefers. "
     elsif attribute == "smoke"
