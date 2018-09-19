@@ -122,13 +122,18 @@ $button-hover: grey;
 }
 
 .match-summary h3 {
-  padding-top: 20px;
   font-weight: bold;
 }
 
 .match-summary p {
   padding: 20px;
   line-height: 1.3;
+}
+
+.match-summary i {
+  padding-top: 20px;
+  padding-bottom: 5px;
+  color: #0098dc;
 }
 
 .profile-info-box-top-part {
