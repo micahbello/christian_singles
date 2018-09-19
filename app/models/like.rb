@@ -64,13 +64,29 @@ class Like < ApplicationRecord
       end
     end
 
-    return  like_profiles
+    return  Like.order_profiles(like_profiles)
   end
 
-  def order_profiles(profiles)
+  def self.order_profiles(profiles)
+    #this will use quicsort
 
-    #Ihave to write this function
+    if profiles.length <= 1
+      return profiles
+    end
 
+    pivot = profiles[0]
+    left = []
+    right = []
+
+    profiles[1..-1].each do |profile|
+      if profile[:created_at] >= pivot[:created_at]
+        left.push(profile)
+      else
+        right.push(profile)
+      end
+    end
+
+    return Like.order_profiles(left) + [pivot] + Like.order_profiles(right)
 
   end
 

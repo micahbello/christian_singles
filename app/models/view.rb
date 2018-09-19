@@ -52,7 +52,7 @@ class View < ApplicationRecord
           state: viewed_user.state, image: viewed_user.image, time_last_viewed: View.find(view.id).time_last_viewed.to_f * 1000})
       end
 
-      return viewed_profiles
+      return View.order_profiles(viewed_profiles)
 
     end
 
@@ -69,7 +69,32 @@ class View < ApplicationRecord
         state: viewer.state, image: viewer.image, time_last_viewed: View.find(view.id).time_last_viewed.to_f * 1000})
       end
 
-      return profiles_that_viewed_me
+      return View.order_profiles(profiles_that_viewed_me)
     end
+
+    def self.order_profiles(profiles)
+      #this will use quicsort
+
+      if profiles.length <= 1
+        return profiles
+      end
+
+      pivot = profiles[0]
+      left = []
+      right = []
+
+      profiles[1..-1].each do |profile|
+        if profile[:time_last_viewed] >= pivot[:time_last_viewed]
+          left.push(profile)
+        else
+          right.push(profile)
+        end
+      end
+
+      return View.order_profiles(left) + [pivot] + View.order_profiles(right)
+
+    end
+
+
 
 end
