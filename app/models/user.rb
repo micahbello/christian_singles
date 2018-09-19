@@ -397,7 +397,7 @@ private
       return "To the question of whether user has children, user answered, `#{matched_attribute.downcase},` as you prefer. "
     elsif attribute == "want_kids"
       return "To the question of children with you, user answered `#{matched_attribute.downcase},` as you prefer. "
-    elsif attribute == relocate
+    elsif attribute == "relocate"
       return "To the question of relocating, user answered `#{matched_attribute.downcase},` as you prefer. "
     elsif attribute == "marital_status"
       return "user is #{matched_attribute.downcase}, as you prefer. "
@@ -406,8 +406,6 @@ private
     elsif attribute == "smoke"
       return "User's smoking habit: `#{matched_attribute.downcase},` as you prefer. "
     end
-
-    return "THIS IS A TEST!!!! THE ATTRIBUTE IS #{attribute} AND MATCHED ATTRIBUTE IS #{matched_attribute}"
   end
 
   def create_you_match_user_sentence(attribute, matched_attribute)
@@ -421,7 +419,7 @@ private
       return "To the question of whether you have children, you answered, `#{matched_attribute.downcase},` as user prefers. "
     elsif attribute == "want_kids"
       return "To the question of children with user, you answered `#{matched_attribute.downcase},` as user prefers. "
-    elsif attribute == relocate
+    elsif attribute == "relocate"
       return "To the question of relocating, you answered `#{matched_attribute.downcase},` as user prefers. "
     elsif attribute == "marital_status"
       return "You are #{matched_attribute.downcase}, as user prefers. "
@@ -430,8 +428,6 @@ private
     elsif attribute == "smoke"
       return "Your smoking habit: `#{matched_attribute.downcase},` as user prefers. "
     end
-
-    return "THIS IS A TEST!!!! THE ATTRIBUTE IS #{attribute} AND MATCHED ATTRIBUTE IS #{matched_attribute}"
   end
 
   def return_relationship_seek_match(other_user)
