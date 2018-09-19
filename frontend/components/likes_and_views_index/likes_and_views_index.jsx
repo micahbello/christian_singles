@@ -100,6 +100,23 @@ class LikesViewsIndex extends React.Component {
     }
   }
 
+  measureElapsedTime(timeStamp) {
+    let endTime = new Date();
+    let startTime = new Date(timeStamp);
+
+    let differenceInSeconds = ((endTime - startTime) / 1000);
+
+    if (differenceInSeconds < 60) {
+      return `${Math.round(differenceInSeconds)} sec`;
+    } else if (differenceInSeconds > 60 && differenceInSeconds < 3600) {
+      return `${Math.round(differenceInSeconds / 60)} min`;
+    } else if (differenceInSeconds > 3600 && differenceInSeconds < 86400) {
+      return `${Math.round(differenceInSeconds / 60 / 60)} hr`;
+    } else if (differenceInSeconds > 86400) {
+      return `${Math.round(differenceInSeconds / 86400)} d`;
+    }
+  }
+
   render() {
     if (this.props.likedProfiles === null || this.props.viewedProfiles === null || this.props.usersThatViewedMe === null) {
       return (
@@ -144,8 +161,11 @@ class LikesViewsIndex extends React.Component {
                             <span>{profile.city}, {profile.state}</span>
                           </div>
 
-                          {this.props.currentUser.likes.includes(profile.id) ? this.uncreateLikeIcon(profile.id) : this.createlikeIcon(profile.id)}
-
+                          <div className="activity-heart-and-time">
+                            {this.props.currentUser.likes.includes(profile.id) ? this.uncreateLikeIcon(profile.id) : this.createlikeIcon(profile.id)}
+                            <span>{this.measureElapsedTime(profile.time_last_viewed)}</span>
+                            <span>{this.measureElapsedTime(profile.created_at)}</span>
+                            </div>
                         </div>
                       );
                     })
