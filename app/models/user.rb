@@ -349,7 +349,7 @@ private
     unless current_user_seek_attribute == "" || current_user_seek_attribute == nil || other_user_attribute == "" || other_user_attribute == nil
       if current_user_seek_attribute.include?(other_user_attribute)
         count =+ 1
-        # message += create_user_matches_you_sentence(attribute, other_user_attribute)
+        message += create_user_matches_you_sentence(attribute, other_user_attribute)
       end
     end
 
@@ -357,7 +357,7 @@ private
     unless other_user_seek_attribute == "" || other_user_seek_attribute == nil || current_user_attribute == "" || current_user_attribute == nil
       if other_user_seek_attribute.include?(current_user_attribute)
         count =+ 1
-        # message += create_you_match_user_sentence(attribute, other_user_attribute)
+        message += create_you_match_user_sentence(attribute, other_user_attribute)
       end
     end
 
@@ -406,6 +406,8 @@ private
     elsif attribute == "smoke"
       return "User's smoking habit: `#{matched_attribute.downcase},` as you prefer. "
     end
+
+    return "THIS IS A TEST!!!! THE ATTRIBUTE IS #{attribute} AND MATCHED ATTRIBUTE IS #{matched_attribute}"
   end
 
   def create_you_match_user_sentence(attribute, matched_attribute)
@@ -428,6 +430,8 @@ private
     elsif attribute == "smoke"
       return "Your smoking habit: `#{matched_attribute.downcase},` as user prefers. "
     end
+
+    return "THIS IS A TEST!!!! THE ATTRIBUTE IS #{attribute} AND MATCHED ATTRIBUTE IS #{matched_attribute}"
   end
 
   def return_relationship_seek_match(other_user)
