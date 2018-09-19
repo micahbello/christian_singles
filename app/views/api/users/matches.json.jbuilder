@@ -1,5 +1,4 @@
 @users.each do |user|
-
     json.set! User.find(user.id) do
       json.id User.find(user.id).id
       json.display_name User.find(user.id).display_name
