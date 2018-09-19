@@ -46,9 +46,17 @@ class Activity  extends React.Component {
   }
 
   mapMutualLikes() {
+
+    let mutualLikesProfiles = [];
+
+    this.props.likedProfiles.forEach((profile) => {
+      if (mutualLikesProfiles.length < 4 && profile.mutual === true) {
+        mutualLikesProfiles.push(profile)
+      }
+    })
+
     return (
-    this.props.likedProfiles.slice(0, 4).map((profile, idx) => {
-      if (profile.mutual === true) {
+    mutualLikesProfiles.map((profile, idx) => {
         return (
           <div key={idx} className="activity-index-profile">
             <Link to={`/profile/${profile.id}`}>
@@ -72,9 +80,6 @@ class Activity  extends React.Component {
             </div>
         </div>
       );
-        } else {
-          null
-      }
     })
   );
   }
