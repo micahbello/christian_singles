@@ -97,7 +97,7 @@ class User < ApplicationRecord
   end
 
   def geo(zipcode)
-    debugger
+    Geokit::Geocoders::GoogleGeocoder.api_key = ENV["google_api_key"]
     @geo =  Geokit::Geocoders::MultiGeocoder.geocode(zipcode)
     self.state = @geo.state_code
     self.city = @geo.city
