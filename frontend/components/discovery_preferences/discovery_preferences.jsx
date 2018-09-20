@@ -174,7 +174,7 @@ class DiscoveryPreferences extends React.Component {
             }
 
           </select>
-          <i onClick={this.triggerClick} className="fas fa-chevron-down"></i>
+          <i className="fas fa-chevron-down" id="icon-for-select-box"></i>
 
       </div>
     );
@@ -199,7 +199,7 @@ class DiscoveryPreferences extends React.Component {
             <section className="discovery-middle-section">
 
               <span className="user-profile-top-span">
-                <Link className="back-browse-link" to="/browse">
+                <Link className="back-browse-link" to="/browse-new">
                   <i className="fas fa-chevron-left"><span>Back</span></i>
                 </Link>
 

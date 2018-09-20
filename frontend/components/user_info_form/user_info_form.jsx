@@ -129,7 +129,7 @@ class userInfoForm extends React.Component {
           ? Attributes.checkboxesLabelText[attribute] : ""}</div>
 
 
-          <select onChange={this.updateValue(attribute)} onClick={() => console.log("hello")}
+          <select onChange={this.updateValue(attribute)}
             className="user-info-select-box"
             onMouseOut={(e) => this.handleSubmit(e)}>
             <option checked hidden>{attributeInState ? attributeInState : Attributes.checkboxesLabelText[attribute]}</option>
