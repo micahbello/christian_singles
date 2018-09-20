@@ -3,7 +3,9 @@ class Api::ViewsController < ApplicationController
 
 # if the view doesnt exist
 
-    if current_user.id != params[:view][:viewed_id].to_i && View.check_if_view_exists(params[:view][:viewed_id], current_user) == false
+    if current_user.id != params[:view][:viewed_id].to_i &&
+      View.check_if_view_exists(params[:view][:viewed_id], current_user) == false
+
       @view = View.new(view_params)
       @view.time_last_viewed = Time.now
 

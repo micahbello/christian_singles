@@ -400,7 +400,11 @@ private
     elsif attribute == "relocate"
       return "To the question of relocating, user answered \"#{matched_attribute.downcase},\" as you prefer. "
     elsif attribute == "marital_status"
-      return "user is #{matched_attribute.downcase}, as you prefer. "
+      if matched_attribute == "Never Married"
+        return "user has #{matched_attribute.downcase}, as you prefer. "
+      else
+        return "user is #{matched_attribute.downcase}, as you prefer. "
+      end
     elsif attribute == "drink"
       return "User's drinking habit: \"#{matched_attribute.downcase},\" as you prefer. "
     elsif attribute == "smoke"
@@ -422,7 +426,11 @@ private
     elsif attribute == "relocate"
       return "To the question of relocating, you answered \"#{matched_attribute.downcase},\" as user prefers. "
     elsif attribute == "marital_status"
-      return "You are #{matched_attribute.downcase}, as user prefers. "
+      if matched_attribute == "Never Married"
+        return "You have #{matched_attribute.downcase}, as user prefers. "
+      else
+        return "You are #{matched_attribute.downcase}, as user prefers. "
+      end
     elsif attribute == "drink"
       return "Your drinking habit: \"#{matched_attribute.downcase},\" as user prefers. "
     elsif attribute == "smoke"

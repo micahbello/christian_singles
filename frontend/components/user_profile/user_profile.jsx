@@ -72,8 +72,8 @@ class UserProfile extends React.Component {
       )
     } else {
       return (
-      <div className="heart-circle" id="heart-circle-unliked" onClick={(e) => this.likeIconCreateAnimation(e)}>
-        <i className="far fa-heart fa-2x"></i>
+      <div className="heart-circle" id="heart-circle-unliked">
+        <i className="far fa-heart fa-2x" onClick={(e) => this.likeIconCreateAnimation(e)}></i>
       </div>
       )
     }
@@ -88,6 +88,7 @@ class UserProfile extends React.Component {
 
   likeIconCreateAnimation(e) {
     $(e.target).attr("id", "heart-clicked-animation");
+    $("#description-ex-dim-icon").off('click');
     this.props.createLike(this.props.currentUser.id, this.props.currentProfile.id);
   }
 

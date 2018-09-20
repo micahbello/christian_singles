@@ -243,14 +243,26 @@ $button-hover: grey;
 }
 
 #heart-clicked-animation {
+  transition-timing-function: ease-in;
   animation-name: clicked-heart;
-  animation-duration: 3s;
+  animation-duration: 2s;
+}
+
+#heart-unclicked-animation {
+  animation-name: clicked-heart;
+  animation-duration: 2s;
+}
+
+@keyframes unclicked-heart {
+  0% {transform: scale(1);}
+  50% {transform: scale(.5);}
+  100% {transform: scale(0);}
 }
 
 @keyframes clicked-heart {
-  0% {opacity: 0;}
-  50% {opacity: .5;}
-  100% {opacity: 1;}
+  0% {transform: scale(0);}
+  50% {transform: scale(1.5);}
+  100% {transform: scale(1);}
 }
 
 #heart-circle-unliked {
