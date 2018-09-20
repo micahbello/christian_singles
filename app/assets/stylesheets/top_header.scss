@@ -33,8 +33,9 @@
   border-radius: 50px;
   cursor: pointer;
   margin-right: 20px;
-  background-size: 100%;
   background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .dropdown-menu {
