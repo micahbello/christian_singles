@@ -32,7 +32,7 @@ class TopHeader extends React.Component {
       </nav>
 
       <figure>
-        <img className="user-icon" src={this.props.currentUser.image} />
+        <figure className="user-icon" style={{backgroundImage: `url(${this.props.currentUser.image})`}}></figure>
           <div className="dropdown-menu" id="dropdown-menu">
             <Link onClick={() => this.handleMyProfileClick()} className="th-dropdown-link" to={`/profile/${this.props.currentUser.id}`} >My Profile</Link>
             <Link className="th-dropdown-link" to='/discoverypreferences'>Discovery Preferences</Link>

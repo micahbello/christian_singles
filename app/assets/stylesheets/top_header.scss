@@ -32,6 +32,9 @@
   width: 55px;
   border-radius: 50px;
   cursor: pointer;
+  margin-right: 20px;
+  background-size: 100%;
+  background-position: center;
 }
 
 .dropdown-menu {
@@ -39,11 +42,11 @@
   border-radius: 2px;
   display: none;
   min-width: 200px;
-  margin-top: 68px;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  margin-top: 13px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
   position: absolute;
   z-index: 1;
-  margin-left: -53px
+  margin-left: -126px;
 }
 
 .th-dropdown-link {
@@ -64,12 +67,12 @@
 
 
 //this is in order to center the contentes of the TopHeader
-
-.top-header figure {
-  width: 150px;
-
-  img {
-    float: right;
-    margin-right: 20px;
-  }
-}
+//
+// .top-header figure {
+//   // width: 150px;
+//
+//   img {
+//     float: right;
+//     margin-right: 20px;
+//   }
+// }

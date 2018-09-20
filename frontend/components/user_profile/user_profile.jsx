@@ -12,6 +12,8 @@ class UserProfile extends React.Component {
   constructor(props) {
     super(props);
     this.state = null;
+    this.loading = false
+    this.likeIconCreateAnimation = this.likeIconCreateAnimation.bind(this);
   }
 
   componentDidMount() {
@@ -87,9 +89,13 @@ class UserProfile extends React.Component {
 
 
   likeIconCreateAnimation(e) {
-    $(e.target).attr("id", "heart-clicked-animation");
-    $("#description-ex-dim-icon").off('click');
-    this.props.createLike(this.props.currentUser.id, this.props.currentProfile.id);
+    // $(e.target).off('click');
+    if (!this.loading) {
+      this.props.createLike(this.props.currentUser.id, this.props.currentProfile.id);
+      this.loading = true
+      $(e.target).attr("id", "heart-clicked-animation");
+      setTimeout( this.loading = false, 2000)
+    }
   }
 
   createDescriptionSection() {
@@ -226,7 +232,7 @@ class UserProfile extends React.Component {
                       <span>
                         {this.props.currentProfile.city}
                         {this.props.currentProfile.state ? `, ${this.props.currentProfile.state}` : ""}
-                        {` (${Math.ceil(this.props.currentProfile.distance_from_user)} mi. from you)`}
+                        {this.props.currentUser.id != this.props.currentProfile.id ? ` (${Math.ceil(this.props.currentProfile.distance_from_user)} mi. from you)` : ""}
                       </span>
 
                       {this.createDescriptionSection()}
