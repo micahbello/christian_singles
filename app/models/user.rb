@@ -224,7 +224,8 @@ class User < ApplicationRecord
     match_summary += hobbies_results[1]
 
     percent_match = (100 * matching_points) / matching_points_total
-    match_summary = finalize_match_summary(match_summary, user_viewed.username, user_viewed.display_name, user_viewed.gender)
+    match_summary = finalize_match_summary(match_summary, user_viewed.username,
+                                          user_viewed.display_name, user_viewed.gender)
 
     return [percent_match, match_summary]
 

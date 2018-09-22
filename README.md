@@ -39,21 +39,87 @@ The meat of any dating site. Matches were made on the backend based on taking in
 Below is a very, very, small snippet of the code for the percentages method (with Ruby):
 
 ```ruby
-#matches ethnicity
-unless self.ethnicity_seek == "" || self.ethnicity_seek == nil
-  pref_count += 1
-  unless user_viewed.ethnicity == "" || user_viewed.ethnicity == nil
-    match_lang = user_viewed.ethnicity.split(",").any? { |ethnicity| self.ethnicity.include?(ethnicity)}
-    match_lang == true ? pref_match_count += 1 : nil
-  end
-end
+def match_percent_and_summary(user_viewed)
 
-unless user_viewed.ethnicity_seek == "" || user_viewed.ethnicity_seek == nil
-  pref_count += 1
-  unless self.ethnicity == "" || self.ethnicity == nil
-    match_lang = self.ethnicity.split(",").any? { |ethnicity| user_viewed.ethnicity.include?(ethnicity)}
-    match_lang == true ? pref_match_count += 1 : nil
+  matching_points_total = 65 ##total possible points available via comparisons
+  #(9 for gender, 9 for distance, 9 for age,
+  #18 for two sided attributes, 4 for multi_select_attributes,
+  #5 for relationship_seek, 1 for first date match, 6 for height, 4 for hobbies)
+
+  if !match_gender(self.sex_seek, self.gender, self.id).include?(user_viewed) || self.id == user_viewed.id
+    return ["no_percent_allowed", "This user is incompatible with you."]
   end
+  #^^will return if the gender preferences do not match.
+
+  matching_points = 9 #points earned for meeting gender preferences
+  match_summary = "User meets your gender preference. "
+
+  if within_distance?(user_viewed) == true
+    matching_points += 9 #points earned for being within distance
+    match_summary = match_summary.concat("user is within your desired distance. ")
+  else
+    match_summary = match_summary.concat("user is NOT within your desired distance. ")
+  end
+
+  if within_age?(user_viewed) == true
+    matching_points += 9 #points earned for being within age
+    match_summary = match_summary.concat("user is within your desired age range. ")
+  else
+    match_summary = match_summary.concat("user is NOT within your desired age range. ")
+  end
+
+  #call method to return points from height
+  height_results = return_match_height(user_viewed)
+  matching_points += height_results[0]
+  match_summary += height_results[1]
+
+  #arrays of "attributes" to compare through in order to make calculations
+  #two_sided_attributes allow user to only pick one for himself
+  two_sided_attributes = [["religion","religion_seek"], ["education", "education_seek"],
+                          ["attendance", "attendance_seek"], ["have_kids", "have_kids_seek"],
+                          ["want_kids", "want_kids_seek"], ["relocate", "relocate_seek"],
+                          ["marital_status", "marital_status_seek"], ["drink", "drink_seek"],
+                          ["smoke", "smoke_seek"]]
+
+  #multi_select_attributes allow user to pick multiple for himself
+  multi_select_attributes = [["language", "language_seek"], ["ethnicity", "ethnicity_seek"]]
+
+  #call methods that calculate the points from two above arrays
+  two_sided_attributes.each do |attribute_set|
+    results = return_match_number_two_sid_attr(user_viewed, attribute_set[0], attribute_set[1])
+    matching_points += results[0]
+    match_summary = match_summary.concat(results[1])
+  end
+
+  multi_select_attributes.each do |attribute_set|
+    results = return_match_number_multi_select(user_viewed, attribute_set[0], attribute_set[1])
+    matching_points += results[0]
+    match_summary = match_summary.concat(results[1])
+  end
+
+  #call method to return points from relationship_seek
+  results = return_relationship_seek_match(user_viewed)
+  matching_points += results[0]
+  match_summary = match_summary.concat(results[1])
+
+  #call method to return points from first_date
+  results = return_first_date_match(user_viewed)
+  matching_points += results[0]
+  match_summary = match_summary.concat(results[1])
+
+
+  #call method to return points from hobbies shared
+  hobbies_results = return_match_number_hobbies(user_viewed)
+  matching_points += hobbies_results[0]
+  match_summary += hobbies_results[1]
+
+  percent_match = (100 * matching_points) / matching_points_total
+  match_summary = finalize_match_summary(match_summary, user_viewed.username,
+                                        user_viewed.display_name, user_viewed.gender)
+
+  return [percent_match, match_summary]
+
+end
 ```
 
 ### Future Features
