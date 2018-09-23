@@ -22,52 +22,60 @@ class UserIndex extends React.Component {
     if (this.props.match.path === "/browse-new") {
       return Object.values(this.props.currentIndexProfiles).reverse();
     } else if (this.props.match.path === "/browse-distance") {
-      return this.bubbleSortDistanceOrder();
+      return this.quickSortDistanceOrder(this.props.currentIndexProfiles);
     } else if (this.props.match.path === "/browse-score") {
-      return this.bubbleSortPercentageOrder();
+      return this.quickSortPercentageOrder(this.props.currentIndexProfiles);
     } else if (this.props.match.path === "/browse-online") {
       return this.sortProfileByOnline()
     }
   }
 
-  bubbleSortDistanceOrder() {
-    let profilesToOrder = Object.values(this.props.currentIndexProfiles);
-    let isSorted = false;
+  quickSortDistanceOrder(profiles) {
+    let profilesToOrder = Object.values(profiles);
 
-    while (isSorted === false) {
-
-      isSorted = true;
-
-      for(let i = 0; i < (profilesToOrder.length - 1); i++) {
-        if (profilesToOrder[i].distance_from_user > profilesToOrder[i + 1].distance_from_user) {
-          [profilesToOrder[i], profilesToOrder[i + 1]] = [profilesToOrder[i + 1], profilesToOrder[i]];
-          isSorted = false;
-        }
-      }
+    if (profilesToOrder.length < 2) {
+      return profilesToOrder;
     }
 
-    return profilesToOrder;
+    let pivot = profilesToOrder[0];
+    let left = [];
+    let right = [];
+
+    profilesToOrder.slice(1).forEach((profile) => {
+      if (profile.distance_from_user <= pivot.distance_from_user) {
+        left.push(profile);
+      } else {
+        right.push(profile)
+      }
+    });
+
+    return (this.quickSortDistanceOrder(left).concat([pivot]).concat(this.quickSortDistanceOrder(right)));
+
   }
 
+  quickSortPercentageOrder(profiles) {
+    let profilesToOrder = Object.values(profiles);
 
-  bubbleSortPercentageOrder() {
-    let profilesToOrder = Object.values(this.props.currentIndexProfiles);
-    let isSorted = false;
-
-    while (isSorted === false) {
-
-      isSorted = true;
-
-      for(let i = 0; i < (profilesToOrder.length - 1); i++) {
-        if (profilesToOrder[i].percentage < profilesToOrder[i + 1].percentage) {
-          [profilesToOrder[i], profilesToOrder[i + 1]] = [profilesToOrder[i + 1], profilesToOrder[i]];
-          isSorted = false;
-        }
-      }
+    if (profilesToOrder.length < 2) {
+      return profilesToOrder;
     }
 
-    return profilesToOrder;
+    let pivot = profilesToOrder[0];
+    let left = [];
+    let right = [];
+
+    profilesToOrder.slice(1).forEach((profile) => {
+      if (profile.percentage >= pivot.percentage) {
+        left.push(profile);
+      } else {
+        right.push(profile)
+      }
+    });
+
+    return (this.quickSortPercentageOrder(left).concat([pivot]).concat(this.quickSortPercentageOrder(right)));
+
   }
+
 
   sortProfileByOnline() {
     let profilesToOrder = Object.values(this.props.currentIndexProfiles).reverse();
