@@ -6,7 +6,7 @@ import TopHeaderContainer from '../top_header/top_header_container';
 class LikesViewsIndex extends React.Component {
   constructor(props) {
     super(props);
-
+    this.loading = false;
     this.returnMutualLikesProfiles = this.returnMutualLikesProfiles.bind(this);
 
   }
@@ -39,8 +39,12 @@ class LikesViewsIndex extends React.Component {
 
 
   likeIconCreateAnimation(e, liked_id) {
-    $(e.target).attr("id", "heart-clicked-animation");
-    this.props.createLike(this.props.currentUser.id, liked_id);
+    if (!this.loading) {
+      this.props.createLike(this.props.currentUser.id, liked_id);
+      this.loading = true
+      $(e.target).attr("id", "heart-clicked-animation");
+      setTimeout(() => {this.loading = false}, 2000);
+    }
   }
 
   createHeaderText() {

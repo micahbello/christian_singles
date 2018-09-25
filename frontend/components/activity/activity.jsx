@@ -8,6 +8,8 @@ import Loading from '../loading_page/loading_page';
 class Activity  extends React.Component {
   constructor(props) {
     super(props);
+    this.loading = false;
+    this.likeIconCreateAnimation = this.likeIconCreateAnimation.bind(this);
   }
 
   componentDidMount() {
@@ -107,8 +109,12 @@ class Activity  extends React.Component {
 
 
   likeIconCreateAnimation(e, liked_id) {
-    $(e.target).attr("id", "heart-clicked-animation");
-    this.props.createLike(this.props.currentUser.id, liked_id);
+    if (this.loading === false) {
+      this.loading = true
+      this.props.createLike(this.props.currentUser.id, liked_id);
+      $(e.target).attr("id", "heart-clicked-animation");
+      setTimeout(() => {this.loading = false}, 2000);
+    }
   }
 
   measureElapsedTime(timeStamp) {

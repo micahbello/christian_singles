@@ -12,7 +12,7 @@ class UserProfile extends React.Component {
   constructor(props) {
     super(props);
     this.state = null;
-    this.loading = false
+    this.loading = false;
     this.likeIconCreateAnimation = this.likeIconCreateAnimation.bind(this);
   }
 
@@ -89,12 +89,11 @@ class UserProfile extends React.Component {
 
 
   likeIconCreateAnimation(e) {
-    // $(e.target).off('click');
     if (!this.loading) {
       this.props.createLike(this.props.currentUser.id, this.props.currentProfile.id);
       this.loading = true
       $(e.target).attr("id", "heart-clicked-animation");
-      setTimeout( this.loading = false, 2000)
+      setTimeout(() => {this.loading = false}, 2000);
     }
   }
 

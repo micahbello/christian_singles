@@ -111,8 +111,12 @@ class UserIndex extends React.Component {
 
 
  likeIconCreateAnimation(e, profileId) {
-   $(e.target).attr("id", "heart-clicked-animation");
-   this.props.createLike(this.props.currentUser.id, profileId);
+   if (!this.loading) {
+     this.props.createLike(this.props.currentUser.id, profileId);
+     this.loading = true
+     $(e.target).attr("id", "heart-clicked-animation");
+     setTimeout(() => {this.loading = false}, 2000);
+   }
  }
 
 
