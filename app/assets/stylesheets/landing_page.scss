@@ -1,14 +1,61 @@
 $link-hover: #DCDCDC;
 
-.landing-page {
-  background-image: url("http://s3.us-east-2.amazonaws.com/christian-singles-dev/users/images/000/000/052/original/heart_in_book.jpg?1521169764");
-  // background-image: url("heart_in_book");
-  background-size: cover;
-  width: 100vw;
+// .landing-page {
+//   background-image: url("http://s3.us-east-2.amazonaws.com/christian-singles-dev/users/images/000/000/052/original/heart_in_book.jpg?1521169764");
+//   // background-image: url("heart_in_book");
+//   background-size: cover;
+//   width: 100vw;
+//   height: 100vh;
+//   display: inline-grid;
+//   align-items: flex-start;
+// }
+
+.landing-header {
   height: 100vh;
-  display: inline-grid;
-  align-items: flex-start;
+  display: flex;
+  align-items:  center;
 }
+
+.container {
+  max-width: 960px;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  margin: auto;
+  text-align: center;
+  justify-content: center;
+}
+
+.video-wrap {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.video-wrap video {
+  min-width: 100%;
+  min-height: 100%;
+}
+
+.landing-header-content {
+  z-index: 1
+}
+
+
+
+// #background-video{
+//
+// height: 100%;
+// width: 100%;
+// float: left;
+// top: 0;
+// padding: none;
+// // position: fixed; /* optional depending on what you want to do in your app */
+//
+//
+// }
 
 .text-box {
   text-align: center;
@@ -69,6 +116,7 @@ $link-hover: #DCDCDC;
   border-radius: 4px;
   text-decoration: none;
   padding: 0px 10px 1px 10px;
+  background-color: rgba(255, 255, 255, 0.1);
 }
 
 .link-to-sign-up:hover, .guest-login:hover {
@@ -92,4 +140,5 @@ $link-hover: #DCDCDC;
   border-radius: 4px;
   background: transparent;
   cursor: pointer;
+  background-color: rgba(255, 255, 255, 0.1);
 }
