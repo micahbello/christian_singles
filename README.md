@@ -34,7 +34,7 @@ Users are able to browse the profiles of others. When browsing, users are able t
 
 <!-- <img width= "50%" src="./app/assets/images/browse_demo.gif" /> -->
 
-### Activity Page
+#### Activity Page
 
 Users are able to view who they have liked, mutual likes, profile views, and users that have viewed them. Only the latest four profiles per each section are displayed but users are able to click on each section to view all profiles in that section.
 
@@ -45,7 +45,7 @@ Users are able to view who they have liked, mutual likes, profile views, and use
 
 
 
-### Match Percentages and Match Summaries
+#### Match Percentages and Match Summaries
 
 The meat of any dating site. Matches were made on the backend based on taking into account the number of stats/preferences being compared to the number that matched between users. A percentage was then derived from this ratio.
 
