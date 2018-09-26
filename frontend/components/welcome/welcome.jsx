@@ -31,6 +31,8 @@ class Welcome extends React.Component {
             </video>
           </div>
 
+          <div className="landing-header-overlay"></div>
+
           <section className="landing-header-content">
             <section className="member-login-link-section">
               <span>Already a Member?</span>

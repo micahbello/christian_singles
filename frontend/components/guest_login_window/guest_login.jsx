@@ -35,14 +35,10 @@ class GuestLoginWindow extends React.Component {
       <div className="hobbies-component-modal">
         <section className="guest-login-window" id="guest-login-window">
 
-          <div className="guest-login-title-box">
-            <h3>Choose Element</h3>
-          </div>
-
 
           <div className="guest-login-buttons">
             <button className= "guest-login" onClick={() => this.handleSubmit("demoaccount")}>
-            Air
+            male
             {/*
                 onMouseOver={() => this.changeBackGroundImage("air")}
                 onMouseOut={() => this.changeBackGroundImage("aangkatara")} */}
@@ -50,11 +46,11 @@ class GuestLoginWindow extends React.Component {
             </button>
 
             <button className= "guest-login" onClick={() => this.handleSubmit("katara")}>
-            {/* 
+            {/*
                 onMouseOver={() => this.changeBackGroundImage("water")}
                 onMouseOut={() => this.changeBackGroundImage("aangkatara")} */}
 
-                Water
+              female
             </button>
 
           </div>

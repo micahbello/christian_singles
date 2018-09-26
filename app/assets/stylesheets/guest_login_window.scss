@@ -2,7 +2,7 @@
 
 .guest-login-window {
   margin: 18% auto;
-  height: 250px;
+  height: 200px;
   width: 335px;
   background: white;
   border-radius: 4px;
@@ -19,14 +19,11 @@
 
 .guest-login-title-box {
   height: 30px;
-  background: wheat;
   width: 200px;
   border-radius: 4px;
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-bottom: 127px;
-  border: 1px solid;
 }
 
 .guest-login-buttons {
@@ -36,12 +33,12 @@
 
 .guest-login-buttons button {
   border-color: black;
-  background: white;
+  background: rgba(255, 255, 255, 0.5);
   color: black;
   height: 40px;
   width: 145px;
   font-family: sans-serif;
-  font-size: 15px;
+  font-size: 20px;
   border-radius: 4px;
   cursor: pointer;
   margin-left: 0px;
@@ -51,5 +48,5 @@
 #guest-login-window {
   background-size: cover;
   background-position: center;
-  background-image: url("https://s3.us-east-2.amazonaws.com/christian-singles-pro/aang-katara.png");
+  background-image: url("https://s3.us-east-2.amazonaws.com/christian-singles-pro/holding+hand+near+one++(14).jpg");
 }

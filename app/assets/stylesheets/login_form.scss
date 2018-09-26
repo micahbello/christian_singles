@@ -1,11 +1,9 @@
 $link-hover: #DCDCDC;
 $button-hover: #000080;
 
-.login-welcome-page {
-  background-image: url("http://s3.us-east-2.amazonaws.com/christian-singles-dev/users/images/000/000/052/original/heart_in_book.jpg?1521169764");
-  background-size: cover;
-  height: 100vh;
-  width: 100vw;
+.login-header-content {
+  z-index: 1;
+  width: 100%;
 }
 
 .login-top {
@@ -21,7 +19,7 @@ $button-hover: #000080;
   color: white;
   text-decoration: none;
   font-size: 18px;
-  font-family: sans-serif;
+  // font-family: sans-serif;
 }
 
 .form-link-to-sign-up:hover {
@@ -37,8 +35,9 @@ $button-hover: #000080;
 .login-form-section section {
   display: flex;
   flex-direction: column;
+  background: rgba(255,255,255, 0);
   // text-align: center;
-  background-color: white;
+  // background-color: white;
   border-radius: 2px;
   padding: 30px;
   align-items: center;
@@ -47,25 +46,33 @@ $button-hover: #000080;
 };
 
 .login-form-error {
-  color: red;
+  color: #ff3838;
   text-align: center;
   font-size: 18px;
-  font-family: serif;
+  // font-family: serif;
 }
 
 .login-form-section label {
   color: rgba(0, 0, 0, 0.5);
-  font-family: sans-serif;
+  // font-family: sans-serif;
   display: flex;
   flex-direction: column;
   align-self: normal;
   min-height: 16px;
   padding-top: 20px;
+  color: white;
+  font-size: 16px;
 };
 
+.login-form-section section input::placeholder {
+  color: rgba(255, 255, 255, .7);
+  font-style: italic;
+}
+
 .login-form-section button {
-  background-color: #0098dc;
-  font-family: sans-serif;
+  // background-color: #0098dc;
+  background: rgba(255,255,255, .4);
+  // font-family: sans-serif;
   color: white;
   height: 40px;
   width: 120px;
@@ -76,7 +83,8 @@ $button-hover: #000080;
 }
 
 .login-form-section button:hover {
-  background-color: gray;
+  color: #DCDCDC;
+  border-color: #DCDCDC;
 }
 
 .login-button:hover {
@@ -86,6 +94,9 @@ $button-hover: #000080;
 .login-form-section input {
   font-size: 20px;
   width: 100%;
+  background: rgba(255, 255, 255, 0);
+  color: white;
+  border: 1px solid white;
 }
 
 .login-form-section input::placeholder {
