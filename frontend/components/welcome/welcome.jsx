@@ -25,7 +25,7 @@ class Welcome extends React.Component {
         <section className="landing-header  container">
 
           <div className="video-wrap">
-            <video id="background-video" loop autoPlay>
+            <video id="background-video" loop autoPlay muted>
               <source src="https://s3.us-east-2.amazonaws.com/christian-singles-pro/Aerial+Video+Of+Married+Couple.mp4" />
               Your browser does not support the video tag.
             </video>
